@@ -8,6 +8,9 @@ namespace Chroma
 {
     class Scene
     {
+        public Scene(int width, int height)
+        {
 
+        }
     }
 }
