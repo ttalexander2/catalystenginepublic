@@ -12,7 +12,6 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\Catalyst\Catalyst.csproj" />
     <ProjectReference Include="..\..\Chroma\Chroma.csproj" />
   </ItemGroup>
 </Project>
