@@ -3,8 +3,12 @@ namespace Chroma
 {
     public class SceneLayer
     {
-        public SceneLayer()
+        public Boolean visible = true;
+        public String layerName;
+
+        public SceneLayer(String name)
         {
+            layerName = name;
         }
     }
 }

@@ -8,25 +8,51 @@ namespace Catalyst
     public partial class MainForm : Form
     {
 
+
+        private Chroma.Scene scene;
+
         private Color backgroundColor = Color.FromRgb(2238254);
+        private Color listColor = Color.FromRgb(5857646);
+        private Color primaryColor = Colors.Aquamarine;
         private Color fontPrimaryColor = Color.FromRgb(14146011);
+        private ListBox layerList = new ListBox();
+        private StackLayout layerButtons = new StackLayout();
+        private Button addLayerButton = new Button();
 
         public MainForm()
         {
             Title = "Catalyst Editor 0.1";
             ClientSize = new Size(1270, 640);
 
-            Content = new StackLayout
+            layerList.BackgroundColor = listColor;
+
+            addLayerButton.Text = "Add Layer";
+            layerButtons.Items.Add(addLayerButton);
+
+            addLayerButton.Click += (o, i)=>
             {
-                Padding = 10,
-                Items =
-                {
-                    new Label(){Text="Hello World", TextColor=fontPrimaryColor},
-					// add more controls here
-				}
+                AddLayer();
             };
 
-            this.BackgroundColor = backgroundColor;
+            var layout = new TableLayout
+            {
+                Rows =
+                {
+                    new TableRow(layerList),
+                    new TableRow(layerButtons)
+                },
+            };
+
+
+            Content = new StackLayout
+            {
+                Items =
+                {
+                    layout
+                }
+            };
+
+            BackgroundColor = backgroundColor;
 
             // create a few commands that can be used for the menu and toolbar
             var runGame = new Command { MenuText = "Run Game", ToolBarText = "Run Game" };
@@ -59,15 +85,38 @@ namespace Catalyst
                 QuitItem = quitCommand,
                 AboutItem = aboutCommand
 
-                
+
             };
 
-
-
-
-
-
-            
         }
+
+
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            layerList.Width = (int)(ClientSize.Width * 0.2);
+            layerList.Height = (int)(ClientSize.Height * 0.95);
+            addLayerButton.Width = (int)(ClientSize.Width * 0.2);
+            addLayerButton.Height = (int)(ClientSize.Height * 0.05);
+
+        }
+
+
+        private void AddLayer()
+        {
+            scene.CreateLayer();
+        }
+
+        private void RefreshLayer()
+        {
+            layerList.Items.Clear();
+            foreach (SceneLayer layer in scene.GetLayerList())
+            {
+                //layerList.Items.Add();
+            }
+        }
+
+
     }
 }
