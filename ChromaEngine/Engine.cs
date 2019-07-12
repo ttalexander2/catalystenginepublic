@@ -128,7 +128,7 @@ namespace Chroma
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            scene = new Scene(2,2);
             // TODO: use this.Content to load your game content here
         }
 
@@ -152,7 +152,7 @@ namespace Chroma
                 Exit();
 
             // TODO: Add your update logic here
-
+            scene.Update(gameTime);
             base.Update(gameTime);
         }
 

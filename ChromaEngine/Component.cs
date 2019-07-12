@@ -3,9 +3,11 @@ namespace Chroma
 {
     public class Component
     {
+        
+
         public Component()
         {
-
+            
         }
     }
 }

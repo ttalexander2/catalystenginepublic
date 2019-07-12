@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 namespace Chroma
 {
     public class SceneLayer
@@ -9,6 +10,16 @@ namespace Chroma
         public SceneLayer(String name)
         {
             layerName = name;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            //TODO: Update Logic
+        }
+
+        public void Draw(GameTime gameTime)
+        {
+            //TODO: Render Logic
         }
     }
 }
