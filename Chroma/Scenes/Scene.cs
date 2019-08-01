@@ -11,10 +11,13 @@ namespace Chroma
     public class Scene
     {
         private List<SceneLayer> layers = new List<SceneLayer>();
+        public int Width { get; private set; }
+        public int Height { get; private set; }
 
         public Scene(int width, int height)
         {
-
+            Width = width;
+            Height = height;
         }
 
 
@@ -38,11 +41,11 @@ namespace Chroma
             }
         }
 
-        public void Draw(GameTime gameTime)
+        public void Render(GameTime gameTime)
         {
             foreach (SceneLayer layer in layers)
             {
-                layer.Draw(gameTime);
+                layer.Render(gameTime);
             }
         }
     }

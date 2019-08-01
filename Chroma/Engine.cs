@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
 using System.Reflection;
+using System;
 
 namespace Chroma
 {
@@ -13,15 +14,13 @@ namespace Chroma
     {
         // Instances
         public static Engine instance { get; private set;  }
-        GraphicsDeviceManager graphics { get; set; }
-        RenderTarget2D renderTarget { get; set; }
-        SpriteBatch spriteBatch;
+
 
         // Screen
         public static int width { get; private set; }
         public static int height { get; private set; }
-        public static int viewWidth { get; private set; }
-        public static int viewHeight { get; private set; }
+        public static int pixelWidth { get; private set; }
+        public static int pixelHeight { get; private set; }
         public static bool fullscreen { get; private set; }
         public static string title { get; private set; }
 
@@ -57,54 +56,54 @@ namespace Chroma
         #endif
         }
 
-        public Engine(int width, int height, int viewWidth, int viewHeight, string windowTitle, bool fullscreen)
+        public Engine(int width, int height, int pixelWidth, int pixelHeight, string windowTitle, bool fullscreen)
         {
             Engine.instance = this;
 
             Engine.title = windowTitle;
             Engine.width = width;
             Engine.height = height;
-            Engine.viewWidth = viewWidth;
-            Engine.viewHeight = viewHeight;
+            Engine.pixelWidth = pixelWidth;
+            Engine.pixelHeight = pixelHeight;
             Engine.fullscreen = fullscreen;
 
-            graphics = new GraphicsDeviceManager(this);
-            graphics.SynchronizeWithVerticalRetrace = true;
-            graphics.PreferMultiSampling = false;
-            graphics.GraphicsProfile = GraphicsProfile.HiDef;
-            graphics.PreferredBackBufferFormat = SurfaceFormat.Color;
-            graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
-            graphics.ApplyChanges();
+            Global.Graphics = new GraphicsDeviceManager(this);
+            Global.Graphics.SynchronizeWithVerticalRetrace = true;
+            Global.Graphics.PreferMultiSampling = false;
+            Global.Graphics.GraphicsProfile = GraphicsProfile.HiDef;
+            Global.Graphics.PreferredBackBufferFormat = SurfaceFormat.Color;
+            Global.Graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
+            Global.Graphics.ApplyChanges();
 
         #if PS4 || XBOXONE
-            Graphics.PreferredBackBufferWidth = 1920;
-            Graphics.PreferredBackBufferHeight = 1080;
+            Global.Graphics.PreferredBackBufferWidth = 1920;
+            Global.Graphics.PreferredBackBufferHeight = 1080;
         #elif NSWITCH
-            Graphics.PreferredBackBufferWidth = 1280;
-            Graphics.PreferredBackBufferHeight = 720;
+            Global.Graphics.PreferredBackBufferWidth = 1280;
+            Global.Graphics.PreferredBackBufferHeight = 720;
         #else
-            Window.AllowUserResizing = true;
+            Window.AllowUserResizing = false;
 
             if (fullscreen)
             {
-                graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-                graphics.IsFullScreen = true;
+                Global.Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                Global.Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                Global.Graphics.IsFullScreen = true;
             }
             else
             {
-                graphics.PreferredBackBufferWidth = Engine.viewWidth;
-                graphics.PreferredBackBufferHeight = Engine.viewHeight;
-                graphics.IsFullScreen = false;
+                Global.Graphics.PreferredBackBufferWidth = Engine.width;
+                Global.Graphics.PreferredBackBufferHeight = Engine.height;
+                Global.Graphics.IsFullScreen = false;
             }
         #endif
 
             Content.RootDirectory = @"Content";
-            renderTarget = new RenderTarget2D(graphics.GraphicsDevice, width, height);
-            graphics.GraphicsDevice.SetRenderTarget(renderTarget);
+            //renderTarget = new RenderTarget2D(Global.Graphics.GraphicsDevice, width, height);
+            //Global.Graphics.GraphicsDevice.SetRenderTarget(renderTarget);
+            Global.Graphics.ApplyChanges();
 
-            
-            
+
         }
 
         /// <summary>
@@ -127,11 +126,16 @@ namespace Chroma
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            scene = new Scene(2,2);
+            Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
+            scene = new Scene(500,500);
+            scene.GetLayerList().Add(new BackgroundLayer("Background"));
+            Texture2D test = Content.Load<Texture2D>(contentDirectory + "/test");
+            Entity testEntity = new Entity();
+            testEntity.components.Add(new Sprite("test", 0, 0, test, Sprite.Origin.TopLeft));
+            
+            scene.GetLayerList()[0].AddEntity(testEntity);
             // TODO: use this.Content to load your game content here
         }
-
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// game-specific content.
@@ -162,19 +166,18 @@ namespace Chroma
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.SetRenderTarget(renderTarget);
-            GraphicsDevice.Clear(Color.Black);
+            Global.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
-            base.Draw(gameTime);
+            Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            //Global.spriteBatch.Draw(Content.Load<Texture2D>(contentDirectory + "/test"), new Vector2(0, 0), Color.White);
+            scene.Render(gameTime);
+            
 
             // End
-            GraphicsDevice.SetRenderTarget(null);
+            Global.SpriteBatch.End();
+            base.Draw(gameTime);
 
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            //spriteBatch.Draw(renderTarget);
-            spriteBatch.End();
         }
     }
 }

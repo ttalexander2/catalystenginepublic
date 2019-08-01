@@ -13,7 +13,7 @@ namespace Chroma
         [STAThread]
         public static void Main()
         {
-            using (var game = new Engine(640,360,640*3,360*3, "Chroma", false))
+            using (var game = new Engine(640*(int)(Global.WindowScale), 360*(int)(Global.WindowScale), 640, 360, "Chroma", false))
                 game.Run();
         }
     }
