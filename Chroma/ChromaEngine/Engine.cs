@@ -129,11 +129,16 @@ namespace Chroma
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
             scene = new Scene(500,500);
             scene.GetLayerList().Add(new BackgroundLayer("Background"));
+            TextureAtlas atlas = new TextureAtlas();
             Texture2D test = Content.Load<Texture2D>(contentDirectory + "/test");
+            atlas.Textures.Add(test);
             Entity testEntity = new Entity();
-            testEntity.components.Add(new Sprite("test", 0, 0, test, Sprite.Origin.TopLeft));
+            Sprite sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft);
+            scene.GetLayerList()[0].AddSpriteComponent(testEntity.UID, sprite);
             
             scene.GetLayerList()[0].AddEntity(testEntity);
+            World.Scenes.Add(scene);
+            World.currentScene = World.Scenes[0];
             // TODO: use this.Content to load your game content here
         }
         /// <summary>
@@ -156,7 +161,28 @@ namespace Chroma
                 Exit();
 
             // TODO: Add your update logic here
-            scene.Update(gameTime);
+
+            if (Keyboard.GetState().IsKeyDown(Keys.W))
+            {
+                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y-5);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.A))
+            {
+                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X - 5, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.S))
+            {
+                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y + 5);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            {
+                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X + 5, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
+            }
+
+
+            World.BeforeUpdate(gameTime);
+            World.Update(gameTime);
+            World.AfterUpdate(gameTime);
             base.Update(gameTime);
         }
 
@@ -171,7 +197,9 @@ namespace Chroma
             // TODO: Add your drawing code here
             Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             //Global.spriteBatch.Draw(Content.Load<Texture2D>(contentDirectory + "/test"), new Vector2(0, 0), Color.White);
-            scene.Render(gameTime);
+            World.BeforeRender(gameTime);
+            World.Render(gameTime);
+            World.AfterRender(gameTime);
             
 
             // End

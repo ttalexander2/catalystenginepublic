@@ -20,8 +20,6 @@ namespace Chroma
             Height = height;
         }
 
-
-
         public SceneLayer CreateLayer()
         {
             layers.Add(new SceneLayer("untitled" + layers.Count));
@@ -33,6 +31,14 @@ namespace Chroma
             return layers;
         }
 
+        public void BeforeUpdate(GameTime gameTime)
+        {
+            foreach (SceneLayer layer in layers)
+            {
+                layer.BeforeUpdate(gameTime);
+            }
+        }
+
         public void Update(GameTime gameTime)
         {
             foreach (SceneLayer layer in layers)
@@ -41,11 +47,35 @@ namespace Chroma
             }
         }
 
+        public void AfterUpdate(GameTime gameTime)
+        {
+            foreach (SceneLayer layer in layers)
+            {
+                layer.AfterUpdate(gameTime);
+            }
+        }
+
+        public void BeforeRender(GameTime gameTime)
+        {
+            foreach (SceneLayer layer in layers)
+            {
+                layer.Render(gameTime);
+            }
+        }
+
         public void Render(GameTime gameTime)
         {
             foreach (SceneLayer layer in layers)
             {
                 layer.Render(gameTime);
+            }
+        }
+
+        public void AfterRender(GameTime gameTime)
+        {
+            foreach (SceneLayer layer in layers)
+            {
+                layer.AfterRender(gameTime);
             }
         }
     }

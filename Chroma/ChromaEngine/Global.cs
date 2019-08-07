@@ -11,11 +11,17 @@ namespace Chroma
 {
     public static class Global
     {
+
         public static ContentManager Content;
         public static SpriteBatch SpriteBatch;
         public static GraphicsDeviceManager Graphics;
-        public static float Scale = 1;
-        public static int WindowScale = 2;
-        public static float UIScale = 1;
+
+        public static float Scale = 3;
+
+        public static KeyboardInput keyboard;
+
+        
+
+        
     }
 }
