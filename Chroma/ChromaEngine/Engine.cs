@@ -130,10 +130,16 @@ namespace Chroma
             scene = new Scene(500,500);
             scene.GetLayerList().Add(new BackgroundLayer("Background"));
             TextureAtlas atlas = new TextureAtlas();
-            Texture2D test = Content.Load<Texture2D>(contentDirectory + "/test");
-            atlas.Textures.Add(test);
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"));
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"));
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"));
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"));
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"));
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"));
+            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7"));
             Entity testEntity = new Entity();
             Sprite sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft);
+            sprite.animationSpeed = 6.0f;
             scene.GetLayerList()[0].AddSpriteComponent(testEntity.UID, sprite);
             
             scene.GetLayerList()[0].AddEntity(testEntity);

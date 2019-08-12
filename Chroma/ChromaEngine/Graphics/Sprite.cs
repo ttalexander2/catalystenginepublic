@@ -25,7 +25,7 @@ namespace Chroma
         public Vector2 pos;
         public Vector2 origin, dims;
         public SpriteEffects spriteEffects = new SpriteEffects();
-        public Color debugColor = Color.Red;
+        public Color debugColor = Color.Red * 0.4f; //Float = transparency
 
         private TimeSpan timeChanged = new TimeSpan();
 
@@ -35,7 +35,6 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            this.textures.AutoTrim();
             dims = this.textures.getDims();
             this.origin = CalculateOffset(origin);
             animating = textures.Textures.Count > 1;
@@ -47,7 +46,6 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            this.textures.AutoTrim();
             dims = this.textures.getDims();
             this.origin = CalculateOffset(origin);
             this.scale = scale;
@@ -61,7 +59,6 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            this.textures.AutoTrim();
             dims = this.textures.getDims();
             this.origin = new Vector2(xOrigin, yOrigin);
             animating = textures.Textures.Count > 1;
@@ -73,7 +70,6 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            this.textures.AutoTrim();
             dims = this.textures.getDims();
             this.origin = new Vector2(xOrigin, yOrigin);
             this.scale = scale;
@@ -100,20 +96,20 @@ namespace Chroma
             if (textures != null && currentTexture != null)
             {
                 Global.SpriteBatch.Draw(currentTexture, pos, null, Color.White, rotation, origin, scale*(Global.Scale), spriteEffects, 0);
-                #if Debug
+#if DEBUG
                 var t = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
                 t.SetData(new[] { Color.White });
 
 
                 int bw = 1; // Border width
 
-                Rectangle r = texture.Bounds;
+                Rectangle r = new Rectangle((int)pos.X, (int)pos.Y, (int)textures.getDims().X, (int)textures.getDims().Y);
 
-                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, bw, r.Height), debugColor, rotation, origin, scale, spriteEffects, 0); // Left
-                Global.SpriteBatch.Draw(t, new Vector2(pos.X+r.Width*scale, pos.Y), new Rectangle(r.Right, r.Top, bw, r.Height+1), debugColor, rotation, origin, scale, spriteEffects, 0); // Right
-                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, r.Width, bw), debugColor, rotation, origin, scale, spriteEffects, 0); // Top
-                Global.SpriteBatch.Draw(t, new Vector2(pos.X, pos.Y + r.Height*scale), new Rectangle(r.Left, r.Bottom, r.Width, bw), debugColor, rotation, origin, scale, spriteEffects, 0); // Bottom
-                #endif
+                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, bw, r.Height), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Left
+                Global.SpriteBatch.Draw(t, new Vector2(pos.X+r.Width* scale * (Global.Scale), pos.Y), new Rectangle(r.Right, r.Top, bw, r.Height+1), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Right
+                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, r.Width, bw), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Top
+                Global.SpriteBatch.Draw(t, new Vector2(pos.X, pos.Y + r.Height* scale * (Global.Scale)), new Rectangle(r.Left, r.Bottom, r.Width, bw), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Bottom
+#endif
             }
         }
 
