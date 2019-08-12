@@ -142,7 +142,7 @@ namespace Chroma
             
             scene.GetLayerList()[0].AddEntity(testEntity);
             World.Scenes.Add(scene);
-            //World.currentScene = World.Scenes[0];
+            World.currentScene = World.Scenes[0];
             // TODO: use this.Content to load your game content here
         }
         /// <summary>
