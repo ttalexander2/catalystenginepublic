@@ -12,7 +12,7 @@ namespace Chroma
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class ChromaGame : Game
+    public class ChromaGame : Microsoft.Xna.Framework.Game
     {
         // Instances
         public static ChromaGame Instance { get; private set;  }
