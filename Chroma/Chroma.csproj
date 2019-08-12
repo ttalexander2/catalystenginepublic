@@ -36,10 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ChromaEngine\Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Engine\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>ChromaEngine\app.manifest</ApplicationManifest>
+    <ApplicationManifest>Engine\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -51,20 +51,22 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ChromaEngine\Script.cs" />
-    <Compile Include="ChromaEngine\World.cs" />
-    <Compile Include="ChromaEngine\Graphics\TextureAtlas.cs" />
-    <Compile Include="ChromaEngine\Global.cs" />
-    <Compile Include="ChromaEngine\Input\KeyboardInput.cs" />
-    <Compile Include="ChromaEngine\Program.cs" />
-    <Compile Include="ChromaEngine\Scenes\BackgroundLayer.cs" />
-    <Compile Include="ChromaEngine\Graphics\Sprite.cs" />
-    <Compile Include="ChromaEngine\Scenes\Scene.cs" />
-    <Compile Include="ChromaEngine\Entity.cs" />
-    <Compile Include="ChromaEngine\Engine.cs" />
+    <Compile Include="Engine\IState.cs" />
+    <Compile Include="Engine\StateMachine.cs" />
+    <Compile Include="Engine\Script.cs" />
+    <Compile Include="Engine\World.cs" />
+    <Compile Include="Engine\Graphics\TextureAtlas.cs" />
+    <Compile Include="Engine\Global.cs" />
+    <Compile Include="Engine\Input\KeyboardInput.cs" />
+    <Compile Include="Engine\Program.cs" />
+    <Compile Include="Engine\Scenes\BackgroundLayer.cs" />
+    <Compile Include="Engine\Graphics\Sprite.cs" />
+    <Compile Include="Engine\Scenes\Scene.cs" />
+    <Compile Include="Engine\Entity.cs" />
+    <Compile Include="Engine\Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ChromaEngine\Component.cs" />
-    <Compile Include="ChromaEngine\Scenes\SceneLayer.cs" />
+    <Compile Include="Engine\Component.cs" />
+    <Compile Include="Engine\Scenes\SceneLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -74,8 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ChromaEngine\Icon.ico" />
-    <EmbeddedResource Include="ChromaEngine\Icon.bmp" />
+    <EmbeddedResource Include="Engine\Icon.ico" />
+    <EmbeddedResource Include="Engine\Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -123,7 +125,7 @@
       <Link>MonoGame.Framework.dll.config</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="ChromaEngine\app.manifest" />
+    <None Include="Engine\app.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Sprites\Player\s_player_running_1\" />

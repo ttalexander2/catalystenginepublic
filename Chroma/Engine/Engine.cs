@@ -3,47 +3,45 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
 using System.Reflection;
-using System;
+using Chroma.Engine.Scenes;
+using Chroma.Engine;
+using Chroma.Engine.Graphics;
 
 namespace Chroma
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Engine : Microsoft.Xna.Framework.Game
+    public class ChromaGame : Game
     {
         // Instances
-        public static Engine instance { get; private set;  }
+        public static ChromaGame Instance { get; private set;  }
 
 
         // Screen
-        public static int width { get; private set; }
-        public static int height { get; private set; }
-        public static int pixelWidth { get; private set; }
-        public static int pixelHeight { get; private set; }
-        public static bool fullscreen { get; private set; }
-        public static string title { get; private set; }
+        public static int Width { get; private set; }
+        public static int Height { get; private set; }
+        public static int PixelWidth { get; private set; }
+        public static int PixelHeight { get; private set; }
+        public static bool Fullscreen { get; private set; }
+        public static string Title { get; private set; }
 
         // View
-        public Viewport viewport { get; private set; }
+        public Viewport Viewport { get; private set; }
 
         // Time
-        public static float deltaTime { get; private set; }
-        public static float rawDeltaTime { get; private set; }
+        public static float DeltaTime { get; private set; }
+        public static float RawDeltaTime { get; private set; }
         public static float TimeRate = 1f;
-        public static int FPS;
+        public static int Fps;
 
-        // Scene
-        private Scene scene;
-        private Scene nextScene;
-        
         // Directories
 
         #if !CONSOLE
-        private static string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        private static string _assemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         #endif
 
-        public static string contentDirectory
+        public static string ContentDirectory
         {
         #if PS4
             get { return Path.Combine("/app0/", Instance.Content.RootDirectory); }
@@ -52,20 +50,20 @@ namespace Chroma
         #elif XBOXONE
             get { return Instance.Content.RootDirectory; }
         #else
-            get { return Path.Combine(AssemblyDirectory, instance.Content.RootDirectory); }
+            get { return Path.Combine(_assemblyDirectory, Instance.Content.RootDirectory); }
         #endif
         }
 
-        public Engine(int width, int height, int pixelWidth, int pixelHeight, string windowTitle, bool fullscreen)
+        public ChromaGame(int width, int height, int pixelWidth, int pixelHeight, string windowTitle, bool fullscreen)
         {
-            Engine.instance = this;
+            ChromaGame.Instance = this;
 
-            Engine.title = windowTitle;
-            Engine.width = width;
-            Engine.height = height;
-            Engine.pixelWidth = pixelWidth;
-            Engine.pixelHeight = pixelHeight;
-            Engine.fullscreen = fullscreen;
+            ChromaGame.Title = windowTitle;
+            ChromaGame.Width = width;
+            ChromaGame.Height = height;
+            ChromaGame.PixelWidth = pixelWidth;
+            ChromaGame.PixelHeight = pixelHeight;
+            ChromaGame.Fullscreen = fullscreen;
 
             Global.Graphics = new GraphicsDeviceManager(this);
             Global.Graphics.SynchronizeWithVerticalRetrace = true;
@@ -92,8 +90,8 @@ namespace Chroma
             }
             else
             {
-                Global.Graphics.PreferredBackBufferWidth = Engine.width;
-                Global.Graphics.PreferredBackBufferHeight = Engine.height;
+                Global.Graphics.PreferredBackBufferWidth = ChromaGame.Width;
+                Global.Graphics.PreferredBackBufferHeight = ChromaGame.Height;
                 Global.Graphics.IsFullScreen = false;
             }
         #endif
@@ -127,24 +125,24 @@ namespace Chroma
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
-            scene = new Scene(500,500);
+            Scene scene = new Scene(500,500);
             scene.GetLayerList().Add(new BackgroundLayer("Background"));
             TextureAtlas atlas = new TextureAtlas();
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"));
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"));
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"));
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"));
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"));
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"));
-            atlas.Textures.Add(Content.Load<Texture2D>(contentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"));
+            atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7"));
             Entity testEntity = new Entity();
             Sprite sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft);
             sprite.animationSpeed = 6.0f;
-            scene.GetLayerList()[0].AddSpriteComponent(testEntity.UID, sprite);
+            scene.GetLayerList()[0].AddSpriteComponent(testEntity.Uid, sprite);
             
             scene.GetLayerList()[0].AddEntity(testEntity);
             World.Scenes.Add(scene);
-            World.currentScene = World.Scenes[0];
+            //World.currentScene = World.Scenes[0];
             // TODO: use this.Content to load your game content here
         }
         /// <summary>
@@ -170,19 +168,19 @@ namespace Chroma
 
             if (Keyboard.GetState().IsKeyDown(Keys.W))
             {
-                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y-5);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y-5);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.A))
             {
-                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X - 5, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X - 5, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
-                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y + 5);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y + 5);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
-                scene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(scene.GetLayerList()[0].GetSpriteComponent(0).pos.X + 5, scene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X + 5, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
             }
 
 

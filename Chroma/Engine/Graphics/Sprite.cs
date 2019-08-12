@@ -1,12 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Chroma
+namespace Chroma.Engine.Graphics
 {
     public class Sprite : Component
     {
@@ -19,7 +15,7 @@ namespace Chroma
         public int frame;
         public bool loop = true;
         public bool animating = true;
-        private bool loopDone = false;
+        private bool _loopDone = false;
         public float scale = 1.0f;
         public float rotation = 0.0f;
         public Vector2 pos;
@@ -27,7 +23,7 @@ namespace Chroma
         public SpriteEffects spriteEffects = new SpriteEffects();
         public Color debugColor = Color.Red * 0.4f; //Float = transparency
 
-        private TimeSpan timeChanged = new TimeSpan();
+        private TimeSpan _timeChanged = new TimeSpan();
 
 
         public Sprite(string name, int x, int y, TextureAtlas textures, Origin origin)
@@ -35,7 +31,7 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            dims = this.textures.getDims();
+            dims = this.textures.GetDims();
             this.origin = CalculateOffset(origin);
             animating = textures.Textures.Count > 1;
             this.currentTexture = textures.Textures[0];
@@ -46,7 +42,7 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            dims = this.textures.getDims();
+            dims = this.textures.GetDims();
             this.origin = CalculateOffset(origin);
             this.scale = scale;
             this.rotation = rotation;
@@ -59,7 +55,7 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            dims = this.textures.getDims();
+            dims = this.textures.GetDims();
             this.origin = new Vector2(xOrigin, yOrigin);
             animating = textures.Textures.Count > 1;
             this.currentTexture = textures.Textures[0];
@@ -70,7 +66,7 @@ namespace Chroma
             this.name = name;
             pos = new Vector2(x, y);
             this.textures = textures;
-            dims = this.textures.getDims();
+            dims = this.textures.GetDims();
             this.origin = new Vector2(xOrigin, yOrigin);
             this.scale = scale;
             this.rotation = rotation;
@@ -96,7 +92,7 @@ namespace Chroma
             if (textures != null && currentTexture != null)
             {
                 Global.SpriteBatch.Draw(currentTexture, pos, null, Color.White, rotation, origin, scale*(Global.Scale), spriteEffects, 0);
-#if DEBUG
+#if debug
                 var t = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
                 t.SetData(new[] { Color.White });
 
@@ -116,9 +112,9 @@ namespace Chroma
         public override void Update(GameTime gameTime)
         {
 
-            if (gameTime.TotalGameTime.Subtract(timeChanged).Milliseconds >= (1000 / animationSpeed) && animating)
+            if (gameTime.TotalGameTime.Subtract(_timeChanged).Milliseconds >= (1000 / animationSpeed) && animating)
             {
-                timeChanged = gameTime.TotalGameTime;
+                _timeChanged = gameTime.TotalGameTime;
                 frame++;
                 if (loop)
                 {
