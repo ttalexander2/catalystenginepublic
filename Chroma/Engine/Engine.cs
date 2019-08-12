@@ -38,7 +38,7 @@ namespace Chroma
         // Directories
 
         #if !CONSOLE
-        private static string _assemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        private static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         #endif
 
         public static string ContentDirectory
@@ -50,7 +50,7 @@ namespace Chroma
         #elif XBOXONE
             get { return Instance.Content.RootDirectory; }
         #else
-            get { return Path.Combine(_assemblyDirectory, Instance.Content.RootDirectory); }
+            get { return Path.Combine(AssemblyDirectory, Instance.Content.RootDirectory); }
         #endif
         }
 

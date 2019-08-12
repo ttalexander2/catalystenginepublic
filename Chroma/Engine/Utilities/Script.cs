@@ -1,4 +1,4 @@
-﻿namespace Chroma.Engine
+﻿namespace Chroma.Engine.Utilities
 {
     public class Script
     {

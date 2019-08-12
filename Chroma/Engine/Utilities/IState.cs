@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Chroma.Engine
+namespace Chroma.Engine.Utilities
 {
     internal interface IState
     {

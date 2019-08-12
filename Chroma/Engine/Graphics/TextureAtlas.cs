@@ -6,9 +6,9 @@ namespace Chroma.Engine.Graphics
 {
     public class TextureAtlas
     {
-        private float _textureHeight;
+        private int _textureHeight;
         public List<Texture2D> Textures = new List<Texture2D>();
-        private float _textureWidth;
+        private int _textureWidth;
 
 
         public Vector2 GetDims()
@@ -36,7 +36,7 @@ namespace Chroma.Engine.Graphics
             var colorData = new Color[texture.Width * texture.Height];
             texture.GetData(colorData);
 
-            /// Loop through the array and change the RGB values you choose
+            // Loop through the array and change the RGB values you choose
 
             var left = 0;
             var right = 0;
@@ -49,7 +49,7 @@ namespace Chroma.Engine.Graphics
                 for (var y = 0; y < texture.Height; y++)
                 {
                     var pixel = colorData[x * texture.Height + y];
-                    /// Check if the color is within the range
+                    // Check if the color is within the range
                     if (!pixel.Equals(Color.Transparent)) none = false;
                 }
 
@@ -65,7 +65,7 @@ namespace Chroma.Engine.Graphics
                 for (var y = texture.Height - 1; y >= 0; y--)
                 {
                     var pixel = colorData[x * texture.Height + y];
-                    /// Check if the color is within the range
+                    // Check if the color is within the range
                     if (!pixel.Equals(Color.Transparent)) none = false;
                 }
 
@@ -81,7 +81,7 @@ namespace Chroma.Engine.Graphics
                 for (var y = 0; y < texture.Width; y++)
                 {
                     var pixel = colorData[y * texture.Height + x];
-                    /// Check if the color is within the range
+                    // Check if the color is within the range
                     if (!pixel.Equals(Color.Transparent)) none = false;
                 }
 
@@ -97,7 +97,7 @@ namespace Chroma.Engine.Graphics
                 for (var y = texture.Width - 1; y >= 0; y--)
                 {
                     var pixel = colorData[y * texture.Height + x];
-                    /// Check if the color is within the range
+                    // Check if the color is within the range
                     if (!pixel.Equals(Color.Transparent)) none = false;
                 }
 

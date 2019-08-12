@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Chroma.Engine
+namespace Chroma.Engine.Utilities
 {
     public class StateMachine
     {
@@ -9,7 +9,7 @@ namespace Chroma.Engine
 
         private void ChangeState(IState newState)
         {
-            if (_currentState != null) _currentState.End();
+            _currentState?.End();
 
             _currentState = newState;
             _currentState.Start();
@@ -17,27 +17,27 @@ namespace Chroma.Engine
 
         public void Start()
         {
-            if (_currentState != null) _currentState.Start();
+            _currentState?.Start();
         }
 
         public void BeforeUpdate(GameTime gameTime)
         {
-            if (_currentState != null) _currentState.BeforeUpdate(gameTime);
+            _currentState?.BeforeUpdate(gameTime);
         }
 
         public void Update(GameTime gameTime)
         {
-            if (_currentState != null) _currentState.Update(gameTime);
+            _currentState?.Update(gameTime);
         }
 
         public void AfterUpdate(GameTime gameTime)
         {
-            if (_currentState != null) _currentState.AfterUpdate(gameTime);
+            _currentState?.AfterUpdate(gameTime);
         }
 
         public void End()
         {
-            if (_currentState != null) _currentState.End();
+            _currentState?.End();
         }
     }
 }
