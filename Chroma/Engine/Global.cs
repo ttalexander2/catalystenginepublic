@@ -10,6 +10,7 @@ namespace Chroma.Engine
         public static ContentManager Content;
         public static SpriteBatch SpriteBatch;
         public static GraphicsDeviceManager Graphics;
+        public static GameTime gameTime;
 
         public static int NativeWidth = 640;
         public static int NativeHeight = 360;

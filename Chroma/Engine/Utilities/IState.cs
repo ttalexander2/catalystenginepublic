@@ -2,7 +2,7 @@
 
 namespace Chroma.Engine.Utilities
 {
-    internal interface IState
+    public interface IState
     {
         void Start();
         void BeforeUpdate(GameTime gameTime);

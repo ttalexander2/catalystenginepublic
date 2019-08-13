@@ -51,9 +51,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Engine\Utilities\ScriptTemplate.cs" />
+    <Compile Include="Engine\Utilities\Utility.cs" />
+    <Compile Include="Engine\Utilities\Timer.cs" />
     <Compile Include="Engine\Utilities\IState.cs" />
     <Compile Include="Engine\Utilities\StateMachine.cs" />
-    <Compile Include="Engine\Utilities\Script.cs" />
+    <Compile Include="Engine\Utilities\IScript.cs" />
     <Compile Include="Engine\World.cs" />
     <Compile Include="Engine\Graphics\TextureAtlas.cs" />
     <Compile Include="Engine\Global.cs" />

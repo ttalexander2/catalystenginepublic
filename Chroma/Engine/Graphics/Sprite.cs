@@ -12,10 +12,9 @@ namespace Chroma.Engine.Graphics
         public TextureAtlas textures;
         public Texture2D currentTexture;
         public float animationSpeed = 2.0f; //Frames per second
-        public int frame;
+        public int frame { get; private set; }
         public bool loop = true;
         public bool animating = true;
-        private bool _loopDone = false;
         public float scale = 1.0f;
         public float rotation = 0.0f;
         public Vector2 pos;
@@ -119,6 +118,7 @@ namespace Chroma.Engine.Graphics
                 if (loop)
                 {
                     frame %= textures.Textures.Count;
+                    currentTexture = textures.Textures[frame];
                 }
                 else
                 {
@@ -126,9 +126,11 @@ namespace Chroma.Engine.Graphics
                     {
                         animating = false;
                     }
+                    else
+                    {
+                        currentTexture = textures.Textures[frame];
+                    }
                 }
-                currentTexture = textures.Textures[frame];
-                
             }
         }
 

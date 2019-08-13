@@ -7,12 +7,12 @@ namespace Chroma.Engine.Utilities
         private IState _currentState;
 
 
-        private void ChangeState(IState newState)
+        public void ChangeState(IState newState)
         {
             _currentState?.End();
 
             _currentState = newState;
-            _currentState.Start();
+            _currentState?.Start();
         }
 
         public void Start()

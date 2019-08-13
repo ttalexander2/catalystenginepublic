@@ -1,13 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+﻿using System;
 using System.IO;
 using System.Reflection;
-using Chroma.Engine.Scenes;
-using Chroma.Engine;
 using Chroma.Engine.Graphics;
+using Chroma.Engine.Scenes;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-namespace Chroma
+namespace Chroma.Engine
 {
     /// <summary>
     /// This is the main type for your game.
@@ -115,6 +115,9 @@ namespace Chroma
             // TODO: Add your initialization logic here
 
             base.Initialize();
+#if DEBUG
+            Console.Write("Initialized");
+#endif
         }
 
         /// <summary>
@@ -125,9 +128,11 @@ namespace Chroma
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
-            Scene scene = new Scene(500,500);
+            // TODO: use this.Content to load your game content here
+
+            var scene = new Scene(500, 500);
             scene.GetLayerList().Add(new BackgroundLayer("Background"));
-            TextureAtlas atlas = new TextureAtlas();
+            var atlas = new TextureAtlas();
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"));
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"));
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"));
@@ -135,15 +140,15 @@ namespace Chroma
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"));
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"));
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7"));
-            Entity testEntity = new Entity();
-            Sprite sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft);
-            sprite.animationSpeed = 6.0f;
+            var testEntity = new Entity();
+            var sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft) {animationSpeed = 6.0f};
             scene.GetLayerList()[0].AddSpriteComponent(testEntity.Uid, sprite);
-            
+
             scene.GetLayerList()[0].AddEntity(testEntity);
             World.Scenes.Add(scene);
             World.currentScene = World.Scenes[0];
-            // TODO: use this.Content to load your game content here
+
+
         }
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -161,24 +166,25 @@ namespace Chroma
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            Global.gameTime = gameTime;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
 
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
                 World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y-5);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X - 5, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
                 World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y + 5);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X + 5, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
             }
