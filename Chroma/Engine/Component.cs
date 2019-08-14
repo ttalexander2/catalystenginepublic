@@ -7,7 +7,7 @@ namespace Chroma.Engine
         public bool hasRender = true;
         public bool hasUpdate = true;
 
-        public virtual void Start()
+        public virtual void Begin()
         {
         }
 

@@ -3,6 +3,8 @@ using System.IO;
 using System.Reflection;
 using Chroma.Engine.Graphics;
 using Chroma.Engine.Scenes;
+using Chroma.Engine.Utilities;
+using Chroma.Game;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -116,7 +118,7 @@ namespace Chroma.Engine
 
             base.Initialize();
 #if DEBUG
-            Console.Write("Initialized");
+            Console.WriteLine("Initialized");
 #endif
         }
 
@@ -145,6 +147,12 @@ namespace Chroma.Engine
             scene.GetLayerList()[0].AddSpriteComponent(testEntity.Uid, sprite);
 
             scene.GetLayerList()[0].AddEntity(testEntity);
+
+            var timer = new Alarm(new TestScript(), new object[] {"poop"}, false, false, true, 6.0f);
+            scene.GetLayerList()[0].AddTimerComponent(testEntity.Uid, timer);
+
+
+
             World.Scenes.Add(scene);
             World.currentScene = World.Scenes[0];
 

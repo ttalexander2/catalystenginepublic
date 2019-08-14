@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Chroma.Engine.Graphics;
+using Chroma.Engine.Utilities;
 using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine.Scenes
@@ -10,6 +11,7 @@ namespace Chroma.Engine.Scenes
         public readonly List<Entity> EntityList = new List<Entity>();
         public string layerName;
         public readonly Dictionary<int, Sprite> Sprites = new Dictionary<int, Sprite>();
+        public readonly Dictionary<int, Alarm> Alarms = new Dictionary<int, Alarm>();
         public bool visible = true;
 
         public SceneLayer(string name)
@@ -30,6 +32,11 @@ namespace Chroma.Engine.Scenes
         public Sprite GetSpriteComponent(int entityId)
         {
             return Sprites[entityId];
+        }
+
+        public void AddTimerComponent(int entityId, Alarm alarm)
+        {
+            Alarms.Add(entityId, alarm);
         }
 
         public void AddEntityList(List<Entity> entities)
@@ -64,6 +71,7 @@ namespace Chroma.Engine.Scenes
         public virtual void Update(GameTime gameTime)
         {
             foreach (var sprite in Sprites.Values) sprite.Update(gameTime);
+            foreach (var timer in Alarms.Values) timer.Update(gameTime);
         }
 
         public virtual void AfterUpdate(GameTime gameTime)
