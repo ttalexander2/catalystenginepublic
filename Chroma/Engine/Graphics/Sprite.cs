@@ -12,6 +12,10 @@ namespace Chroma.Engine.Graphics
         public TextureAtlas textures;
         public Texture2D currentTexture;
         public float animationSpeed = 2.0f; //Frames per second
+
+        public bool collidable = false; //Represents whether a moving entity can collide with this sprite
+        public bool visible = true;
+
         public int frame { get; private set; }
         public bool loop = true;
         public bool animating = true;
@@ -21,6 +25,7 @@ namespace Chroma.Engine.Graphics
         public Vector2 origin, dims;
         public SpriteEffects spriteEffects = new SpriteEffects();
         public Color debugColor = Color.Red * 0.4f; //Float = transparency
+        public float speed = 5;
 
         private TimeSpan _timeChanged = new TimeSpan();
 

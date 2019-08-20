@@ -143,7 +143,7 @@ namespace Chroma.Engine
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"));
             atlas.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7"));
             var testEntity = new Entity();
-            var sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft) {animationSpeed = 6.0f};
+            var sprite = new Sprite("test", 0, 0, atlas, Sprite.Origin.TopLeft) {animationSpeed = 6.0f, collidable = true};
             scene.GetLayerList()[0].AddSpriteComponent(testEntity.Uid, sprite);
 
             scene.GetLayerList()[0].AddEntity(testEntity);
@@ -151,10 +151,19 @@ namespace Chroma.Engine
             var timer = new Alarm(new TestScript(), new object[] {"poop"}, false, false, true, 6.0f);
             scene.GetLayerList()[0].AddTimerComponent(testEntity.Uid, timer);
 
+            var atlas2 = new TextureAtlas();
+            atlas2.Textures.Add(Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"));
+            var entity2 = new Entity();
+            var sprite2 = new Sprite("test2", 800, 800, atlas2, Sprite.Origin.TopLeft) { collidable = true };
+            scene.GetLayerList()[0].AddSpriteComponent(entity2.Uid, sprite2);
+            scene.GetLayerList()[0].AddEntity(entity2);
+
 
 
             World.Scenes.Add(scene);
             World.currentScene = World.Scenes[0];
+
+            
 
 
         }
@@ -179,22 +188,23 @@ namespace Chroma.Engine
                 Exit();
 
             // TODO: Add your update logic here
+            float speed = World.currentScene.GetLayerList()[0].GetSpriteComponent(0).speed;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y-5);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y-speed);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X - 5, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X - speed, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
-                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y + 5);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y + speed);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X + 5, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
+                World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos = new Vector2(World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.X + speed, World.currentScene.GetLayerList()[0].GetSpriteComponent(0).pos.Y);
             }
 
 

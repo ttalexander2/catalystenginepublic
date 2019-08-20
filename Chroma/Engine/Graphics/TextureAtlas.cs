@@ -14,10 +14,10 @@ namespace Chroma.Engine.Graphics
         public Vector2 GetDims()
         {
             if (_textureWidth == 0 || _textureHeight == 0)
-                foreach (var texture in Textures)
+                for (int i = 0; i < Textures.Count; i++)
                 {
-                    if (texture.Width > _textureWidth) _textureWidth = texture.Width;
-                    if (texture.Height > _textureHeight) _textureHeight = texture.Height;
+                    if (Textures[i].Width > _textureWidth) _textureWidth = Textures[i].Width;
+                    if (Textures[i].Height > _textureHeight) _textureHeight = Textures[i].Height;
                 }
 
             return new Vector2(_textureWidth, _textureHeight);
@@ -26,7 +26,7 @@ namespace Chroma.Engine.Graphics
         public void AutoTrim()
         {
             var trimmed = new List<Texture2D>();
-            foreach (var texture in Textures) trimmed.Add(AutoTrim(texture));
+            for (int i = 0; i < Textures.Count; i++) trimmed.Add(AutoTrim(Textures[i]));
 
             Textures = trimmed;
         }

@@ -3,9 +3,6 @@
     public class Entity
     {
         public bool active = true;
-        public bool collidable = false;
-
-        public bool visible = true;
 
         public Entity()
         {

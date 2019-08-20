@@ -13,6 +13,7 @@ namespace Chroma.Engine.Scenes
         public readonly Dictionary<int, Sprite> Sprites = new Dictionary<int, Sprite>();
         public readonly Dictionary<int, Alarm> Alarms = new Dictionary<int, Alarm>();
         public bool visible = true;
+        public bool hasCollisions = true;
 
         public SceneLayer(string name)
         {
@@ -41,12 +42,7 @@ namespace Chroma.Engine.Scenes
 
         public void AddEntityList(List<Entity> entities)
         {
-            foreach (var entity in entities) EntityList.Add(entity);
-        }
-
-        public void RemoveEntityList(List<Entity> entities)
-        {
-            foreach (var entity in entities) EntityList.Remove(entity);
+            EntityList.AddRange(entities);
         }
 
         public void RemoveEntity(Entity entity)
@@ -65,33 +61,33 @@ namespace Chroma.Engine.Scenes
 
         public virtual void BeforeUpdate(GameTime gameTime)
         {
-            foreach (var sprite in Sprites.Values) sprite.BeforeUpdate(gameTime);
+            for(int i = 0; i < Sprites.Count; i++) Sprites[i].BeforeUpdate(gameTime);
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (var sprite in Sprites.Values) sprite.Update(gameTime);
-            foreach (var timer in Alarms.Values) timer.Update(gameTime);
+            for (int i = 0; i < Sprites.Count; i++) Sprites[i].Update(gameTime);
+            for (int i = 0; i < Alarms.Count; i++) Alarms[i].Update(gameTime);
         }
 
         public virtual void AfterUpdate(GameTime gameTime)
         {
-            foreach (var sprite in Sprites.Values) sprite.AfterUpdate(gameTime);
+            for (int i = 0; i < Sprites.Count; i++) Sprites[i].AfterUpdate(gameTime);
         }
 
         public virtual void BeforeRender(GameTime gameTime)
         {
-            foreach (var sprite in Sprites.Values) sprite.BeforeRender(gameTime);
+            for (int i = 0; i < Sprites.Count; i++) Sprites[i].BeforeRender(gameTime);
         }
 
         public virtual void Render(GameTime gameTime)
         {
-            foreach (var sprite in Sprites.Values) sprite.Render(gameTime);
+            for (int i = 0; i < Sprites.Count; i++) Sprites[i].Render(gameTime);
         }
 
         public virtual void AfterRender(GameTime gameTime)
         {
-            foreach (var sprite in Sprites.Values) sprite.AfterRender(gameTime);
+            for (int i = 0; i < Sprites.Count; i++) Sprites[i].AfterRender(gameTime);
         }
 
         public virtual void End()

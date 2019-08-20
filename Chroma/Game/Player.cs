@@ -1,4 +1,5 @@
 ﻿using Chroma.Engine;
+using Chroma.Engine.Collision;
 
 namespace Chroma.Game
 {
