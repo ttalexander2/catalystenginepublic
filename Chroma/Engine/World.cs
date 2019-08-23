@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Chroma.Engine.Scenes;
 using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chroma.Engine.Collision
+namespace Chroma.Engine.Physics
 {
-    public interface ICollidable
+    public class PhysicsSystem
     {
-        void HandleCollision(object collider);
+
+
     }
 }

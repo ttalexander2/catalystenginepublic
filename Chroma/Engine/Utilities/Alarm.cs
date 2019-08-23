@@ -32,7 +32,11 @@ namespace Chroma.Engine.Utilities
             if (!_active) return;
             _elapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (_elapsed < _interval) return;
-            if (!_renders) _script.Execute(_scriptArgs);
+            if (!_renders)
+            {
+                _ = _script.Execute(_scriptArgs);
+            }
+
             if (_loop)
             {
                 _elapsed = 0;
@@ -45,7 +49,7 @@ namespace Chroma.Engine.Utilities
         {
             if (!_renders) return;
             if (_elapsed < _interval) return;
-            _script.Execute(_scriptArgs);
+            _ = _script.Execute(_scriptArgs);
         }
 
         public void Start()

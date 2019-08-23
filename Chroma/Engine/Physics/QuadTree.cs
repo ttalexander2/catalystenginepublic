@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chroma.Engine.Collision
+namespace Chroma.Engine.Physics
 {
     public class QuadTree
     {
@@ -55,7 +55,6 @@ namespace Chroma.Engine.Collision
             int subHeight = (int)_bounds.Height / 2;
             int x = _bounds.X;
             int y = _bounds.Y;
-            Console.WriteLine(_level);
 
             _nodes[0] = new QuadTree(_level + 1, new Rectangle(x + subWidth, y, subWidth, subHeight));
             _nodes[1] = new QuadTree(_level + 1, new Rectangle(x, y, subWidth, subHeight));

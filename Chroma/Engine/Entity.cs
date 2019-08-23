@@ -1,15 +1,17 @@
-﻿namespace Chroma.Engine
+﻿using System;
+namespace Chroma.Engine
 {
     public class Entity
     {
         public bool active = true;
 
+        public int UID { get; private set; }
+
         public Entity()
         {
-            Uid = World.EntityIdNum;
-            World.EntityIdNum++;
+            this.UID = EntityManager.NewId();
         }
 
-        public int Uid { get; }
+        
     }
 }

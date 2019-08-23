@@ -1,19 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using Chroma.Engine.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Chroma.Engine.Utilities.Utility;
 
 namespace Chroma.Engine.Graphics
 {
-    public class Sprite : Component
+    public class Sprite: Component
     {
 
 
         public string name;
-        public TextureAtlas textures;
+        public Guid UID { get; private set; }
+        public int layer;
+
+        private int _textureHeight;
+        private int _textureWidth;
+        public List<Texture2D> Textures = new List<Texture2D>();
         public Texture2D currentTexture;
         public float animationSpeed = 2.0f; //Frames per second
 
-        public bool collidable = false; //Represents whether a moving entity can collide with this sprite
         public bool visible = true;
 
         public int frame { get; private set; }
@@ -25,150 +32,147 @@ namespace Chroma.Engine.Graphics
         public Vector2 origin, dims;
         public SpriteEffects spriteEffects = new SpriteEffects();
         public Color debugColor = Color.Red * 0.4f; //Float = transparency
-        public float speed = 5;
 
         private TimeSpan _timeChanged = new TimeSpan();
 
 
-        public Sprite(string name, int x, int y, TextureAtlas textures, Origin origin)
+        public Sprite(Guid UID, string name, int x, int y, Texture2D[] textures, Origin origin)
         {
+            this.UID = UID;
             this.name = name;
             pos = new Vector2(x, y);
-            this.textures = textures;
-            dims = this.textures.GetDims();
-            this.origin = CalculateOffset(origin);
-            animating = textures.Textures.Count > 1;
-            this.currentTexture = textures.Textures[0];
+            this.Textures.AddRange(textures);
+            dims = GetDims();
+            this.origin = Utility.OriginToVectorOffset(origin, dims);
+            animating = Textures.Count > 1;
+            this.currentTexture = Textures[0];
         }
 
-        public Sprite(string name, int x, int y, float scale, float rotation, TextureAtlas textures, Origin origin)
+        public Sprite(Guid UID, string name, int x, int y, float scale, float rotation, Texture2D[] textures, Origin origin)
         {
+            this.UID = UID;
             this.name = name;
             pos = new Vector2(x, y);
-            this.textures = textures;
-            dims = this.textures.GetDims();
-            this.origin = CalculateOffset(origin);
+            this.Textures.AddRange(textures);
+            dims = GetDims(); ;
+            this.origin = Utility.OriginToVectorOffset(origin, dims);
             this.scale = scale;
             this.rotation = rotation;
-            animating = textures.Textures.Count > 1;
-            this.currentTexture = textures.Textures[0];
+            animating = Textures.Count > 1;
+            this.currentTexture = Textures[0];
         }
 
-        public Sprite(string name, int x, int y, TextureAtlas textures, int xOrigin, int yOrigin)
+        public Sprite(Guid UID, string name, int x, int y, Texture2D[] textures, int xOrigin, int yOrigin)
         {
+            this.UID = UID;
             this.name = name;
             pos = new Vector2(x, y);
-            this.textures = textures;
-            dims = this.textures.GetDims();
+            this.Textures.AddRange(textures);
+            dims = GetDims();
             this.origin = new Vector2(xOrigin, yOrigin);
-            animating = textures.Textures.Count > 1;
-            this.currentTexture = textures.Textures[0];
+            animating = Textures.Count > 1;
+            this.currentTexture = Textures[0];
         }
 
-        public Sprite(string name, int x, int y, float scale, float rotation, TextureAtlas textures, int xOrigin, int yOrigin)
+        public Sprite(Guid UID, string name, int x, int y, float scale, float rotation, Texture2D[] textures, int xOrigin, int yOrigin)
         {
+            this.UID = UID;
             this.name = name;
             pos = new Vector2(x, y);
-            this.textures = textures;
-            dims = this.textures.GetDims();
+            this.Textures.AddRange(textures);
+            dims = GetDims();
             this.origin = new Vector2(xOrigin, yOrigin);
             this.scale = scale;
             this.rotation = rotation;
-            animating = textures.Textures.Count > 1;
-            this.currentTexture = textures.Textures[0];
+            animating = Textures.Count > 1;
+            this.currentTexture = Textures[0];
         }
 
-        public enum Origin
-        {
-            TopLeft,
-            BottomLeft,
-            TopRight,
-            BottomRight,
-            Center,
-            TopCenter,
-            BottomCenter,
-            CenterLeft,
-            CenterRight
-        }
+
 
         public override void Render(GameTime gameTime)
         {
-            if (textures != null && currentTexture != null)
+            if (Textures != null && currentTexture != null)
             {
-                Global.SpriteBatch.Draw(currentTexture, pos, null, Color.White, rotation, origin, scale*(Global.Scale), spriteEffects, 0);
-#if debug
+                Global.SpriteBatch.Draw(currentTexture, pos, null, Color.White, rotation, origin, scale*(Global.PixelScale), spriteEffects, layer);
+#if DebugMode
                 var t = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
                 t.SetData(new[] { Color.White });
 
 
                 int bw = 1; // Border width
 
-                Rectangle r = new Rectangle((int)pos.X, (int)pos.Y, (int)textures.getDims().X, (int)textures.getDims().Y);
+                Rectangle r = new Rectangle((int)pos.X, (int)pos.Y, (int)dims.X, (int)dims.Y);
 
-                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, bw, r.Height), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Left
-                Global.SpriteBatch.Draw(t, new Vector2(pos.X+r.Width* scale * (Global.Scale), pos.Y), new Rectangle(r.Right, r.Top, bw, r.Height+1), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Right
-                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, r.Width, bw), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Top
-                Global.SpriteBatch.Draw(t, new Vector2(pos.X, pos.Y + r.Height* scale * (Global.Scale)), new Rectangle(r.Left, r.Bottom, r.Width, bw), debugColor, rotation, origin, scale * (Global.Scale), spriteEffects, 0); // Bottom
+                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, bw, r.Height), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Left
+                Global.SpriteBatch.Draw(t, new Vector2(pos.X+r.Width* scale * (Global.PixelScale), pos.Y), new Rectangle(r.Right, r.Top, bw, r.Height+1), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Right
+                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, r.Width, bw), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Top
+                Global.SpriteBatch.Draw(t, new Vector2(pos.X, pos.Y + r.Height* scale * (Global.PixelScale)), new Rectangle(r.Left, r.Bottom, r.Width, bw), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Bottom
 #endif
             }
+        }
+
+        public virtual void OnFrameChange()
+        {
+
+        }
+
+        public virtual void OnLastFrame()
+        {
+
         }
 
         public override void Update(GameTime gameTime)
         {
 
-            if (gameTime.TotalGameTime.Subtract(_timeChanged).Milliseconds >= (1000 / animationSpeed) && animating)
+            if(animating && (gameTime.TotalGameTime.Subtract(_timeChanged).Milliseconds >= (1000 / animationSpeed)))
             {
                 _timeChanged = gameTime.TotalGameTime;
                 frame++;
+                OnFrameChange();
+                if (frame >= Textures.Count) OnLastFrame();
                 if (loop)
                 {
-                    frame %= textures.Textures.Count;
-                    currentTexture = textures.Textures[frame];
+                    frame %= Textures.Count;
+                    currentTexture = Textures[frame];
                 }
                 else
                 {
-                    if (frame >= textures.Textures.Count)
+                    if (frame >= Textures.Count)
                     {
                         animating = false;
                     }
                     else
                     {
-                        currentTexture = textures.Textures[frame];
+                        currentTexture = Textures[frame];
                     }
                 }
             }
         }
 
-        private Vector2 CalculateOffset(Origin origin)
+        public override void AfterUpdate(GameTime gameTime)
         {
-            switch (origin)
+            Actor actor = World.currentScene?.GetActor(UID);
+            if (actor != null)
             {
-                case (Origin.TopLeft):
-                    return new Vector2(0, 0);
-                case (Origin.TopRight):
-                    return new Vector2(this.dims.X, 0);
-                case (Origin.TopCenter):
-                    return new Vector2((int)(this.dims.X/2), 0);
-                case (Origin.CenterLeft):
-                    return new Vector2(0, (int)(this.dims.Y / 2));
-                case (Origin.CenterRight):
-                    return new Vector2(this.dims.X, (int)(this.dims.Y / 2));
-                case (Origin.Center):
-                    return new Vector2((int)(this.dims.X / 2), (int)(this.dims.Y / 2));
-                case (Origin.BottomLeft):
-                    return new Vector2(0, this.dims.Y);
-                case (Origin.BottomRight):
-                    return new Vector2(this.dims.X, this.dims.Y);
-                case (Origin.BottomCenter):
-                    return new Vector2((int)(this.dims.X / 2), this.dims.Y);
-                default:
-                    return new Vector2(this.origin.X, this.origin.Y);
+                pos = actor.Position;
             }
-                
+        }
+        public Vector2 GetDims()
+        {
+            for (int i = 0; i < Textures.Count; i++)
+            {
+                if (Textures[i].Width > _textureWidth) _textureWidth = Textures[i].Width;
+                if (Textures[i].Height > _textureHeight) _textureHeight = Textures[i].Height;
+            }
+            return new Vector2(_textureWidth, _textureHeight);
         }
 
         
-
-
     }
+
+
+
+
 }
+

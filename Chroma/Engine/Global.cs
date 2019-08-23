@@ -14,7 +14,7 @@ namespace Chroma.Engine
 
         public static int NativeWidth = 640;
         public static int NativeHeight = 360;
-        public static float Scale = 3.0f;
+        public static float PixelScale = 3.0f;
 
         public static KeyboardInput keyboard;
     }

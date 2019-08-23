@@ -50,30 +50,40 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugMode|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugMode\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DebugMode</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Engine\Collision\ICollidable.cs" />
-    <Compile Include="Engine\Collision\QuadTree.cs" />
+    <Compile Include="Engine\Actor.cs" />
+    <Compile Include="Engine\EntityManager.cs" />
+    <Compile Include="Engine\Input\InputSystem.cs" />
+    <Compile Include="Engine\Physics\BoxCollider.cs" />
+    <Compile Include="Engine\Physics\Velocity.cs" />
+    <Compile Include="Engine\Physics\PhysicsSystem.cs" />
+    <Compile Include="Engine\Physics\Collider.cs" />
+    <Compile Include="Engine\Physics\QuadTree.cs" />
+    <Compile Include="Engine\Utilities\Origin.cs" />
     <Compile Include="Engine\Utilities\ScriptTemplate.cs" />
     <Compile Include="Engine\Utilities\Utility.cs" />
     <Compile Include="Engine\Utilities\Alarm.cs" />
-    <Compile Include="Engine\Utilities\IState.cs" />
-    <Compile Include="Engine\Utilities\StateMachine.cs" />
     <Compile Include="Engine\Utilities\IScript.cs" />
     <Compile Include="Engine\World.cs" />
-    <Compile Include="Engine\Graphics\TextureAtlas.cs" />
     <Compile Include="Engine\Global.cs" />
     <Compile Include="Engine\Input\KeyboardInput.cs" />
     <Compile Include="Engine\Program.cs" />
-    <Compile Include="Engine\Scenes\BackgroundLayer.cs" />
     <Compile Include="Engine\Graphics\Sprite.cs" />
-    <Compile Include="Engine\Scenes\Scene.cs" />
+    <Compile Include="Engine\Scene.cs" />
     <Compile Include="Engine\Entity.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Game\TestScript.cs" />
-    <Compile Include="Game\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Engine\Component.cs" />
-    <Compile Include="Engine\Scenes\SceneLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
