@@ -10,9 +10,9 @@ namespace Chroma.Engine.Physics
     public abstract class Collider: Component
     {
 
-        public Guid UID { get; private set; }
+        public int UID { get; private set; }
         public Vector2 pos { get; private set; }
-        public Collider(Guid UID) {
+        public Collider(int UID) {
             this.UID = UID;
         }
 

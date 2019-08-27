@@ -10,31 +10,56 @@ namespace Chroma.Engine.Input
 {
     public class InputSystem
     {
-        public Entity controlling { get; set; }
-        public Scene scene { get; set; }
+        private KeyboardState _state;
+        private KeyboardState _previousState;
 
-        public InputSystem(Scene scene)
+        /**
+        TODO: This is probably a bad idea. Come up with a better solution
+        */
+        public enum Input
         {
-            this.scene = scene;
+            Up,
+            Down,
+            Left,
+            Right,
+            Start,
+            A,
+            B,
+            X,
+            Y,
+            LT,
+            RT,
+            LB,
+            RB
         }
+
+        public void Initialize()
+        {
+            _previousState = Keyboard.GetState();
+        }
+
         public void Update(GameTime gameTime)
         {
+            _previousState = _state;
+            _state = Keyboard.GetState();
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                testEntity.MoveY(-5.0f, () => { });
+                
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                testEntity.MoveX(-5.0f, () => { });
+                
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
-                testEntity.MoveY(5.0f, () => { });
+                
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                testEntity.MoveX(5.0f, () => { });
+                
             }
         }
+
+        
     }
 }

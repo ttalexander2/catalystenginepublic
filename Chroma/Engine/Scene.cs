@@ -9,11 +9,10 @@ namespace Chroma.Engine
 {
     public class Scene
     {
-        public Dictionary<Guid, Actor> Actors = new Dictionary<Guid, Actor>();
-        public Dictionary<Guid, Solid> Solids = new Dictionary<Guid, Solid>();
-        public Dictionary<Guid, Sprite> Sprites = new Dictionary<Guid, Sprite>();
-        public Dictionary<Guid, Collider> Colliders = new Dictionary<Guid, Collider>();
-        public Dictionary<Guid, Alarm> Alarms = new Dictionary<Guid, Alarm>();
+        public Dictionary<int, Entity> Entites = new Dictionary<int, Entity>();
+        public Dictionary<int, Sprite> Sprites = new Dictionary<int, Sprite>();
+        public Dictionary<int, Collider> Colliders = new Dictionary<int, Collider>();
+        public Dictionary<int, Alarm> Alarms = new Dictionary<int, Alarm>();
 
         private QuadTree quad = new QuadTree(new Rectangle(0, 0, (int)(Global.NativeWidth * Global.PixelScale), (int)(Global.NativeHeight * Global.PixelScale)));
 
@@ -34,34 +33,34 @@ namespace Chroma.Engine
 
         public virtual void BeforeUpdate(GameTime gameTime)
         {
-            foreach (KeyValuePair<Guid, Sprite> entry in Sprites) entry.Value.BeforeUpdate(gameTime);
+            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.BeforeUpdate(gameTime);
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (KeyValuePair<Guid, Sprite> entry in Sprites) entry.Value.Update(gameTime);
-            foreach (KeyValuePair<Guid, Alarm> entry in Alarms) entry.Value.Update(gameTime);
+            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.Update(gameTime);
+            foreach (KeyValuePair<int, Alarm> entry in Alarms) entry.Value.Update(gameTime);
         }
 
         public virtual void AfterUpdate(GameTime gameTime)
         {
-            foreach (KeyValuePair<Guid, Sprite> entry in Sprites) entry.Value.AfterUpdate(gameTime);
+            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.AfterUpdate(gameTime);
         }
 
         public virtual void BeforeRender(GameTime gameTime)
         {
-            foreach (KeyValuePair<Guid, Sprite> entry in Sprites) entry.Value.BeforeRender(gameTime);
+            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.BeforeRender(gameTime);
         }
 
         public virtual void Render(GameTime gameTime)
         {
-            foreach (KeyValuePair<Guid, Sprite> entry in Sprites) entry.Value.Render(gameTime);
-            foreach (KeyValuePair<Guid, Collider> entry in Colliders) entry.Value.Render(gameTime);
+            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.Render(gameTime);
+            foreach (KeyValuePair<int, Collider> entry in Colliders) entry.Value.Render(gameTime);
         }
 
         public virtual void AfterRender(GameTime gameTime)
         {
-            foreach (KeyValuePair<Guid, Sprite> entry in Sprites) entry.Value.AfterRender(gameTime);
+            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.AfterRender(gameTime);
         }
 
         public virtual void End()
@@ -71,10 +70,10 @@ namespace Chroma.Engine
         #endregion
 
 
-
-        public bool ActorCollideWithSolid(Guid UID, Vector2 offset)
+        
+        public bool EntityCollision(int UID, Vector2 offset)
         {
-            foreach (KeyValuePair<Guid, Solid> entry in Solids)
+            foreach (KeyValuePair<int, Entity> entry in Entites)
             {
                 Collider collider;
                 Colliders.TryGetValue(UID, out collider);
@@ -132,14 +131,14 @@ namespace Chroma.Engine
     */
         }
 
-        public Actor GetActor(Guid UID)
+        public Entity GenEntity(int UID)
         {
-            Actor actor;
-            if (Actors.TryGetValue(UID, out actor))
+            Entity entity;
+            if (Entites.TryGetValue(UID, out entity))
             {
-                if (actor != null)
+                if (entity != null)
                 {
-                    return actor;
+                    return entity;
                 }
             }
             return null;

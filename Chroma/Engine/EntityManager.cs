@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Chroma.Engine
 {
-    public static class EntityManager
+    public class EntityManager
     {
-        private static int id = -1;
+        private int id = -1;
 
-        public static Entity Create()
+        public Entity Create()
         {
             return new Entity();
         }
 
-        public static int NewId()
+        public int NewId()
         {
             id++;
             return id;

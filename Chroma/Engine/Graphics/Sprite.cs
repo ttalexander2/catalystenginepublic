@@ -12,7 +12,7 @@ namespace Chroma.Engine.Graphics
 
 
         public string name;
-        public Guid UID { get; private set; }
+        public int UID { get; private set; }
         public int layer;
 
         private int _textureHeight;
@@ -36,7 +36,7 @@ namespace Chroma.Engine.Graphics
         private TimeSpan _timeChanged = new TimeSpan();
 
 
-        public Sprite(Guid UID, string name, int x, int y, Texture2D[] textures, Origin origin)
+        public Sprite(int UID, string name, int x, int y, Texture2D[] textures, Origin origin)
         {
             this.UID = UID;
             this.name = name;
@@ -48,7 +48,7 @@ namespace Chroma.Engine.Graphics
             this.currentTexture = Textures[0];
         }
 
-        public Sprite(Guid UID, string name, int x, int y, float scale, float rotation, Texture2D[] textures, Origin origin)
+        public Sprite(int UID, string name, int x, int y, float scale, float rotation, Texture2D[] textures, Origin origin)
         {
             this.UID = UID;
             this.name = name;
@@ -62,7 +62,7 @@ namespace Chroma.Engine.Graphics
             this.currentTexture = Textures[0];
         }
 
-        public Sprite(Guid UID, string name, int x, int y, Texture2D[] textures, int xOrigin, int yOrigin)
+        public Sprite(int UID, string name, int x, int y, Texture2D[] textures, int xOrigin, int yOrigin)
         {
             this.UID = UID;
             this.name = name;
@@ -74,7 +74,7 @@ namespace Chroma.Engine.Graphics
             this.currentTexture = Textures[0];
         }
 
-        public Sprite(Guid UID, string name, int x, int y, float scale, float rotation, Texture2D[] textures, int xOrigin, int yOrigin)
+        public Sprite(int UID, string name, int x, int y, float scale, float rotation, Texture2D[] textures, int xOrigin, int yOrigin)
         {
             this.UID = UID;
             this.name = name;
@@ -152,11 +152,7 @@ namespace Chroma.Engine.Graphics
 
         public override void AfterUpdate(GameTime gameTime)
         {
-            Actor actor = World.currentScene?.GetActor(UID);
-            if (actor != null)
-            {
-                pos = actor.Position;
-            }
+            
         }
         public Vector2 GetDims()
         {

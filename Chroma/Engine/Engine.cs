@@ -18,9 +18,9 @@ namespace Chroma.Engine
     public class ChromaGame : Microsoft.Xna.Framework.Game
     {
 
-        Actor testEntity;
-        // Instances
+        // Static Instances
         public static ChromaGame Instance { get; private set;  }
+        public static EntityManager entityManager;
 
 
         // Screen
@@ -118,7 +118,7 @@ namespace Chroma.Engine
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            EntityManager entityManager = new EntityManager();
+            entityManager = new EntityManager();
 
             base.Initialize();
 #if DEBUG
@@ -145,22 +145,22 @@ namespace Chroma.Engine
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
-            testEntity = new Actor();
+            Entity testEntity = new Entity();
             var sprite = new Sprite(testEntity.UID, "test", 0, 0, atlas, Origin.TopLeft) {animationSpeed = 6.0f};
             scene.Sprites.Add(testEntity.UID, sprite);
             scene.Colliders.Add(testEntity.UID, new BoxCollider(testEntity.UID, sprite.pos, sprite.dims));
 
-            scene.Actors.Add(testEntity.UID, testEntity);
+            scene.Entites.Add(testEntity.UID, testEntity);
 
             Alarm timer = new Alarm(new TestScript(), new object[] { "poop" }, false, true, true, 6.0f);
             scene.Alarms.Add(testEntity.UID, timer);
 
-            var entity2 = new Solid();
+            var entity2 = new Entity();
             var sprite2 = new Sprite(entity2.UID, "test2", 800, 800, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1") }, Origin.TopLeft);
             scene.Colliders.Add(entity2.UID, new BoxCollider(entity2.UID, sprite2.pos, sprite2.dims));
 
             scene.Sprites.Add(entity2.UID, sprite2);
-            scene.Solids.Add(entity2.UID, entity2);
+            scene.Entites.Add(entity2.UID, entity2);
 
 
 

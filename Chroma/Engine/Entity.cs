@@ -9,7 +9,7 @@ namespace Chroma.Engine
 
         public Entity()
         {
-            this.UID = EntityManager.NewId();
+            this.UID = ChromaGame.entityManager.NewId();
         }
 
         

@@ -14,18 +14,18 @@ namespace Chroma.Engine.Physics
     {
         public Rectangle BoundingBox { get; private set; }
         
-        public BoxCollider(Guid UID, Vector2 pos, Vector2 dims): base(UID)
+        public BoxCollider(int UID, Vector2 pos, Vector2 dims): base(UID)
         {
             BoundingBox = new Rectangle((int)pos.X, (int)pos.Y, (int)(dims.X * Global.PixelScale), (int)(dims.Y * Global.PixelScale));
         }
 
-        public BoxCollider(Guid UID, Vector2 pos, Vector2 dims, Origin origin) : base(UID)
+        public BoxCollider(int UID, Vector2 pos, Vector2 dims, Origin origin) : base(UID)
         {
             Vector2 offset = Utility.OriginToVectorOffset(origin, dims);
             BoundingBox = new Rectangle((int)pos.X + (int)(offset.X * Global.PixelScale), (int)pos.Y + (int)(offset.Y * Global.PixelScale), (int)(dims.X * Global.PixelScale), (int)(dims.Y * Global.PixelScale));
         }
 
-        public BoxCollider(Guid UID, int x, int y, int width, int height, Origin origin) : base(UID)
+        public BoxCollider(int UID, int x, int y, int width, int height, Origin origin) : base(UID)
         {
             Vector2 offset = Utility.OriginToVectorOffset(origin, new Vector2(width, height));
             BoundingBox = new Rectangle(x + (int)(offset.X * Global.PixelScale), y + (int)(offset.Y * Global.PixelScale), width * (int)Global.PixelScale, height * (int)Global.PixelScale);
