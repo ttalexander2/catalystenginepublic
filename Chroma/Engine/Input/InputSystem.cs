@@ -12,26 +12,18 @@ namespace Chroma.Engine.Input
     {
         private KeyboardState _state;
         private KeyboardState _previousState;
+        
+        
 
-        /**
-        TODO: This is probably a bad idea. Come up with a better solution
-        */
-        public enum Input
+
+        #region Keyboard
+        public void UpdateKeyboard()
         {
-            Up,
-            Down,
-            Left,
-            Right,
-            Start,
-            A,
-            B,
-            X,
-            Y,
-            LT,
-            RT,
-            LB,
-            RB
+            _previousState = _state;
+            _state = Keyboard.GetState();
         }
+
+        #endregion
 
         public void Initialize()
         {
@@ -42,22 +34,7 @@ namespace Chroma.Engine.Input
         {
             _previousState = _state;
             _state = Keyboard.GetState();
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-            {
-                
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-            {
-                
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Down))
-            {
-                
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
-            {
-                
-            }
+            
         }
 
         

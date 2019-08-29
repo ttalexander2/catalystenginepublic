@@ -34,19 +34,19 @@ namespace Chroma.Engine.Physics
             return new Vec2(v1.X/m, v1.Y/m);
         }
 
-        public Vec2 InnerMultiply(Vec2 v1)
+        public static Vec2 InnerMultiply(Vec2 v1, Vec2 v2)
         {
-            return new Vec2(v1.X * X, v1.Y * Y);
+            return new Vec2(v1.X * v2.X, v1.Y * v2.Y);
         }
 
-        public Vec2 InnerDivide(Vec2 v1)
+        public static Vec2 InnerDivide(Vec2 v1, Vec2 v2)
         {
-            return new Vec2(v1.X / X, v1.Y / Y);
+            return new Vec2(v1.X / v2.X, v1.Y / v2.Y);
         }
 
-        public float DistanceFrom(Vec2 v1)
+        public static float DistanceFrom(Vec2 v1, Vec2 v2)
         {
-            return (float)Math.Abs(Math.Sqrt((X-v1.X)* (X - v1.X) + (Y - v1.Y) * (Y - v1.Y)));
+            return (float)Math.Abs(Math.Sqrt((v2.X-v1.X)* (v2.X - v1.X) + (v2.Y - v1.Y) * (v2.Y - v1.Y)));
         }
 
 

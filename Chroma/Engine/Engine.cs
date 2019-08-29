@@ -18,9 +18,10 @@ namespace Chroma.Engine
     public class ChromaGame : Microsoft.Xna.Framework.Game
     {
 
-        // Static Instances
+        // Instances
         public static ChromaGame Instance { get; private set;  }
-        public static EntityManager entityManager;
+        public World world;
+        public EntityManager entityManager;
 
 
         // Screen
@@ -62,7 +63,7 @@ namespace Chroma.Engine
         public ChromaGame(int width, int height, int pixelWidth, int pixelHeight, string windowTitle, bool fullscreen)
         {
             ChromaGame.Instance = this;
-
+            world = new World();
             ChromaGame.Title = windowTitle;
             ChromaGame.Width = width;
             ChromaGame.Height = height;
@@ -164,8 +165,8 @@ namespace Chroma.Engine
 
 
 
-            World.Scenes.Add(scene);
-            World.currentScene = World.Scenes[0];
+            world.Scenes.Add(scene);
+            world.currentScene = world.Scenes[0];
 
             
 
@@ -196,9 +197,9 @@ namespace Chroma.Engine
             
 
 
-            World.BeforeUpdate(gameTime);
-            World.Update(gameTime);
-            World.AfterUpdate(gameTime);
+            world.BeforeUpdate(gameTime);
+            world.Update(gameTime);
+            world.AfterUpdate(gameTime);
             base.Update(gameTime);
         }
 
@@ -213,9 +214,9 @@ namespace Chroma.Engine
             // TODO: Add your drawing code here
             Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             //Global.spriteBatch.Draw(Content.Load<Texture2D>(contentDirectory + "/test"), new Vector2(0, 0), Color.White);
-            World.BeforeRender(gameTime);
-            World.Render(gameTime);
-            World.AfterRender(gameTime);
+            world.BeforeRender(gameTime);
+            world.Render(gameTime);
+            world.AfterRender(gameTime);
             
 
             // End
