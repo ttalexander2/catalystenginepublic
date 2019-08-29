@@ -64,7 +64,6 @@
     <Compile Include="Engine\EntityManager.cs" />
     <Compile Include="Engine\Input\InputSystem.cs" />
     <Compile Include="Engine\Physics\BoxCollider.cs" />
-    <Compile Include="Engine\Physics\Vec2.cs" />
     <Compile Include="Engine\Physics\PhysicsSystem.cs" />
     <Compile Include="Engine\Physics\Collider.cs" />
     <Compile Include="Engine\Physics\QuadTree.cs" />

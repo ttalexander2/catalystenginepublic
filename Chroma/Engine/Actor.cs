@@ -13,11 +13,7 @@ namespace Chroma.Engine
         public Vector2 Position { get; internal set; }
 
 
-        public Actor() : base()
-        {
-
-        }
-        public void MoveX(Entity entity, Vec2 velocity, Action onCollide)
+        public void MoveX(Entity entity, Vector2 velocity, Action onCollide)
         {
             xRemainder += velocity.X;
             int move = (int)Math.Round(xRemainder);
@@ -30,7 +26,7 @@ namespace Chroma.Engine
                 
                 while (move != 0)
                 {
-                    if (!World.currentScene.EntityCollision(this.UID, Position + new Vector2(sign, 0)))
+                    if (!ChromaGame.Instance.world.currentScene.EntityCollision(this.UID, Position + new Vector2(sign, 0)))
                     {
                         //No solid immediately beside us
                         Position += new Vector2(sign, 0);
@@ -59,7 +55,7 @@ namespace Chroma.Engine
 
                 while (move != 0)
                 {
-                    if (!World.currentScene.EntityCollision(UID, Position + new Vector2(0, sign)))
+                    if (!ChromaGame.Instance.world.currentScene.EntityCollision(UID, Position + new Vector2(0, sign)))
                     {
                         //No solid immediately beside us
                         Position += new Vector2(0, sign);

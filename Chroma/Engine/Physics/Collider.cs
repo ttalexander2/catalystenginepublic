@@ -12,7 +12,8 @@ namespace Chroma.Engine.Physics
 
         public int UID { get; private set; }
         public Vector2 pos { get; private set; }
-        public Collider(int UID) {
+        protected Collider(int UID)
+        {
             this.UID = UID;
         }
 

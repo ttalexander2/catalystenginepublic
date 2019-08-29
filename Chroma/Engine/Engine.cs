@@ -164,6 +164,9 @@ namespace Chroma.Engine
             scene.Entites.Add(entity2.UID, entity2);
 
 
+            var vec = new Vector2(2, 5);
+            vec.X = 5;
+
 
             world.Scenes.Add(scene);
             world.currentScene = world.Scenes[0];
