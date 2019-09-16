@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using Chroma.Engine.Graphics;
+using Chroma.Engine.Input;
 using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Chroma.Game;
@@ -21,7 +22,6 @@ namespace Chroma.Engine
         // Instances
         public static ChromaGame Instance { get; private set;  }
         public World world;
-        public EntityManager entityManager;
 
 
         // Screen
@@ -119,7 +119,6 @@ namespace Chroma.Engine
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            entityManager = new EntityManager();
 
             base.Initialize();
 #if DEBUG
@@ -146,7 +145,8 @@ namespace Chroma.Engine
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
-            Entity testEntity = new Entity();
+            Entity testEntity = world.Manager.NewEntity();
+            testEntity.AddComponent<CInput>();
             var sprite = new Sprite(testEntity.UID, "test", 0, 0, atlas, Origin.TopLeft) {animationSpeed = 6.0f};
             scene.Sprites.Add(testEntity.UID, sprite);
             scene.Colliders.Add(testEntity.UID, new BoxCollider(testEntity.UID, sprite.pos, sprite.dims));
@@ -156,7 +156,7 @@ namespace Chroma.Engine
             Alarm timer = new Alarm(new TestScript(), new object[] { "poop" }, false, true, true, 6.0f);
             scene.Alarms.Add(testEntity.UID, timer);
 
-            var entity2 = new Entity();
+            var entity2 = manager.NewEntity();
             var sprite2 = new Sprite(entity2.UID, "test2", 800, 800, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1") }, Origin.TopLeft);
             scene.Colliders.Add(entity2.UID, new BoxCollider(entity2.UID, sprite2.pos, sprite2.dims));
 
@@ -169,7 +169,7 @@ namespace Chroma.Engine
 
 
             world.Scenes.Add(scene);
-            world.currentScene = world.Scenes[0];
+            world.CurrentScene = world.Scenes[0];
 
             
 

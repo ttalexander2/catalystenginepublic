@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Chroma.Engine.Graphics;
+using Chroma.Engine.Input;
 using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Microsoft.Xna.Framework;
@@ -9,68 +10,126 @@ namespace Chroma.Engine
 {
     public class Scene
     {
-        public Dictionary<int, Entity> Entites = new Dictionary<int, Entity>();
-        public Dictionary<int, Sprite> Sprites = new Dictionary<int, Sprite>();
-        public Dictionary<int, Collider> Colliders = new Dictionary<int, Collider>();
-        public Dictionary<int, Alarm> Alarms = new Dictionary<int, Alarm>();
-
-        private QuadTree quad = new QuadTree(new Rectangle(0, 0, (int)(Global.NativeWidth * Global.PixelScale), (int)(Global.NativeHeight * Global.PixelScale)));
+        public ECManager Manager { get; private set; }
+        public List<ASystem> Systems { get; private set; }
 
         public Scene(int width, int height)
         {
             Width = width;
             Height = height;
+            Manager = new ECManager(this);
+            Systems = new List<ASystem>();
         }
 
         public int Width { get; }
         public int Height { get; }
 
         #region [Loop]
-        public void Start()
+        public void Initialize()
         {
-
+            Systems.Add(new InputSystem(this));
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                Systems[i].Initialize();
+            }
         }
 
-        public virtual void BeforeUpdate(GameTime gameTime)
+        public virtual void PreUpdate(GameTime gameTime)
         {
-            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.BeforeUpdate(gameTime);
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                Systems[i].PreUpdate(gameTime);
+            }
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.Update(gameTime);
-            foreach (KeyValuePair<int, Alarm> entry in Alarms) entry.Value.Update(gameTime);
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                Systems[i].Update(gameTime);
+            }
         }
 
-        public virtual void AfterUpdate(GameTime gameTime)
+        public virtual void PostUpdate(GameTime gameTime)
         {
-            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.AfterUpdate(gameTime);
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                Systems[i].PostUpdate(gameTime);
+            }
         }
 
-        public virtual void BeforeRender(GameTime gameTime)
+        public virtual void PreRender(GameTime gameTime)
         {
-            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.BeforeRender(gameTime);
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                ASystem system = Systems[i];
+                if (system.Renders)
+                {
+                    try {
+                        ((ARenderSystem)system).PreRender(gameTime);
+                    } catch (InvalidCastException e)
+                    {
+#if DEBUG
+                        Console.WriteLine("Couldn't cast system to Render system! " + e.ToString());
+#endif
+                    }
+                    
+                }
+            }
         }
 
         public virtual void Render(GameTime gameTime)
         {
-            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.Render(gameTime);
-            foreach (KeyValuePair<int, Collider> entry in Colliders) entry.Value.Render(gameTime);
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                ASystem system = Systems[i];
+                if (system.Renders)
+                {
+                    try
+                    {
+                        ((ARenderSystem)system).Render(gameTime);
+                    }
+                    catch (InvalidCastException e)
+                    {
+#if DEBUG
+                        Console.WriteLine("Couldn't cast system to Render system! " + e.ToString());
+#endif
+                    }
+
+                }
+            }
         }
 
-        public virtual void AfterRender(GameTime gameTime)
+        public virtual void PostRender(GameTime gameTime)
         {
-            foreach (KeyValuePair<int, Sprite> entry in Sprites) entry.Value.AfterRender(gameTime);
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                ASystem system = Systems[i];
+                if (system.Renders)
+                {
+                    try
+                    {
+                        ((ARenderSystem)system).PostRender(gameTime);
+                    }
+                    catch (InvalidCastException e)
+                    {
+#if DEBUG
+                        Console.WriteLine("Couldn't cast system to Render system! " + e.ToString());
+#endif
+                    }
+
+                }
+            }
         }
 
         public virtual void End()
         {
 
         }
-        #endregion
+#endregion
 
 
-        
+        /**
         public bool EntityCollision(int UID, Vector2 offset)
         {
             foreach (KeyValuePair<int, Entity> entry in Entites)
@@ -128,20 +187,14 @@ namespace Chroma.Engine
                     }
                 }
             }
-    */
+    
         }
 
         public Entity GenEntity(int UID)
         {
-            Entity entity;
-            if (Entites.TryGetValue(UID, out entity))
-            {
-                if (entity != null)
-                {
-                    return entity;
-                }
-            }
-            return null;
+            Manager
         }
+
+    */
     }
 }

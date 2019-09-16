@@ -7,7 +7,7 @@ using static Chroma.Engine.Utilities.Utility;
 
 namespace Chroma.Engine.Graphics
 {
-    public class Sprite: Component
+    public class Sprite
     {
 
 
@@ -90,7 +90,7 @@ namespace Chroma.Engine.Graphics
 
 
 
-        public override void Render(GameTime gameTime)
+        public void Render(GameTime gameTime)
         {
             if (Textures != null && currentTexture != null)
             {
@@ -122,7 +122,7 @@ namespace Chroma.Engine.Graphics
 
         }
 
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
 
             if(animating && (gameTime.TotalGameTime.Subtract(_timeChanged).Milliseconds >= (1000 / animationSpeed)))
@@ -150,7 +150,7 @@ namespace Chroma.Engine.Graphics
             }
         }
 
-        public override void AfterUpdate(GameTime gameTime)
+        public void AfterUpdate(GameTime gameTime)
         {
             
         }

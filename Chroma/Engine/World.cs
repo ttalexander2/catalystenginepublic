@@ -6,11 +6,10 @@ namespace Chroma.Engine
 {
     public class World
     {
-        public int EntityIdNum = 0;
 
         public List<Scene> Scenes = new List<Scene>();
 
-        public Scene currentScene;
+        public Scene CurrentScene { get; set; }
 
         public void Start()
         {
@@ -19,35 +18,35 @@ namespace Chroma.Engine
 
         public void BeforeUpdate(GameTime gameTime)
         {
-            currentScene?.BeforeUpdate(gameTime);
+            CurrentScene?.PreUpdate(gameTime);
         }
 
         public void Update(GameTime gameTime)
         {
-            currentScene?.Update(gameTime);
+            CurrentScene?.Update(gameTime);
 #if DEBUG
-            if (currentScene == null) Console.WriteLine("World.currentScene is NULL. Update/Render could not occur.");
+            if (CurrentScene == null) Console.WriteLine("World.currentScene is NULL. Update/Render could not occur.");
 #endif
         }
 
         public void AfterUpdate(GameTime gameTime)
         {
-            currentScene?.AfterUpdate(gameTime);
+            CurrentScene?.PostUpdate(gameTime);
         }
 
         public void BeforeRender(GameTime gameTime)
         {
-            currentScene?.BeforeRender(gameTime);
+            CurrentScene?.PreUpdate(gameTime);
         }
 
         public void Render(GameTime gameTime)
         {
-            currentScene?.Render(gameTime);
+            CurrentScene?.Render(gameTime);
         }
 
         public void AfterRender(GameTime gameTime)
         {
-            currentScene?.AfterRender(gameTime);
+            CurrentScene?.PostUpdate(gameTime);
         }
 
         public void End()

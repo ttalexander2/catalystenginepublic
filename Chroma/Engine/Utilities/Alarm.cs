@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine.Utilities
 {
-    public class Alarm : Component
+    public class Alarm
     {
         private float _interval;
         private float  _elapsed;
@@ -17,7 +17,7 @@ namespace Chroma.Engine.Utilities
         private bool _renders;
         private bool _active;
 
-        public Alarm(IScript script, object[] args, bool renders, bool loop, bool startImmediately, float seconds)
+        public Alarm(Scene scene, IScript script, object[] args, bool renders, bool loop, bool startImmediately, float seconds)
         {
             _script = script;
             _loop = loop;
@@ -27,7 +27,7 @@ namespace Chroma.Engine.Utilities
             _active = startImmediately;
         }
 
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             if (!_active) return;
             _elapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -45,7 +45,7 @@ namespace Chroma.Engine.Utilities
             Stop();
         }
 
-        public override void Render(GameTime gameTime)
+        public void Render(GameTime gameTime)
         {
             if (!_renders) return;
             if (_elapsed < _interval) return;

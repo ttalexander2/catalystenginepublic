@@ -10,7 +10,7 @@ using static Chroma.Engine.Utilities.Utility;
 
 namespace Chroma.Engine.Physics
 {
-    public class BoxCollider: Collider
+    public class BoxCollider: ACollider
     {
         public Rectangle BoundingBox { get; private set; }
         
@@ -35,7 +35,7 @@ namespace Chroma.Engine.Physics
          * TODO: Move to physics system
          */
 
-        public override bool CollidesWith(Collider collider, Vector2 offset)
+        public bool CollidesWith(ACollider collider, Vector2 offset)
         {
             if (collider is BoxCollider)
             {
@@ -44,7 +44,7 @@ namespace Chroma.Engine.Physics
             return false;
         }
 
-        public override void Render(GameTime gameTime)
+        public void DebugRender(GameTime gameTime)
         {
             var t = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
             t.SetData(new[] { Color.White });
@@ -54,10 +54,10 @@ namespace Chroma.Engine.Physics
 
             Rectangle r = new Rectangle((int)BoundingBox.X, (int)BoundingBox.Y, (int)BoundingBox.Width, (int)BoundingBox.Height);
 
-            Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, bw, r.Height), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Left
-            Global.SpriteBatch.Draw(t, new Vector2(pos.X + r.Width, pos.Y), new Rectangle(r.Right, r.Top, bw, r.Height + 1), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Right
-            Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, r.Width, bw), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Top
-            Global.SpriteBatch.Draw(t, new Vector2(pos.X, pos.Y + r.Height), new Rectangle(r.Left, r.Bottom, r.Width, bw), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Bottom
+            Global.SpriteBatch.Draw(t, Position, new Rectangle(r.Left, r.Top, bw, r.Height), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Left
+            Global.SpriteBatch.Draw(t, new Vector2(Position.X + r.Width, Position.Y), new Rectangle(r.Right, r.Top, bw, r.Height + 1), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Right
+            Global.SpriteBatch.Draw(t, Position, new Rectangle(r.Left, r.Top, r.Width, bw), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Top
+            Global.SpriteBatch.Draw(t, new Vector2(Position.X, Position.Y + r.Height), new Rectangle(r.Left, r.Bottom, r.Width, bw), Color.Red * 0.5f, 0.0f, new Vector2(0, 0), 1, new SpriteEffects(), 0); // Bottom
         }
     }
 }

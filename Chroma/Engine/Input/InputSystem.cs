@@ -8,35 +8,34 @@ using System.Threading.Tasks;
 
 namespace Chroma.Engine.Input
 {
-    public class InputSystem
+    public class InputSystem : ASystem
     {
-        private KeyboardState _state;
-        private KeyboardState _previousState;
-        
-        
+        public InputSystem(Scene scene) : base(scene) { }
 
-
-        #region Keyboard
-        public void UpdateKeyboard()
+        public override void PreUpdate(GameTime gameTime)
         {
-            _previousState = _state;
-            _state = Keyboard.GetState();
+            foreach(CInput input in Manager.GetComponents<CInput>().Values)
+            {
+                input.previousKeyboardState = input.keyboardState;
+                input.keyboardState = Keyboard.GetState();
+
+                MouseState state = Mouse.GetState();
+                input.mouseX = state.X;
+                input.mouseY = state.Y;
+                input.mousePressed = state.RightButton == ButtonState.Pressed;
+
+                GamePadCapabilities capabilities = GamePad.GetCapabilities(
+                                                   PlayerIndex.One);
+
+                // If there a controller attached, handle it
+                if (capabilities.IsConnected)
+                {
+                    // Get the current state of Controller1
+                    input.previousGPState = input.GPState;
+                    input.GPState = GamePad.GetState(PlayerIndex.One);
+                }
+            }
         }
 
-        #endregion
-
-        public void Initialize()
-        {
-            _previousState = Keyboard.GetState();
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            _previousState = _state;
-            _state = Keyboard.GetState();
-            
-        }
-
-        
     }
 }
