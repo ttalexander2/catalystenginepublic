@@ -135,7 +135,7 @@ namespace Chroma.Engine
             // Create a new SpriteBatch, which can be used to draw textures.
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
             // TODO: use this.Content to load your game content here
-
+            /*
             var scene = new Scene(500, 500);
             var atlas = new Texture2D[] {
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
@@ -171,7 +171,7 @@ namespace Chroma.Engine
             world.Scenes.Add(scene);
             world.CurrentScene = world.Scenes[0];
 
-            
+            */
 
 
         }

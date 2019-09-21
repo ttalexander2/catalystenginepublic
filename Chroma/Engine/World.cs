@@ -4,12 +4,18 @@ using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine
 {
+    [Serializable]
     public class World
     {
 
         public List<Scene> Scenes = new List<Scene>();
 
         public Scene CurrentScene { get; set; }
+        public ECManager Manager { get
+            {
+                return CurrentScene.Manager;
+            }
+        }
 
         public void Start()
         {

@@ -45,7 +45,7 @@ namespace Chroma.Engine.Physics
                 
                 while (move != 0)
                 {
-                    if (!ChromaGame.Instance.world.CurrentScene.EntityCollision(this.UID, Position + new Vector2(sign, 0)))
+                    if (/*!ChromaGame.Instance.world.CurrentScene.EntityCollision(this.UID, Position + new Vector2(sign, 0))*/ true)
                     {
                         //No solid immediately beside us
                         t.Position += new Vector2(sign, 0);
@@ -61,6 +61,7 @@ namespace Chroma.Engine.Physics
             }
         }
 
+        /**
         private bool CheckActorCollisionWithSolids(int UID)
         {
 
@@ -95,7 +96,8 @@ namespace Chroma.Engine.Physics
                 }
             }
 
-
+        }
+        */
 
     }
 }
