@@ -9,7 +9,6 @@ namespace Chroma.Engine
 
         public int UID { get; private set; }
 
-        public int test { get; private set; }
         public string Name { get; private set; }
 
         private HashSet<Type> typeSet;
