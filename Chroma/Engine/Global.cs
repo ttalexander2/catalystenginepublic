@@ -12,8 +12,8 @@ namespace Chroma.Engine
         public static GraphicsDeviceManager Graphics;
         public static GameTime gameTime;
 
-        public static int NativeWidth = 640;
-        public static int NativeHeight = 360;
+        public static int Width = 640;
+        public static int Height = 360;
         public static float PixelScale = 3.0f;
 
     }

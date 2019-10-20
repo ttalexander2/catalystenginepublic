@@ -9,12 +9,11 @@ namespace Chroma.Engine.Physics
 {
     public class CVelocity : AComponent
     {
-        public static new string Name => "Velocity";
-        public Vector2 Vector { get; set; }
 
-        internal CVelocity(int UID) : base(UID)
+        public Vector2 Velocity { get; set; }
+        public CVelocity(Entity entity) : base(entity)
         {
-            Vector = Vector2.Zero;
+            Velocity = new Vector2();
         }
     }
 }

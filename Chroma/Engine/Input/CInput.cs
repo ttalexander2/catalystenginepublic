@@ -8,29 +8,30 @@ using Chroma.Engine;
 
 namespace Chroma.Engine.Input
 {
+    [Serializable]
     public sealed class CInput : AComponent
     {
         public static new string Name => "Input";
-        public KeyboardState keyboardState { get; set; }
-        public KeyboardState previousKeyboardState { get; set; }
+        public KeyboardState KeyboardState { get; set; }
+        public KeyboardState PreviousKeyboardState { get; set; }
 
-        public int mouseX { get; set; }
-        public int mouseY { get; set; }
-        public bool mousePressed { get; set; }
+        public int MouseX { get; set; }
+        public int MouseY { get; set; }
+        public bool MousePressed { get; set; }
         public GamePadState GPState { get; set; }
 
-        public GamePadState previousGPState { get; set; }
-        public int UID { get; private set; }
-        public bool Active { get; set; }
+        public GamePadState PreviousGPState { get; set; }
 
-        internal CInput(int UID) : base(UID)
+        public GamePadCapabilities Capabilities { get; set; }
+
+        public CInput(Entity entity) : base(entity)
         {
-            this.keyboardState = new KeyboardState();
-            this.previousKeyboardState = new KeyboardState();
-            this.mouseX = 0;
-            this.mouseY = 0;
-            this.mousePressed = false;
-            this.previousGPState = new GamePadState();
+            this.KeyboardState = new KeyboardState();
+            this.PreviousKeyboardState = new KeyboardState();
+            this.MouseX = 0;
+            this.MouseY = 0;
+            this.MousePressed = false;
+            this.PreviousGPState = new GamePadState();
             this.GPState = new GamePadState();
         }
 

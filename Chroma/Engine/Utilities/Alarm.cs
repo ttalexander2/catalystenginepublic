@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine.Utilities
 {
+    [Serializable]
     public class Alarm
     {
         private float _interval;

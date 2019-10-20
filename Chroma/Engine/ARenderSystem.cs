@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chroma.Engine
 {
+    [Serializable]
     public abstract class ARenderSystem : ASystem
     {
 

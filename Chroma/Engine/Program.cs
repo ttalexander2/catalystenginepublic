@@ -13,8 +13,8 @@ namespace Chroma.Engine
         [STAThread]
         public static void Main()
         {
-            using (var game = new ChromaGame(Global.NativeWidth * (int) Global.PixelScale,
-                Global.NativeHeight * (int) Global.PixelScale, 640, 360, "Chroma", false))
+            using (var game = new Engine(Global.Width * (int) Global.PixelScale,
+                Global.Height * (int) Global.PixelScale, "Chroma", false))
             {
                 game.Run();
             }

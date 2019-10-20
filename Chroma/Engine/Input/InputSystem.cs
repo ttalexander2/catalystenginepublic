@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Chroma.Engine.Input
 {
+    [Serializable]
     public class InputSystem : ASystem
     {
         public InputSystem(Scene scene) : base(scene) { }
@@ -16,22 +17,22 @@ namespace Chroma.Engine.Input
         {
             foreach(CInput input in Manager.GetComponents<CInput>().Values)
             {
-                input.previousKeyboardState = input.keyboardState;
-                input.keyboardState = Keyboard.GetState();
+                input.PreviousKeyboardState = input.KeyboardState;
+                input.KeyboardState = Keyboard.GetState();
 
                 MouseState state = Mouse.GetState();
-                input.mouseX = state.X;
-                input.mouseY = state.Y;
-                input.mousePressed = state.RightButton == ButtonState.Pressed;
+                input.MouseX = state.X;
+                input.MouseY = state.Y;
+                input.MousePressed = state.RightButton == ButtonState.Pressed;
 
-                GamePadCapabilities capabilities = GamePad.GetCapabilities(
+                input.Capabilities = GamePad.GetCapabilities(
                                                    PlayerIndex.One);
 
                 // If there a controller attached, handle it
-                if (capabilities.IsConnected)
+                if (input.Capabilities.IsConnected)
                 {
                     // Get the current state of Controller1
-                    input.previousGPState = input.GPState;
+                    input.PreviousGPState = input.GPState;
                     input.GPState = GamePad.GetState(PlayerIndex.One);
                 }
             }

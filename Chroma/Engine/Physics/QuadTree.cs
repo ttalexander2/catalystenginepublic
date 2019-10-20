@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Chroma.Engine.Physics
 {
+    [Serializable]
     public class QuadTree
     {
         private int _maxObjects = 10;
         private int _maxLevels = 5;
 
         private int _level;
-        private List<Sprite> _objects;
+        private List<CTransform> _objects;
         private Rectangle _bounds;
         private QuadTree[] _nodes;
 
@@ -22,7 +23,7 @@ namespace Chroma.Engine.Physics
         private QuadTree(int parentLevel, Rectangle parentBounds)
         {
             _level = parentLevel;
-            _objects = new List<Sprite>();
+            _objects = new List<CTransform>();
             _bounds = parentBounds;
             _nodes = new QuadTree[4];
         }
@@ -30,7 +31,7 @@ namespace Chroma.Engine.Physics
         public QuadTree(Rectangle parentBounds)
         {
             _level = 0;
-            _objects = new List<Sprite>();
+            _objects = new List<CTransform>();
             _bounds = parentBounds;
             _nodes = new QuadTree[4];
         }
@@ -62,16 +63,16 @@ namespace Chroma.Engine.Physics
             _nodes[3] = new QuadTree(_level + 1, new Rectangle(x + subWidth, y + subHeight, subWidth, subHeight));
         }
 
-        private int getIndex(Sprite sprite)
+        private int GetIndex(CTransform collider)
         {
             int index = -1;
             double verticalMidpoint = _bounds.X + (_bounds.Width / 2);
             double horizontalMidpoint = _bounds.Y + (_bounds.Height / 2);
 
-            bool topQuadrant = (sprite.pos.Y < horizontalMidpoint && sprite.pos.Y + sprite.dims.Y < horizontalMidpoint);
-            bool bottomQuadrant = (sprite.pos.Y > horizontalMidpoint);
+            bool topQuadrant = (collider.Position.Y < horizontalMidpoint && collider.Position.Y + collider.Dimensions.Y < horizontalMidpoint);
+            bool bottomQuadrant = (collider.Position.Y > horizontalMidpoint);
 
-            if (sprite.pos.X < verticalMidpoint && sprite.pos.X + sprite.dims.X < verticalMidpoint)
+            if (collider.Position.X < verticalMidpoint && collider.Position.X + collider.Dimensions.X < verticalMidpoint)
             {
                 if (topQuadrant)
                 {
@@ -82,7 +83,7 @@ namespace Chroma.Engine.Physics
                     index = 2;
                 }
             }
-            else if (sprite.pos.X > verticalMidpoint)
+            else if (collider.Position.X > verticalMidpoint)
             {
                 if (topQuadrant)
                 {
@@ -96,21 +97,21 @@ namespace Chroma.Engine.Physics
             return index;
         }
 
-        public void insert(Sprite sprite)
+        public void Insert(CTransform collider)
         {
             if(_nodes[0] != null)
             {
-                int index = getIndex(sprite);
+                int index = GetIndex(collider);
 
                 if (index != -1)
                 {
-                    _nodes[index].insert(sprite);
+                    _nodes[index].Insert(collider);
 
                     return;
                 }
             }
 
-            _objects.Add(sprite);
+            _objects.Add(collider);
 
             if(_objects.Count > _maxObjects && _level < _maxLevels)
             {
@@ -122,10 +123,10 @@ namespace Chroma.Engine.Physics
                 int i = 0;
                 while(i < _objects.Count)
                 {
-                    int index = getIndex(_objects[i]);
+                    int index = GetIndex(_objects[i]);
                     if (index != -1)
                     {
-                        _nodes[index].insert(_objects[i]);
+                        _nodes[index].Insert(_objects[i]);
                         _objects.RemoveAt(i);
                     }
                     else
@@ -136,12 +137,12 @@ namespace Chroma.Engine.Physics
             }
         }
 
-        public List<Sprite> retrieve(List<Sprite> returnObjects, Sprite pRect)
+        public List<CTransform> Retrieve(List<CTransform> returnObjects, CTransform pRect)
         {
-            int index = getIndex(pRect);
+            int index = GetIndex(pRect);
             if (index != -1 && _nodes[0] != null)
             {
-                _nodes[index].retrieve(returnObjects, pRect);
+                _nodes[index].Retrieve(returnObjects, pRect);
             }
 
             returnObjects.AddRange(_objects);

@@ -4,13 +4,21 @@ using System;
 
 namespace Chroma.Engine
 {
+    [Serializable]
     public class CActor : AComponent
     {
         public static new string Name => "Actor";
 
-        internal CActor(int UID) : base(UID)
+        public CActor(Entity entity) : base(entity)
         {
-
+            if (!entity.HasComponent<CTransform>())
+            {
+                entity.AddComponent<CTransform>();
+            }
+            if (!entity.HasComponent<CVelocity>())
+            {
+                entity.AddComponent<CVelocity>();
+            }
         }
   
     }

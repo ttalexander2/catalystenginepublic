@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chroma.Engine.Utilities
 {
+    [Serializable]
     public enum Origin
     {
         TopLeft,

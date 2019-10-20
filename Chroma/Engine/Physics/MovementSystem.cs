@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Chroma.Engine.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine.Physics
 {
+    [Serializable]
     public class MovementSystem : ASystem
     {
-        public MovementSystem(Scene scene) : base(scene) { }
 
-        private QuadTree quad = new QuadTree(new Rectangle(0, 0, (int)(Global.NativeWidth * Global.PixelScale), (int)(Global.NativeHeight * Global.PixelScale)));
+        private QuadTree quad;
+        public MovementSystem(Scene scene) : base(scene)
+        {
+            quad = new QuadTree(new Rectangle(0, 0, Global.Width, Global.Height));
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -20,84 +25,110 @@ namespace Chroma.Engine.Physics
 
         private void MoveActors(GameTime gameTime)
         {
-            foreach (Entity e in Manager.GetEntities().Values)
+            foreach (CActor actor in Manager.GetComponents<CActor>().Values)
             {
-                if (e.HasComponent<CActor>() && e.HasComponent<CVelocity>() && e.HasComponent<CTransform>())
-                {
-
-                }
+                    MoveX(actor);
+                    MoveY(actor);
             }
         }
 
 
-        private void MoveX(int UID, Action onCollide)
+        private void MoveX(CActor actor)
         {
-            CTransform t = Manager.GetComponent<CTransform>(UID);
-            CVelocity v = Manager.GetComponent<CVelocity>(UID);
-
-            int move = (int)Math.Round(v.Vector.X);
-            
+            CTransform t = actor.Entity.GetComponent<CTransform>();
+            CVelocity v = actor.Entity.GetComponent<CVelocity>(); 
+            int move = (int)Math.Round(v.Velocity.X);
             if (move != 0)
             {
-                v.Vector = new Vector2(v.Vector.X - move, v.Vector.Y);
+                v.Velocity = new Vector2(v.Velocity.X - move, v.Velocity.Y);
                 int sign = Math.Sign(move);
 
-                
+
                 while (move != 0)
                 {
-                    if (/*!ChromaGame.Instance.world.CurrentScene.EntityCollision(this.UID, Position + new Vector2(sign, 0))*/ true)
+                    CTransform collision = ActorColliding(t, new Vector2(sign, 0));
+                    if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Vector2(sign, 0);
+                        t.Position += new Vector2(sign * Global.PixelScale, 0);
                         move -= sign;
                     }
                     else
                     {
-                        //Hit a solid!
-                        onCollide?.Invoke();
+                        if (collision.CollisionAction != null)
+                        {
+                            collision.CollisionAction.Invoke();
+                        }
                         break;
                     }
                 }
             }
         }
 
-        /**
-        private bool CheckActorCollisionWithSolids(int UID)
+        private void MoveY(CActor actor)
         {
+            CTransform t = actor.Entity.GetComponent<CTransform>();
+            CVelocity v = actor.Entity.GetComponent<CVelocity>();
+            int move = (int)Math.Round(v.Velocity.Y);
+            if (move != 0)
+            {
+                v.Velocity = new Vector2(v.Velocity.X, v.Velocity.Y - move);
+                int sign = Math.Sign(move);
 
 
-            quad.Clear();
-            for (int j = 0; j < layer.Sprites.Count; j++)
-            {
-                if (layer.Sprites[j].collidable)
+                while (move != 0)
                 {
-                    quad.insert(layer.Sprites[j]);
-                }
-            }
-            List<Sprite> returnObjects = new List<Sprite>();
-            for (int i = 0; i < _layers.Count; i++)
-            {
-                SceneLayer layer = _layers[i];
-                if (layer.hasCollisions)
-                {
-                    for (int j = 0; j < layer.Sprites.Count; j++)
+                    CTransform collision = ActorColliding(t, new Vector2(0, sign));
+                    if (collision == null)
                     {
-                        if (layer.Sprites[j].collidable)
+                        //No solid immediately beside us
+                        t.Position += new Vector2(0, sign * Global.PixelScale);
+                        move -= sign;
+                    }
+                    else
+                    {
+                        if (collision.CollisionAction != null)
                         {
-                            returnObjects.Clear();
-                            quad.retrieve(returnObjects, layer.Sprites[j]);
-
-                            for (int x = 0; x < returnObjects.Count; x++)
-                            {
-                                //Check Collision
-                            }
+                            collision.CollisionAction.Invoke();
                         }
+                        break;
                     }
                 }
             }
+        }
+
+        private CTransform ActorColliding(CTransform actor, Vector2 offset)
+        {
+            if (actor == null) { return null; }
+
+            quad.Clear();
+     
+            foreach (CSolid solid in scene.Manager.GetComponents<CSolid>().Values)
+            {
+                if (solid.Entity.HasComponent<CTransform>())
+                {
+                    quad.Insert(solid.Entity.GetComponent<CTransform>());
+                }   
+            }
+            List<CTransform> returnObjects = new List<CTransform>();
+            quad.Retrieve(returnObjects, actor.Entity.GetComponent<CTransform>());
+
+            foreach (CTransform solid in returnObjects)
+            {
+                Vector2 actorOffset = actor.Position + offset;
+                if (actorOffset.X < solid.Position.X + solid.Dimensions.X * (Global.PixelScale) &&
+                    actorOffset.X + actor.Dimensions.X * (Global.PixelScale) > solid.Position.X &&
+                    actorOffset.Y < solid.Position.Y + solid.Dimensions.Y * (Global.PixelScale) &&
+                    actorOffset.Y + actor.Dimensions.Y * (Global.PixelScale) > solid.Position.Y)
+                {
+                    return solid;
+                }
+            }
+            return null;
 
         }
-        */
+
+
 
     }
 }

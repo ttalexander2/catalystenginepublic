@@ -7,14 +7,23 @@ using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine.Physics
 {
-    public class CollisionDetectionSystem : ARenderSystem
+    [Serializable]
+    public class CollisionDetectionSystem : ASystem
     {
 
-        public CollisionDetectionSystem(Scene scene) : base(scene) { }
-        public override void DebugRender(GameTime gameTree)
+        private QuadTree quad;
+
+        public CollisionDetectionSystem(Scene scene) : base(scene)
         {
-            base.DebugRender(gameTree);
+            quad = new QuadTree(new Rectangle(0, 0, Global.Width, Global.Height));
         }
+
+        public override void Update(GameTime gameTime)
+        {
+
+        }
+
+        
 
     }
 }

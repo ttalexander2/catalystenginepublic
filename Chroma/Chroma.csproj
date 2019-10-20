@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E0F96220-34C9-4F07-9E3C-EDFDC8D28B0F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Chroma</RootNamespace>
     <AssemblyName>Chroma</AssemblyName>
@@ -65,15 +65,19 @@
     <Compile Include="Engine\ASystem.cs" />
     <Compile Include="Engine\ARenderSystem.cs" />
     <Compile Include="Engine\ECManager.cs" />
+    <Compile Include="Engine\CSolid.cs" />
+    <Compile Include="Engine\Graphics\SpriteRenderSystem.cs" />
     <Compile Include="Engine\Input\CInput.cs" />
+    <Compile Include="Engine\Input\Controller.cs" />
     <Compile Include="Engine\Input\InputSystem.cs" />
-    <Compile Include="Engine\Physics\BoxCollider.cs" />
+    <Compile Include="Engine\Physics\CVelocity.cs" />
     <Compile Include="Engine\Physics\MovementSystem.cs" />
     <Compile Include="Engine\Physics\CTransform.cs" />
-    <Compile Include="Engine\Physics\CVelocity.cs" />
     <Compile Include="Engine\Physics\CollisionDetectionSystem.cs" />
-    <Compile Include="Engine\Physics\Collider.cs" />
     <Compile Include="Engine\Physics\QuadTree.cs" />
+    <Compile Include="Engine\Utilities\DialogBox.cs" />
+    <Compile Include="Engine\Utilities\DialogBoxWindow.cs" />
+    <Compile Include="Engine\Utilities\FrameCounter.cs" />
     <Compile Include="Engine\Utilities\Origin.cs" />
     <Compile Include="Engine\Utilities\ScriptTemplate.cs" />
     <Compile Include="Engine\Utilities\Utility.cs" />
@@ -82,10 +86,13 @@
     <Compile Include="Engine\World.cs" />
     <Compile Include="Engine\Global.cs" />
     <Compile Include="Engine\Program.cs" />
-    <Compile Include="Engine\Graphics\Sprite.cs" />
+    <Compile Include="Engine\Graphics\CSprite.cs" />
     <Compile Include="Engine\Scene.cs" />
     <Compile Include="Engine\Entity.cs" />
     <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Game\CPlayer.cs" />
+    <Compile Include="Game\GravitySystem.cs" />
+    <Compile Include="Game\PlayerSystem.cs" />
     <Compile Include="Game\TestScript.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Engine\AComponent.cs" />

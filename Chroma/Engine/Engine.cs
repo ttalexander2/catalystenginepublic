@@ -16,30 +16,22 @@ namespace Chroma.Engine
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class ChromaGame : Microsoft.Xna.Framework.Game
+    public class Engine : Microsoft.Xna.Framework.Game
     {
 
         // Instances
-        public static ChromaGame Instance { get; private set;  }
-        public World world;
+        public static Engine Instance { get; private set; }
+        public World World { get; set; }
 
 
         // Screen
         public static int Width { get; private set; }
         public static int Height { get; private set; }
-        public static int PixelWidth { get; private set; }
-        public static int PixelHeight { get; private set; }
         public static bool Fullscreen { get; private set; }
         public static string Title { get; private set; }
 
-        // View
-        public Viewport Viewport { get; private set; }
-
         // Time
-        public static float DeltaTime { get; private set; }
-        public static float RawDeltaTime { get; private set; }
-        public static float TimeRate = 1f;
-        public static int Fps;
+        public static FrameCounter Time;
 
         // Directories
 
@@ -60,16 +52,15 @@ namespace Chroma.Engine
         #endif
         }
 
-        public ChromaGame(int width, int height, int pixelWidth, int pixelHeight, string windowTitle, bool fullscreen)
+        public Engine(int width, int height, string windowTitle, bool fullscreen)
         {
-            ChromaGame.Instance = this;
-            world = new World();
-            ChromaGame.Title = windowTitle;
-            ChromaGame.Width = width;
-            ChromaGame.Height = height;
-            ChromaGame.PixelWidth = pixelWidth;
-            ChromaGame.PixelHeight = pixelHeight;
-            ChromaGame.Fullscreen = fullscreen;
+            Engine.Instance = this;
+            World = new World();
+            Engine.Title = windowTitle;
+            Engine.Width = width;
+            Engine.Height = height;
+            Engine.Fullscreen = fullscreen;
+            Time = new FrameCounter();
 
             Global.Graphics = new GraphicsDeviceManager(this);
             Global.Graphics.SynchronizeWithVerticalRetrace = true;
@@ -96,8 +87,8 @@ namespace Chroma.Engine
             }
             else
             {
-                Global.Graphics.PreferredBackBufferWidth = ChromaGame.Width;
-                Global.Graphics.PreferredBackBufferHeight = ChromaGame.Height;
+                Global.Graphics.PreferredBackBufferWidth = Engine.Width;
+                Global.Graphics.PreferredBackBufferHeight = Engine.Height;
                 Global.Graphics.IsFullScreen = false;
             }
         #endif
@@ -119,7 +110,7 @@ namespace Chroma.Engine
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            World.Initialize();
             base.Initialize();
 #if DEBUG
             Console.WriteLine("Initialized");
@@ -134,10 +125,15 @@ namespace Chroma.Engine
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
-            // TODO: use this.Content to load your game content here
-            /*
-            var scene = new Scene(500, 500);
-            var atlas = new Texture2D[] {
+
+            Scene scene = new Scene(Width, Height);
+            scene.Systems.Add(new InputSystem(scene));
+            scene.Systems.Add(new PlayerSystem(scene));
+            scene.Systems.Add(new GravitySystem(scene));
+            scene.Systems.Add(new MovementSystem(scene));
+            scene.Systems.Add(new SpriteRenderSystem(scene));
+
+            Texture2D[] atlas = new Texture2D[] {
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"),
@@ -145,34 +141,26 @@ namespace Chroma.Engine
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
                 Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
-            Entity testEntity = world.Manager.NewEntity();
-            testEntity.AddComponent<CInput>();
-            var sprite = new Sprite(testEntity.UID, "test", 0, 0, atlas, Origin.TopLeft) {animationSpeed = 6.0f};
-            scene.Sprites.Add(testEntity.UID, sprite);
-            scene.Colliders.Add(testEntity.UID, new BoxCollider(testEntity.UID, sprite.pos, sprite.dims));
-
-            scene.Entites.Add(testEntity.UID, testEntity);
-
-            Alarm timer = new Alarm(new TestScript(), new object[] { "poop" }, false, true, true, 6.0f);
-            scene.Alarms.Add(testEntity.UID, timer);
-
-            var entity2 = manager.NewEntity();
-            var sprite2 = new Sprite(entity2.UID, "test2", 800, 800, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1") }, Origin.TopLeft);
-            scene.Colliders.Add(entity2.UID, new BoxCollider(entity2.UID, sprite2.pos, sprite2.dims));
-
-            scene.Sprites.Add(entity2.UID, sprite2);
-            scene.Entites.Add(entity2.UID, entity2);
+            Entity testEntity = scene.Manager.NewEntity();
+            var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f };
+            testEntity.AddComponent<CSprite>(sprite);
+            testEntity.AddComponents<CInput, CPlayer, CActor>();
 
 
-            var vec = new Vector2(2, 5);
-            vec.X = 5;
+            Texture2D[] atlas2 = new Texture2D[] {
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"),
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"),
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"),
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
+                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
+            Entity testEntity2 = scene.Manager.NewEntity();
+            var sprite2 = new CSprite(testEntity2, "test", 0, 200, atlas2, Origin.TopLeft) { animationSpeed = 6.0f };
+            testEntity2.AddComponent<CSprite>(sprite2);
+            testEntity2.AddComponent<CSolid>();
 
-
-            world.Scenes.Add(scene);
-            world.CurrentScene = world.Scenes[0];
-
-            */
-
+            World.CurrentScene = scene;
 
         }
         /// <summary>
@@ -196,13 +184,12 @@ namespace Chroma.Engine
                 Exit();
 
             // TODO: Add your update logic here
-
             
 
 
-            world.BeforeUpdate(gameTime);
-            world.Update(gameTime);
-            world.AfterUpdate(gameTime);
+            World.PreUpdate(gameTime);
+            World.Update(gameTime);
+            World.PostUpdate(gameTime);
             base.Update(gameTime);
         }
 
@@ -216,10 +203,19 @@ namespace Chroma.Engine
 
             // TODO: Add your drawing code here
             Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            //Global.spriteBatch.Draw(Content.Load<Texture2D>(contentDirectory + "/test"), new Vector2(0, 0), Color.White);
-            world.BeforeRender(gameTime);
-            world.Render(gameTime);
-            world.AfterRender(gameTime);
+
+            var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Time.Update(deltaTime);
+
+            var fps = string.Format("FPS: {0}", Time.AverageFramesPerSecond);
+
+            Console.WriteLine(fps);
+
+
+            World.PreRender(gameTime);
+            World.Render(gameTime);
+            World.PostRender(gameTime);
             
 
             // End

@@ -17,12 +17,13 @@ namespace Chroma.Engine
             }
         }
 
-        public void Start()
+        public void Initialize()
         {
+            CurrentScene?.Initialize();
         }
 
 
-        public void BeforeUpdate(GameTime gameTime)
+        public void PreUpdate(GameTime gameTime)
         {
             CurrentScene?.PreUpdate(gameTime);
         }
@@ -31,18 +32,18 @@ namespace Chroma.Engine
         {
             CurrentScene?.Update(gameTime);
 #if DEBUG
-            if (CurrentScene == null) Console.WriteLine("World.currentScene is NULL. Update/Render could not occur.");
+            if (CurrentScene == null) Console.WriteLine("World.CurrentScene is NULL. Update/Render could not occur.");
 #endif
         }
 
-        public void AfterUpdate(GameTime gameTime)
+        public void PostUpdate(GameTime gameTime)
         {
             CurrentScene?.PostUpdate(gameTime);
         }
 
-        public void BeforeRender(GameTime gameTime)
+        public void PreRender(GameTime gameTime)
         {
-            CurrentScene?.PreUpdate(gameTime);
+            CurrentScene?.PreRender(gameTime);
         }
 
         public void Render(GameTime gameTime)
@@ -50,9 +51,9 @@ namespace Chroma.Engine
             CurrentScene?.Render(gameTime);
         }
 
-        public void AfterRender(GameTime gameTime)
+        public void PostRender(GameTime gameTime)
         {
-            CurrentScene?.PostUpdate(gameTime);
+            CurrentScene?.PostRender(gameTime);
         }
 
         public void End()

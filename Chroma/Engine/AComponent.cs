@@ -1,17 +1,22 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 
 namespace Chroma.Engine
 {
+    [Serializable]
     public abstract class AComponent
     {
 
         public static string Name => "Abstract Component";
-        int UID { get; }
-        bool Active { get; set; }
+        public int UID { get; private set; }
+        public bool Active { get; set; }
 
-        internal AComponent(int UID)
+        public Entity Entity { get; private set; }
+
+        internal AComponent(Entity entity)
         {
-            this.UID = UID;
+            this.Entity = entity;
+            this.UID = entity.UID;
             this.Active = true;
         }
 
