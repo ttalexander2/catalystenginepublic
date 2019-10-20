@@ -14,7 +14,9 @@ namespace Chroma.Engine
 
         public static int Width = 640;
         public static int Height = 360;
-        public static float PixelScale = 3.0f;
+
+        public static int PreferredWindowWidth = 1920;
+        public static int PreferredWindowHeight = 1080;
 
     }
 }

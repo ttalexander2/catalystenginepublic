@@ -50,7 +50,7 @@ namespace Chroma.Engine.Physics
                     if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Vector2(sign * Global.PixelScale, 0);
+                        t.Position += new Vector2(sign, 0);
                         move -= sign;
                     }
                     else
@@ -82,7 +82,7 @@ namespace Chroma.Engine.Physics
                     if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Vector2(0, sign * Global.PixelScale);
+                        t.Position += new Vector2(0, sign);
                         move -= sign;
                     }
                     else
@@ -100,7 +100,8 @@ namespace Chroma.Engine.Physics
         private CTransform ActorColliding(CTransform actor, Vector2 offset)
         {
             if (actor == null) { return null; }
-
+            
+            /*
             quad.Clear();
      
             foreach (CSolid solid in scene.Manager.GetComponents<CSolid>().Values)
@@ -110,21 +111,51 @@ namespace Chroma.Engine.Physics
                     quad.Insert(solid.Entity.GetComponent<CTransform>());
                 }   
             }
+            
             List<CTransform> returnObjects = new List<CTransform>();
             quad.Retrieve(returnObjects, actor.Entity.GetComponent<CTransform>());
 
             foreach (CTransform solid in returnObjects)
             {
-                Vector2 actorOffset = actor.Position + offset;
-                if (actorOffset.X < solid.Position.X + solid.Dimensions.X * (Global.PixelScale) &&
-                    actorOffset.X + actor.Dimensions.X * (Global.PixelScale) > solid.Position.X &&
-                    actorOffset.Y < solid.Position.Y + solid.Dimensions.Y * (Global.PixelScale) &&
-                    actorOffset.Y + actor.Dimensions.Y * (Global.PixelScale) > solid.Position.Y)
+
+                Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
+                Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
+
+                if (actorOffset.X < solidOffset.X + solid.CollisionDims.X &&
+                    actorOffset.X + actor.CollisionDims.X > solidOffset.X &&
+                    actorOffset.Y < solidOffset.Y + solid.CollisionDims.Y &&
+                    actorOffset.Y + actor.CollisionDims.Y > solidOffset.Y)
                 {
                     return solid;
                 }
+                
+
             }
             return null;
+            */
+
+            
+            foreach (CSolid s in scene.Manager.GetComponents<CSolid>().Values)
+            {
+                if (s.Entity.HasComponent<CTransform>())
+                {
+                    CTransform solid = s.Entity.GetComponent<CTransform>();
+
+                    Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
+                    Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
+
+                    if (actorOffset.X < solidOffset.X + solid.CollisionDims.X &&
+                        actorOffset.X + actor.CollisionDims.X > solidOffset.X &&
+                        actorOffset.Y < solidOffset.Y + solid.CollisionDims.Y &&
+                        actorOffset.Y + actor.CollisionDims.Y > solidOffset.Y)
+                    {
+                        return solid;
+                    }
+                }
+
+            }
+            return null;
+            
 
         }
 

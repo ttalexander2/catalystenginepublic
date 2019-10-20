@@ -1,5 +1,6 @@
 ﻿using Chroma.Engine.Physics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,20 +34,17 @@ namespace Chroma.Engine.Graphics
             if (sprite.Textures != null && sprite.Texture != null)
             {
                 CTransform transform = sprite.Entity.GetComponent<CTransform>();
-                Global.SpriteBatch.Draw(sprite.Texture, transform.Position, null, Color.White, transform.Rotation, transform.Origin, transform.Scale * (Global.PixelScale), sprite.spriteEffects, sprite.layer);
-#if DebugMode
-                var t = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
-                t.SetData(new[] { Color.White });
+                Global.SpriteBatch.Draw(sprite.Texture, transform.Position, null, Color.White, transform.Rotation, transform.Origin, transform.Scale, sprite.spriteEffects, sprite.layer);
+#if Debug
+                Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, (int)transform.CollisionDims.X, (int)transform.CollisionDims.Y);
 
+                Color[] data = new Color[(int)transform.CollisionDims.X * (int)transform.CollisionDims.Y];
+                for (int i = 0; i < data.Length; ++i) data[i] = Color.Red * 0.5f;
+                rect.SetData(data);
 
-                int bw = 1; // Border width
+                Vector2 coor = new Vector2(10, 20);
 
-                Rectangle r = new Rectangle((int)pos.X, (int)pos.Y, (int)dims.X, (int)dims.Y);
-
-                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, bw, r.Height), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Left
-                Global.SpriteBatch.Draw(t, new Vector2(pos.X+r.Width* scale * (Global.PixelScale), pos.Y), new Rectangle(r.Right, r.Top, bw, r.Height+1), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Right
-                Global.SpriteBatch.Draw(t, pos, new Rectangle(r.Left, r.Top, r.Width, bw), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Top
-                Global.SpriteBatch.Draw(t, new Vector2(pos.X, pos.Y + r.Height* scale * (Global.PixelScale)), new Rectangle(r.Left, r.Bottom, r.Width, bw), debugColor, rotation, origin, scale * (Global.PixelScale), spriteEffects, 0); // Bottom
+                Global.SpriteBatch.Draw(rect, transform.Position + transform.CollisionOffset, null, Color.White, transform.Rotation, transform.Origin, transform.Scale, new SpriteEffects(), sprite.layer);
 #endif
             }
         }

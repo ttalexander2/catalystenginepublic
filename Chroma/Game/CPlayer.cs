@@ -1,4 +1,5 @@
 ﻿using Chroma.Engine;
+using Chroma.Engine.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,14 @@ namespace Chroma.Game
         public static new string Name => "Player Component";
         public CPlayer(Entity entity) : base(entity)
         {
-
+            if (!entity.HasComponent<CInput>())
+            {
+                entity.AddComponent<CInput>();
+            }
+            if (!entity.HasComponent<CActor>())
+            {
+                entity.AddComponent<CActor>();
+            }
         }
     }
 }

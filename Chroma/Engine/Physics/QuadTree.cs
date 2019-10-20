@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Chroma.Engine.Physics
 {
@@ -22,6 +23,7 @@ namespace Chroma.Engine.Physics
 
         private QuadTree(int parentLevel, Rectangle parentBounds)
         {
+            throw new Exception("QUAD TREE IS BROKEN");
             _level = parentLevel;
             _objects = new List<CTransform>();
             _bounds = parentBounds;
@@ -52,6 +54,7 @@ namespace Chroma.Engine.Physics
 
         private void Split()
         {
+
             int subWidth = (int)_bounds.Width / 2;
             int subHeight = (int)_bounds.Height / 2;
             int x = _bounds.X;
@@ -69,10 +72,10 @@ namespace Chroma.Engine.Physics
             double verticalMidpoint = _bounds.X + (_bounds.Width / 2);
             double horizontalMidpoint = _bounds.Y + (_bounds.Height / 2);
 
-            bool topQuadrant = (collider.Position.Y < horizontalMidpoint && collider.Position.Y + collider.Dimensions.Y < horizontalMidpoint);
-            bool bottomQuadrant = (collider.Position.Y > horizontalMidpoint);
+            bool topQuadrant = (collider.Position.Y + collider.Origin.Y < horizontalMidpoint && collider.Position.Y + collider.Origin.Y + collider.CollisionDims.Y < horizontalMidpoint);
+            bool bottomQuadrant = (collider.Position.Y + collider.Origin.Y > horizontalMidpoint);
 
-            if (collider.Position.X < verticalMidpoint && collider.Position.X + collider.Dimensions.X < verticalMidpoint)
+            if (collider.Position.X + collider.Origin.X < verticalMidpoint && collider.Position.X + collider.Origin.X + collider.CollisionDims.X < verticalMidpoint)
             {
                 if (topQuadrant)
                 {
@@ -83,7 +86,7 @@ namespace Chroma.Engine.Physics
                     index = 2;
                 }
             }
-            else if (collider.Position.X > verticalMidpoint)
+            else if (collider.Position.X + collider.Origin.X > verticalMidpoint)
             {
                 if (topQuadrant)
                 {
@@ -99,14 +102,14 @@ namespace Chroma.Engine.Physics
 
         public void Insert(CTransform collider)
         {
-            if(_nodes[0] != null)
+
+            if (_nodes[0] != null)
             {
                 int index = GetIndex(collider);
 
                 if (index != -1)
                 {
                     _nodes[index].Insert(collider);
-
                     return;
                 }
             }

@@ -44,6 +44,8 @@ namespace Chroma.Engine.Graphics
             CTransform transform = new CTransform(entity);
             Vector2 dims = GetDims();
             transform.Origin = Utility.OriginToVectorOffset(Origin.TopLeft, dims);
+            transform.CollisionOffset = new Vector2();
+            transform.CollisionDims = transform.Dimensions;
             animating = Textures.Count > 1;
             entity.AddComponent<CTransform>(transform);
         }
@@ -55,8 +57,10 @@ namespace Chroma.Engine.Graphics
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
-            transform.Position = new Vector2(x * Global.PixelScale, y * Global.PixelScale);
+            transform.Position = new Vector2(x, y);
             transform.Origin = Utility.OriginToVectorOffset(origin, dims);
+            transform.CollisionOffset = new Vector2();
+            transform.CollisionDims = transform.Dimensions;
             animating = Textures.Count > 1;
             entity.AddComponent<CTransform>(transform);
         }
@@ -68,10 +72,12 @@ namespace Chroma.Engine.Graphics
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
-            transform.Position = new Vector2(x * Global.PixelScale, y * Global.PixelScale);
+            transform.Position = new Vector2(x, y);
             transform.Origin = Utility.OriginToVectorOffset(origin, dims);
             transform.Scale = scale;
             transform.Rotation = rotation;
+            transform.CollisionOffset = new Vector2();
+            transform.CollisionDims = transform.Dimensions;
             animating = Textures.Count > 1;
             entity.AddComponent<CTransform>(transform);
         }
@@ -83,8 +89,10 @@ namespace Chroma.Engine.Graphics
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
-            transform.Position = new Vector2(x * Global.PixelScale, y * Global.PixelScale);
+            transform.Position = new Vector2(x, y);
             transform.Origin = new Vector2(xOrigin, yOrigin);
+            transform.CollisionOffset = new Vector2();
+            transform.CollisionDims = transform.Dimensions;
             animating = Textures.Count > 1;
             entity.AddComponent<CTransform>(transform);
         }
@@ -96,10 +104,12 @@ namespace Chroma.Engine.Graphics
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
-            transform.Position = new Vector2(x * Global.PixelScale, y * Global.PixelScale);
+            transform.Position = new Vector2(x, y);
             transform.Origin = new Vector2(xOrigin, yOrigin);
             transform.Scale = scale;
             transform.Rotation = rotation;
+            transform.CollisionOffset = new Vector2();
+            transform.CollisionDims = transform.Dimensions;
             animating = Textures.Count > 1;
             entity.AddComponent<CTransform>(transform);
         }

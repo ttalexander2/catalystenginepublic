@@ -1,9 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Chroma.Engine.Graphics;
-using Chroma.Engine.Input;
-using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Chroma.Game;
 using Microsoft.Xna.Framework;
@@ -33,6 +31,9 @@ namespace Chroma.Engine
         // Time
         public static FrameCounter Time;
 
+        // DebugDrawQueue
+        public static Queue<Action> DebugDrawQueue = new Queue<Action>();
+
         // Directories
 
         #if !CONSOLE
@@ -51,6 +52,10 @@ namespace Chroma.Engine
             get { return Path.Combine(AssemblyDirectory, Instance.Content.RootDirectory); }
         #endif
         }
+
+        //Rendering
+        private RenderTarget2D NativeRenderTarget { get; set; }
+        private Rectangle Screen { get; set; }
 
         public Engine(int width, int height, string windowTitle, bool fullscreen)
         {
@@ -87,16 +92,18 @@ namespace Chroma.Engine
             }
             else
             {
-                Global.Graphics.PreferredBackBufferWidth = Engine.Width;
-                Global.Graphics.PreferredBackBufferHeight = Engine.Height;
+                Global.Graphics.PreferredBackBufferWidth = Global. PreferredWindowWidth;
+                Global.Graphics.PreferredBackBufferHeight = Global.PreferredWindowHeight;
                 Global.Graphics.IsFullScreen = false;
             }
         #endif
 
             Content.RootDirectory = @"Content";
-            //renderTarget = new RenderTarget2D(Global.Graphics.GraphicsDevice, width, height);
-            //Global.Graphics.GraphicsDevice.SetRenderTarget(renderTarget);
+            NativeRenderTarget = new RenderTarget2D(Global.Graphics.GraphicsDevice, width, height);
+            Global.Graphics.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
             Global.Graphics.ApplyChanges();
+
+            Screen = new Rectangle(0, 0, Global.Graphics.PreferredBackBufferWidth, Global.Graphics.PreferredBackBufferHeight);
 
 
         }
@@ -126,41 +133,8 @@ namespace Chroma.Engine
             // Create a new SpriteBatch, which can be used to draw textures.
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
 
-            Scene scene = new Scene(Width, Height);
-            scene.Systems.Add(new InputSystem(scene));
-            scene.Systems.Add(new PlayerSystem(scene));
-            scene.Systems.Add(new GravitySystem(scene));
-            scene.Systems.Add(new MovementSystem(scene));
-            scene.Systems.Add(new SpriteRenderSystem(scene));
-
-            Texture2D[] atlas = new Texture2D[] {
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
-            Entity testEntity = scene.Manager.NewEntity();
-            var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f };
-            testEntity.AddComponent<CSprite>(sprite);
-            testEntity.AddComponents<CInput, CPlayer, CActor>();
-
-
-            Texture2D[] atlas2 = new Texture2D[] {
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
-            Entity testEntity2 = scene.Manager.NewEntity();
-            var sprite2 = new CSprite(testEntity2, "test", 0, 200, atlas2, Origin.TopLeft) { animationSpeed = 6.0f };
-            testEntity2.AddComponent<CSprite>(sprite2);
-            testEntity2.AddComponent<CSolid>();
-
-            World.CurrentScene = scene;
+            World = SceneLoader.LoadScene(ContentDirectory);
+            
 
         }
         /// <summary>
@@ -199,6 +173,7 @@ namespace Chroma.Engine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            Global.Graphics.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
             Global.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
@@ -216,9 +191,20 @@ namespace Chroma.Engine
             World.PreRender(gameTime);
             World.Render(gameTime);
             World.PostRender(gameTime);
+
+            while (DebugDrawQueue.Count > 0)
+            {
+                DebugDrawQueue.Dequeue().Invoke();
+            }
             
 
             // End
+            Global.SpriteBatch.End();
+
+            GraphicsDevice.SetRenderTarget(null);
+
+            Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            Global.SpriteBatch.Draw(NativeRenderTarget, Screen, Color.White);
             Global.SpriteBatch.End();
             base.Draw(gameTime);
 

@@ -15,7 +15,7 @@ namespace Chroma.Game
         
         public GravitySystem(Scene scene): base(scene)
         {
-            Gravity = 0f;
+            Gravity = 3.0f;
         }
 
         public override void PreUpdate(GameTime gameTime)
