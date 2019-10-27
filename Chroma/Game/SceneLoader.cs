@@ -19,12 +19,13 @@ namespace Chroma.Game
         {
             World world = new World();
 
-            Scene scene = new Scene(Global.Width, Global.Height);
+            Scene scene = new Scene(Global.Width*2, Global.Height*2);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
             scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderSystem(scene));
+            scene.Systems.Add(new CameraSystem(scene));
 
             var Content = Chroma.Engine.Engine.Instance.Content;
 
@@ -40,6 +41,8 @@ namespace Chroma.Game
             var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f };
             testEntity.AddComponent<CSprite>(sprite);
             testEntity.AddComponent<CPlayer>();
+
+            scene.Camera.Following = testEntity;
 
 
             Texture2D[] atlas2 = new Texture2D[] {
@@ -60,7 +63,7 @@ namespace Chroma.Game
             for (int i = 0; i < 100; i++)
             {
                 Entity grass = scene.Manager.NewEntity();
-                var grass_sprite = new CSprite(grass, "grass_"+i, 16+32*i, 344, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Tiles/Grass/grass_top") }, Origin.Center);
+                var grass_sprite = new CSprite(grass, "grass_"+i, 16+32*i, 344+Global.Height, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Tiles/Grass/grass_top") }, Origin.Center);
                 grass.GetComponent<CTransform>().CollisionDims = new Vector2(32, 32);
                 grass.GetComponent<CTransform>().CollisionOffset = new Vector2(3, 3);
                 grass.AddComponent<CSprite>(grass_sprite);

@@ -133,7 +133,6 @@ namespace Chroma.Engine.Physics
             }
             return null;
             */
-
             
             foreach (CSolid s in scene.Manager.GetComponents<CSolid>().Values)
             {

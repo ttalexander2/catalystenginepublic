@@ -14,7 +14,7 @@ namespace Chroma.Engine
         private Scene scene;
         private int id;
         internal Dictionary<int, Entity> entityDict = new Dictionary<int, Entity>();
-        internal Dictionary<Type, Dictionary<int, AComponent>> components = new Dictionary<Type, Dictionary<int, AComponent>>();
+        internal Dictionary<Type, Dictionary<Entity, AComponent>> components = new Dictionary<Type, Dictionary<Entity, AComponent>>();
 
         internal ECManager(Scene scene)
         {
@@ -24,7 +24,7 @@ namespace Chroma.Engine
             Assembly.GetAssembly(typeof(AComponent)).GetTypes()
             .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
             {
-                components[type] = new Dictionary<int, AComponent>();
+                components[type] = new Dictionary<Entity, AComponent>();
             }
             
         }
@@ -58,11 +58,20 @@ namespace Chroma.Engine
             Type t = typeof(T);
 
             AComponent val;
-            components[t].TryGetValue(UID, out val);
+            components[t].TryGetValue(entityDict[UID], out val);
             return val != null ? (T)val : null;
         }
 
-        public Dictionary<int, AComponent> GetComponents<T>() where T : AComponent
+        public T GetComponent<T>(Entity e) where T : AComponent
+        {
+            Type t = typeof(T);
+
+            AComponent val;
+            components[t].TryGetValue(e, out val);
+            return val != null ? (T)val : null;
+        }
+
+        public Dictionary<Entity, AComponent> GetComponents<T>() where T : AComponent
         {
             Type t = typeof(T);
             return components[t];

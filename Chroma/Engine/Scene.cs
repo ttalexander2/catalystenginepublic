@@ -14,16 +14,21 @@ namespace Chroma.Engine
         public ECManager Manager { get; private set; }
         public List<ASystem> Systems { get; private set; }
 
+        public Camera2D Camera { get; set; }
+
         public Scene(int width, int height)
         {
             Width = width;
             Height = height;
             Manager = new ECManager(this);
             Systems = new List<ASystem>();
+            Dimensions = new Vector2(width, height);
+            Camera = new Camera2D(this, new Vector2(width, height));
         }
 
         public int Width { get; }
         public int Height { get; }
+        public Vector2 Dimensions { get; private set; }
 
         #region [Loop]
         public void Initialize()

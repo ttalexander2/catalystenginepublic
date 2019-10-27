@@ -30,14 +30,14 @@ namespace Chroma.Engine
         public void AddComponent<T>() where T : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
         }
 
         public void AddComponents<T, U>() where T : AComponent where U : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
             AddComponent<U>();
         }
@@ -45,7 +45,7 @@ namespace Chroma.Engine
         public void AddComponents<T, U, V>() where T : AComponent where U : AComponent where V : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
             AddComponents<U, V>();
         }
@@ -53,7 +53,7 @@ namespace Chroma.Engine
         public void AddComponents<T, U, V, W>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
             AddComponents<U, V, W>();
         }
@@ -61,7 +61,7 @@ namespace Chroma.Engine
         public void AddComponents<T, U, V, W, X>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent where X : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
             AddComponents<U, V, W, X>();
         }
@@ -69,7 +69,7 @@ namespace Chroma.Engine
         public void AddComponents<T, U, V, W, X, Y>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent where X : AComponent where Y : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
             AddComponents<U, V, W, X, Y>();
         }
@@ -77,7 +77,7 @@ namespace Chroma.Engine
         public void AddComponents<T, U, V, W, X, Y, Z>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent where X : AComponent where Y : AComponent where Z : AComponent
         {
             Type t = typeof(T);
-            manager.components[t][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
             AddComponents<U, V, W, X, Y, Z>();
         }
@@ -86,7 +86,7 @@ namespace Chroma.Engine
         public void AddChild<P, C>() where P : AComponent where C : P
         {
             Type t = typeof(P);
-            manager.components[t][UID] = (C)Activator.CreateInstance(typeof(C), new Object[] { this });
+            manager.components[t][this] = (C)Activator.CreateInstance(typeof(C), new Object[] { this });
             typeSet.Add(t);
         }
 
@@ -95,7 +95,7 @@ namespace Chroma.Engine
 
             if (c.UID != UID || !(c is T)) { return; }
             Type t = typeof(T);
-            manager.components[t][UID] = c;
+            manager.components[t][this] = c;
             typeSet.Add(t);
         }
 
@@ -109,7 +109,7 @@ namespace Chroma.Engine
         public void RemoveComponent<T>() where T : AComponent
         {
             Type t = typeof(T);
-            manager.components[t].Remove(UID);
+            manager.components[t].Remove(this);
             typeSet.Remove(t);
         }
 
@@ -117,7 +117,7 @@ namespace Chroma.Engine
         {
             foreach (Type t in manager.components.Keys)
             {
-                manager.components[t].Remove(UID);
+                manager.components[t].Remove(this);
                 typeSet.Remove(t);
             }
             manager.entityDict.Remove(UID);

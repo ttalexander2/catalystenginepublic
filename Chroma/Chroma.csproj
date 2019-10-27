@@ -66,6 +66,9 @@
     <Compile Include="Engine\ARenderSystem.cs" />
     <Compile Include="Engine\ECManager.cs" />
     <Compile Include="Engine\CSolid.cs" />
+    <Compile Include="Engine\ECDictionaryExtensions.cs" />
+    <Compile Include="Engine\Graphics\Camera2D.cs" />
+    <Compile Include="Engine\Graphics\CameraSystem.cs" />
     <Compile Include="Engine\Graphics\SpriteRenderSystem.cs" />
     <Compile Include="Engine\Input\CInput.cs" />
     <Compile Include="Engine\Input\Controller.cs" />
@@ -74,8 +77,6 @@
     <Compile Include="Engine\Physics\MovementSystem.cs" />
     <Compile Include="Engine\Physics\CTransform.cs" />
     <Compile Include="Engine\Physics\QuadTree.cs" />
-    <Compile Include="Engine\Utilities\DialogBox.cs" />
-    <Compile Include="Engine\Utilities\DialogBoxWindow.cs" />
     <Compile Include="Engine\Utilities\FrameCounter.cs" />
     <Compile Include="Engine\Utilities\Origin.cs" />
     <Compile Include="Engine\Utilities\ScriptTemplate.cs" />

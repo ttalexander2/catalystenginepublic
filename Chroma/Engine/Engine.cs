@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Chroma.Engine.Graphics;
 using Chroma.Engine.Utilities;
 using Chroma.Game;
 using Microsoft.Xna.Framework;
@@ -27,9 +28,15 @@ namespace Chroma.Engine
         public static int Height { get; private set; }
         public static bool Fullscreen { get; private set; }
         public static string Title { get; private set; }
+        public Camera2D Camera
+        {
+            get { return World.CurrentScene.Camera; }
+            private set { }
+        }
 
         // Time
         public static FrameCounter Time;
+        public static float TimeScale { get; set; }
 
         // DebugDrawQueue
         public static Queue<Action> DebugDrawQueue = new Queue<Action>();
@@ -103,8 +110,10 @@ namespace Chroma.Engine
             Global.Graphics.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
             Global.Graphics.ApplyChanges();
 
+
             Screen = new Rectangle(0, 0, Global.Graphics.PreferredBackBufferWidth, Global.Graphics.PreferredBackBufferHeight);
 
+            
 
         }
 
@@ -158,7 +167,14 @@ namespace Chroma.Engine
                 Exit();
 
             // TODO: Add your update logic here
-            
+            if (Keyboard.GetState().IsKeyDown(Keys.NumPad2))
+                Camera.Move(new Vector2(0, 1));
+            if (Keyboard.GetState().IsKeyDown(Keys.NumPad8))
+                Camera.Move(new Vector2(0, -1));
+            if (Keyboard.GetState().IsKeyDown(Keys.NumPad4))
+                Camera.Move(new Vector2(-1, 0));
+            if (Keyboard.GetState().IsKeyDown(Keys.NumPad6))
+                Camera.Move(new Vector2(1, 0));
 
 
             World.PreUpdate(gameTime);
@@ -177,7 +193,7 @@ namespace Chroma.Engine
             Global.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: Camera.GetTransformation(Global.Graphics.GraphicsDevice));
 
             var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
