@@ -57,6 +57,11 @@ namespace Chroma.Engine.Graphics
             Position = amount;
         }
 
+        public void MoveTowards(Vector2 amount)
+        {
+            Position += amount;
+        }
+
         public Matrix GetTransformation(GraphicsDevice graphicsDevice)
         {
             Transform =       

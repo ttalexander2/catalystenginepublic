@@ -168,13 +168,13 @@ namespace Chroma.Engine
 
             // TODO: Add your update logic here
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad2))
-                Camera.Move(new Vector2(0, 1));
+                Camera.MoveTowards(new Vector2(0, 5));
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad8))
-                Camera.Move(new Vector2(0, -1));
+                Camera.MoveTowards(new Vector2(0, -5));
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad4))
-                Camera.Move(new Vector2(-1, 0));
+                Camera.MoveTowards(new Vector2(-5, 0));
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad6))
-                Camera.Move(new Vector2(1, 0));
+                Camera.MoveTowards(new Vector2(5, 0));
 
 
             World.PreUpdate(gameTime);
