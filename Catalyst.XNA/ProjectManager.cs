@@ -3,23 +3,88 @@ using Chroma.Engine.Graphics;
 using Chroma.Engine.Input;
 using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
+using Chroma.Game;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chroma.Game
+namespace Catalyst.XNA
 {
-    public static class SceneLoader
+    public class ProjectManager
     {
-        public static World LoadScene(string ContentDirectory)
+
+        public static World Current { get; set; }
+
+        private static string _file;
+        public static string FileName
+        {
+            get
+            {
+                return _file;
+            }
+            set
+            {
+                _file = value;
+                string invalid = new string(Path.GetInvalidFileNameChars());
+
+                foreach (char c in invalid)
+                {
+                    _file = _file.Replace(c.ToString(), "");
+                }
+            }
+        }
+
+        public static bool Unsaved { get; set; }
+
+        private static string _path;
+        public static string ProjectPath
+        {
+            get
+            {
+                return _path;
+            }
+            set
+            {
+                _path = value;
+                string invalid = new string(Path.GetInvalidPathChars());
+
+                foreach (char c in invalid)
+                {
+                    _path = _path.Replace(c.ToString(), "");
+                }
+            }
+        }
+
+        public static void CreateNew(string file)
+        {
+            Current = new World();
+            FileName = file;
+            Unsaved = true;
+        }
+
+        public static void Save()
+        {
+            BinaryFormatter writer = new BinaryFormatter();
+            Console.WriteLine(ProjectPath + FileName);
+            Directory.CreateDirectory(ProjectPath);
+            FileStream file = File.Create(ProjectPath + FileName);
+            writer.Serialize(file, Current);
+            file.Close();
+            Unsaved = false;
+        }
+
+        public static World LoadTestWorld()
         {
             World world = new World();
 
-            Scene scene = new Scene(Global.Width*2, Global.Height*2);
+            Scene scene = new Scene(Global.Width * 2, Global.Height * 2);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
@@ -27,7 +92,8 @@ namespace Chroma.Game
             scene.Systems.Add(new SpriteRenderSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
 
-            var Content = Chroma.Engine.ChromaGame.Instance.Content;
+            var Content = SampleGame.Instance.Content;
+            string ContentDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), SampleGame.Instance.Content.RootDirectory);
 
             Texture2D[] atlas = new Texture2D[] {
                     Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
@@ -63,7 +129,7 @@ namespace Chroma.Game
             for (int i = 0; i < 100; i++)
             {
                 Entity grass = scene.Manager.NewEntity();
-                var grass_sprite = new CSprite(grass, "grass_"+i, 16+32*i, 344+Global.Height, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Tiles/Grass/grass_top") }, Origin.Center);
+                var grass_sprite = new CSprite(grass, "grass_" + i, 16 + 32 * i, 344 + Global.Height, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Tiles/Grass/grass_top") }, Origin.Center);
                 grass.GetComponent<CTransform>().CollisionDims = new Vector2(32, 32);
                 grass.GetComponent<CTransform>().CollisionOffset = new Vector2(3, 3);
                 grass.AddComponent<CSprite>(grass_sprite);
@@ -73,4 +139,5 @@ namespace Chroma.Game
             return world;
         }
     }
+    
 }

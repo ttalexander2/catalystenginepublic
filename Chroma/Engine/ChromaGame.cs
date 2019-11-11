@@ -15,11 +15,11 @@ namespace Chroma.Engine
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Engine : Microsoft.Xna.Framework.Game
+    public class ChromaGame : Microsoft.Xna.Framework.Game
     {
 
         // Instances
-        public static Engine Instance { get; private set; }
+        public static ChromaGame Instance { get; private set; }
         public World World { get; set; }
 
 
@@ -64,14 +64,14 @@ namespace Chroma.Engine
         private RenderTarget2D NativeRenderTarget { get; set; }
         private Rectangle Screen { get; set; }
 
-        public Engine(int width, int height, string windowTitle, bool fullscreen)
+        public ChromaGame(int width, int height, string windowTitle, bool fullscreen)
         {
-            Engine.Instance = this;
+            ChromaGame.Instance = this;
             World = new World();
-            Engine.Title = windowTitle;
-            Engine.Width = width;
-            Engine.Height = height;
-            Engine.Fullscreen = fullscreen;
+            ChromaGame.Title = windowTitle;
+            ChromaGame.Width = width;
+            ChromaGame.Height = height;
+            ChromaGame.Fullscreen = fullscreen;
             Time = new FrameCounter();
 
             Global.Graphics = new GraphicsDeviceManager(this);

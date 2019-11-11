@@ -11,6 +11,112 @@
         <StartupObject />
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Content\Sprites\Player\s_player_fall\s_player_fall.png" />
+      <None Remove="Content\Sprites\Player\s_player_jump\s_player_jump.png" />
+      <None Remove="Content\Sprites\Player\s_player_jump_peak\s_player_jump_peak.png" />
+      <None Remove="Content\Sprites\Player\s_player_jump_up\482b848e-05d1-4b5b-9f58-9d5d880cf1bf.png" />
+      <None Remove="Content\Sprites\Player\s_player_kick\s_player_kick_1.png" />
+      <None Remove="Content\Sprites\Player\s_player_kick\s_player_kick_2.png" />
+      <None Remove="Content\Sprites\Player\s_player_kick\s_player_kick_3.png" />
+      <None Remove="Content\Sprites\Player\s_player_kick\s_player_kick_4.png" />
+      <None Remove="Content\Sprites\Player\s_player_kick\s_player_kick_5.png" />
+      <None Remove="Content\Sprites\Player\s_player_land\s_player_land.png" />
+      <None Remove="Content\Sprites\Player\s_player_punch\s_player_punch_1.png" />
+      <None Remove="Content\Sprites\Player\s_player_punch\s_player_punch_2.png" />
+      <None Remove="Content\Sprites\Player\s_player_punch\s_player_punch_3.png" />
+      <None Remove="Content\Sprites\Player\s_player_punch\s_player_punch_4.png" />
+      <None Remove="Content\Sprites\Player\s_player_punch\s_player_punch_5.png" />
+      <None Remove="Content\Sprites\Player\s_player_punch\s_player_punch_6.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_1.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_2.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_3.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_4.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_5.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_6.png" />
+      <None Remove="Content\Sprites\Player\s_player_stationary\s_player_stationary_7.png" />
+      <None Remove="Content\Sprites\Tiles\Grass\grass_bottom.png" />
+      <None Remove="Content\Sprites\Tiles\Grass\grass_top.png" />
+      <None Remove="Fonts\segoeui.ttf" />
+      <None Remove="Fonts\segoeuib.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Content\Sprites\Player\s_player_fall\s_player_fall.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_jump\s_player_jump.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_jump_peak\s_player_jump_peak.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_jump_up\482b848e-05d1-4b5b-9f58-9d5d880cf1bf.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_kick\s_player_kick_1.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_kick\s_player_kick_2.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_kick\s_player_kick_3.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_kick\s_player_kick_4.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_kick\s_player_kick_5.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_land\s_player_land.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_punch\s_player_punch_1.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_punch\s_player_punch_2.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_punch\s_player_punch_3.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_punch\s_player_punch_4.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_punch\s_player_punch_5.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_punch\s_player_punch_6.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_1.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_2.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_3.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_4.png" />
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_5.png" />
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_6.png" />
+      <Content Include="Content\Sprites\Player\s_player_stationary\s_player_stationary_7.png" />
+      <Content Include="Content\Sprites\Tiles\Grass\grass_bottom.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\Sprites\Tiles\Grass\grass_top.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Fonts\segoeui.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Fonts\segoeuib.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
   <ItemGroup>
       <PackageReference Include="ImGui.NET" Version="1.72.0" />
       <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.7.0.1708" />
@@ -19,6 +125,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catalyst\Catalyst.csproj" />
+    <ProjectReference Include="..\Chroma\Chroma.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\Sprites\Player\s_player_running_1\" />
   </ItemGroup>
 
 </Project>

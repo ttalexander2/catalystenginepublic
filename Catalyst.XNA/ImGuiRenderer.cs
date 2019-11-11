@@ -246,6 +246,8 @@ namespace Catalyst.XNA
             var scrollDelta = mouse.ScrollWheelValue - _scrollWheelValue;
             io.MouseWheel = scrollDelta > 0 ? 1 : scrollDelta < 0 ? -1 : 0;
             _scrollWheelValue = mouse.ScrollWheelValue;
+
+
         }
 
         #endregion Setup & Update

@@ -64,6 +64,7 @@ namespace Catalyst
             ImGuiNET.ImGui.SetCurrentContext(context);
             var fonts = ImGuiNET.ImGui.GetIO().Fonts;
             ImGuiNET.ImGui.GetIO().Fonts.AddFontDefault();
+            ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts\\segoeui.ttf", 18.0f);
 
             CreateDeviceResources(gd, outputDescription);
             SetKeyMappings();
@@ -72,6 +73,7 @@ namespace Catalyst
 
             ImGuiNET.ImGui.NewFrame();
             _frameBegun = true;
+
         }
 
         public void WindowResized(int width, int height)

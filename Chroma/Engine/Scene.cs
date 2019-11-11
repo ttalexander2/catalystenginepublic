@@ -11,6 +11,7 @@ namespace Chroma.Engine
     [Serializable]
     public class Scene
     {
+        public string Name { get; set; }
         public ECManager Manager { get; private set; }
         public List<ASystem> Systems { get; private set; }
 
@@ -24,6 +25,18 @@ namespace Chroma.Engine
             Systems = new List<ASystem>();
             Dimensions = new Vector2(width, height);
             Camera = new Camera2D(this, new Vector2(width, height));
+            this.Name = "scene_" + this.GetHashCode().ToString();
+        }
+
+        public Scene(int width, int height, string name)
+        {
+            Width = width;
+            Height = height;
+            Manager = new ECManager(this);
+            Systems = new List<ASystem>();
+            Dimensions = new Vector2(width, height);
+            Camera = new Camera2D(this, new Vector2(width, height));
+            this.Name = name;
         }
 
         public int Width { get; }
