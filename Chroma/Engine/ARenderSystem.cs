@@ -20,6 +20,10 @@ namespace Chroma.Engine
         public virtual void Render(GameTime gameTime) { }
         public virtual void PostRender(GameTime gameTime) { }
 
-        public virtual void DebugRender(GameTime gameTree) { }
+        public virtual void DebugRender(GameTime gameTime) { }
+
+        public virtual void RenderNative(GameTime gameTime) { }
+
+        public virtual void RenderUI(GameTime gameTime) { }
     }
 }

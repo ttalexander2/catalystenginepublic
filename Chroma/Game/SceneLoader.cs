@@ -26,6 +26,7 @@ namespace Chroma.Game
             scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
+            scene.Systems.Add(new ParticleSystem(scene));
 
             var Content = Chroma.Engine.ChromaGame.Instance.Content;
 
@@ -38,7 +39,7 @@ namespace Chroma.Game
                     Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
                     Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
             Entity testEntity = scene.Manager.NewEntity();
-            var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f };
+            var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f, layer = 1.0f };
             testEntity.AddComponent<CSprite>(sprite);
             testEntity.AddComponent<CPlayer>();
 
@@ -69,6 +70,24 @@ namespace Chroma.Game
                 grass.AddComponent<CSprite>(grass_sprite);
                 grass.AddComponent<CSolid>();
             }
+
+            Entity p = scene.Manager.NewEntity();
+            p.AddComponent<CParticleEmitter>();
+            p.GetComponent<CParticleEmitter>().Position = new Vector2(scene.Width, scene.Height/2);
+            p.GetComponent<CParticleEmitter>().PositionVariance = new Vector2(0, scene.Height / 2);
+            p.GetComponent<CParticleEmitter>().Amount = 70;
+            p.GetComponent<CParticleEmitter>().Launch();
+            p.GetComponent<CParticleEmitter>().Launch();
+            p.GetComponent<CParticleEmitter>().Launch();
+            p.GetComponent<CParticleEmitter>().Launch();
+            p.GetComponent<CParticleEmitter>().Launch();
+            Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, 3, 3);
+
+            Color[] data = new Color[3* 3];
+            for (int i = 0; i < data.Length; ++i) data[i] = Color.White;
+            rect.SetData(data);
+
+            p.GetComponent<CParticleEmitter>().Texture = rect;
 
             return world;
         }

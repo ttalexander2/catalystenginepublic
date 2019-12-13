@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -71,11 +72,11 @@ namespace Catalyst.XNA
 
         public static void Save()
         {
-            BinaryFormatter writer = new BinaryFormatter();
+            DataContractJsonSerializer writer = new DataContractJsonSerializer(typeof(Chroma.Engine.World));
             Console.WriteLine(ProjectPath + FileName);
             Directory.CreateDirectory(ProjectPath);
             FileStream file = File.Create(ProjectPath + FileName);
-            writer.Serialize(file, Current);
+            writer.WriteObject(file, Current);
             file.Close();
             Unsaved = false;
         }

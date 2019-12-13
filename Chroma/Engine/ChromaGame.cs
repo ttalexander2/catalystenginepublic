@@ -62,7 +62,9 @@ namespace Chroma.Engine
 
         //Rendering
         private RenderTarget2D NativeRenderTarget { get; set; }
-        private Rectangle Screen { get; set; }
+        internal Rectangle Screen { get;  private set; }
+        internal Vector2 ScreenOffset { get; private set; }
+        private Texture2D _black;
 
         public ChromaGame(int width, int height, string windowTitle, bool fullscreen)
         {
@@ -110,12 +112,30 @@ namespace Chroma.Engine
             Global.Graphics.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
             Global.Graphics.ApplyChanges();
 
+            float ratio = (float)Global.Width / (float)Global.Height;
+            float actual = (float)Global.Graphics.PreferredBackBufferWidth / (float)Global.Graphics.PreferredBackBufferHeight;
 
-            Screen = new Rectangle(0, 0, Global.Graphics.PreferredBackBufferWidth, Global.Graphics.PreferredBackBufferHeight);
+            if (actual>ratio)
+            {
+                ScreenOffset = new Vector2((Global.Graphics.PreferredBackBufferWidth - (int)(Global.Graphics.PreferredBackBufferHeight * (ratio))) / 2, 0);
+                Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, (int)(Global.Graphics.PreferredBackBufferHeight*(ratio)), Global.Graphics.PreferredBackBufferHeight);
+            }
+            else if (actual<ratio)
+            {
+                ScreenOffset = new Vector2(0, (Global.Graphics.PreferredBackBufferHeight - (int)(Global.Graphics.PreferredBackBufferWidth * (1 / ratio))) / 2);
+                Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, Global.Graphics.PreferredBackBufferWidth, (int)(Global.Graphics.PreferredBackBufferWidth * 1/ratio));
+            }
+            else
+            {
+                Screen = new Rectangle(0, 0, Global.Graphics.PreferredBackBufferWidth, Global.Graphics.PreferredBackBufferHeight);
+                ScreenOffset = Vector2.Zero;
+            }
 
-            
+            Global.ScreenOffset = ScreenOffset;
+
 
         }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -201,7 +221,7 @@ namespace Chroma.Engine
 
             var fps = string.Format("FPS: {0}", Time.AverageFramesPerSecond);
 
-            Console.WriteLine(fps);
+            //Console.WriteLine(fps);
 
 
             World.PreRender(gameTime);
@@ -221,6 +241,11 @@ namespace Chroma.Engine
 
             Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             Global.SpriteBatch.Draw(NativeRenderTarget, Screen, Color.White);
+            Global.SpriteBatch.End();
+
+            Global.SpriteBatch.Begin(transformMatrix: Camera.GetScaledTransformation(Global.Graphics.GraphicsDevice));
+            World.RenderNative(gameTime);
+            World.RenderUI(gameTime);
             Global.SpriteBatch.End();
             base.Draw(gameTime);
 

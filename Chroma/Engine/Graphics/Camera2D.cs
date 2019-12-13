@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine.Graphics
 {
+    [Serializable]
     public class Camera2D
     {
+
         public Scene Scene { get; private set; }
         public Entity Following { get; set; }
         public float Speed { get; set; }
@@ -66,6 +69,17 @@ namespace Chroma.Engine.Graphics
         {
             Transform =       
               Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                                         Matrix.CreateRotationZ(Rotation) *
+                                         Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+                                         Matrix.CreateTranslation(new Vector3(0, 0, 0));
+            return Transform;
+        }
+
+        public Matrix GetScaledTransformation(GraphicsDevice graphicsDevice)
+        {
+            Vector2 p = Position * Global.SpriteScale;
+            Transform =
+              Matrix.CreateTranslation(new Vector3(-p.X, -p.Y, 0)) *
                                          Matrix.CreateRotationZ(Rotation) *
                                          Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
                                          Matrix.CreateTranslation(new Vector3(0, 0, 0));

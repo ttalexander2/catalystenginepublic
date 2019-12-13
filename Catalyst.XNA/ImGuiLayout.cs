@@ -34,8 +34,8 @@ namespace Catalyst
 
         public void Initialize()
         {
-            _defaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts\\segoeui.ttf", 18.0f);
-            _headingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts\\segoeuib.ttf", 26.0f);
+            _defaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 18.0f);
+            _headingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeuib.ttf", 26.0f);
             ImGui.GetIO().ConfigWindowsResizeFromEdges = true;
             ImGuiBackendFlags f = 0;
             f |= ImGuiBackendFlags.HasMouseCursors;
@@ -52,6 +52,9 @@ namespace Catalyst
             ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 0);
             ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
             ImGui.PushStyleVar(ImGuiStyleVar.ScrollbarRounding, 0);
+            ImGui.PushStyleColor(ImGuiCol.ResizeGrip, 0);
+            ImGui.PushStyleColor(ImGuiCol.ResizeGripHovered, 0);
+            ImGui.PushStyleColor(ImGuiCol.ResizeGripActive, 0);
         }
 
 

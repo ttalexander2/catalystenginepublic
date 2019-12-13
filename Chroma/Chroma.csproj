@@ -71,6 +71,9 @@
     <Compile Include="Engine\ECDictionaryExtensions.cs" />
     <Compile Include="Engine\Graphics\Camera2D.cs" />
     <Compile Include="Engine\Graphics\CameraSystem.cs" />
+    <Compile Include="Engine\Graphics\CParticleEmitter.cs" />
+    <Compile Include="Engine\Graphics\Particle.cs" />
+    <Compile Include="Engine\Graphics\ParticleSystem.cs" />
     <Compile Include="Engine\Graphics\SpriteRenderSystem.cs" />
     <Compile Include="Engine\Input\CInput.cs" />
     <Compile Include="Engine\Input\Controller.cs" />
@@ -105,6 +108,7 @@
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>

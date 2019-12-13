@@ -14,7 +14,7 @@ namespace Chroma.Engine.Graphics
 
 
         public string name;
-        public int layer;
+        public float layer;
 
         private int _textureHeight;
         private int _textureWidth;

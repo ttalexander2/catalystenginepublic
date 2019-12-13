@@ -140,6 +140,50 @@ namespace Chroma.Engine
             }
         }
 
+        public virtual void RenderNative(GameTime gameTime)
+        {
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                ASystem system = Systems[i];
+                if (system.Renders)
+                {
+                    try
+                    {
+                        ((ARenderSystem)system).RenderNative(gameTime);
+                    }
+                    catch (InvalidCastException e)
+                    {
+#if DEBUG
+                        Console.WriteLine("Couldn't cast system to Render system! " + e.ToString());
+#endif
+                    }
+
+                }
+            }
+        }
+
+        public virtual void RenderUI(GameTime gameTime)
+        {
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                ASystem system = Systems[i];
+                if (system.Renders)
+                {
+                    try
+                    {
+                        ((ARenderSystem)system).RenderUI(gameTime);
+                    }
+                    catch (InvalidCastException e)
+                    {
+#if DEBUG
+                        Console.WriteLine("Couldn't cast system to Render system! " + e.ToString());
+#endif
+                    }
+
+                }
+            }
+        }
+
         public virtual void End()
         {
 
