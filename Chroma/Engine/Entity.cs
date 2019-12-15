@@ -27,11 +27,12 @@ namespace Chroma.Engine
         }
 
         #region adders
-        public void AddComponent<T>() where T : AComponent
+        public AComponent AddComponent<T>() where T : AComponent
         {
             Type t = typeof(T);
             manager.components[t][this] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             typeSet.Add(t);
+            return manager.components[t][this];
         }
 
         public void AddComponents<T, U>() where T : AComponent where U : AComponent

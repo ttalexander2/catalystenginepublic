@@ -73,17 +73,17 @@ namespace Chroma.Game
 
             Entity p = scene.Manager.NewEntity();
             p.AddComponent<CParticleEmitter>();
+            p.GetComponent<CParticleEmitter>().Follow = testEntity;
             p.GetComponent<CParticleEmitter>().Position = new Vector2(scene.Width, scene.Height/2);
-            p.GetComponent<CParticleEmitter>().PositionVariance = new Vector2(0, scene.Height / 2);
-            p.GetComponent<CParticleEmitter>().Amount = 70;
+            p.GetComponent<CParticleEmitter>().Offset = new Vector2(30, 10);
             p.GetComponent<CParticleEmitter>().Launch();
             p.GetComponent<CParticleEmitter>().Launch();
             p.GetComponent<CParticleEmitter>().Launch();
             p.GetComponent<CParticleEmitter>().Launch();
             p.GetComponent<CParticleEmitter>().Launch();
-            Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, 3, 3);
+            Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
 
-            Color[] data = new Color[3* 3];
+            Color[] data = new Color[1 * 1];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.White;
             rect.SetData(data);
 

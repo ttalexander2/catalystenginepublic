@@ -210,7 +210,7 @@ namespace Chroma.Engine
         protected override void Draw(GameTime gameTime)
         {
             Global.Graphics.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
-            Global.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+            Global.Graphics.GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
             Global.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: Camera.GetTransformation(Global.Graphics.GraphicsDevice));

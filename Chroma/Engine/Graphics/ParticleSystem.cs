@@ -18,25 +18,42 @@ namespace Chroma.Engine.Graphics
 
         public override void Update(GameTime gameTime)
         {
-            List<Particle> toRemove = new List<Particle>();
             foreach (CParticleEmitter emitter in Manager.GetComponents<CParticleEmitter>().Values)
             {
-                if (emitter.Mode == CParticleEmitter.ParticleMode.Continuous) emitter.Launch();
+
+                if (emitter.Follow != null)
+                {
+                    emitter.Position = emitter.Follow.GetComponent<CTransform>().Position;
+                }
+
+                if (emitter.FollowCamera)
+                {
+                    emitter.Position = scene.Camera.Position;
+                }
 
                 foreach (Particle p in emitter.Particles)
                 {
-                    p.Life--;
-                    if (p.Life>0)
+                    if (p.Active)
                     {
-                        p.Position += p.Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        p.Life--;
+                        if (p.Life > 0)
+                        {
+                            p.Position += p.Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+                        else
+                        {
+                            if (emitter.Mode == CParticleEmitter.ParticleMode.Continuous)
+                            {
+                                p.Reset();
+                            }
+                            else
+                            {
+                                p.Active = false;
+                            }
+                        }
                     }
-                    else
-                    {
-                        toRemove.Add(p);
-                    }
+
                 }
-                emitter.Particles.RemoveAll(x => toRemove.Contains(x));
-                toRemove.Clear();
 
 
             }
