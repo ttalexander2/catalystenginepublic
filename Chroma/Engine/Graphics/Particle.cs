@@ -77,8 +77,17 @@ namespace Chroma.Engine.Graphics
             this.EndColor = _emitter.EndColor;
             this.StartAlpha = _emitter.StartAlpha;
             this.EndAlpha = _emitter.EndAlpha;
-            this.Velocity = Position * new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)) / 500, (float)(-Speed * Math.Sin(Angle * Math.PI / 180)) / 500);
             this.Mode = _emitter.VelocityMode;
+            if (this.Mode == VelocityMode.Linear)
+            {
+                this.Velocity = new Vector2(500, 500) * new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)) / 500, (float)(-Speed * Math.Sin(Angle * Math.PI / 180)) / 500);
+            }
+            else
+            {
+                this.Velocity = this.Position * new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)) / 500, (float)(-Speed * Math.Sin(Angle * Math.PI / 180)) / 500);
+            }
+            
+
         }
 
 

@@ -35,7 +35,7 @@ namespace Chroma.Engine.Graphics
         {
             Particles = new List<Particle>();
             Mode = ParticleMode.Continuous;
-            VelocityMode = Particle.VelocityMode.Exponential;
+            VelocityMode = Particle.VelocityMode.Linear;
             StartColor = Color.Lerp(Color.Cyan, Color.White, 0.5f);
             EndColor = Color.Lerp(Color.White, Color.White, 01.0f);
             StartAlpha = 1f;
