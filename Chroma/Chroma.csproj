@@ -156,16 +156,16 @@
     <None Include="fmod.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="osx\libfmod.dylib">
+    <None Include="OSX\libfmod.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="osx\libfmodstudio.dylib">
+    <None Include="OSX\libfmodstudio.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="osx\libopenal.1.dylib">
+    <None Include="OSX\libopenal.1.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="osx\libSDL2-2.0.0.dylib">
+    <None Include="OSX\libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="MonoGame.Framework.dll.config">
