@@ -9,6 +9,7 @@
         <OutputType>Exe</OutputType>
         <ApplicationIcon />
         <StartupObject />
+        <Configurations>Debug;Release;WIN64;WIN32;LINUX32;LINUX64;OSX</Configurations>
     </PropertyGroup>
 
     <ItemGroup>

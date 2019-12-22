@@ -8,6 +8,7 @@ using Chroma.Game;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Chroma.Engine.Audio;
 
 namespace Chroma.Engine
 {
@@ -65,6 +66,9 @@ namespace Chroma.Engine
         internal Rectangle Screen { get;  private set; }
         internal Vector2 ScreenOffset { get; private set; }
         private Texture2D _black;
+
+        //Audio
+        public AudioManager Audio;
 
         public ChromaGame(int width, int height, string windowTitle, bool fullscreen)
         {
@@ -133,6 +137,8 @@ namespace Chroma.Engine
 
             Global.ScreenOffset = ScreenOffset;
 
+            Audio = new AudioManager();
+
 
         }
 
@@ -147,6 +153,7 @@ namespace Chroma.Engine
         {
             // TODO: Add your initialization logic here
             World.Initialize();
+            Audio.Initialize();
             base.Initialize();
 #if DEBUG
             Console.WriteLine("Initialized");

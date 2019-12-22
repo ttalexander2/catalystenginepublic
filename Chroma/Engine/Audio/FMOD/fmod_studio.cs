@@ -14,7 +14,7 @@ namespace Studio
 {
     public class STUDIO_VERSION
     {
-        public const string dll    = "fmodstudio.dll";
+        public const string dll    = ".\\x64\\fmodstudio64.dll";
     }
 
     public enum STOP_MODE

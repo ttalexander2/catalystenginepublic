@@ -17,7 +17,7 @@ namespace FMOD
     public class VERSION
     {
         public const int    number = 0x00011018;
-        public const string dll    = "fmod";
+        public const string dll    = ".\\x64\\fmod64.dll";
     }
 
     public class CONSTANTS
