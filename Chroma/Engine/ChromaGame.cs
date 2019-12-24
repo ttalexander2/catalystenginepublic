@@ -158,7 +158,7 @@ namespace Chroma.Engine
         {
             // TODO: Add your initialization logic here
             World.Initialize();
-            Audio.Initialize();
+            Audio.Initialize(false);
 
             
             base.Initialize();
