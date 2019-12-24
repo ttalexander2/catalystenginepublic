@@ -73,8 +73,8 @@ namespace Chroma.Engine
         public ChromaGame(int width, int height, string windowTitle, bool fullscreen)
         {
 #if OSX
-            LibraryLoader.LoadPosixLibrary("libfmod.dylib");
-            LibraryLoader.LoadPosixLibrary("libfmodstudio.dylib");
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "libfmod.dyliby"));
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "libfmodstudio.dylib"));
 #endif
 
             ChromaGame.Instance = this;

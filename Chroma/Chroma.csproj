@@ -191,29 +191,31 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Engine\app.manifest" />
-    <None Include="libfmod.dylib">
+    <None Include="libfmod.dylib" Condition=" '$(Configuration)' == 'OSX' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="libfmodstudio.dylib" />
-    <None Include="libopenal.1.dylib">
+    <None Include="libfmodstudio.dylib" Condition=" '$(Configuration)' == 'OSX' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="libSDL2-2.0.0.dylib">
+    <None Include="libopenal.1.dylib" Condition=" '$(Configuration)' == 'OSX' ">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libSDL2-2.0.0.dylib" Condition=" '$(Configuration)' == 'OSX' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="x64\libopenal.so.1">
+    <None Include="x64\libopenal.so.1" Condition=" '$(Configuration)' == 'LINUX64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="x64\libSDL2-2.0.so.0">
+    <None Include="x64\libSDL2-2.0.so.0" Condition=" '$(Configuration)' == 'LINUX64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="x86\libopenal.so.1">
+    <None Include="x86\libopenal.so.1" Condition=" '$(Configuration)' == 'LINUX32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="x86\libSDL2-2.0.so.0">
+    <None Include="x86\libSDL2-2.0.so.0" Condition=" '$(Configuration)' == 'LINUX32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -288,10 +290,10 @@
     <Content Include="Content\Sprites\Tiles\Grass\grass_top.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="x64\fmod.dll">
+    <None Include="x64\fmod.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="x64\fmodstudio.dll">
+    <None Include="x64\fmodstudio.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="x64\SDL2.dll">
@@ -300,10 +302,10 @@
     <Content Include="x64\soft_oal.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="x86\fmod.dll">
+    <None Include="x86\fmod.dll" Condition=" '$(Configuration)' == 'WIN32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="x86\fmodstudio.dll">
+    <None Include="x86\fmodstudio.dll" Condition=" '$(Configuration)' == 'WIN32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="x86\SDL2.dll">
