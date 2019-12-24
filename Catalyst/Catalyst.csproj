@@ -6,7 +6,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyName>Catalyst</AssemblyName>
     <RootNamespace>Catalyst</RootNamespace>
-    <Configurations>Debug;Release;WIN64;WIN32;LINUX32;LINUX64;OSX</Configurations>
+    <Configurations>Debug;Release;WIN64;WIN32;OSX;LINUX32;LINUX64</Configurations>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Chroma.Engine.Audio;
+using FMOD.Studio;
 
 namespace Chroma.Engine
 {
@@ -65,7 +66,6 @@ namespace Chroma.Engine
         private RenderTarget2D NativeRenderTarget { get; set; }
         internal Rectangle Screen { get;  private set; }
         internal Vector2 ScreenOffset { get; private set; }
-        private Texture2D _black;
 
         //Audio
         public AudioManager Audio;
@@ -154,6 +154,8 @@ namespace Chroma.Engine
             // TODO: Add your initialization logic here
             World.Initialize();
             Audio.Initialize();
+
+            
             base.Initialize();
 #if DEBUG
             Console.WriteLine("Initialized");
@@ -170,7 +172,12 @@ namespace Chroma.Engine
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
 
             World = SceneLoader.LoadScene(ContentDirectory);
-            
+            FMOD.Studio.EventDescription d;
+            Console.WriteLine(Audio.StudioSystem.getEvent("event:/forest_test", out d));
+            FMOD.Studio.EventInstance i;
+            d.createInstance(out i);
+            i.start();
+
 
         }
         /// <summary>
@@ -180,6 +187,7 @@ namespace Chroma.Engine
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            Audio.Unload();
         }
 
         /// <summary>
@@ -207,6 +215,7 @@ namespace Chroma.Engine
             World.PreUpdate(gameTime);
             World.Update(gameTime);
             World.PostUpdate(gameTime);
+            Audio.Update();
             base.Update(gameTime);
         }
 

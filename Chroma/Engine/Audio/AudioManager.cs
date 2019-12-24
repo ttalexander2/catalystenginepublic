@@ -12,24 +12,34 @@ namespace Chroma.Engine.Audio
     public class AudioManager
     {
         public FMOD.Studio.System StudioSystem;
-
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr LoadLibrary(string dllToLoad);
+        public FMOD.Studio.Bank Bank;
+        public FMOD.Studio.Bank Strings;
 
         public AudioManager()
         {
-            if (Environment.Is64BitProcess)
-                LoadLibrary(System.IO.Path.GetFullPath("x64\\fmodstudio.dll"));
-            else
-                LoadLibrary(System.IO.Path.GetFullPath("x86\\fmodstudio.dll"));
-
-            FMOD.Studio.System.create(out StudioSystem);
+            Console.WriteLine(FMOD.Studio.System.create(out StudioSystem));
+           
         }
 
         public void Initialize()
         {
+            StudioSystem.initialize(16, FMOD.Studio.INITFLAGS.NORMAL, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
+
+            FMOD.Debug.Initialize(DEBUG_FLAGS.LOG, DEBUG_MODE.FILE, null, "chroma_fmod_log.txt");
+
+            StudioSystem.loadBankFile(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.strings.bank", FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
+            StudioSystem.loadBankFile(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.bank", FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
             
-            StudioSystem.initialize(10, FMOD.Studio.INITFLAGS.NORMAL, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
+        }
+
+        public void Update()
+        {
+            StudioSystem.update();
+        }
+
+        public void Unload()
+        {
+            StudioSystem.release();
         }
 
     }
