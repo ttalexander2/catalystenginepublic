@@ -148,6 +148,7 @@
     <Compile Include="Engine\Physics\CTransform.cs" />
     <Compile Include="Engine\Physics\QuadTree.cs" />
     <Compile Include="Engine\Utilities\FrameCounter.cs" />
+    <Compile Include="Engine\Utilities\LibraryLoader.cs" />
     <Compile Include="Engine\Utilities\Origin.cs" />
     <Compile Include="Engine\Utilities\ScriptTemplate.cs" />
     <Compile Include="Engine\Utilities\Utility.cs" />

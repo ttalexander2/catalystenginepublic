@@ -72,6 +72,11 @@ namespace Chroma.Engine
 
         public ChromaGame(int width, int height, string windowTitle, bool fullscreen)
         {
+#if OSX
+            LibraryLoader.LoadPosixLibrary("libfmod.dylib");
+            LibraryLoader.LoadPosixLibrary("libfmodstudio.dylib");
+#endif
+
             ChromaGame.Instance = this;
             World = new World();
             ChromaGame.Title = windowTitle;
@@ -88,13 +93,13 @@ namespace Chroma.Engine
             Global.Graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
             Global.Graphics.ApplyChanges();
 
-        #if PS4 || XBOXONE
+#if PS4 || XBOXONE
             Global.Graphics.PreferredBackBufferWidth = 1920;
             Global.Graphics.PreferredBackBufferHeight = 1080;
-        #elif NSWITCH
+#elif NSWITCH
             Global.Graphics.PreferredBackBufferWidth = 1280;
             Global.Graphics.PreferredBackBufferHeight = 720;
-        #else
+#else
             Window.AllowUserResizing = false;
 
             if (fullscreen)
@@ -109,7 +114,7 @@ namespace Chroma.Engine
                 Global.Graphics.PreferredBackBufferHeight = Global.PreferredWindowHeight;
                 Global.Graphics.IsFullScreen = false;
             }
-        #endif
+#endif
 
             Content.RootDirectory = @"Content";
             NativeRenderTarget = new RenderTarget2D(Global.Graphics.GraphicsDevice, width, height);

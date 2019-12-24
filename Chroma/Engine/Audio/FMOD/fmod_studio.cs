@@ -23,8 +23,18 @@ namespace FMOD.Studio
         public const string dll     = "libfmodstudio";
 #elif UNITY_EDITOR || ((UNITY_STANDALONE || UNITY_ANDROID || UNITY_XBOXONE || UNITY_STADIA) && DEVELOPMENT_BUILD)
         public const string dll     = "fmodstudioL";
+#elif WIN64 || DEBUG
+        public const string dll = ".\\x64\\fmodstudio.dll";
+#elif WIN32
+        public const string dll    = ".\\x86\\fmodstudio.dll";
+#elif OSX
+        public const string dll    = "__Internal";
+#elif LINUX32
+        public const string dll    = "__Internal";
+#elif LINUX64
+        public const string dll    = "__Internal";
 #else
-        public const string dll     = ".\\x64\\fmodstudio.dll";
+        public const string dll = ".\\x64\\fmodstudio.dll";
 #endif
     }
 

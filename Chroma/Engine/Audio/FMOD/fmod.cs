@@ -36,15 +36,15 @@ namespace FMOD
 #elif (UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN)
         public const string dll    = "fmodstudio";
 #elif WIN64 || DEBUG
-        public const string dll    = ".\\x64\\fmod.dll";
+        public const string dll = ".\\x64\\fmod.dll";
 #elif WIN32
         public const string dll    = ".\\x86\\fmod.dll";
 #elif OSX
-        public const string dll    = "libfmod.dylib";
+        public const string dll    = "__Internal";
 #elif LINUX32
-
+        public const string dll    = "__Internal";
 #elif LINUX64
-
+        public const string dll    = "__Internal";
 #else
         public const string dll = ".\\x64\\fmod.dll";
 #endif
