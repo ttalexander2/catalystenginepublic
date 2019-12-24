@@ -177,8 +177,9 @@ namespace Chroma.Engine
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
 
             World = SceneLoader.LoadScene(ContentDirectory);
+
             FMOD.Studio.EventDescription d;
-            Console.WriteLine(Audio.StudioSystem.getEvent("event:/forest_test", out d));
+            Audio.StudioSystem.getEvent("event:/forest_test", out d);
             FMOD.Studio.EventInstance i;
             d.createInstance(out i);
             i.start();
