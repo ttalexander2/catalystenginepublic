@@ -218,6 +218,14 @@
     <None Include="x86\libSDL2-2.0.so.0" Condition=" '$(Configuration)' == 'LINUX32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="x86\libfmod.so" />
+    <None Include="x86\libfmod.so.11" />
+    <None Include="x64\libfmod.so" />
+    <None Include="x64\libfmod.so.11" />
+    <None Include="x86\libfmodstudio.so" />
+    <None Include="x86\libfmodstudio.so.11" />
+    <None Include="x64\libfmodstudio.so" />
+    <None Include="x64\libfmodstudio.so.11" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Sprites\Player\s_player_running_1\" />
