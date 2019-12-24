@@ -18,18 +18,19 @@ namespace Chroma.Engine.Audio
 
         public AudioManager()
         {
-            Console.WriteLine(FMOD.Studio.System.create(out StudioSystem));
+            FMOD.Studio.System.create(out StudioSystem);
            
         }
 
         public void Initialize()
         {
             StudioSystem.initialize(16, FMOD.Studio.INITFLAGS.NORMAL, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
-
+#if DEBUG
             FMOD.Debug.Initialize(DEBUG_FLAGS.LOG, DEBUG_MODE.FILE, null, "chroma_fmod_log.txt");
-
-            StudioSystem.loadBankFile(Path.GetFullPath(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.strings.bank"), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
-            StudioSystem.loadBankFile(Path.GetFullPath(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.bank"), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
+#endif
+            string FMODPath = Path.Combine(ChromaGame.ContentDirectory, "FMOD", "Desktop"); 
+            StudioSystem.loadBankFile(Path.Combine(FMODPath, "Master.strings.bank"), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
+            StudioSystem.loadBankFile(Path.Combine(FMODPath, "Master.bank"), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
             
         }
 
