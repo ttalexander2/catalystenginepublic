@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FMOD;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Chroma.Engine.Audio
 {
@@ -27,8 +28,8 @@ namespace Chroma.Engine.Audio
 
             FMOD.Debug.Initialize(DEBUG_FLAGS.LOG, DEBUG_MODE.FILE, null, "chroma_fmod_log.txt");
 
-            StudioSystem.loadBankFile(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.strings.bank", FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
-            StudioSystem.loadBankFile(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.bank", FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
+            StudioSystem.loadBankFile(Path.GetFullPath(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.strings.bank"), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
+            StudioSystem.loadBankFile(Path.GetFullPath(ChromaGame.ContentDirectory + "\\FMOD\\Desktop\\" + "Master.bank"), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
             
         }
 

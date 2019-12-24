@@ -296,10 +296,10 @@
     <None Include="x64\fmodstudio.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="x64\SDL2.dll">
+    <Content Include="x64\SDL2.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="x64\soft_oal.dll">
+    <Content Include="x64\soft_oal.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="x86\fmod.dll" Condition=" '$(Configuration)' == 'WIN32' ">
@@ -308,10 +308,10 @@
     <None Include="x86\fmodstudio.dll" Condition=" '$(Configuration)' == 'WIN32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="x86\SDL2.dll">
+    <Content Include="x86\SDL2.dll" Condition=" '$(Configuration)' == 'WIN32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="x86\soft_oal.dll">
+    <Content Include="x86\soft_oal.dll" Condition=" '$(Configuration)' == 'WIN32' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

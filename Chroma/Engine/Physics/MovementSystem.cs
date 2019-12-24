@@ -97,6 +97,7 @@ namespace Chroma.Engine.Physics
             }
         }
 
+        //Uses AABB Algorithm -- Needs working QuadTree to increase efficiency
         private CTransform ActorColliding(CTransform actor, Vector2 offset)
         {
             if (actor == null) { return null; }
