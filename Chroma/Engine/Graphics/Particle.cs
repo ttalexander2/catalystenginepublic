@@ -9,23 +9,23 @@ namespace Chroma.Engine.Graphics
 {
     public class Particle
     {
-        private CParticleEmitter _emitter { get; set; }
+        public CParticleEmitter Emitter { get; set; }
         public bool Active { get; internal set; }
         public Vector2 Position { get; internal set; }
         public Vector2 Velocity
         {
             get 
             {
-                if (Mode == VelocityMode.Exponential)
+                if (Mode == VelocityMode.RecalculateAngle)
                 {
-                    return Position * new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)) / 500, (float)(-Speed * Math.Sin(Angle * Math.PI / 180)) / 500);
+                    return new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)), (float)(-Speed * Math.Sin(Angle * Math.PI / 180)));
                 }
                 else
                 {
                     return _velocity;
                 }
             }
-            private set { _velocity = value; }
+            internal set { _velocity = value; }
         }
         private Vector2 _velocity;
         public VelocityMode Mode { get; internal set; }
@@ -56,31 +56,31 @@ namespace Chroma.Engine.Graphics
         public enum VelocityMode
         {
             Linear,
-            Exponential
+            RecalculateAngle
         }
 
         public Particle(CParticleEmitter emitter)
         {
-            this._emitter = emitter;
+            this.Emitter = emitter;
             this.Active = false;
         }
 
         public void Reset()
         {
             this.Active = true;
-            this.Position = _emitter.Position + new Vector2(_emitter.Rand.Next((int)-_emitter.PositionVariance.X, (int)_emitter.PositionVariance.X), _emitter.Rand.Next((int)-_emitter.PositionVariance.Y, (int)_emitter.PositionVariance.Y)) + _emitter.Offset;
-            this.Life = _emitter.Rand.Next(_emitter.Life - _emitter.LifeVariance, _emitter.Life + _emitter.LifeVariance);
+            this.Position = Emitter.Position + new Vector2(Emitter.Rand.Next((int)-Emitter.PositionVariance.X, (int)Emitter.PositionVariance.X), Emitter.Rand.Next((int)-Emitter.PositionVariance.Y, (int)Emitter.PositionVariance.Y)) + Emitter.Offset;
+            this.Life = Emitter.Rand.Next(Emitter.Life - Emitter.LifeVariance, Emitter.Life + Emitter.LifeVariance);
             this.LifeStart = this.Life;
-            this.Angle = _emitter.Rand.Next(_emitter.Angle - _emitter.Rand.Next(0, _emitter.AngleVariance), _emitter.Angle + _emitter.Rand.Next(0, _emitter.AngleVariance));
-            this.Speed = _emitter.Rand.Next(_emitter.Speed - _emitter.SpeedVariance, _emitter.Speed + _emitter.SpeedVariance);
-            this.StartColor = _emitter.StartColor;
-            this.EndColor = _emitter.EndColor;
-            this.StartAlpha = _emitter.StartAlpha;
-            this.EndAlpha = _emitter.EndAlpha;
-            this.Mode = _emitter.VelocityMode;
+            this.Angle = Emitter.Rand.Next(Emitter.Angle - Emitter.Rand.Next(0, Emitter.AngleVariance), Emitter.Angle + Emitter.Rand.Next(0, Emitter.AngleVariance));
+            this.Speed = Emitter.Rand.Next(Emitter.Speed - Emitter.SpeedVariance, Emitter.Speed + Emitter.SpeedVariance);
+            this.StartColor = Emitter.StartColor;
+            this.EndColor = Emitter.EndColor;
+            this.StartAlpha = Emitter.StartAlpha;
+            this.EndAlpha = Emitter.EndAlpha;
+            this.Mode = Emitter.VelocityMode;
             if (this.Mode == VelocityMode.Linear)
             {
-                this.Velocity = new Vector2(500, 500) * new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)) / 500, (float)(-Speed * Math.Sin(Angle * Math.PI / 180)) / 500);
+                this.Velocity = new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)), (float)(-Speed * Math.Sin(Angle * Math.PI / 180)));
             }
             else
             {

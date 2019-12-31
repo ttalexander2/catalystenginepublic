@@ -75,6 +75,12 @@ namespace Chroma.Engine
 #if OSX
             LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "libfmod.dylib"));
             LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "libfmodstudio.dylib"));
+#elif LINUX32
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x86", "libfmod.so"));
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x86", "libfmodstudio.so"));
+#elif LINUX64
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x64", "libfmod.so"));
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x64", "libfmodstudio.so"));
 #endif
 
             ChromaGame.Instance = this;

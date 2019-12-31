@@ -25,8 +25,9 @@ namespace Chroma.Game
             scene.Systems.Add(new GravitySystem(scene));
             scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderSystem(scene));
-            scene.Systems.Add(new CameraSystem(scene));
             scene.Systems.Add(new ParticleSystem(scene));
+            scene.Systems.Add(new CameraSystem(scene));
+
 
             var Content = Chroma.Engine.ChromaGame.Instance.Content;
 
@@ -81,13 +82,8 @@ namespace Chroma.Game
             p.GetComponent<CParticleEmitter>().Launch();
             p.GetComponent<CParticleEmitter>().Launch();
             p.GetComponent<CParticleEmitter>().Launch();
-            Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, 1, 1);
 
-            Color[] data = new Color[1 * 1];
-            for (int i = 0; i < data.Length; ++i) data[i] = Color.White;
-            rect.SetData(data);
-
-            p.GetComponent<CParticleEmitter>().Texture = rect;
+            p.GetComponent<CParticleEmitter>().Texture = BasicShapes.GenerateCircleTexture(1, Color.White, 1.0f);
 
             return world;
         }

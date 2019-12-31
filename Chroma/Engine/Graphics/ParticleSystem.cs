@@ -58,7 +58,7 @@ namespace Chroma.Engine.Graphics
 
             }
         }
-        public override void Render(GameTime gameTime)
+        public override void PostRender(GameTime gameTime)
         {
             foreach (CParticleEmitter emitter in Manager.GetComponents<CParticleEmitter>().Values)
             {

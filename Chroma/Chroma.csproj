@@ -134,10 +134,12 @@
     <Compile Include="Engine\ECManager.cs" />
     <Compile Include="Engine\CSolid.cs" />
     <Compile Include="Engine\ECDictionaryExtensions.cs" />
+    <Compile Include="Engine\Graphics\BasicShapes.cs" />
     <Compile Include="Engine\Graphics\Camera2D.cs" />
     <Compile Include="Engine\Graphics\CameraSystem.cs" />
     <Compile Include="Engine\Graphics\CParticleEmitter.cs" />
     <Compile Include="Engine\Graphics\Particle.cs" />
+    <Compile Include="Engine\Graphics\ParticlePath.cs" />
     <Compile Include="Engine\Graphics\ParticleSystem.cs" />
     <Compile Include="Engine\Graphics\SpriteRenderSystem.cs" />
     <Compile Include="Engine\Input\CInput.cs" />

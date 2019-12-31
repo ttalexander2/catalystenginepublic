@@ -35,16 +35,16 @@ namespace Chroma.Engine.Graphics
         {
             Particles = new List<Particle>();
             Mode = ParticleMode.Continuous;
-            VelocityMode = Particle.VelocityMode.Linear;
+            VelocityMode = Particle.VelocityMode.RecalculateAngle;
             StartColor = Color.Lerp(Color.Cyan, Color.White, 0.5f);
             EndColor = Color.Lerp(Color.White, Color.White, 01.0f);
-            StartAlpha = 1f;
+            StartAlpha = 1.0f;
             EndAlpha = 0.0f;
             Life = 200;
             LifeVariance = 50;
             Angle = 90;
             AngleVariance = 45;
-            Speed = 90;
+            Speed = 50;
             SpeedVariance = 40;
             Position = Vector2.Zero;
             PositionVariance = Vector2.Zero;

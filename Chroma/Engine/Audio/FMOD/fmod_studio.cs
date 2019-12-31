@@ -27,11 +27,7 @@ namespace FMOD.Studio
         public const string dll = ".\\x64\\fmodstudio.dll";
 #elif WIN32
         public const string dll    = ".\\x86\\fmodstudio.dll";
-#elif OSX
-        public const string dll    = "__Internal";
-#elif LINUX32
-        public const string dll    = "__Internal";
-#elif LINUX64
+#elif OSX || LINUX32 || LINUX64
         public const string dll    = "__Internal";
 #else
         public const string dll = ".\\x64\\fmodstudio.dll";

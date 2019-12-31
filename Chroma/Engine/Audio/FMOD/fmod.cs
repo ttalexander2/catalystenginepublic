@@ -39,11 +39,7 @@ namespace FMOD
         public const string dll = ".\\x64\\fmod.dll";
 #elif WIN32
         public const string dll    = ".\\x86\\fmod.dll";
-#elif OSX
-        public const string dll    = "__Internal";
-#elif LINUX32
-        public const string dll    = "__Internal";
-#elif LINUX64
+#elif OSX || LINUX32 || LINUX64
         public const string dll    = "__Internal";
 #else
         public const string dll = ".\\x64\\fmod.dll";
