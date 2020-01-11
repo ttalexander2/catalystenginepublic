@@ -149,10 +149,19 @@
     <Compile Include="Engine\Physics\MovementSystem.cs" />
     <Compile Include="Engine\Physics\CTransform.cs" />
     <Compile Include="Engine\Physics\QuadTree.cs" />
+    <Compile Include="Engine\Utilities\ChromaSerializer.cs" />
     <Compile Include="Engine\Utilities\FrameCounter.cs" />
     <Compile Include="Engine\Utilities\LibraryLoader.cs" />
     <Compile Include="Engine\Utilities\Origin.cs" />
     <Compile Include="Engine\Utilities\ScriptTemplate.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Color.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Matrix.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Point.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Quaternion.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Ray.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Vector2.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Vector3.cs" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Vector4.cs" />
     <Compile Include="Engine\Utilities\Utility.cs" />
     <Compile Include="Engine\Utilities\Alarm.cs" />
     <Compile Include="Engine\Utilities\IScript.cs" />
@@ -179,6 +188,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZeroFormatter, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeroFormatter.1.6.4\lib\net45\ZeroFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="ZeroFormatter.Interfaces, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeroFormatter.Interfaces.1.6.4\lib\net45\ZeroFormatter.Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Engine\Icon.ico" />
@@ -193,6 +208,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Engine\app.manifest" />
+    <Compile Include="Engine\Utilities\Serializable XNA Classes\Rectangle.cs" />
     <None Include="libfmod.dylib" Condition=" '$(Configuration)' == 'OSX' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -208,6 +224,7 @@
     <None Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="x64\libopenal.so.1" Condition=" '$(Configuration)' == 'LINUX64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

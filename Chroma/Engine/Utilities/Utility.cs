@@ -14,7 +14,7 @@ namespace Chroma.Engine.Utilities
 
         private static Texture2D AutoTrim(Texture2D texture)
         {
-            var colorData = new Color[texture.Width * texture.Height];
+            var colorData = new Utilities.Color[texture.Width * texture.Height];
             texture.GetData(colorData);
 
             // Loop through the array and change the RGB values you choose
@@ -31,7 +31,7 @@ namespace Chroma.Engine.Utilities
                 {
                     var pixel = colorData[x * texture.Height + y];
                     // Check if the color is within the range
-                    if (!pixel.Equals(Color.Transparent)) none = false;
+                    if (!pixel.Equals(Utilities.Color.Transparent)) none = false;
                 }
 
                 if (none)
@@ -47,7 +47,7 @@ namespace Chroma.Engine.Utilities
                 {
                     var pixel = colorData[x * texture.Height + y];
                     // Check if the color is within the range
-                    if (!pixel.Equals(Color.Transparent)) none = false;
+                    if (!pixel.Equals(Utilities.Color.Transparent)) none = false;
                 }
 
                 if (none)
@@ -63,7 +63,7 @@ namespace Chroma.Engine.Utilities
                 {
                     var pixel = colorData[y * texture.Height + x];
                     // Check if the color is within the range
-                    if (!pixel.Equals(Color.Transparent)) none = false;
+                    if (!pixel.Equals(Utilities.Color.Transparent)) none = false;
                 }
 
                 if (none)
@@ -79,7 +79,7 @@ namespace Chroma.Engine.Utilities
                 {
                     var pixel = colorData[y * texture.Height + x];
                     // Check if the color is within the range
-                    if (!pixel.Equals(Color.Transparent)) none = false;
+                    if (!pixel.Equals(Utilities.Color.Transparent)) none = false;
                 }
 
                 if (none)
@@ -98,7 +98,7 @@ namespace Chroma.Engine.Utilities
             var cropped = new Texture2D(Global.Graphics.GraphicsDevice, bounds.Width, bounds.Height);
 
             // Copy the data from the cropped region into a buffer, then into the new texture
-            var data = new Color[bounds.Width * bounds.Height];
+            var data = new Utilities.Color[bounds.Width * bounds.Height];
             texture.GetData(0, bounds, data, 0, bounds.Width * bounds.Height);
             cropped.SetData(data);
 
@@ -106,30 +106,30 @@ namespace Chroma.Engine.Utilities
         }
 
 
-        public static Vector2 OriginToVectorOffset(Origin origin, Vector2 dimensions)
+        public static Utilities.Vector2 OriginToVectorOffset(Origin origin, Utilities.Vector2 dimensions)
         {
             switch (origin)
             {
                 case (Origin.TopLeft):
-                    return new Vector2(0, 0);
+                    return new Utilities.Vector2(0, 0);
                 case (Origin.TopRight):
-                    return new Vector2(dimensions.X, 0);
+                    return new Utilities.Vector2(dimensions.X, 0);
                 case (Origin.TopCenter):
-                    return new Vector2((int)(dimensions.X / 2), 0);
+                    return new Utilities.Vector2((int)(dimensions.X / 2), 0);
                 case (Origin.CenterLeft):
-                    return new Vector2(0, (int)(dimensions.Y / 2));
+                    return new Utilities.Vector2(0, (int)(dimensions.Y / 2));
                 case (Origin.CenterRight):
-                    return new Vector2(dimensions.X, (int)(dimensions.Y / 2));
+                    return new Utilities.Vector2(dimensions.X, (int)(dimensions.Y / 2));
                 case (Origin.Center):
-                    return new Vector2((int)(dimensions.X / 2), (int)(dimensions.Y / 2));
+                    return new Utilities.Vector2((int)(dimensions.X / 2), (int)(dimensions.Y / 2));
                 case (Origin.BottomLeft):
-                    return new Vector2(0, dimensions.Y);
+                    return new Utilities.Vector2(0, dimensions.Y);
                 case (Origin.BottomRight):
-                    return new Vector2(dimensions.X, dimensions.Y);
+                    return new Utilities.Vector2(dimensions.X, dimensions.Y);
                 case (Origin.BottomCenter):
-                    return new Vector2((int)(dimensions.X / 2), dimensions.Y);
+                    return new Utilities.Vector2((int)(dimensions.X / 2), dimensions.Y);
                 default:
-                    return new Vector2(0, 0);
+                    return new Utilities.Vector2(0, 0);
             }
 
         }

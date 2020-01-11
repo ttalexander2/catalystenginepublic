@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vector2 = Chroma.Engine.Utilities.Vector2;
+using Color = Chroma.Engine.Utilities.Color;
 
 namespace Chroma.Game
 {

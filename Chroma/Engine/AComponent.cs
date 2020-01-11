@@ -1,16 +1,23 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Chroma.Engine.Utilities;
+using Microsoft.Xna.Framework;
 using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine
 {
+    [KnownType("DerivedTypes")]
     [Serializable]
     public abstract class AComponent
     {
-
         public static string Name => "Abstract Component";
+        
         public int UID { get; private set; }
+        
         public bool Active { get; set; }
-
+        
         public Entity Entity { get; private set; }
 
         internal AComponent(Entity entity)
@@ -20,9 +27,10 @@ namespace Chroma.Engine
             this.Active = true;
         }
 
-
-
-
-
+        private static Type[] DerivedTypes()
+        {
+            return Assembly.GetAssembly(typeof(AComponent)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))).ToArray();
+        }
     }
 }

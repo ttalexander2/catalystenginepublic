@@ -5,9 +5,11 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Key = Chroma.Engine.Input.Controller;
+using Vector2 = Chroma.Engine.Utilities.Vector2;
 
 namespace Chroma.Game
 {

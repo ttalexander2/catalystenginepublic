@@ -6,6 +6,7 @@ using Chroma.Engine.Utilities;
 using Chroma.Game;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,13 +16,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
+using Vector2 = Chroma.Engine.Utilities.Vector2;
 
 namespace Catalyst.XNA
 {
     public class ProjectManager
     {
 
-        public static World Current { get; set; }
+        public static Scene Current { get; set; }
 
         private static string _file;
         public static string FileName
@@ -63,28 +65,35 @@ namespace Catalyst.XNA
             }
         }
 
+        public const string Extension = ".chroma";
+
         public static void CreateNew(string file)
         {
-            Current = new World();
+            Current = new Scene(1920, 1080);
             FileName = file;
             Unsaved = true;
         }
 
         public static void Save()
         {
-            DataContractJsonSerializer writer = new DataContractJsonSerializer(typeof(Chroma.Engine.World));
-            Console.WriteLine(ProjectPath + FileName);
             Directory.CreateDirectory(ProjectPath);
-            FileStream file = File.Create(ProjectPath + FileName);
-            writer.WriteObject(file, Current);
-            file.Close();
+
+            ChromaSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
+
             Unsaved = false;
         }
 
-        public static World LoadTestWorld()
+        public static void Open(string path)
         {
-            World world = new World();
 
+            ChromaSerializer.DeserializeFromFile<Scene>(path, SerializationMode.Binary);
+
+            Unsaved = true;
+        }
+
+        public static Scene LoadTestWorld()
+        {
+            Console.WriteLine("YEET\n");
             Scene scene = new Scene(Global.Width * 2, Global.Height * 2);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
@@ -96,14 +105,7 @@ namespace Catalyst.XNA
             var Content = SampleGame.Instance.Content;
             string ContentDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), SampleGame.Instance.Content.RootDirectory);
 
-            Texture2D[] atlas = new Texture2D[] {
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"),
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"),
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"),
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
-                    Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
+            Texture2D[] atlas = new Texture2D[] {};
             Entity testEntity = scene.Manager.NewEntity();
             var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f };
             testEntity.AddComponent<CSprite>(sprite);
@@ -112,32 +114,23 @@ namespace Catalyst.XNA
             scene.Camera.Following = testEntity;
 
 
-            Texture2D[] atlas2 = new Texture2D[] {
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_2"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_3"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_4"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_5"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_6"),
-                Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_7") };
+            Texture2D[] atlas2 = new Texture2D[] {};
             Entity testEntity2 = scene.Manager.NewEntity();
             var sprite2 = new CSprite(testEntity2, "test", 0, 200, atlas2, Origin.TopLeft) { animationSpeed = 6.0f };
             testEntity2.AddComponent<CSprite>(sprite2);
             testEntity2.AddComponent<CSolid>();
 
-            world.CurrentScene = scene;
-
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Entity grass = scene.Manager.NewEntity();
-                var grass_sprite = new CSprite(grass, "grass_" + i, 16 + 32 * i, 344 + Global.Height, new Texture2D[] { Content.Load<Texture2D>(ContentDirectory + "/Sprites/Tiles/Grass/grass_top") }, Origin.Center);
+                var grass_sprite = new CSprite(grass, "grass_" + i, 16 + 32 * i, 344 + Global.Height, new Texture2D[] {}, Origin.Center);
                 grass.GetComponent<CTransform>().CollisionDims = new Vector2(32, 32);
                 grass.GetComponent<CTransform>().CollisionOffset = new Vector2(3, 3);
                 grass.AddComponent<CSprite>(grass_sprite);
                 grass.AddComponent<CSolid>();
             }
 
-            return world;
+            return scene;
         }
     }
     

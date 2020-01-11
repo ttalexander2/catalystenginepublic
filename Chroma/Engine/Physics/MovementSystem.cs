@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Chroma.Engine.Graphics;
@@ -15,7 +16,7 @@ namespace Chroma.Engine.Physics
         private QuadTree quad;
         public MovementSystem(Scene scene) : base(scene)
         {
-            quad = new QuadTree(new Rectangle(0, 0, Global.Width, Global.Height));
+            quad = new QuadTree(new Utilities.Rectangle(0, 0, Global.Width, Global.Height));
         }
 
         public override void Update(GameTime gameTime)
@@ -40,17 +41,17 @@ namespace Chroma.Engine.Physics
             int move = (int)Math.Round(v.Velocity.X);
             if (move != 0)
             {
-                v.Velocity = new Vector2(v.Velocity.X - move, v.Velocity.Y);
+                v.Velocity = new Utilities.Vector2(v.Velocity.X - move, v.Velocity.Y);
                 int sign = Math.Sign(move);
 
 
                 while (move != 0)
                 {
-                    CTransform collision = ActorColliding(t, new Vector2(sign, 0));
+                    CTransform collision = ActorColliding(t, new Utilities.Vector2(sign, 0));
                     if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Vector2(sign, 0);
+                        t.Position += new Utilities.Vector2(sign, 0);
                         move -= sign;
                     }
                     else
@@ -72,17 +73,17 @@ namespace Chroma.Engine.Physics
             int move = (int)Math.Round(v.Velocity.Y);
             if (move != 0)
             {
-                v.Velocity = new Vector2(v.Velocity.X, v.Velocity.Y - move);
+                v.Velocity = new Utilities.Vector2(v.Velocity.X, v.Velocity.Y - move);
                 int sign = Math.Sign(move);
 
 
                 while (move != 0)
                 {
-                    CTransform collision = ActorColliding(t, new Vector2(0, sign));
+                    CTransform collision = ActorColliding(t, new Utilities.Vector2(0, sign));
                     if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Vector2(0, sign);
+                        t.Position += new Utilities.Vector2(0, sign);
                         move -= sign;
                     }
                     else
@@ -98,7 +99,7 @@ namespace Chroma.Engine.Physics
         }
 
         //Uses AABB Algorithm -- Needs working QuadTree to increase efficiency
-        private CTransform ActorColliding(CTransform actor, Vector2 offset)
+        private CTransform ActorColliding(CTransform actor, Utilities.Vector2 offset)
         {
             if (actor == null) { return null; }
             
@@ -119,8 +120,8 @@ namespace Chroma.Engine.Physics
             foreach (CTransform solid in returnObjects)
             {
 
-                Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
-                Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
+                Utilities.Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
+                Utilities.Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
 
                 if (actorOffset.X < solidOffset.X + solid.CollisionDims.X &&
                     actorOffset.X + actor.CollisionDims.X > solidOffset.X &&
@@ -141,8 +142,8 @@ namespace Chroma.Engine.Physics
                 {
                     CTransform solid = s.Entity.GetComponent<CTransform>();
 
-                    Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
-                    Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
+                    Utilities.Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
+                    Utilities.Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
 
                     if (actorOffset.X < solidOffset.X + solid.CollisionDims.X &&
                         actorOffset.X + actor.CollisionDims.X > solidOffset.X &&

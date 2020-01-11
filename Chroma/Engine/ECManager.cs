@@ -1,30 +1,33 @@
 ﻿using Chroma.Engine.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Chroma.Engine
 {
-    [Serializable]
+[Serializable]
     public class ECManager
     {
-        private Scene scene;
+        
         private int id;
+        
         internal Dictionary<int, Entity> entityDict = new Dictionary<int, Entity>();
-        internal Dictionary<Type, Dictionary<Entity, AComponent>> components = new Dictionary<Type, Dictionary<Entity, AComponent>>();
+        
+        internal Dictionary<string, Dictionary<int, AComponent>> components = new Dictionary<string, Dictionary<int, AComponent>>();
 
-        internal ECManager(Scene scene)
+        internal ECManager()
         {
-            this.scene = scene;
             id = 0;
             foreach (Type type in
             Assembly.GetAssembly(typeof(AComponent)).GetTypes()
             .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
             {
-                components[type] = new Dictionary<Entity, AComponent>();
+                components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
             }
             
         }
@@ -58,7 +61,7 @@ namespace Chroma.Engine
             Type t = typeof(T);
 
             AComponent val;
-            components[t].TryGetValue(entityDict[UID], out val);
+            components[t.AssemblyQualifiedName].TryGetValue(UID, out val);
             return val != null ? (T)val : null;
         }
 
@@ -67,15 +70,16 @@ namespace Chroma.Engine
             Type t = typeof(T);
 
             AComponent val;
-            components[t].TryGetValue(e, out val);
+            components[t.AssemblyQualifiedName].TryGetValue(e.UID, out val);
             return val != null ? (T)val : null;
         }
 
-        public Dictionary<Entity, AComponent> GetComponents<T>() where T : AComponent
+        public Dictionary<int, AComponent> GetComponents<T>() where T : AComponent
         {
             Type t = typeof(T);
-            return components[t];
+            return components[t.AssemblyQualifiedName];
         }
 
+ 
     }
 }

@@ -5,30 +5,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine.Graphics
 {
+    [Serializable]
     public class CParticleEmitter : AComponent
     {
+        
         public Entity Follow { get; set; }
+        
         public bool FollowCamera { get; set; }
+        
         public Vector2 Position { get; set; }
+        
         public Vector2 PositionVariance { get; set; }
+        
         public Particle.VelocityMode VelocityMode { get; set; }
+        
         public Vector2 Offset { get; set; }
+
         public List<Particle> Particles { get; private set; }
+
         public Texture2D Texture { get; set; }
+        
         public ParticleMode Mode { get; set; }
+        
         public Color StartColor { get; set; }
+        
         public Color EndColor { get; set; }
+        
         public float StartAlpha { get; set; }
+        
         public float EndAlpha { get; set; }
+        
         public int Life { get; set; }
+        
         public int LifeVariance { get; set; }
+        
         public int Speed { get; internal set; }
+        
         public int SpeedVariance { get; set; }
+        
         public int Angle { get; set; }
+        
         public int AngleVariance { get; set; }
+        
         public int Count { get; set; }
         internal Random Rand { get; private set; }
         public CParticleEmitter(Entity entity) : base(entity)
@@ -51,10 +73,11 @@ namespace Chroma.Engine.Graphics
             Offset = Vector2.Zero;
             Count = 1000;
             Rand = new Random();
+            FollowCamera = false;
             Init(Count);
 
 
-            FollowCamera = false;
+
 
             Launch();
         }

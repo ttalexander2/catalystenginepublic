@@ -5,26 +5,39 @@ using Chroma.Engine.Input;
 using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Microsoft.Xna.Framework;
+using System.Xml.Serialization;
+using System.IO;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine
 {
-    [Serializable]
-    public class Scene
+[Serializable]
+    [assembly: InternalsVisibleTo("System.Runtime.Serialization")]
+    public class Scene 
     {
+        
         public string Name { get; set; }
+        
         public ECManager Manager { get; private set; }
+        
         public List<ASystem> Systems { get; private set; }
-
+        
         public Camera2D Camera { get; set; }
+        
+        public int Width { get; set; }
+        
+        public int Height { get; set; }
+        
+        public Utilities.Vector2 Dimensions { get; private set; }
 
         public Scene(int width, int height)
         {
             Width = width;
             Height = height;
-            Manager = new ECManager(this);
+            Manager = new ECManager();
             Systems = new List<ASystem>();
-            Dimensions = new Vector2(width, height);
-            Camera = new Camera2D(this, new Vector2(width, height));
+            Dimensions = new Utilities.Vector2(width, height);
+            Camera = new Camera2D(this, new Utilities.Vector2(width, height));
             this.Name = "scene_" + this.GetHashCode().ToString();
         }
 
@@ -32,18 +45,16 @@ namespace Chroma.Engine
         {
             Width = width;
             Height = height;
-            Manager = new ECManager(this);
+            Manager = new ECManager();
             Systems = new List<ASystem>();
-            Dimensions = new Vector2(width, height);
-            Camera = new Camera2D(this, new Vector2(width, height));
+            Dimensions = new Utilities.Vector2(width, height);
+            Camera = new Camera2D(this, new Utilities.Vector2(width, height));
             this.Name = name;
         }
 
-        public int Width { get; }
-        public int Height { get; }
-        public Vector2 Dimensions { get; private set; }
+        private Scene() { }
 
-        #region [Loop]
+#region [Loop]
         public void Initialize()
         {
             for (int i = 0; i < Systems.Count; i++)
@@ -188,6 +199,9 @@ namespace Chroma.Engine
         {
 
         }
-#endregion
+
+        #endregion
     }
+
+
 }

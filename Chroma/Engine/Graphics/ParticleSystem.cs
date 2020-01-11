@@ -9,9 +9,11 @@ using Chroma.Game;
 using Chroma.Engine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine.Graphics
 {
+    [Serializable]
     public class ParticleSystem : ARenderSystem
     {
         public ParticleSystem(Scene scene) : base(scene){}
@@ -64,7 +66,7 @@ namespace Chroma.Engine.Graphics
             {
                 foreach (Particle p in emitter.Particles)
                 {
-                    Global.SpriteBatch.Draw(emitter.Texture, p.Position, null, p.Color * p.Alpha, 0, Vector2.Zero, 1, new SpriteEffects(), 0);
+                    Global.SpriteBatch.Draw(emitter.Texture, p.Position, null, p.Color * p.Alpha, 0, Microsoft.Xna.Framework.Vector2.Zero, 1, new SpriteEffects(), 0);
                 }
 
             }

@@ -1,6 +1,7 @@
 ﻿using Chroma.Engine.Physics;
 using Microsoft.Xna.Framework;
 using System;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine
 {

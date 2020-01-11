@@ -122,6 +122,7 @@
   <ItemGroup>
       <PackageReference Include="ImGui.NET" Version="1.72.0" />
       <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.7.0.1708" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
       <PackageReference Include="sdl2" Version="2.0.5" />
     </ItemGroup>
 

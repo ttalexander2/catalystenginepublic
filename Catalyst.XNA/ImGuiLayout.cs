@@ -85,35 +85,6 @@ namespace Catalyst
 
                     ImGui.SetWindowCollapsed(false);
 
-                    ImGui.Text("Scene:");
-
-                    if (ImGui.BeginCombo("", _currentScene))
-                    {
-                        foreach (Scene s in ProjectManager.Current.Scenes)
-                        {
-                            bool isSelected = s.Name == _currentScene;
-                            if (ImGui.Selectable(s.Name))
-                            {
-                                _currentScene = s.Name;
-                            }
-                            if (isSelected)
-                            {
-                                ImGui.SetItemDefaultFocus();
-                                ProjectManager.Current.CurrentScene = s;
-                            }
-
-                        }
-                        ImGui.EndCombo();
-                    }
-
-                    ImGui.SameLine();
-
-
-                    if (ImGui.Button("Add Scene"))
-                    {
-                        ProjectManager.Current.Scenes.Add(new Scene(500, 500));
-                    }
-
 
 
                     ImGui.End();
@@ -163,7 +134,17 @@ namespace Catalyst
                     {
                         new_project_window = true;
                     }
-                    if (ImGui.MenuItem("Open", "Ctrl+O")) { }
+                    if (ImGui.MenuItem("Open", "Ctrl+O")) {
+                        System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+                        openFileDialog1.Filter = "Chroma Scene File (*.chroma)|*" +ProjectManager.Extension;
+                        openFileDialog1.DefaultExt = ProjectManager.Extension;
+                        openFileDialog1.AddExtension = true;
+                        openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                        if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            ProjectManager.Open(openFileDialog1.FileName);
+                        }
+                    }
                     if (ImGui.BeginMenu("Open Recent"))
                     {
                         ImGui.MenuItem("fish_hat.c");
@@ -180,6 +161,12 @@ namespace Catalyst
 
                     }
                     ImGui.Separator();
+
+                    if(ImGui.MenuItem("Load Test Scene", true))
+                    {
+                        ProjectManager.Current = ProjectManager.LoadTestWorld();
+                    }
+
                     if (ImGui.BeginMenu("Options"))
                     {
                         bool enabled = true;
@@ -259,7 +246,7 @@ namespace Catalyst
 
                 if (!customDir)
                 {
-                    ImGui.Text(Directory.GetCurrentDirectory() + "\\Projects\\");
+                    ImGui.Text(Path.Combine(Directory.GetCurrentDirectory(),"Projects"));
                 } else
                 {
                     ImGui.Text(projectDir + "\\");
@@ -286,11 +273,11 @@ namespace Catalyst
                     if (customDir)
                     {
                         ProjectManager.ProjectPath = projectDir + "\\" + str + "\\";
-                        ProjectManager.CreateNew(str + ".cytl");
+                        ProjectManager.CreateNew(str);
                     } else
                     {
-                        ProjectManager.ProjectPath = Directory.GetCurrentDirectory() + "\\Projects\\" + str + "\\";
-                        ProjectManager.CreateNew(str + ".cytl");
+                        ProjectManager.ProjectPath = Path.Combine(Directory.GetCurrentDirectory(),"Projects", str);
+                        ProjectManager.CreateNew(str);
                     }
 
                     new_project_window = false;

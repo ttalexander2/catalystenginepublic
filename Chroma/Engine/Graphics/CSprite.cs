@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Chroma.Engine.Utilities.Utility;
+using Vector2 = Chroma.Engine.Utilities.Vector2;
+using Color = Chroma.Engine.Utilities.Color;
+using Rectangle = Chroma.Engine.Utilities.Rectangle;
 
 namespace Chroma.Engine.Graphics
 {
@@ -12,13 +16,18 @@ namespace Chroma.Engine.Graphics
     public class CSprite : AComponent
     {
 
-
+        
         public string name;
+        
         public float layer;
-
+        
         private int _textureHeight;
+        
         private int _textureWidth;
+
+        [NonSerialized]
         public List<Texture2D> Textures = new List<Texture2D>();
+        private List<string> _textureList = new List<string>();
         public Texture2D Texture
         {
             get
@@ -26,15 +35,21 @@ namespace Chroma.Engine.Graphics
                 return Textures[CurrentTexture];
             }
         }
+        
         public int CurrentTexture { get; set; }
+        
         public float animationSpeed = 2.0f; //Frames per second
-
+        
         public bool visible = true;
-
+        
         public int frame { get; set; }
+        
         public bool loop = true;
+        
         public bool animating = true;
+
         public SpriteEffects spriteEffects = new SpriteEffects();
+        
         public Color debugColor = Color.Red * 0.4f; //Float = transparency
 
         internal TimeSpan TimeChanged = new TimeSpan();

@@ -17,11 +17,11 @@ namespace Chroma.Engine.Physics
 
         private int _level;
         private List<CTransform> _objects;
-        private Rectangle _bounds;
+        private Utilities.Rectangle _bounds;
         private QuadTree[] _nodes;
 
 
-        private QuadTree(int parentLevel, Rectangle parentBounds)
+        private QuadTree(int parentLevel, Utilities.Rectangle parentBounds)
         {
             throw new Exception("QUAD TREE IS BROKEN");
             _level = parentLevel;
@@ -30,7 +30,7 @@ namespace Chroma.Engine.Physics
             _nodes = new QuadTree[4];
         }
 
-        public QuadTree(Rectangle parentBounds)
+        public QuadTree(Utilities.Rectangle parentBounds)
         {
             _level = 0;
             _objects = new List<CTransform>();
@@ -60,10 +60,10 @@ namespace Chroma.Engine.Physics
             int x = _bounds.X;
             int y = _bounds.Y;
 
-            _nodes[0] = new QuadTree(_level + 1, new Rectangle(x + subWidth, y, subWidth, subHeight));
-            _nodes[1] = new QuadTree(_level + 1, new Rectangle(x, y, subWidth, subHeight));
-            _nodes[2] = new QuadTree(_level + 1, new Rectangle(x, y + subHeight, subWidth, subHeight));
-            _nodes[3] = new QuadTree(_level + 1, new Rectangle(x + subWidth, y + subHeight, subWidth, subHeight));
+            _nodes[0] = new QuadTree(_level + 1, new Utilities.Rectangle(x + subWidth, y, subWidth, subHeight));
+            _nodes[1] = new QuadTree(_level + 1, new Utilities.Rectangle(x, y, subWidth, subHeight));
+            _nodes[2] = new QuadTree(_level + 1, new Utilities.Rectangle(x, y + subHeight, subWidth, subHeight));
+            _nodes[3] = new QuadTree(_level + 1, new Utilities.Rectangle(x + subWidth, y + subHeight, subWidth, subHeight));
         }
 
         private int GetIndex(CTransform collider)

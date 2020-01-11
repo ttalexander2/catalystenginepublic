@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 
 namespace Chroma.Engine
 {
-    [Serializable]
     public class World
     {
 

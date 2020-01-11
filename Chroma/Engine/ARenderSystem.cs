@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Chroma.Engine
 {
+    [KnownType("DerivedTypes")]
     [Serializable]
     public abstract class ARenderSystem : ASystem
     {
@@ -25,5 +28,11 @@ namespace Chroma.Engine
         public virtual void RenderNative(GameTime gameTime) { }
 
         public virtual void RenderUI(GameTime gameTime) { }
+
+        private static Type[] DerivedTypes()
+        {
+            return Assembly.GetAssembly(typeof(AComponent)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(ARenderSystem))).ToArray();
+        }
     }
 }

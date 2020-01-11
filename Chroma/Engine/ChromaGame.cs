@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Chroma.Engine.Audio;
 using FMOD.Studio;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using Color = Microsoft.Xna.Framework.Color;
 
 namespace Chroma.Engine
 {
@@ -65,7 +67,7 @@ namespace Chroma.Engine
         //Rendering
         private RenderTarget2D NativeRenderTarget { get; set; }
         internal Rectangle Screen { get;  private set; }
-        internal Vector2 ScreenOffset { get; private set; }
+        internal Utilities.Vector2 ScreenOffset { get; private set; }
 
         //Audio
         public AudioManager Audio;
@@ -132,18 +134,18 @@ namespace Chroma.Engine
 
             if (actual>ratio)
             {
-                ScreenOffset = new Vector2((Global.Graphics.PreferredBackBufferWidth - (int)(Global.Graphics.PreferredBackBufferHeight * (ratio))) / 2, 0);
+                ScreenOffset = new Utilities.Vector2((Global.Graphics.PreferredBackBufferWidth - (int)(Global.Graphics.PreferredBackBufferHeight * (ratio))) / 2, 0);
                 Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, (int)(Global.Graphics.PreferredBackBufferHeight*(ratio)), Global.Graphics.PreferredBackBufferHeight);
             }
             else if (actual<ratio)
             {
-                ScreenOffset = new Vector2(0, (Global.Graphics.PreferredBackBufferHeight - (int)(Global.Graphics.PreferredBackBufferWidth * (1 / ratio))) / 2);
+                ScreenOffset = new Utilities.Vector2(0, (Global.Graphics.PreferredBackBufferHeight - (int)(Global.Graphics.PreferredBackBufferWidth * (1 / ratio))) / 2);
                 Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, Global.Graphics.PreferredBackBufferWidth, (int)(Global.Graphics.PreferredBackBufferWidth * 1/ratio));
             }
             else
             {
                 Screen = new Rectangle(0, 0, Global.Graphics.PreferredBackBufferWidth, Global.Graphics.PreferredBackBufferHeight);
-                ScreenOffset = Vector2.Zero;
+                ScreenOffset = Utilities.Vector2.Zero;
             }
 
             Global.ScreenOffset = ScreenOffset;
@@ -215,13 +217,13 @@ namespace Chroma.Engine
 
             // TODO: Add your update logic here
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad2))
-                Camera.MoveTowards(new Vector2(0, 5));
+                Camera.MoveTowards(new Utilities.Vector2(0, 5));
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad8))
-                Camera.MoveTowards(new Vector2(0, -5));
+                Camera.MoveTowards(new Utilities.Vector2(0, -5));
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad4))
-                Camera.MoveTowards(new Vector2(-5, 0));
+                Camera.MoveTowards(new Utilities.Vector2(-5, 0));
             if (Keyboard.GetState().IsKeyDown(Keys.NumPad6))
-                Camera.MoveTowards(new Vector2(5, 0));
+                Camera.MoveTowards(new Utilities.Vector2(5, 0));
 
 
             World.PreUpdate(gameTime);

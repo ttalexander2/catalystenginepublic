@@ -10,18 +10,18 @@ namespace Chroma.Engine.Graphics
 {
     public static class BasicShapes
     {
-        public static Texture2D GenerateCircleTexture(int radius, Color color, float sharpness)
+        public static Texture2D GenerateCircleTexture(int radius, Utilities.Color color, float sharpness)
         {
             int diameter = radius * 2;
             Texture2D circleTexture = new Texture2D(Global.Graphics.GraphicsDevice, diameter, diameter, false, SurfaceFormat.Color);
-            Color[] colorData = new Color[circleTexture.Width * circleTexture.Height];
-            Vector2 center = new Vector2(radius);
+            Utilities.Color[] colorData = new Utilities.Color[circleTexture.Width * circleTexture.Height];
+            Utilities.Vector2 center = new Utilities.Vector2(radius);
             for (int colIndex = 0; colIndex < circleTexture.Width; colIndex++)
             {
                 for (int rowIndex = 0; rowIndex < circleTexture.Height; rowIndex++)
                 {
-                    Vector2 position = new Vector2(colIndex, rowIndex);
-                    float distance = Vector2.Distance(center, position);
+                    Utilities.Vector2 position = new Utilities.Vector2(colIndex, rowIndex);
+                    float distance = Utilities.Vector2.Distance(center, position);
 
                     // hermite iterpolation
                     float x = distance / diameter;
@@ -33,7 +33,7 @@ namespace Chroma.Engine.Graphics
                     colorData[rowIndex * circleTexture.Width + colIndex] = color * (1f - result);
                 }
             }
-            circleTexture.SetData<Color>(colorData);
+            circleTexture.SetData<Utilities.Color>(colorData);
 
             return circleTexture;
         }

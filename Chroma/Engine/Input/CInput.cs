@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Chroma.Engine;
+using System.Runtime.Serialization;
 
 namespace Chroma.Engine.Input
 {
@@ -12,17 +13,20 @@ namespace Chroma.Engine.Input
     public sealed class CInput : AComponent
     {
         public static new string Name => "Input";
-        public KeyboardState KeyboardState { get; set; }
-        public KeyboardState PreviousKeyboardState { get; set; }
+        [NonSerialized]
+        public KeyboardState KeyboardState;
+        [NonSerialized]
+        public KeyboardState PreviousKeyboardState;
 
         public int MouseX { get; set; }
         public int MouseY { get; set; }
         public bool MousePressed { get; set; }
-        public GamePadState GPState { get; set; }
-
-        public GamePadState PreviousGPState { get; set; }
-
-        public GamePadCapabilities Capabilities { get; set; }
+        [NonSerialized]
+        public GamePadState GPState;
+        [NonSerialized]
+        public GamePadState PreviousGPState;
+        [NonSerialized]
+        public GamePadCapabilities Capabilities;
 
         public CInput(Entity entity) : base(entity)
         {
