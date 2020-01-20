@@ -24,6 +24,7 @@ namespace Catalyst.XNA
     {
 
         public static Scene Current { get; set; }
+        public static List<Type> Types { get; protected set; }
 
         private static string _file;
         public static string FileName
@@ -89,6 +90,12 @@ namespace Catalyst.XNA
             ChromaSerializer.DeserializeFromFile<Scene>(path, SerializationMode.Binary);
 
             Unsaved = true;
+        }
+
+        public static void RefreshTypes()
+        {
+            Types = Assembly.GetAssembly(typeof(AComponent)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))).ToList<Type>();
         }
 
         public static Scene LoadTestWorld()

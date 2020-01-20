@@ -40,6 +40,7 @@ namespace Catalyst
             ImGuiBackendFlags f = 0;
             f |= ImGuiBackendFlags.HasMouseCursors;
             ImGui.GetIO().BackendFlags = f;
+            StyleManager.LoadDark();
             //ProjectManager.Current = ProjectManager.LoadTestWorld();
             //world_loaded = true;
 
@@ -97,6 +98,9 @@ namespace Catalyst
                     ImGui.SetWindowPos(new Vector2(_windowSize.X-ImGui.GetWindowSize().X, _menuSize.Y));
 
                     ImGui.SetWindowCollapsed(false);
+
+                    EntityWindow.RenderEntityWindow();
+
                     ImGui.End();
                 }
                 
@@ -249,7 +253,7 @@ namespace Catalyst
                     ImGui.Text(Path.Combine(Directory.GetCurrentDirectory(),"Projects"));
                 } else
                 {
-                    ImGui.Text(projectDir + "\\");
+                    ImGui.Text(Path.Combine(projectDir, str));
                 }
                 
 
@@ -272,11 +276,11 @@ namespace Catalyst
                     ImGui.CloseCurrentPopup();
                     if (customDir)
                     {
-                        ProjectManager.ProjectPath = projectDir + "\\" + str + "\\";
+                        ProjectManager.ProjectPath = Path.Combine(projectDir, str);
                         ProjectManager.CreateNew(str);
                     } else
                     {
-                        ProjectManager.ProjectPath = Path.Combine(Directory.GetCurrentDirectory(),"Projects", str);
+                        ProjectManager.ProjectPath = Path.Combine(Directory.GetCurrentDirectory(),"Projects");
                         ProjectManager.CreateNew(str);
                     }
 

@@ -23,12 +23,7 @@ namespace Chroma.Engine
         internal ECManager()
         {
             id = 0;
-            foreach (Type type in
-            Assembly.GetAssembly(typeof(AComponent)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
-            {
-                components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
-            }
+            RefreshTypes();
             
         }
 
@@ -80,6 +75,25 @@ namespace Chroma.Engine
             return components[t.AssemblyQualifiedName];
         }
 
- 
+        public Dictionary<string, Dictionary<int, AComponent>> GetComponentDictionary()
+        {
+            return components;
+        }
+
+        public void RefreshTypes()
+        {
+            foreach (Type type in
+            Assembly.GetAssembly(typeof(AComponent)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
+            {
+                if (!components.Keys.Contains(type.AssemblyQualifiedName))
+                {
+                    components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
+                }
+
+            }
+        }
+
+
     }
 }
