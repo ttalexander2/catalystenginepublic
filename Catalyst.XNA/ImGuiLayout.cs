@@ -12,7 +12,7 @@ using System.IO;
 using Chroma.Engine;
 using Chroma.Game;
 
-namespace Catalyst
+namespace Catalyst.XNA
 {
     public class ImGuiLayout
     {
@@ -26,16 +26,20 @@ namespace Catalyst
         private byte[] _textBuffer = new byte[100];
         private string _currentScene = "";
 
-        private ImFontPtr _defaultFont;
-        private ImFontPtr _headingFont;
+        public static ImFontPtr DefaultFont;
+        public static ImFontPtr HeadingFont;
+        public static ImFontPtr SubHeadingFont;
+        public static ImFontPtr SlightlyLargerFontThanNormal;
 
         private Vector2 _windowSize;
         private Vector2 _menuSize;
 
         public void Initialize()
         {
-            _defaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 18.0f);
-            _headingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeuib.ttf", 26.0f);
+            DefaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 18.0f);
+            HeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeuib.ttf", 26.0f);
+            SubHeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 22.0f);
+            SlightlyLargerFontThanNormal = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 20.0f);
             ImGui.GetIO().ConfigWindowsResizeFromEdges = true;
             ImGuiBackendFlags f = 0;
             f |= ImGuiBackendFlags.HasMouseCursors;
@@ -49,7 +53,7 @@ namespace Catalyst
 
         public void SetStyle()
         {
-            ImGui.PushFont(_defaultFont); //Set default font
+            ImGui.PushFont(DefaultFont); //Set default font
             ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 0);
             ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
             ImGui.PushStyleVar(ImGuiStyleVar.ScrollbarRounding, 0);
@@ -93,13 +97,13 @@ namespace Catalyst
 
                 ImGui.SetNextWindowSizeConstraints(new Vector2(50, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X, _windowSize.Y - _menuSize.Y));
                 t = false;
-                if (ImGui.Begin("Entity Window", ref t, window_flags))
+                if (ImGui.Begin("Right Dock", ref t, window_flags))
                 {
                     ImGui.SetWindowPos(new Vector2(_windowSize.X-ImGui.GetWindowSize().X, _menuSize.Y));
 
                     ImGui.SetWindowCollapsed(false);
 
-                    EntityWindow.RenderEntityWindow();
+                    RightDock.RenderRightDock();
 
                     ImGui.End();
                 }
@@ -239,9 +243,9 @@ namespace Catalyst
             if (ImGui.BeginPopupModal("New Project", ref r, window_flags))
             {
                 
-                ImGui.PushFont(_headingFont);
+                ImGui.PushFont(HeadingFont);
                 ImGui.Text("Create a new project");
-                ImGui.PushFont(_defaultFont);
+                ImGui.PushFont(DefaultFont);
 
                 ImGui.Text("Enter a name: ");
 
@@ -253,7 +257,7 @@ namespace Catalyst
                     ImGui.Text(Path.Combine(Directory.GetCurrentDirectory(),"Projects"));
                 } else
                 {
-                    ImGui.Text(Path.Combine(projectDir, str));
+                    ImGui.Text(projectDir + "\\" + str);
                 }
                 
 
@@ -276,7 +280,7 @@ namespace Catalyst
                     ImGui.CloseCurrentPopup();
                     if (customDir)
                     {
-                        ProjectManager.ProjectPath = Path.Combine(projectDir, str);
+                        ProjectManager.ProjectPath = projectDir + "\\" + str;
                         ProjectManager.CreateNew(str);
                     } else
                     {

@@ -18,9 +18,9 @@ namespace Chroma.Engine.Input
         [NonSerialized]
         public KeyboardState PreviousKeyboardState;
 
-        public int MouseX { get; set; }
-        public int MouseY { get; set; }
-        public bool MousePressed { get; set; }
+        public int MouseX { get; internal set; }
+        public int MouseY { get; internal set; }
+        public bool MousePressed { get; internal set; }
         [NonSerialized]
         public GamePadState GPState;
         [NonSerialized]

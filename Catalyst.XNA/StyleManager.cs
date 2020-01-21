@@ -6,10 +6,11 @@ namespace Catalyst.XNA
     {
         public static void LoadDark()
         {
+
             var colors = ImGui.GetStyle().Colors;
             colors[(int)ImGuiCol.Text] = new System.Numerics.Vector4(1.00f, 1.00f, 1.00f, 1.00f);
             colors[(int)ImGuiCol.TextDisabled] = new System.Numerics.Vector4(0.50f, 0.50f, 0.50f, 1.00f);
-            colors[(int)ImGuiCol.WindowBg] = new System.Numerics.Vector4(0.14f, 0.14f, 0.16f, 0.94f);
+            colors[(int)ImGuiCol.WindowBg] = new System.Numerics.Vector4(0.23f, 0.23f, 0.25f, 1.00f);
             colors[(int)ImGuiCol.ChildBg] = new System.Numerics.Vector4(0.11f, 0.11f, 0.11f, 1.00f);
             colors[(int)ImGuiCol.PopupBg] = new System.Numerics.Vector4(0.08f, 0.08f, 0.08f, 0.94f);
             colors[(int)ImGuiCol.Border] = new System.Numerics.Vector4(0.43f, 0.43f, 0.50f, 0.50f);
@@ -20,7 +21,7 @@ namespace Catalyst.XNA
             colors[(int)ImGuiCol.TitleBg] = new System.Numerics.Vector4(0.04f, 0.04f, 0.04f, 1.00f);
             colors[(int)ImGuiCol.TitleBgActive] = new System.Numerics.Vector4(0.16f, 0.29f, 0.48f, 1.00f);
             colors[(int)ImGuiCol.TitleBgCollapsed] = new System.Numerics.Vector4(0.00f, 0.00f, 0.00f, 0.51f);
-            colors[(int)ImGuiCol.MenuBarBg] = new System.Numerics.Vector4(0.14f, 0.14f, 0.16f, 0.94f);
+            colors[(int)ImGuiCol.MenuBarBg] = new System.Numerics.Vector4(0.23f, 0.23f, 0.25f, 1.00f);
             colors[(int)ImGuiCol.ScrollbarBg] = new System.Numerics.Vector4(0.02f, 0.02f, 0.02f, 0.53f);
             colors[(int)ImGuiCol.ScrollbarGrab] = new System.Numerics.Vector4(0.31f, 0.31f, 0.31f, 1.00f);
             colors[(int)ImGuiCol.ScrollbarGrabHovered] = new System.Numerics.Vector4(0.41f, 0.41f, 0.41f, 1.00f);
