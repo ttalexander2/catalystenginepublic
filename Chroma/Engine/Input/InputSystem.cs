@@ -16,7 +16,7 @@ namespace Chroma.Engine.Input
 
         public override void PreUpdate(GameTime gameTime)
         {
-            foreach(CInput input in Manager.GetComponents<CInput>().Values)
+            foreach(Input input in Manager.GetComponents<Input>().Values)
             {
                 input.PreviousKeyboardState = input.KeyboardState;
                 input.KeyboardState = Keyboard.GetState();

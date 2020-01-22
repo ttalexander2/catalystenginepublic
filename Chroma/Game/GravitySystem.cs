@@ -25,9 +25,9 @@ namespace Chroma.Game
 
         public override void PreUpdate(GameTime gameTime)
         {
-            foreach (CActor actor in Manager.GetComponents<CActor>().Values)
+            foreach (Actor actor in Manager.GetComponents<Actor>().Values)
             {
-                actor.Entity.GetComponent<CVelocity>().Velocity += new Vector2(0, Gravity);
+                actor.Entity.GetComponent<Velocity>().V += new Vector2(0, Gravity);
             }
         }
     }

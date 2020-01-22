@@ -26,7 +26,7 @@ namespace Chroma.Engine.Physics
 
         private void MoveActors(GameTime gameTime)
         {
-            foreach (CActor actor in Manager.GetComponents<CActor>().Values)
+            foreach (Actor actor in Manager.GetComponents<Actor>().Values)
             {
                     MoveX(actor);
                     MoveY(actor);
@@ -34,20 +34,20 @@ namespace Chroma.Engine.Physics
         }
 
 
-        private void MoveX(CActor actor)
+        private void MoveX(Actor actor)
         {
-            CTransform t = actor.Entity.GetComponent<CTransform>();
-            CVelocity v = actor.Entity.GetComponent<CVelocity>(); 
-            int move = (int)Math.Round(v.Velocity.X);
+            Transform t = actor.Entity.GetComponent<Transform>();
+            Velocity v = actor.Entity.GetComponent<Velocity>(); 
+            int move = (int)Math.Round(v.V.X);
             if (move != 0)
             {
-                v.Velocity = new Utilities.Vector2(v.Velocity.X - move, v.Velocity.Y);
+                v.V = new Utilities.Vector2(v.V.X - move, v.V.Y);
                 int sign = Math.Sign(move);
 
 
                 while (move != 0)
                 {
-                    CTransform collision = ActorColliding(t, new Utilities.Vector2(sign, 0));
+                    Transform collision = ActorColliding(t, new Utilities.Vector2(sign, 0));
                     if (collision == null)
                     {
                         //No solid immediately beside us
@@ -66,20 +66,20 @@ namespace Chroma.Engine.Physics
             }
         }
 
-        private void MoveY(CActor actor)
+        private void MoveY(Actor actor)
         {
-            CTransform t = actor.Entity.GetComponent<CTransform>();
-            CVelocity v = actor.Entity.GetComponent<CVelocity>();
-            int move = (int)Math.Round(v.Velocity.Y);
+            Transform t = actor.Entity.GetComponent<Transform>();
+            Velocity v = actor.Entity.GetComponent<Velocity>();
+            int move = (int)Math.Round(v.V.Y);
             if (move != 0)
             {
-                v.Velocity = new Utilities.Vector2(v.Velocity.X, v.Velocity.Y - move);
+                v.V = new Utilities.Vector2(v.V.X, v.V.Y - move);
                 int sign = Math.Sign(move);
 
 
                 while (move != 0)
                 {
-                    CTransform collision = ActorColliding(t, new Utilities.Vector2(0, sign));
+                    Transform collision = ActorColliding(t, new Utilities.Vector2(0, sign));
                     if (collision == null)
                     {
                         //No solid immediately beside us
@@ -99,7 +99,7 @@ namespace Chroma.Engine.Physics
         }
 
         //Uses AABB Algorithm -- Needs working QuadTree to increase efficiency
-        private CTransform ActorColliding(CTransform actor, Utilities.Vector2 offset)
+        private Transform ActorColliding(Transform actor, Utilities.Vector2 offset)
         {
             if (actor == null) { return null; }
             
@@ -136,11 +136,11 @@ namespace Chroma.Engine.Physics
             return null;
             */
             
-            foreach (CSolid s in scene.Manager.GetComponents<CSolid>().Values)
+            foreach (Solid s in scene.Manager.GetComponents<Solid>().Values)
             {
-                if (s.Entity.HasComponent<CTransform>())
+                if (s.Entity.HasComponent<Transform>())
                 {
-                    CTransform solid = s.Entity.GetComponent<CTransform>();
+                    Transform solid = s.Entity.GetComponent<Transform>();
 
                     Utilities.Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
                     Utilities.Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;

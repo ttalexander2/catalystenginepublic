@@ -14,6 +14,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Content\bin\**" />
+      <Compile Remove="Content\obj\**" />
+      <EmbeddedResource Remove="Content\bin\**" />
+      <EmbeddedResource Remove="Content\obj\**" />
+      <None Remove="Content\bin\**" />
+      <None Remove="Content\obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Remove="Content\Sprites\Player\s_player_fall\s_player_fall.png" />
       <None Remove="Content\Sprites\Player\s_player_jump\s_player_jump.png" />
       <None Remove="Content\Sprites\Player\s_player_jump_peak\s_player_jump_peak.png" />

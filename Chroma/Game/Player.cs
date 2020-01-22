@@ -10,23 +10,23 @@ using System.Threading.Tasks;
 namespace Chroma.Game
 {
     [Serializable]
-    public class CPlayer : AComponent
+    public class Player : AComponent
     {
-        
+        [ImmediateInteger]
         public int HorizontalSpeed = 5;
-        
+        [ImmediateInteger]
         public int VerticalSpeed = 5;
 
         public static new string Name => "Player Component";
-        public CPlayer(Entity entity) : base(entity)
+        public Player(Entity entity) : base(entity)
         {
-            if (!entity.HasComponent<CInput>())
+            if (!entity.HasComponent<Input>())
             {
-                entity.AddComponent<CInput>();
+                entity.AddComponent<Input>();
             }
-            if (!entity.HasComponent<CActor>())
+            if (!entity.HasComponent<Actor>())
             {
-                entity.AddComponent<CActor>();
+                entity.AddComponent<Actor>();
             }
         }
     }

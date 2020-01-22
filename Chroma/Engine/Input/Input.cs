@@ -10,16 +10,19 @@ using System.Runtime.Serialization;
 namespace Chroma.Engine.Input
 {
     [Serializable]
-    public sealed class CInput : AComponent
+    public sealed class Input : AComponent
     {
         public static new string Name => "Input";
+
         [NonSerialized]
         public KeyboardState KeyboardState;
         [NonSerialized]
         public KeyboardState PreviousKeyboardState;
-
+        [ImmediateLabel]
         public int MouseX { get; internal set; }
+        [ImmediateLabel]
         public int MouseY { get; internal set; }
+        [ImmediateLabel]
         public bool MousePressed { get; internal set; }
         [NonSerialized]
         public GamePadState GPState;
@@ -28,7 +31,7 @@ namespace Chroma.Engine.Input
         [NonSerialized]
         public GamePadCapabilities Capabilities;
 
-        public CInput(Entity entity) : base(entity)
+        public Input(Entity entity) : base(entity)
         {
             this.KeyboardState = new KeyboardState();
             this.PreviousKeyboardState = new KeyboardState();

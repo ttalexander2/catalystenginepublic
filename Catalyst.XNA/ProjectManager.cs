@@ -86,6 +86,11 @@ namespace Catalyst.XNA
             Unsaved = true;
         }
 
+        public static Scene Load()
+        {
+            return ChromaSerializer.DeserializeFromFile<Scene>(Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
+        }
+
         public static void RefreshTypes()
         {
             Types = Assembly.GetAssembly(typeof(AComponent)).GetTypes()
@@ -94,41 +99,36 @@ namespace Catalyst.XNA
 
         public static Scene LoadTestWorld()
         {
-            Console.WriteLine("YEET\n");
             Scene scene = new Scene(Global.Width * 2, Global.Height * 2);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
             scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderSystem(scene));
+            scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
 
-            var Content = SampleGame.Instance.Content;
-            string ContentDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), SampleGame.Instance.Content.RootDirectory);
-
-            Texture2D[] atlas = new Texture2D[] {};
             Entity testEntity = scene.Manager.NewEntity();
-            var sprite = new CSprite(testEntity, "test", 0, 0, atlas, Origin.TopLeft) { animationSpeed = 6.0f };
-            testEntity.AddComponent<CSprite>(sprite);
-            testEntity.AddComponent<CPlayer>();
+            var sprite = new Sprite(testEntity, "test", 0, 0, new Texture2D[] { }, Origin.TopLeft) { AnimationSpeed = 6.0f, Layer = 1.0f };
+            testEntity.AddComponent<Sprite>(sprite);
+            testEntity.AddComponent<Player>();
 
             scene.Camera.Following = testEntity;
 
 
-            Texture2D[] atlas2 = new Texture2D[] {};
             Entity testEntity2 = scene.Manager.NewEntity();
-            var sprite2 = new CSprite(testEntity2, "test", 0, 200, atlas2, Origin.TopLeft) { animationSpeed = 6.0f };
-            testEntity2.AddComponent<CSprite>(sprite2);
-            testEntity2.AddComponent<CSolid>();
+            var sprite2 = new Sprite(testEntity2, "test", 0, 200, new Texture2D[] { }, Origin.TopLeft) { AnimationSpeed = 6.0f };
+            testEntity2.AddComponent<Sprite>(sprite2);
+            testEntity2.AddComponent<Solid>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Entity grass = scene.Manager.NewEntity();
-                var grass_sprite = new CSprite(grass, "grass_" + i, 16 + 32 * i, 344 + Global.Height, new Texture2D[] {}, Origin.Center);
-                grass.GetComponent<CTransform>().CollisionDims = new Vector2(32, 32);
-                grass.GetComponent<CTransform>().CollisionOffset = new Vector2(3, 3);
-                grass.AddComponent<CSprite>(grass_sprite);
-                grass.AddComponent<CSolid>();
+                var grass_sprite = new Sprite(grass, "grass_" + i, 16 + 32 * i, 344 + Global.Height, new Texture2D[] { }, Origin.Center);
+                grass.GetComponent<Transform>().CollisionDims = new Vector2(32, 32);
+                grass.GetComponent<Transform>().CollisionOffset = new Vector2(3, 3);
+                grass.AddComponent<Sprite>(grass_sprite);
+                grass.AddComponent<Solid>();
             }
 
             return scene;

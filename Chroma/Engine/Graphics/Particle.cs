@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vector2 = Chroma.Engine.Utilities.Vector2;
+using Vector3 = Chroma.Engine.Utilities.Vector3;
+using Vector4 = Chroma.Engine.Utilities.Vector4;
+using Color = Chroma.Engine.Utilities.Color;
+using Rectangle = Chroma.Engine.Utilities.Rectangle;
 
 namespace Chroma.Engine.Graphics
 {
     public class Particle
     {
-        public CParticleEmitter Emitter { get; set; }
+        public ParticleEmitter Emitter { get; set; }
         public bool Active { get; internal set; }
         public Vector2 Position { get; internal set; }
         public Vector2 Velocity
@@ -59,7 +64,7 @@ namespace Chroma.Engine.Graphics
             RecalculateAngle
         }
 
-        public Particle(CParticleEmitter emitter)
+        public Particle(ParticleEmitter emitter)
         {
             this.Emitter = emitter;
             this.Active = false;
@@ -71,7 +76,7 @@ namespace Chroma.Engine.Graphics
             this.Position = Emitter.Position + new Vector2(Emitter.Rand.Next((int)-Emitter.PositionVariance.X, (int)Emitter.PositionVariance.X), Emitter.Rand.Next((int)-Emitter.PositionVariance.Y, (int)Emitter.PositionVariance.Y)) + Emitter.Offset;
             this.Life = Emitter.Rand.Next(Emitter.Life - Emitter.LifeVariance, Emitter.Life + Emitter.LifeVariance);
             this.LifeStart = this.Life;
-            this.Angle = Emitter.Rand.Next(Emitter.Angle - Emitter.Rand.Next(0, Emitter.AngleVariance), Emitter.Angle + Emitter.Rand.Next(0, Emitter.AngleVariance));
+            this.Angle = Emitter.Rand.Next((int)Emitter.Angle - Emitter.Rand.Next(0, (int)Emitter.AngleVariance), (int)Emitter.Angle + Emitter.Rand.Next(0, (int)Emitter.AngleVariance));
             this.Speed = Emitter.Rand.Next(Emitter.Speed - Emitter.SpeedVariance, Emitter.Speed + Emitter.SpeedVariance);
             this.StartColor = Emitter.StartColor;
             this.EndColor = Emitter.EndColor;

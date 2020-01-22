@@ -16,7 +16,7 @@ namespace Chroma.Engine.Physics
         private int _maxLevels = 5;
 
         private int _level;
-        private List<CTransform> _objects;
+        private List<Transform> _objects;
         private Utilities.Rectangle _bounds;
         private QuadTree[] _nodes;
 
@@ -25,7 +25,7 @@ namespace Chroma.Engine.Physics
         {
             throw new Exception("QUAD TREE IS BROKEN");
             _level = parentLevel;
-            _objects = new List<CTransform>();
+            _objects = new List<Transform>();
             _bounds = parentBounds;
             _nodes = new QuadTree[4];
         }
@@ -33,7 +33,7 @@ namespace Chroma.Engine.Physics
         public QuadTree(Utilities.Rectangle parentBounds)
         {
             _level = 0;
-            _objects = new List<CTransform>();
+            _objects = new List<Transform>();
             _bounds = parentBounds;
             _nodes = new QuadTree[4];
         }
@@ -66,7 +66,7 @@ namespace Chroma.Engine.Physics
             _nodes[3] = new QuadTree(_level + 1, new Utilities.Rectangle(x + subWidth, y + subHeight, subWidth, subHeight));
         }
 
-        private int GetIndex(CTransform collider)
+        private int GetIndex(Transform collider)
         {
             int index = -1;
             double verticalMidpoint = _bounds.X + (_bounds.Width / 2);
@@ -100,7 +100,7 @@ namespace Chroma.Engine.Physics
             return index;
         }
 
-        public void Insert(CTransform collider)
+        public void Insert(Transform collider)
         {
 
             if (_nodes[0] != null)
@@ -140,7 +140,7 @@ namespace Chroma.Engine.Physics
             }
         }
 
-        public List<CTransform> Retrieve(List<CTransform> returnObjects, CTransform pRect)
+        public List<Transform> Retrieve(List<Transform> returnObjects, Transform pRect)
         {
             int index = GetIndex(pRect);
             if (index != -1 && _nodes[0] != null)

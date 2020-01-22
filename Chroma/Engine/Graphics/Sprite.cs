@@ -5,7 +5,6 @@ using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static Chroma.Engine.Utilities.Utility;
 using Vector2 = Chroma.Engine.Utilities.Vector2;
 using Color = Chroma.Engine.Utilities.Color;
 using Rectangle = Chroma.Engine.Utilities.Rectangle;
@@ -13,14 +12,13 @@ using Rectangle = Chroma.Engine.Utilities.Rectangle;
 namespace Chroma.Engine.Graphics
 {
     [Serializable]
-    public class CSprite : AComponent
+    public class Sprite : AComponent
     {
 
-        
-        public string name;
+        public new string Name { get; set; }
 
-        [ImmediateFloat(ImmediateFloatMode.Drag, 0, 1)]
-        public float layer;
+        [ImmediateFloat(ImmediateFloatMode.Slider, 0, 1)]
+        public float Layer { get; set; }
 
         private int _textureHeight;
         
@@ -36,19 +34,17 @@ namespace Chroma.Engine.Graphics
                 return Textures[CurrentTexture];
             }
         }
-
-        [ImmediateInteger]
         public int CurrentTexture { get; set; }
+        [ImmediateFloat(0,1000)]
+        public float AnimationSpeed { get; set; }
+        [ImmediateBoolean]
+        public bool Visible { get; set; }
         
-        public float animationSpeed = 2.0f; //Frames per second
-        
-        public bool visible = true;
-        
-        public int frame { get; set; }
-        
-        public bool loop = true;
-        
-        public bool animating = true;
+        public int Frame { get; set; }
+        [ImmediateBoolean]
+        public bool Loop { get; set; }
+        [ImmediateBoolean]
+        public bool Animating { get; set; }
 
         public SpriteEffects spriteEffects = new SpriteEffects();
         
@@ -56,21 +52,24 @@ namespace Chroma.Engine.Graphics
 
         internal TimeSpan TimeChanged = new TimeSpan();
 
-        public CSprite(Entity entity) : base(entity)
+        public Sprite(Entity entity) : base(entity)
         {
-            CTransform transform = new CTransform(entity);
+            Transform transform = new Transform(entity);
             Vector2 dims = GetDims();
             transform.Origin = Utility.OriginToVectorOffset(Origin.TopLeft, dims);
             transform.CollisionOffset = new Vector2();
             transform.CollisionDims = transform.Dimensions;
-            animating = Textures.Count > 1;
-            entity.AddComponent<CTransform>(transform);
+            Animating = Textures.Count > 1;
+            entity.AddComponent<Transform>(transform);
+            Visible = true;
+            Loop = true;
+            AnimationSpeed = 2.0f;
         }
 
-        public CSprite(Entity entity, string name, int x, int y, Texture2D[] textures, Origin origin) : base(entity)
+        public Sprite(Entity entity, string name, int x, int y, Texture2D[] textures, Origin origin) : base(entity)
         {
-            CTransform transform = new CTransform(entity);
-            this.name = name;
+            Transform transform = new Transform(entity);
+            this.Name = name;
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
@@ -78,14 +77,17 @@ namespace Chroma.Engine.Graphics
             transform.Origin = Utility.OriginToVectorOffset(origin, dims);
             transform.CollisionOffset = new Vector2();
             transform.CollisionDims = transform.Dimensions;
-            animating = Textures.Count > 1;
-            entity.AddComponent<CTransform>(transform);
+            Animating = Textures.Count > 1;
+            entity.AddComponent<Transform>(transform);
+            Visible = true;
+            Loop = true;
+            AnimationSpeed = 2.0f;
         }
 
-        public CSprite(Entity entity, string name, int x, int y, float scale, float rotation, Texture2D[] textures, Origin origin) : base(entity)
+        public Sprite(Entity entity, string name, int x, int y, float scale, float rotation, Texture2D[] textures, Origin origin) : base(entity)
         {
-            CTransform transform = new CTransform(entity);
-            this.name = name;
+            Transform transform = new Transform(entity);
+            this.Name = name;
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
@@ -95,14 +97,17 @@ namespace Chroma.Engine.Graphics
             transform.Rotation = rotation;
             transform.CollisionOffset = new Vector2();
             transform.CollisionDims = transform.Dimensions;
-            animating = Textures.Count > 1;
-            entity.AddComponent<CTransform>(transform);
+            Animating = Textures.Count > 1;
+            entity.AddComponent<Transform>(transform);
+            Visible = true;
+            Loop = true;
+            AnimationSpeed = 2.0f;
         }
 
-        public CSprite(Entity entity, string name, int x, int y, Texture2D[] textures, int xOrigin, int yOrigin) : base(entity)
+        public Sprite(Entity entity, string name, int x, int y, Texture2D[] textures, int xOrigin, int yOrigin) : base(entity)
         {
-            CTransform transform = new CTransform(entity);
-            this.name = name;
+            Transform transform = new Transform(entity);
+            this.Name = name;
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
@@ -110,14 +115,17 @@ namespace Chroma.Engine.Graphics
             transform.Origin = new Vector2(xOrigin, yOrigin);
             transform.CollisionOffset = new Vector2();
             transform.CollisionDims = transform.Dimensions;
-            animating = Textures.Count > 1;
-            entity.AddComponent<CTransform>(transform);
+            Animating = Textures.Count > 1;
+            entity.AddComponent<Transform>(transform);
+            Visible = true;
+            Loop = true;
+            AnimationSpeed = 2.0f;
         }
 
-        public CSprite(Entity entity, string name, int x, int y, float scale, float rotation, Texture2D[] textures, int xOrigin, int yOrigin) : base(entity)
+        public Sprite(Entity entity, string name, int x, int y, float scale, float rotation, Texture2D[] textures, int xOrigin, int yOrigin) : base(entity)
         {
-            CTransform transform = new CTransform(entity);
-            this.name = name;
+            Transform transform = new Transform(entity);
+            this.Name = name;
             this.Textures.AddRange(textures);
             Vector2 dims = GetDims();
             transform.Dimensions = dims;
@@ -127,8 +135,11 @@ namespace Chroma.Engine.Graphics
             transform.Rotation = rotation;
             transform.CollisionOffset = new Vector2();
             transform.CollisionDims = transform.Dimensions;
-            animating = Textures.Count > 1;
-            entity.AddComponent<CTransform>(transform);
+            Animating = Textures.Count > 1;
+            entity.AddComponent<Transform>(transform);
+            Visible = true;
+            Loop = true;
+            AnimationSpeed = 2.0f;
         }
 
 

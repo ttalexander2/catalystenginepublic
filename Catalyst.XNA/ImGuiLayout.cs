@@ -153,13 +153,6 @@ namespace Catalyst.XNA
                             ProjectManager.Open(openFileDialog1.FileName);
                         }
                     }
-                    if (ImGui.BeginMenu("Open Recent"))
-                    {
-                        ImGui.MenuItem("fish_hat.c");
-                        ImGui.MenuItem("fish_hat.inl");
-                        ImGui.MenuItem("fish_hat.h");
-                        ImGui.EndMenu();
-                    }
                     if (ImGui.MenuItem("Save", "Ctrl+S", false, world_loaded))
                     {
                         ProjectManager.Save();
@@ -175,25 +168,12 @@ namespace Catalyst.XNA
                         ProjectManager.Current = ProjectManager.LoadTestWorld();
                     }
 
-                    if (ImGui.BeginMenu("Options"))
-                    {
-                        bool enabled = true;
-                        ImGui.MenuItem("Enabled", "", enabled);
-                        ImGui.BeginChild("child", new Vector2(0, 60), true);
-                        for (int i = 0; i < 10; i++)
-                            ImGui.Text("Scrolling Text " + i);
-                        ImGui.EndChild();
-                        float f = 0.5f;
-                        int n = 0;
-                        bool b = true;
-                        ImGui.SliderFloat("Value", ref f, 0.0f, 1.0f);
-                        ImGui.InputFloat("Input", ref f, 0.1f);
-                        ImGui.Combo("Combo", ref n, "Yes\0No\0Maybe\0\0");
-                        ImGui.Checkbox("Check", ref b);
-                        ImGui.EndMenu();
-                    }
+                    if (ImGui.MenuItem("Test Window")) show_test_window = !show_test_window;
 
-                    if (ImGui.MenuItem("Quit", "Alt+F4")) { SampleGame.Instance.Exit(); }
+                    if (ImGui.MenuItem("Quit", "Alt+F4"))
+                    { 
+                        SampleGame.Instance.Exit();
+                    }
                     ImGui.EndMenu();
                 }
                 if (ImGui.BeginMenu("Edit"))
@@ -207,7 +187,14 @@ namespace Catalyst.XNA
                     ImGui.EndMenu();
                 }
 
-                if (ImGui.Button("Test Window")) show_test_window = !show_test_window;
+                if (ImGui.Button("Play"))
+                {
+                    ProjectManager.Save();
+                    Chroma.Engine.Program.Main(ProjectManager.Load());
+                    
+                }
+
+
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
                 ImGui.EndMainMenuBar();
             }
@@ -308,6 +295,19 @@ namespace Catalyst.XNA
                 ImGui.EndPopup();
             }
 
+        }
+
+        public static void HelpMarker(string desc)
+        {
+            ImGui.TextDisabled("(?)");
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.BeginTooltip();
+                ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
+                ImGui.TextUnformatted(desc);
+                ImGui.PopTextWrapPos();
+                ImGui.EndTooltip();
+            }
         }
     }
 }

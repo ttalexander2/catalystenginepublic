@@ -80,6 +80,28 @@ namespace Chroma.Engine
             return components;
         }
 
+        public void RemoveComponent(AComponent c)
+        {
+            Type t = c.GetType();
+            components[t.AssemblyQualifiedName].Remove(c.UID);
+        }
+
+        public Entity Duplicate(int uid)
+        {
+            Entity e = NewEntity();
+            foreach (string t in components.Keys)
+            {
+                AComponent val;
+                components[t].TryGetValue(uid, out val);
+                if (val != null)
+                {
+                    e.AddComponent(val.DeepClone<AComponent>());
+                }
+
+            }
+            return e;
+        }
+
         public void RefreshTypes()
         {
             foreach (Type type in
@@ -90,7 +112,6 @@ namespace Chroma.Engine
                 {
                     components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
                 }
-
             }
         }
 

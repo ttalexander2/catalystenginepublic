@@ -48,7 +48,7 @@ namespace Chroma.Engine
         // Directories
 
         #if !CONSOLE
-        private static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        public static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         #endif
 
         public static string ContentDirectory
@@ -71,7 +71,12 @@ namespace Chroma.Engine
 
         //Audio
         public AudioManager Audio;
-
+        public ChromaGame(Scene starting_scene, int width, int height, string windowTitle, bool fullscreen) : this(width, height, windowTitle, fullscreen)
+        {
+            World = new World();
+            World.Scenes.Add(starting_scene);
+            World.CurrentScene = World.Scenes[0];
+        }
         public ChromaGame(int width, int height, string windowTitle, bool fullscreen)
         {
 #if OSX
@@ -184,7 +189,7 @@ namespace Chroma.Engine
             // Create a new SpriteBatch, which can be used to draw textures.
             Global.SpriteBatch = new SpriteBatch(Global.Graphics.GraphicsDevice);
 
-            World = SceneLoader.LoadScene(ContentDirectory);
+            //World = SceneLoader.LoadScene(ContentDirectory);
 
             FMOD.Studio.EventDescription d;
             Audio.StudioSystem.getEvent("event:/forest_test", out d);

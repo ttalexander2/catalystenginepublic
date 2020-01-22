@@ -20,35 +20,35 @@ namespace Chroma.Game
 
         public override void Update(GameTime gameTime)
         {
-            foreach (CPlayer player in scene.Manager.GetComponents<CPlayer>().Values)
+            foreach (Player player in scene.Manager.GetComponents<Player>().Values)
             {
-                if (!player.Entity.HasComponent<CActor>())
+                if (!player.Entity.HasComponent<Actor>())
                 {
                     continue;
                 }
 
-                CVelocity velocity = scene.Manager.GetComponent<CVelocity>(player.UID);
-                CInput input = scene.Manager.GetComponent<CInput>(player.UID);
+                Velocity velocity = scene.Manager.GetComponent<Velocity>(player.UID);
+                Input input = scene.Manager.GetComponent<Input>(player.UID);
 
                 bool capable = input.Capabilities.IsConnected;
 
                 if (input.KeyboardState.IsKeyDown(Key.KUp) || (capable && input.GPState.IsButtonDown(Key.GUp)))
                 {
-                    velocity.Velocity += new Vector2(0, -player.VerticalSpeed);
+                    velocity.V += new Vector2(0, -player.VerticalSpeed);
                 }
 
                 if (input.KeyboardState.IsKeyDown(Key.KDown) || (capable && input.GPState.IsButtonDown(Key.GDown)))
                 {
-                    velocity.Velocity += new Vector2(0, player.VerticalSpeed);
+                    velocity.V += new Vector2(0, player.VerticalSpeed);
                 }
 
                 if (input.KeyboardState.IsKeyDown(Key.KLeft) || (capable && input.GPState.IsButtonDown(Key.GLeft)))
                 {
-                    velocity.Velocity += new Vector2(-player.HorizontalSpeed, 0);
+                    velocity.V += new Vector2(-player.HorizontalSpeed, 0);
                 }
                 if (input.KeyboardState.IsKeyDown(Key.KRight) || (capable && input.GPState.IsButtonDown(Key.GRight)))
                 {
-                    velocity.Velocity += new Vector2(player.HorizontalSpeed, 0);
+                    velocity.V += new Vector2(player.HorizontalSpeed, 0);
                 }
 
 

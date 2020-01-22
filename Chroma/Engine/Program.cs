@@ -18,5 +18,14 @@ namespace Chroma.Engine
                 game.Run();
             }
         }
+
+        [STAThread]
+        public static void Main(Scene scene)
+        {
+            using (var game = new ChromaGame(scene, Global.Width, Global.Height, "Chroma", false))
+            {
+                game.Run();
+            }
+        }
     }
 }

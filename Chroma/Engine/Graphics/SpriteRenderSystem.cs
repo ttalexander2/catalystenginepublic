@@ -17,7 +17,7 @@ namespace Chroma.Engine.Graphics
 
         public override void Update(GameTime gameTime)
         {
-            foreach (CSprite sprite in Manager.GetComponents<CSprite>().Values)
+            foreach (Sprite sprite in Manager.GetComponents<Sprite>().Values)
             {
                 UpdateSprite(gameTime, sprite);
             }
@@ -25,18 +25,18 @@ namespace Chroma.Engine.Graphics
 
         public override void Render(GameTime gameTime)
         {
-            foreach (CSprite sprite in Manager.GetComponents<CSprite>().Values)
+            foreach (Sprite sprite in Manager.GetComponents<Sprite>().Values)
             {
                 RenderSprite(gameTime, sprite);
             }
         }
 
-        public void RenderSprite(GameTime gameTime, CSprite sprite)
+        public void RenderSprite(GameTime gameTime, Sprite sprite)
         {
             if (sprite.Textures != null && sprite.Texture != null)
             {
-                CTransform transform = sprite.Entity.GetComponent<CTransform>();
-                Global.SpriteBatch.Draw(sprite.Texture, transform.Position, null, Utilities.Color.White, transform.Rotation, transform.Origin, transform.Scale, sprite.spriteEffects, sprite.layer);
+                Transform transform = sprite.Entity.GetComponent<Transform>();
+                Global.SpriteBatch.Draw(sprite.Texture, transform.Position, null, Utilities.Color.White, transform.Rotation, transform.Origin, transform.Scale, sprite.spriteEffects, sprite.Layer);
 #if Debug
                 Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, (int)transform.CollisionDims.X, (int)transform.CollisionDims.Y);
 
@@ -61,28 +61,28 @@ namespace Chroma.Engine.Graphics
 
         }
 
-        public void UpdateSprite(GameTime gameTime, CSprite sprite)
+        public void UpdateSprite(GameTime gameTime, Sprite sprite)
         {
-            if (sprite.animating && (gameTime.TotalGameTime.Subtract(sprite.TimeChanged).Milliseconds >= (1000 / sprite.animationSpeed)))
+            if (sprite.Animating && (gameTime.TotalGameTime.Subtract(sprite.TimeChanged).Milliseconds >= (1000 / sprite.AnimationSpeed)))
             {
                 sprite.TimeChanged = gameTime.TotalGameTime;
-                sprite.frame++;
+                sprite.Frame++;
                 OnFrameChange();
-                if (sprite.frame >= sprite.Textures.Count) OnLastFrame();
-                if (sprite.loop)
+                if (sprite.Frame >= sprite.Textures.Count) OnLastFrame();
+                if (sprite.Loop)
                 {
-                    sprite.frame %= sprite.Textures.Count;
-                    sprite.CurrentTexture = sprite.frame;
+                    sprite.Frame %= sprite.Textures.Count;
+                    sprite.CurrentTexture = sprite.Frame;
                 }
                 else
                 {
-                    if (sprite.frame >= sprite.Textures.Count)
+                    if (sprite.Frame >= sprite.Textures.Count)
                     {
-                        sprite.animating = false;
+                        sprite.Animating = false;
                     }
                     else
                     {
-                        sprite.CurrentTexture = sprite.frame;
+                        sprite.CurrentTexture = sprite.Frame;
                     }
                 }
             }

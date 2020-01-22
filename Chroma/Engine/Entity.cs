@@ -48,6 +48,13 @@ namespace Chroma.Engine
             return manager.components[t.AssemblyQualifiedName][UID];
         }
 
+        public AComponent AddComponent(Type t)
+        {
+            manager.components[t.AssemblyQualifiedName][UID] = (AComponent)Activator.CreateInstance(t, new Object[] { this });
+            typeSet.Add(t.AssemblyQualifiedName);
+            return manager.components[t.AssemblyQualifiedName][UID];
+        }
+
         public void AddComponents<T, U>() where T : AComponent where U : AComponent
         {
             Type t = typeof(T);
@@ -111,6 +118,17 @@ namespace Chroma.Engine
             Type t = typeof(T);
             manager.components[t.AssemblyQualifiedName][UID] = c;
             typeSet.Add(t.AssemblyQualifiedName);
+        }
+
+        internal void AddComponent(AComponent c)
+        {
+            if (c.UID != UID)
+            {
+                c.UID = UID;
+            }
+            manager.components[c.GetType().AssemblyQualifiedName][UID] = c;
+            typeSet.Add(c.GetType().AssemblyQualifiedName);
+
         }
 
         #endregion

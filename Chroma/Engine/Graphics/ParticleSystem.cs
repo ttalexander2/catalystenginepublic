@@ -20,12 +20,12 @@ namespace Chroma.Engine.Graphics
 
         public override void Update(GameTime gameTime)
         {
-            foreach (CParticleEmitter emitter in Manager.GetComponents<CParticleEmitter>().Values)
+            foreach (ParticleEmitter emitter in Manager.GetComponents<ParticleEmitter>().Values)
             {
 
                 if (emitter.Follow != null)
                 {
-                    emitter.Position = emitter.Follow.GetComponent<CTransform>().Position;
+                    emitter.Position = emitter.Follow.GetComponent<Transform>().Position;
                 }
 
                 if (emitter.FollowCamera)
@@ -44,7 +44,7 @@ namespace Chroma.Engine.Graphics
                         }
                         else
                         {
-                            if (emitter.Mode == CParticleEmitter.ParticleMode.Continuous)
+                            if (emitter.Mode == ParticleEmitter.ParticleMode.Continuous)
                             {
                                 p.Reset();
                             }
@@ -62,7 +62,7 @@ namespace Chroma.Engine.Graphics
         }
         public override void PostRender(GameTime gameTime)
         {
-            foreach (CParticleEmitter emitter in Manager.GetComponents<CParticleEmitter>().Values)
+            foreach (ParticleEmitter emitter in Manager.GetComponents<ParticleEmitter>().Values)
             {
                 foreach (Particle p in emitter.Particles)
                 {

@@ -14,11 +14,11 @@ namespace Chroma.Engine
     {
         public static string Name => "Abstract Component";
         
-        public int UID { get; private set; }
+        public int UID { get; internal set; }
         
         public bool Active { get; set; }
         
-        public Entity Entity { get; private set; }
+        public Entity Entity { get; internal set; }
 
         internal AComponent(Entity entity)
         {

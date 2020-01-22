@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace Chroma.Engine.Physics
 {
     [Serializable]
-    public class CVelocity : AComponent
+    public class Velocity : AComponent
     {
-        
-        public Utilities.Vector2 Velocity { get; set; }
-        public CVelocity(Entity entity) : base(entity)
+        [ImmediateVector2]
+        public Utilities.Vector2 V { get; set; }
+        public Velocity(Entity entity) : base(entity)
         {
-            Velocity = new Utilities.Vector2();
+            V = new Utilities.Vector2();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Chroma.Engine.Utilities;
 
-namespace Chroma
+namespace Chroma.Engine
 {
 
     #region Integer
@@ -19,6 +19,10 @@ namespace Chroma
             this.Max = max;
             this.Mode = mode;
             this.HasRange = true;
+            if (mode == ImmediateIntegerMode.Percent)
+            {
+                throw new ImmediateAttributeException("Percent attribute type does not take a (min, max)!");
+            }
         }
 
         public ImmediateInteger(int min, int max)
@@ -33,10 +37,6 @@ namespace Chroma
         {
             this.HasRange = false;
             this.Mode = mode;
-            if(mode == ImmediateIntegerMode.Percent)
-            {
-                throw new ImmediateAttributeException("Percent attribute type must have a range (min, max)!");
-            }
             if(mode == ImmediateIntegerMode.Slider)
             {
                 throw new ImmediateAttributeException("Slider attribute type must have a range (min, max)!");
@@ -77,6 +77,10 @@ namespace Chroma
             this.Max = max;
             this.Mode = mode;
             this.HasRange = true;
+            if (mode == ImmediateFloatMode.Angle)
+            {
+                throw new ImmediateAttributeException("Angle (min, max) is automatically in degrees (-360, 360)");
+            }
         }
 
         public ImmediateFloat(float min, float max)
@@ -94,6 +98,10 @@ namespace Chroma
             if (mode == ImmediateFloatMode.Slider)
             {
                 throw new ImmediateAttributeException("Slider attribute type must have a range (min, max)");
+            }
+            if (mode == ImmediateFloatMode.SmallDrag)
+            {
+                throw new ImmediateAttributeException("Drag attribute type must have a range (min, max)");
             }
         }
 
@@ -113,7 +121,8 @@ namespace Chroma
         Drag,
         Slider,
         Angle,
-        Small
+        Small,
+        SmallDrag
 
     }
 
@@ -126,52 +135,18 @@ namespace Chroma
         public double Min { get; private set; }
         public double Max { get; private set; }
         public bool HasRange { get; private set; }
-        public ImmediateDoubleMode Mode { get; private set; }
-
-        public ImmediateDouble(ImmediateDoubleMode mode, double min, double max)
-        {
-            this.Min = min;
-            this.Max = max;
-            this.Mode = mode;
-            this.HasRange = true;
-        }
 
         public ImmediateDouble(double min, double max)
         {
             this.Min = min;
             this.Max = max;
-            this.Mode = ImmediateDoubleMode.Default;
             this.HasRange = true;
         }
-
-        public ImmediateDouble(ImmediateDoubleMode mode)
-        {
-            this.HasRange = false;
-            this.Mode = mode;
-            if (mode == ImmediateDoubleMode.Slider)
-            {
-                throw new ImmediateAttributeException("Slider attribute type must have a range (min, max)");
-            }
-        }
-
 
         public ImmediateDouble()
         {
             this.HasRange = false;
-            this.Mode = ImmediateDoubleMode.Default;
         }
-    }
-
-    [Serializable]
-    public enum ImmediateDoubleMode
-    {
-        Default,
-        Scientific,
-        Drag,
-        Slider,
-        Angle,
-        Small
-
     }
 
     #endregion
@@ -275,6 +250,7 @@ namespace Chroma
         public string Label { get; private set; }
         public ImmediateLabel()
         {
+            Label = null;
         }
 
         public ImmediateLabel(string label_string)
@@ -294,7 +270,7 @@ namespace Chroma
 
         public ImmediateString()
         {
-            HasHint = false;
+            this.HasHint = false;
         }
 
         public ImmediateString(string hint)
@@ -304,6 +280,38 @@ namespace Chroma
         }
     }
 
+    #endregion
+
+    #region Boolean
+
+    [Serializable]
+    public class ImmediateBoolean : Attribute
+    {
+        public ImmediateBoolean()
+        {
+        }
+    }
+
+    #endregion
+
+    #region Enum
+    [Serializable]
+    public class ImmediateEnum : Attribute
+    {
+        public ImmediateEnum()
+        {
+        }
+    }
+    #endregion
+
+    #region EntitySelector
+    [Serializable]
+    public class ImmediateEntitySelector : Attribute
+    {
+        public ImmediateEntitySelector()
+        {
+        }
+    }
     #endregion
 
     #region Exception

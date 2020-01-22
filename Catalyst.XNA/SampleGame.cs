@@ -7,6 +7,7 @@ using Catalyst;
 using System.Reflection;
 using Microsoft.Xna.Framework.Input;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Catalyst.XNA
 {
@@ -22,6 +23,7 @@ namespace Catalyst.XNA
 
         public static SampleGame Instance { get; private set; }
 
+        public static readonly string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
         private ImGuiLayout _layout;
 

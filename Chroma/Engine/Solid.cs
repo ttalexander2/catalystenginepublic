@@ -5,16 +5,16 @@ using System.Runtime.Serialization;
 namespace Chroma.Engine
 {
     [Serializable]
-    public class CSolid : AComponent
+    public class Solid : AComponent
     {
         
         public static new string Name => "Solid Transform";
 
-        public CSolid(Entity entity) : base(entity)
+        public Solid(Entity entity) : base(entity)
         {
-            if (!entity.HasComponent<CTransform>())
+            if (!entity.HasComponent<Transform>())
             {
-                entity.AddComponent<CTransform>();
+                entity.AddComponent<Transform>();
             }
         }
 
