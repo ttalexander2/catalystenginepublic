@@ -346,8 +346,9 @@ namespace Catalyst.XNA
 
         private static void RenderEntitySelector(AComponent c, PropertyInfo p, ImmediateEntitySelector attribute)
         {
+            Console.WriteLine(p.GetValue(c));
             List<string> names = new List<string>();
-            int selected = 0;
+            int selected = -1;
             if (p.GetValue(c) == null)
             {
                 foreach (Entity e in ProjectManager.Current.Manager.GetEntities().Values)
@@ -374,12 +375,20 @@ namespace Catalyst.XNA
                 }
                 names.Add(e.Name);
             }
+            names.Add("(none)");
 
             string[] nameArray = names.ToArray();
 
             ImGui.Combo(p.Name, ref selected, nameArray, nameArray.Length);
 
+
             p.SetValue(c, ProjectManager.Current.Manager.GetEntity(selected));
+
+            if (names[selected].Equals("(none)"))
+            {
+                p.SetValue(c, null);
+                selected = -1;
+            }
         }
 
 
