@@ -18,9 +18,10 @@ namespace Chroma.Engine.Graphics
 
         
         public string name;
-        
+
+        [ImmediateFloat(ImmediateFloatMode.Drag, 0, 1)]
         public float layer;
-        
+
         private int _textureHeight;
         
         private int _textureWidth;
@@ -35,7 +36,8 @@ namespace Chroma.Engine.Graphics
                 return Textures[CurrentTexture];
             }
         }
-        
+
+        [ImmediateInteger]
         public int CurrentTexture { get; set; }
         
         public float animationSpeed = 2.0f; //Frames per second

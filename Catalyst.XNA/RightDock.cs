@@ -14,7 +14,7 @@ namespace Catalyst.XNA
         {
             ImGuiTabBarFlags flags = ImGuiTabBarFlags.Reorderable;
 
-            bool[] opened = new bool[2] { true, true };
+            bool[] opened = { true, true };
 
             if (ImGui.BeginTabBar("RightDock", flags))
             {
@@ -81,24 +81,7 @@ namespace Catalyst.XNA
                         ImGui.Text(c.GetType().Name);
                         ImGui.PushFont(ImGuiLayout.DefaultFont);
                         ImGui.Text("");
-                        var properties = c.GetType().GetProperties();
-                        foreach (var p in properties)
-                        {
-                            if (p.CanWrite && p.GetSetMethod(true).IsPublic)
-                            {
-                                if (p.PropertyType == typeof(int))
-                                {
-                                    int val = (int)p.GetValue(c);
-                                    ImGui.InputInt(p.Name, ref val);
-                                    p.SetValue(c, val);
-                                }
-                            }
-                            else
-                            {
-                                ImGui.Text(p.Name);
-                            }
-
-                        }
+                        CatalystPropertyParser.RenderComponentProperties(c);
                         ImGui.Separator();
                     }
 

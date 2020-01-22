@@ -4,18 +4,12 @@ using Chroma.Engine.Input;
 using Chroma.Engine.Physics;
 using Chroma.Engine.Utilities;
 using Chroma.Game;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
 using Vector2 = Chroma.Engine.Utilities.Vector2;
 
 namespace Catalyst.XNA
