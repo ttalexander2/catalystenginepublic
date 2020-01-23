@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using Chroma.Engine;
 using Chroma.Game;
+using System.Reflection;
 
 namespace Catalyst.XNA
 {
@@ -47,8 +48,6 @@ namespace Catalyst.XNA
             StyleManager.LoadDark();
             //ProjectManager.Current = ProjectManager.LoadTestWorld();
             //world_loaded = true;
-
-
         }
 
         public void SetStyle()

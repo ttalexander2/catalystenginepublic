@@ -27,7 +27,7 @@ namespace Catalyst.XNA
                             {
                                 RenderInt(c, p, (ImmediateInteger)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(string.Format("{0} could not be displayed as an integer.", p.Name));
                             }
@@ -39,7 +39,7 @@ namespace Catalyst.XNA
                             {
                                 RenderFloat(c, p, (ImmediateFloat)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(string.Format("{0} could not be displayed as a float.", p.Name));
                             }
@@ -51,7 +51,7 @@ namespace Catalyst.XNA
                             {
                                 RenderBoolean(c, p);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(string.Format("{0} could not be displayed as a bool.", p.Name));
                             }
@@ -62,7 +62,7 @@ namespace Catalyst.XNA
                             {
                                 RenderVector2(c, p, (ImmediateVector2)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(string.Format("{0} could not be displayed as a Vector2.", p.Name));
                             }
@@ -73,7 +73,7 @@ namespace Catalyst.XNA
                             {
                                 RenderVector3(c, p, (ImmediateVector3)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(string.Format("{0} could not be displayed as a Vector3.", p.Name));
                             }
@@ -84,7 +84,7 @@ namespace Catalyst.XNA
                             {
                                 RenderVector4(c, p, (ImmediateVector4)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(string.Format("{0} could not be displayed as a Vector4.", p.Name));
                             }
@@ -95,7 +95,7 @@ namespace Catalyst.XNA
                             {
                                 RenderColor(c, p, (ImmediateColor)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(String.Format("{0} could not be displayed as a Color.", p.Name));
                             }
@@ -118,7 +118,7 @@ namespace Catalyst.XNA
                             {
                                 RenderString(c, p, (ImmediateString)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(String.Format("{0} could not be displayed as an input String.", p.Name));
                             }
@@ -129,7 +129,7 @@ namespace Catalyst.XNA
                             {
                                 RenderEnum(c, p, (ImmediateEnum)attr);
                             }
-                            catch (Exception e)
+                            catch (Exception)
                             {
                                 ImGui.Text(String.Format("{0} could not be displayed as an Enum.", p.Name));
                             }

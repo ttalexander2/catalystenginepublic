@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 
 namespace Catalyst.XNA
 {
@@ -7,7 +9,8 @@ namespace Catalyst.XNA
         [STAThread]
         public static void Main(string[] args)
         {
-            using (var game = new SampleGame()) game.Run();
+            Console.WriteLine(Crunch.Start(3, Path.Combine("Content", "Atlases", "Atlas"), Path.Combine("Content", "Sprites", "Player"), "-d"));
+            //using (var game = new SampleGame()) game.Run();
         }
     }
 }
