@@ -52,6 +52,17 @@ namespace Chroma.Engine
             this.Name = name;
         }
 
+        public void LoadContent()
+        {
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                if (Systems[i] is ARenderSystem)
+                {
+                    ((ARenderSystem)Systems[i]).LoadContent();
+                }
+            }
+        }
+
         private Scene() { }
 
 #region [Loop]

@@ -314,7 +314,7 @@ namespace Catalyst.XNA
             if (attribute.Mode == ImmediateColorMode.RGBA)
             {
                 System.Numerics.Vector4 vec = new System.Numerics.Vector4(value.X, value.Y, value.Z, value.W);
-                ImGui.ColorEdit4(p.Name, ref vec);
+                ImGui.ColorEdit4(p.Name, ref vec, ImGuiColorEditFlags.AlphaBar);
                 p.SetValue(c, new Color(new Vector4(vec.X, vec.Y, vec.Z, vec.W)));
             }
         }
@@ -346,7 +346,6 @@ namespace Catalyst.XNA
 
         private static void RenderEntitySelector(AComponent c, PropertyInfo p, ImmediateEntitySelector attribute)
         {
-            Console.WriteLine(p.GetValue(c));
             List<string> names = new List<string>();
             int selected = -1;
             if (p.GetValue(c) == null)

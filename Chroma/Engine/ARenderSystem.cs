@@ -29,6 +29,8 @@ namespace Chroma.Engine
 
         public virtual void RenderUI(GameTime gameTime) { }
 
+        public virtual void LoadContent() { }
+
         private static Type[] DerivedTypes()
         {
             return Assembly.GetAssembly(typeof(AComponent)).GetTypes()
