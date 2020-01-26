@@ -73,7 +73,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <OutputPath>bin\x64\WIN64\</OutputPath>
     <Optimize>true</Optimize>
-    <DefineConstants>DEBUG;WIN64</DefineConstants>
+    <DefineConstants>WIN64</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WIN32|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -219,7 +219,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CatalystEngine\Catalyst.Engine.csproj">
+    <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj">
       <Project>{6af02f92-514f-460a-b246-a5b0c1644676}</Project>
       <Name>Catalyst.Engine</Name>
     </ProjectReference>

@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AssemblyName>Catalyst.Editor</AssemblyName>
+        <RootNamespace>CatalystEditor</RootNamespace>
+        <TargetFramework>net461</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <ApplicationIcon />
+        <StartupObject />
+        <Configurations>Debug;Release;WIN64;WIN32;OSX;LINUX32;LINUX64</Configurations>
+        <Platforms>AnyCPU;x64;x86</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Content\bin\**" />
+      <Compile Remove="Content\obj\**" />
+      <EmbeddedResource Remove="Content\bin\**" />
+      <EmbeddedResource Remove="Content\obj\**" />
+      <None Remove="Content\bin\**" />
+      <None Remove="Content\obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Fonts\segoeui.ttf" />
+      <None Remove="Fonts\segoeuib.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Fonts\segoeui.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Fonts\segoeuib.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+  <ItemGroup>
+      <PackageReference Include="ImGui.NET" Version="1.72.0" />
+      <PackageReference Include="MonoGame.Framework.Content.Pipeline.Portable" Version="3.7.1.189" />
+      <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.7.1.189" />
+      <PackageReference Include="sdl2" Version="2.0.5" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework.Net">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\Sprites\Player\s_player_fall\" />
+    <Folder Include="Content\Sprites\Player\s_player_jump\" />
+    <Folder Include="Content\Sprites\Player\s_player_jump_peak\" />
+    <Folder Include="Content\Sprites\Player\s_player_running_1\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj" />
+    <ProjectReference Include="..\Catalyst.Game\Catalyst.Game.csproj" />
+  </ItemGroup>
+
+</Project>
