@@ -23,7 +23,7 @@ namespace Catalyst.Engine
                 return scene.Manager;
             }
         }
-        internal ASystem(Scene scene)
+        public ASystem(Scene scene)
         {
             this.scene = scene;
         }

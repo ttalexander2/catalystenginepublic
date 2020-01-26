@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Input;
 using System.Drawing;
 using System.IO;
 using Catalyst.Engine;
-using Catalyst.Game;
 using System.Reflection;
 
 namespace Catalyst.XNA
@@ -203,7 +202,6 @@ namespace Catalyst.XNA
                 if (ImGui.Button("Play"))
                 {
                     ProjectManager.Save();
-                    Catalyst.Engine.Program.Main(ProjectManager.Load());
                     
                 }
 

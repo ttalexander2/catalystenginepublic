@@ -4,7 +4,6 @@ using System.IO;
 using System.Reflection;
 using Catalyst.Engine.Rendering;
 using Catalyst.Engine.Utilities;
-using Catalyst.Game;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Catalyst.Engine;
+using System;
 
-namespace Catalyst.Engine
+namespace Catalyst
 {
     /// <summary>
     ///     The main class.

@@ -20,7 +20,7 @@ namespace Catalyst.Engine
         
         public Entity Entity { get; internal set; }
 
-        internal AComponent(Entity entity)
+        public AComponent(Entity entity)
         {
             this.Entity = entity;
             this.UID = entity.UID;

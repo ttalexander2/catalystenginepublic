@@ -3,7 +3,6 @@ using Catalyst.Engine.Rendering;
 using Catalyst.Engine.Input;
 using Catalyst.Engine.Physics;
 using Catalyst.Engine.Utilities;
-using Catalyst.Game;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
+using Catalyst.Game;
 
 namespace Catalyst.XNA
 {

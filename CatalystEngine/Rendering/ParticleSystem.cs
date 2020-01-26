@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Catalyst.Engine.Physics;
 using Catalyst.Engine.Utilities;
-using Catalyst.Game;
 using Catalyst.Engine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

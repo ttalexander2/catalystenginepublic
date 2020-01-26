@@ -1,13 +1,7 @@
 ﻿using Catalyst.Engine;
 using Catalyst.Engine.Physics;
-using Catalyst.Engine.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 
 namespace Catalyst.Game

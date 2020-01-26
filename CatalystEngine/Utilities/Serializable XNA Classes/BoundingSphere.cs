@@ -551,7 +551,7 @@ namespace Chroma.Engine.Utilities
         /// <param name="result">Distance of ray intersection or <c>null</c> if there is no intersection as an output parameter.</param>
         public void Intersects(ref Ray ray, out float? result)
         {
-            BoundingSphere x = this;
+            Microsoft.Xna.Framework.BoundingSphere x = this;
             ray.Intersects(ref x, out result);
         }
 
