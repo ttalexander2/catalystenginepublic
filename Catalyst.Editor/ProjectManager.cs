@@ -70,6 +70,14 @@ namespace Catalyst.XNA
         public static void CreateNew(string file)
         {
             Current = new Scene(1920, 1080);
+            Current.Systems.Add(new InputSystem(Current));
+            Current.Systems.Add(new PlayerSystem(Current));
+            Current.Systems.Add(new GravitySystem(Current));
+            Current.Systems.Add(new MovementSystem(Current));
+            Current.Systems.Add(new SpriteRenderSystem(Current));
+            Current.Systems.Add(new ParticleSystem(Current));
+            Current.Systems.Add(new CameraSystem(Current));
+
             FileName = file;
             Unsaved = true;
 

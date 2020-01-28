@@ -14,6 +14,7 @@ using System.Reflection;
 using CatalystEditor;
 using Microsoft.Xna.Framework;
 using Vector2 = System.Numerics.Vector2;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace Catalyst.XNA
 {
@@ -36,8 +37,7 @@ namespace Catalyst.XNA
         private Vector2 _windowSize;
         private Vector2 _menuSize;
 
-        public int ViewX = 0;
-        public int ViewY = 0;
+        public Rectangle ViewBounds;
 
         float scene_size = 0;
         float right_dock_size = 0;
@@ -135,8 +135,7 @@ namespace Catalyst.XNA
                     ImGui.SetWindowPos(new Vector2(scene_size, _menuSize.Y));
                     ImGui.SetWindowSize(new Vector2(_windowSize.X - scene_size-right_dock_size, _windowSize.Y - _menuSize.Y));
 
-                    ViewX = (int)scene_size;
-                    ViewY = (int)_menuSize.Y;
+                    CalculateViewBounds((int)scene_size, (int)_menuSize.Y, (int)(_windowSize.X - scene_size - right_dock_size), (int)(_windowSize.Y - _menuSize.Y));
 
                     view_size = ImGui.GetWindowSize().X;
 
@@ -363,6 +362,30 @@ namespace Catalyst.XNA
         public static string RemoveInvalidChars(string filename)
         {
             return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
+        }
+
+        public void CalculateViewBounds(int x, int y, int width, int height)
+        {
+            float ratio = (float)ProjectManager.Current.Width / (float)ProjectManager.Current.Height;
+            float actual = (float)width / (float)height;
+
+            Vector2 ScreenOffset = new Vector2(x,y);
+
+            if (actual > ratio)
+            {
+                //ScreenOffset = new Vector2(((width-height * (ratio))) / 2, 0);
+                ViewBounds = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, (int)(height * (ratio)), height);
+            }
+            else if (actual < ratio)
+            {
+               // ScreenOffset = new Vector2(0, (height - (int)(width * (1 / ratio))) / 2);
+                ViewBounds = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, width, (int)(width * 1 / ratio));
+            }
+            else
+            {
+                ViewBounds = new Rectangle(0, 0, width, height);
+                //ScreenOffset = Vector2.Zero;
+            }
         }
     }
 }

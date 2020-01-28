@@ -3,6 +3,7 @@ using Catalyst.XNA;
 using ImGuiNET;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,16 @@ namespace CatalystEditor
 
         public static void RenderViewPort(GameTime gameTime)
         {
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.OemPlus))
+            {
+                ProjectManager.Current.Camera.Zoom += 0.01f;
+            }
 
+            if (state.IsKeyDown(Keys.OemMinus))
+            {
+                ProjectManager.Current.Camera.Zoom -= 0.01f;
+            }
 
 
 

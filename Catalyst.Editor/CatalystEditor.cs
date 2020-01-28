@@ -39,8 +39,8 @@ namespace Catalyst.XNA
 
 
             Graphics = new GraphicsDeviceManager(this);
-            Graphics.PreferredBackBufferWidth = 1024;
-            Graphics.PreferredBackBufferHeight = 768;
+            Graphics.PreferredBackBufferWidth = 1920;
+            Graphics.PreferredBackBufferHeight = 1080;
             Graphics.PreferMultiSampling = true;
 
             Catalyst.Engine.Graphics.GraphicsDevice = Graphics;
@@ -112,14 +112,16 @@ namespace Catalyst.XNA
                 //Graphics.GraphicsDevice.Clear(Color.White);
 
 
-                // TODO: Add your drawing code here
+                /**
+                 * If update occurs, set transformMatrix to camera, else display entire scene and control zoom with transform matrix.
+                 */
                 Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetTransformation(Graphics.GraphicsDevice));
 
                 ProjectManager.Current.PreRender(gameTime);
                 ProjectManager.Current.Render(gameTime);
                 ProjectManager.Current.PostRender(gameTime);
 
-                Catalyst.Engine.Graphics.SpriteBatch.Draw(Circle, new Vector2(50, 50), Color.White);
+                Catalyst.Engine.Graphics.SpriteBatch.Draw(Circle, new Vector2(1900, 1060), Color.White);
                 GraphicsDevice.Clear(Color.CornflowerBlue);
 
                 ProjectManager.Current.RenderUI(gameTime);
@@ -141,8 +143,13 @@ namespace Catalyst.XNA
             _imGuiRenderer.AfterLayout();
 
             Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            Catalyst.Engine.Graphics.SpriteBatch.Draw(RenderTarget, new Rectangle(_layout.ViewX, _layout.ViewY, Engine.Graphics.Width, Engine.Graphics.Height), Color.White);
+            Catalyst.Engine.Graphics.SpriteBatch.Draw(RenderTarget, _layout.ViewBounds, Color.White);
             Catalyst.Engine.Graphics.SpriteBatch.End();
+
+            if (ProjectManager.scene_loaded && (RenderTarget.Bounds.Width != ProjectManager.Current.Width || RenderTarget.Bounds.Height != ProjectManager.Current.Height))
+            {
+                RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, ProjectManager.Current.Width, ProjectManager.Current.Height);
+            }
 
             base.Draw(gameTime);
         }
