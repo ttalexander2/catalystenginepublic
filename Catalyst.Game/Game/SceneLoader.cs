@@ -31,7 +31,7 @@ namespace Catalyst.Game
             scene.Systems.Add(new CameraSystem(scene));
 
 
-            var Content = Catalyst.Engine.CatalystEngine.Instance.Content;
+            var Content = Catalyst.Engine.Engine.Instance.Content;
             /**
             Texture2D[] atlas = new Texture2D[] {
                     Content.Load<Texture2D>(ContentDirectory + "/Sprites/Player/s_player_stationary/s_player_stationary_1"),

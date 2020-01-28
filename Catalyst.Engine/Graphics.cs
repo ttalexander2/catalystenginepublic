@@ -15,8 +15,8 @@ namespace Catalyst.Engine
         public static int Width = 640;
         public static int Height = 360;
 
-        public static int PreferredWindowWidth = 1920;
-        public static int PreferredWindowHeight = 1080;
+        public static int PreferredWindowWidth = 1280;
+        public static int PreferredWindowHeight = 720;
 
         public static Utilities.Vector2 SpriteScale
         {
@@ -32,7 +32,7 @@ namespace Catalyst.Engine
         {
             get
             {
-                return CatalystEngine.Instance.Screen;
+                return Engine.Instance.Screen;
             }
             set { }
         }

@@ -25,8 +25,6 @@ namespace Catalyst.Engine
 
         public virtual void DebugRender(GameTime gameTime) { }
 
-        public virtual void RenderNative(GameTime gameTime) { }
-
         public virtual void RenderUI(GameTime gameTime) { }
 
         public virtual void LoadContent() { }

@@ -24,7 +24,7 @@ namespace Catalyst.Engine.Rendering
 
         public void LoadContent()
         {
-            _texture = CatalystEngine.Instance.Content.Load<Texture2D>(Path);
+            _texture = Engine.Instance.Content.Load<Texture2D>(Path);
         }
     }
 }

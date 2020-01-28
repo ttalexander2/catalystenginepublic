@@ -11,6 +11,9 @@ using System.Drawing;
 using System.IO;
 using Catalyst.Engine;
 using System.Reflection;
+using CatalystEditor;
+using Microsoft.Xna.Framework;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Catalyst.XNA
 {
@@ -32,6 +35,13 @@ namespace Catalyst.XNA
 
         private Vector2 _windowSize;
         private Vector2 _menuSize;
+
+        public int ViewX = 0;
+        public int ViewY = 0;
+
+        float scene_size = 0;
+        float right_dock_size = 0;
+        float view_size = 0;
 
         public void Initialize()
         {
@@ -61,7 +71,7 @@ namespace Catalyst.XNA
 
 
 
-        public void Render()
+        public void Render(GameTime gameTime)
         {
 
             _windowSize = new Vector2(CatalystEditor.Instance.GraphicsDevice.Viewport.Width, CatalystEditor.Instance.GraphicsDevice.Viewport.Height+1);
@@ -73,18 +83,19 @@ namespace Catalyst.XNA
             if (ProjectManager.scene_loaded)
             {
                 ImGuiWindowFlags window_flags = 0;
-                window_flags |= ImGuiWindowFlags.NoTitleBar;
                 window_flags |= ImGuiWindowFlags.NoMove;
                 window_flags |= ImGuiWindowFlags.NoCollapse;
                 window_flags |= ImGuiWindowFlags.NoBringToFrontOnFocus;
+                window_flags |= ImGuiWindowFlags.NoTitleBar;
 
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
-                ImGui.SetNextWindowSizeConstraints(new Vector2(50, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X, _windowSize.Y - _menuSize.Y));
+                ImGui.SetNextWindowSizeConstraints(new Vector2(200, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - right_dock_size - 100, _windowSize.Y - _menuSize.Y));
 
                 bool t = false;
                 if (ImGui.Begin("Scene Window", ref t, window_flags))
                 {
                     ImGui.SetWindowPos(new Vector2(0, _menuSize.Y));
+                    scene_size = ImGui.GetWindowSize().X;
 
                     ImGui.SetWindowCollapsed(false);
 
@@ -93,11 +104,14 @@ namespace Catalyst.XNA
                     ImGui.End();
                 }
 
-                ImGui.SetNextWindowSizeConstraints(new Vector2(50, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X, _windowSize.Y - _menuSize.Y));
+                ImGui.SetNextWindowSizeConstraints(new Vector2(200, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - scene_size - 100, _windowSize.Y - _menuSize.Y));
+
                 t = false;
                 if (ImGui.Begin("Right Dock", ref t, window_flags))
                 {
-                    ImGui.SetWindowPos(new Vector2(_windowSize.X-ImGui.GetWindowSize().X, _menuSize.Y));
+                    right_dock_size = ImGui.GetWindowSize().X;
+                    ImGui.SetWindowPos(new Vector2(_windowSize.X-right_dock_size, _menuSize.Y));
+
 
                     ImGui.SetWindowCollapsed(false);
 
@@ -105,6 +119,36 @@ namespace Catalyst.XNA
 
                     ImGui.End();
                 }
+
+                ImGuiWindowFlags view_flags = 0;
+                view_flags |= ImGuiWindowFlags.NoTitleBar;
+                view_flags |= ImGuiWindowFlags.NoMove;
+                view_flags |= ImGuiWindowFlags.NoCollapse;
+                view_flags |= ImGuiWindowFlags.NoBringToFrontOnFocus;
+
+                bool oof = false;
+
+                ImGui.PushStyleColor(ImGuiCol.WindowBg, new System.Numerics.Vector4(0.11f, 0.11f, 0.11f, 1.00f));
+
+                if (ImGui.Begin("Game Viewport", ref oof, view_flags))
+                {
+                    ImGui.SetWindowPos(new Vector2(scene_size, _menuSize.Y));
+                    ImGui.SetWindowSize(new Vector2(_windowSize.X - scene_size-right_dock_size, _windowSize.Y - _menuSize.Y));
+
+                    ViewX = (int)scene_size;
+                    ViewY = (int)_menuSize.Y;
+
+                    view_size = ImGui.GetWindowSize().X;
+
+                    ImGui.SetWindowCollapsed(false);
+
+                    ViewportRenderer.RenderViewPort(gameTime);
+
+                    ImGui.End();
+                }
+
+                ImGui.PushStyleColor(ImGuiCol.WindowBg, new System.Numerics.Vector4(0.23f, 0.23f, 0.25f, 1.00f));
+
                 
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
             }
@@ -128,7 +172,6 @@ namespace Catalyst.XNA
         private void RenderMenuBar()
         {
             ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
-            ImGui.BeginMainMenuBar();
 
 
             if (ImGui.BeginMainMenuBar())
@@ -136,7 +179,7 @@ namespace Catalyst.XNA
                 _menuSize = ImGui.GetWindowSize();
                 if (ImGui.BeginMenu("File"))
                 {
-                    if (ImGui.MenuItem("New"))
+                    if (!LoadingProject && ImGui.MenuItem("New"))
                     {
                         new_project_window = true;
                     }
@@ -199,12 +242,6 @@ namespace Catalyst.XNA
                     ImGui.EndMenu();
                 }
 
-                if (ImGui.Button("Play"))
-                {
-                    ProjectManager.Save();
-                    
-                }
-
 
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
                 ImGui.EndMainMenuBar();
@@ -227,6 +264,7 @@ namespace Catalyst.XNA
         private byte[] buff = new byte[40];
         private string projectDir;
         private bool customDir = false;
+        public bool LoadingProject = false;
         private void NewProjectWindow()
         {
             ImGuiWindowFlags window_flags = 0;
@@ -252,7 +290,7 @@ namespace Catalyst.XNA
 
                 if (!customDir)
                 {
-                    ImGui.Text(Path.Combine(Directory.GetCurrentDirectory(),"Projects"));
+                    ImGui.Text(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), RemoveInvalidChars(str)));
                 } else
                 {
                     ImGui.Text(projectDir + "\\" + str);
@@ -262,6 +300,7 @@ namespace Catalyst.XNA
                 if(ImGui.Button("Choose Project Directory"))
                 {
                     System.Windows.Forms.FolderBrowserDialog openFileDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+                    openFileDialog1.RootFolder = Environment.SpecialFolder.Personal;
                     if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         projectDir = openFileDialog1.SelectedPath;
@@ -278,7 +317,7 @@ namespace Catalyst.XNA
                     ImGui.CloseCurrentPopup();
                     if (customDir)
                     {
-                        ProjectManager.ProjectPath = projectDir + "\\" + str;
+                        ProjectManager.ProjectPath = Path.Combine(projectDir, RemoveInvalidChars(str));
                         ProjectManager.CreateNew(str);
                     } else
                     {
@@ -287,7 +326,7 @@ namespace Catalyst.XNA
                     }
 
                     new_project_window = false;
-                    ProjectManager.scene_loaded = true;
+                    LoadingProject = true;
                     buff = new byte[40];
                     _currentScene = "";
                 }
@@ -319,6 +358,11 @@ namespace Catalyst.XNA
                 ImGui.PopTextWrapPos();
                 ImGui.EndTooltip();
             }
+        }
+
+        public static string RemoveInvalidChars(string filename)
+        {
+            return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         }
     }
 }

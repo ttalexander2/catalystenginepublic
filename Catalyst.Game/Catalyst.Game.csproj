@@ -184,7 +184,9 @@
     <None Include="x64\libfmodstudio.so" />
     <None Include="x64\libfmodstudio.so.11" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Scenes\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="x64\fmod.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

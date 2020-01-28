@@ -113,6 +113,18 @@ namespace Catalyst.Engine
                     Components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
                 }
             }
+
+            foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                foreach (Type type in ass.GetTypes()
+                .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
+                {
+                    if (!Components.Keys.Contains(type.AssemblyQualifiedName))
+                    {
+                        Components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
+                    }
+                }
+            }
         }
 
 

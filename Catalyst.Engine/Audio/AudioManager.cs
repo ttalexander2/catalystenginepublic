@@ -45,7 +45,7 @@ namespace Catalyst.Engine.Audio
 #endif
             try
             {
-                string FMODPath = Path.Combine(CatalystEngine.ContentDirectory, "FMOD", "Desktop");
+                string FMODPath = Path.Combine(Engine.ContentDirectory, "FMOD", "Desktop");
                 StudioSystem.loadBankFile(Path.GetFullPath(Path.Combine(FMODPath, "Master.strings.bank")), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
                 StudioSystem.loadBankFile(Path.GetFullPath(Path.Combine(FMODPath, "Master.bank")), FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out Bank);
             }

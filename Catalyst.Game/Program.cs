@@ -11,19 +11,21 @@ namespace Catalyst
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
+        /// 
         [STAThread]
         public static void Main()
         {
-            using (var game = new CatalystEngine(Graphics.Width, Graphics.Height, "Catalyst", false))
-            {
-                game.Run();
-            }
-        }
-
-        [STAThread]
-        public static void Main(Scene scene)
-        {
-            using (var game = new CatalystEngine(scene, Graphics.Width, Graphics.Height, "Catalyst", false))
+#if OSX
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "libfmod.dylib"));
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "libfmodstudio.dylib"));
+#elif LINUX32
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x86", "libfmod.so"));
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x86", "libfmodstudio.so"));
+#elif LINUX64
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x64", "libfmod.so"));
+            LibraryLoader.LoadPosixLibrary(Path.Combine(AssemblyDirectory, "x64", "libfmodstudio.so"));
+#endif
+            using (var game = new Catalyst.Engine.Engine(Graphics.Width, Graphics.Height, "Catalyst", false))
             {
                 game.Run();
             }

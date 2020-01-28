@@ -8,21 +8,27 @@ using Microsoft.Xna.Framework;
 using System.Xml.Serialization;
 using System.IO;
 using System.Runtime.Serialization;
+using Catalyst.Engine.Audio;
 
 namespace Catalyst.Engine
 {
-[Serializable]
+    [Serializable]
     [assembly: InternalsVisibleTo("System.Runtime.Serialization")]
-    public class Scene 
+    public class Scene
     {
-        
+
         public string Name { get; set; }
-        
+
         public ECManager Manager { get; private set; }
-        
+
         public List<ASystem> Systems { get; private set; }
-        
+
         public Camera2D Camera { get; set; }
+
+        [NonSerialized]
+        private AudioManager _audio;
+
+        public AudioManager Audio {get; private set; }
         
         public int Width { get; set; }
         
@@ -52,7 +58,19 @@ namespace Catalyst.Engine
             this.Name = name;
         }
 
-        public void LoadContent()
+        private Scene() { }
+
+#region [Loop]
+        public virtual void Initialize()
+        {
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                Systems[i].Initialize();
+            }
+            Audio = new AudioManager();
+        }
+
+        public virtual void LoadContent()
         {
             for (int i = 0; i < Systems.Count; i++)
             {
@@ -60,17 +78,6 @@ namespace Catalyst.Engine
                 {
                     ((ARenderSystem)Systems[i]).LoadContent();
                 }
-            }
-        }
-
-        private Scene() { }
-
-#region [Loop]
-        public void Initialize()
-        {
-            for (int i = 0; i < Systems.Count; i++)
-            {
-                Systems[i].Initialize();
             }
         }
 
@@ -162,28 +169,6 @@ namespace Catalyst.Engine
             }
         }
 
-        public virtual void RenderNative(GameTime gameTime)
-        {
-            for (int i = 0; i < Systems.Count; i++)
-            {
-                ASystem system = Systems[i];
-                if (system.Renders)
-                {
-                    try
-                    {
-                        ((ARenderSystem)system).RenderNative(gameTime);
-                    }
-                    catch (InvalidCastException e)
-                    {
-#if DEBUG
-                        Console.WriteLine("Couldn't cast system to Render system! " + e.ToString());
-#endif
-                    }
-
-                }
-            }
-        }
-
         public virtual void RenderUI(GameTime gameTime)
         {
             for (int i = 0; i < Systems.Count; i++)
@@ -208,7 +193,10 @@ namespace Catalyst.Engine
 
         public virtual void End()
         {
-
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                Systems[i].End(null);
+            }
         }
 
         #endregion

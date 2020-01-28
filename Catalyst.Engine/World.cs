@@ -55,11 +55,6 @@ namespace Catalyst.Engine
             CurrentScene?.PostRender(gameTime);
         }
 
-        public void RenderNative(GameTime gameTime)
-        {
-            CurrentScene?.RenderNative(gameTime);
-        }
-
         public void RenderUI(GameTime gameTime)
         {
             CurrentScene?.RenderUI(gameTime);

@@ -11,6 +11,10 @@ using System.Linq;
 using System.Reflection;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 using Catalyst.Game;
+using Microsoft.Build;
+using Microsoft.Build.Construction;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Catalyst.XNA
 {
@@ -68,13 +72,15 @@ namespace Catalyst.XNA
             Current = new Scene(1920, 1080);
             FileName = file;
             Unsaved = true;
+
+            ProjectManager.scene_loaded = true;
         }
 
         public static void Save()
         {
             Directory.CreateDirectory(ProjectPath);
 
-            CatalystSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
+            CatalystSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, "Content", "Scenes", FileName + Extension), SerializationMode.Binary);
 
             Unsaved = false;
         }

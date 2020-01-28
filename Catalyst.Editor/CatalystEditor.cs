@@ -8,6 +8,7 @@ using System.Reflection;
 using Microsoft.Xna.Framework.Input;
 using System.Windows.Forms;
 using System.IO;
+using CatalystEditor;
 
 namespace Catalyst.XNA
 {
@@ -16,7 +17,7 @@ namespace Catalyst.XNA
     /// </summary>
     public class CatalystEditor : Microsoft.Xna.Framework.Game
     {
-        private GraphicsDeviceManager _graphics;
+        private GraphicsDeviceManager Graphics;
         private ImGuiRenderer _imGuiRenderer;
 
         private Texture2D _xnaTexture;
@@ -27,22 +28,29 @@ namespace Catalyst.XNA
 
         private ImGuiLayout _layout;
 
+        private RenderTarget2D RenderTarget;
+
+        private Texture2D Circle;
+
         public CatalystEditor()
         {
             Instance = this;
 
 
 
-            _graphics = new GraphicsDeviceManager(this);
-            _graphics.PreferredBackBufferWidth = 1024;
-            _graphics.PreferredBackBufferHeight = 768;
-            _graphics.PreferMultiSampling = true;
+            Graphics = new GraphicsDeviceManager(this);
+            Graphics.PreferredBackBufferWidth = 1024;
+            Graphics.PreferredBackBufferHeight = 768;
+            Graphics.PreferMultiSampling = true;
+
+            Catalyst.Engine.Graphics.GraphicsDevice = Graphics;
 
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
 
 
             _layout = new ImGuiLayout();
+
 
 
         }
@@ -53,11 +61,13 @@ namespace Catalyst.XNA
             _layout.Initialize();
             _imGuiRenderer.RebuildFontAtlas();
 
-            base.Initialize();
-
             Version v = Assembly.GetExecutingAssembly().GetName().Version;
 
             Window.Title = "Catalyst " + v.Major + "." + v.MajorRevision;
+
+            base.Initialize();
+
+
 
             
         }
@@ -76,23 +86,63 @@ namespace Catalyst.XNA
 			// Then, bind it to an ImGui-friendly pointer, that we can use during regular ImGui.** calls (see below)
 			_layout.ImGuiTexture = _imGuiRenderer.BindTexture(_xnaTexture);
 
+            Catalyst.Engine.Graphics.SpriteBatch = new SpriteBatch(Graphics.GraphicsDevice);
+
+
+            Circle = Engine.Rendering.BasicShapes.GenerateCircleTexture(15, Color.White, 1);
+
+            RenderTarget = new RenderTarget2D(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, Catalyst.Engine.Graphics.Width, Catalyst.Engine.Graphics.Height, true, SurfaceFormat.Color, DepthFormat.Depth16, 4, RenderTargetUsage.PreserveContents);
+
             base.LoadContent();
+        }
+
+        protected override void Update(GameTime gameTime)
+        {
+
+            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-
             GraphicsDevice.Clear(new Color(0.14f, 0.14f, 0.14f, 1.00f));
+
+            if (ProjectManager.scene_loaded)
+            {
+                Graphics.GraphicsDevice.SetRenderTarget(RenderTarget);
+                //Graphics.GraphicsDevice.Clear(Color.White);
+
+
+                // TODO: Add your drawing code here
+                Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetTransformation(Graphics.GraphicsDevice));
+
+                ProjectManager.Current.PreRender(gameTime);
+                ProjectManager.Current.Render(gameTime);
+                ProjectManager.Current.PostRender(gameTime);
+
+                Catalyst.Engine.Graphics.SpriteBatch.Draw(Circle, new Vector2(50, 50), Color.White);
+                GraphicsDevice.Clear(Color.CornflowerBlue);
+
+                ProjectManager.Current.RenderUI(gameTime);
+
+                Catalyst.Engine.Graphics.SpriteBatch.End();
+
+                Graphics.GraphicsDevice.SetRenderTargets(null);
+
+            }
 
             // Call BeforeLayout first to set things up
             _imGuiRenderer.BeforeLayout(gameTime);
 
             // Draw our UI
-            _layout.Render();
+            _layout.Render(gameTime);
             UpdateMouseCursor();
 
             // Call AfterLayout now to finish up and draw all the things
             _imGuiRenderer.AfterLayout();
+
+            Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            Catalyst.Engine.Graphics.SpriteBatch.Draw(RenderTarget, new Rectangle(_layout.ViewX, _layout.ViewY, Engine.Graphics.Width, Engine.Graphics.Height), Color.White);
+            Catalyst.Engine.Graphics.SpriteBatch.End();
 
             base.Draw(gameTime);
         }

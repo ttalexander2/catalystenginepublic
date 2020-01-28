@@ -16,10 +16,13 @@
     <ItemGroup>
       <Compile Remove="Content\bin\**" />
       <Compile Remove="Content\obj\**" />
+      <Compile Remove="New Project Template\**" />
       <EmbeddedResource Remove="Content\bin\**" />
       <EmbeddedResource Remove="Content\obj\**" />
+      <EmbeddedResource Remove="New Project Template\**" />
       <None Remove="Content\bin\**" />
       <None Remove="Content\obj\**" />
+      <None Remove="New Project Template\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -44,6 +47,12 @@
     </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Conversion.v4.0" />
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="MonoGame.Framework">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -63,6 +72,30 @@
   <ItemGroup>
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj" />
     <ProjectReference Include="..\Catalyst.Game\Catalyst.Game.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CatalystGame.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libfmod.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libfmodstudio.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="x64\fmod.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="x64\fmodstudio.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="x86\fmod.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="x86\fmodstudio.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
