@@ -28,7 +28,7 @@ namespace Catalyst.Engine
         [NonSerialized]
         private AudioManager _audio;
 
-        public AudioManager Audio {get; private set; }
+        public AudioManager Audio { get { return _audio; } private set { _audio = value; } }
         
         public int Width { get; set; }
         

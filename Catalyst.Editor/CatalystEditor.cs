@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Input;
 using System.Windows.Forms;
 using System.IO;
 using CatalystEditor;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace Catalyst.XNA
 {
@@ -18,7 +20,7 @@ namespace Catalyst.XNA
     public class CatalystEditor : Microsoft.Xna.Framework.Game
     {
         private GraphicsDeviceManager Graphics;
-        private ImGuiRenderer _imGuiRenderer;
+        public ImGuiRenderer Renderer;
 
         private Texture2D _xnaTexture;
 
@@ -28,9 +30,17 @@ namespace Catalyst.XNA
 
         private ImGuiLayout _layout;
 
-        private RenderTarget2D RenderTarget;
+        public RenderTarget2D RenderTarget;
+
+        public volatile RenderTarget2D GridTarget;
 
         private Texture2D Circle;
+
+        private Color _backgroundColor;
+
+        private Texture2D _testTexture;
+
+        private Texture2D _gridTexture;
 
         public CatalystEditor()
         {
@@ -57,9 +67,9 @@ namespace Catalyst.XNA
 
         protected override void Initialize()
         {
-            _imGuiRenderer = new ImGuiRenderer(this);
+            Renderer = new ImGuiRenderer(this);
             _layout.Initialize();
-            _imGuiRenderer.RebuildFontAtlas();
+            Renderer.RebuildFontAtlas();
 
             Version v = Assembly.GetExecutingAssembly().GetName().Version;
 
@@ -84,7 +94,7 @@ namespace Catalyst.XNA
 			});
 
 			// Then, bind it to an ImGui-friendly pointer, that we can use during regular ImGui.** calls (see below)
-			_layout.ImGuiTexture = _imGuiRenderer.BindTexture(_xnaTexture);
+			_layout.ImGuiTexture = Renderer.BindTexture(_xnaTexture);
 
             Catalyst.Engine.Graphics.SpriteBatch = new SpriteBatch(Graphics.GraphicsDevice);
 
@@ -93,38 +103,65 @@ namespace Catalyst.XNA
 
             RenderTarget = new RenderTarget2D(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, Catalyst.Engine.Graphics.Width, Catalyst.Engine.Graphics.Height, true, SurfaceFormat.Color, DepthFormat.Depth16, 4, RenderTargetUsage.PreserveContents);
 
+            _backgroundColor = new Color(new Vector4(0.11f, 0.11f, 0.11f, 1.00f));
+
+            FileStream s = File.Open(Path.Combine(AssemblyDirectory, "Content", "untitled.png"), FileMode.Open);
+            _testTexture = Texture2D.FromStream(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, s);
+            s.Close();
+
+            _gridTexture = new Texture2D(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
+            _gridTexture.SetData(new Color[] { Color.White });
+
             base.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)
         {
+            if (ProjectManager.scene_loaded && ViewportRenderer.Playing)
+            {
+                ProjectManager.Current.PreUpdate(gameTime);
+                ProjectManager.Current.Update(gameTime);
+                ProjectManager.Current.PostUpdate(gameTime);
+            }
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            Window.Title = String.Format("Catalyst FPS: {0}", 1 / (float)gameTime.ElapsedGameTime.TotalSeconds);
             GraphicsDevice.Clear(new Color(0.14f, 0.14f, 0.14f, 1.00f));
 
             if (ProjectManager.scene_loaded)
             {
                 Graphics.GraphicsDevice.SetRenderTarget(RenderTarget);
-                //Graphics.GraphicsDevice.Clear(Color.White);
 
+                GraphicsDevice.Clear(_backgroundColor * 0.6f);
 
                 /**
                  * If update occurs, set transformMatrix to camera, else display entire scene and control zoom with transform matrix.
                  */
-                Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetTransformation(Graphics.GraphicsDevice));
+                if (ViewportRenderer.Playing)
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: ProjectManager.Current.Camera.GetTransformation(Graphics.GraphicsDevice));
+                }
+                else
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: ViewportRenderer.GetTransformMatrix());
+                }
+
 
                 ProjectManager.Current.PreRender(gameTime);
                 ProjectManager.Current.Render(gameTime);
                 ProjectManager.Current.PostRender(gameTime);
 
-                Catalyst.Engine.Graphics.SpriteBatch.Draw(Circle, new Vector2(1900, 1060), Color.White);
-                GraphicsDevice.Clear(Color.CornflowerBlue);
+                Catalyst.Engine.Graphics.SpriteBatch.Draw(_testTexture, new Vector2(0, 0), null, Color.White);
 
                 ProjectManager.Current.RenderUI(gameTime);
+                if (ViewportRenderer.Grid && GridTarget != null)
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(GridTarget, new Vector2(0, 0), null, Color.White);
+                }
 
                 Catalyst.Engine.Graphics.SpriteBatch.End();
 
@@ -133,28 +170,88 @@ namespace Catalyst.XNA
             }
 
             // Call BeforeLayout first to set things up
-            _imGuiRenderer.BeforeLayout(gameTime);
+            Renderer.BeforeLayout(gameTime);
 
             // Draw our UI
             _layout.Render(gameTime);
+
             UpdateMouseCursor();
 
             // Call AfterLayout now to finish up and draw all the things
-            _imGuiRenderer.AfterLayout();
 
+            Renderer.AfterLayout();
+
+
+            /**
             Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             Catalyst.Engine.Graphics.SpriteBatch.Draw(RenderTarget, _layout.ViewBounds, Color.White);
             Catalyst.Engine.Graphics.SpriteBatch.End();
+            */
 
-            if (ProjectManager.scene_loaded && (RenderTarget.Bounds.Width != ProjectManager.Current.Width || RenderTarget.Bounds.Height != ProjectManager.Current.Height))
+            if (ProjectManager.scene_loaded && _layout.ViewBounds != Num.Vector2.Zero && (RenderTarget.Bounds.Width != _layout.ViewBounds.X || RenderTarget.Bounds.Height != _layout.ViewBounds.Y))
             {
-                RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, ProjectManager.Current.Width, ProjectManager.Current.Height);
+                RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, (int)_layout.ViewBounds.X, (int)_layout.ViewBounds.Y);
             }
+
+            if (ProjectManager.scene_loaded && ProjectManager.ChangeGrid)
+            {
+                GridTarget = null;
+
+                UpdateGrid();
+                ProjectManager.ChangeGrid = false;
+            }
+
 
             base.Draw(gameTime);
         }
 
-        // Direct port of the example at https://github.com/ocornut/imgui/blob/master/examples/sdl_opengl2_example/main.cpp
+        
+
+        private void UpdateGrid()
+        {
+            RenderTarget2D g = new RenderTarget2D(Graphics.GraphicsDevice, ProjectManager.Current.Width+1, ProjectManager.Current.Height+1);
+            Graphics.GraphicsDevice.SetRenderTarget(g);
+            Catalyst.Engine.Graphics.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearWrap);
+
+            Graphics.GraphicsDevice.Clear(Color.Transparent);
+
+
+            int tileSize = ViewportRenderer.GridSize;
+            for (int i = 0; i <= ProjectManager.Current.Width; i += tileSize)
+            {
+                if (i == 0 || i == ProjectManager.Current.Width)
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_gridTexture, new Vector2(i, 0), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Height), new SpriteEffects(), 0); ;
+                }
+                else
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_gridTexture, new Vector2(i, 0), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(1, ProjectManager.Current.Height), new SpriteEffects(), 0); ;
+                }
+            }
+
+            Catalyst.Engine.Graphics.SpriteBatch.Draw(_gridTexture, new Vector2(ProjectManager.Current.Width-3, 0), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Height), new SpriteEffects(), 0); ;
+
+
+            for (int i = 0; i <= ProjectManager.Current.Height; i += tileSize)
+            {
+                if (i == 0 || i == ProjectManager.Current.Height)
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_gridTexture, new Vector2(0, i), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 3), new SpriteEffects(), 0);
+                }
+                else
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_gridTexture, new Vector2(0, i), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 1), new SpriteEffects(), 0);
+                }
+            }
+
+            Catalyst.Engine.Graphics.SpriteBatch.Draw(_gridTexture, new Vector2(0, ProjectManager.Current.Height-3), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 3), new SpriteEffects(), 0);
+
+
+            Catalyst.Engine.Graphics.SpriteBatch.End();
+            Graphics.GraphicsDevice.SetRenderTargets(null);
+
+            GridTarget = g;
+        }
 
 
         

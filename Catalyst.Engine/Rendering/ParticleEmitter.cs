@@ -112,7 +112,7 @@ namespace Catalyst.Engine.Rendering
         {
             foreach(Particle p in Particles)
             {
-                p.Reset();
+                p.Reset(this);
                 if(Mode == ParticleMode.Continuous)
                 {
                     p.Life = Rand.Next(0, p.LifeStart);

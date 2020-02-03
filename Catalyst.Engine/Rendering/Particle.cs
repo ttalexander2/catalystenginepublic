@@ -14,7 +14,6 @@ namespace Catalyst.Engine.Rendering
 {
     public class Particle
     {
-        public ParticleEmitter Emitter { get; set; }
         public bool Active { get; internal set; }
         public Vector2 Position { get; internal set; }
         public Vector2 Velocity
@@ -66,23 +65,22 @@ namespace Catalyst.Engine.Rendering
 
         public Particle(ParticleEmitter emitter)
         {
-            this.Emitter = emitter;
             this.Active = false;
         }
 
-        public void Reset()
+        public void Reset(ParticleEmitter emitter)
         {
             this.Active = true;
-            this.Position = Emitter.Position + new Vector2(Emitter.Rand.Next((int)-Emitter.PositionVariance.X, (int)Emitter.PositionVariance.X), Emitter.Rand.Next((int)-Emitter.PositionVariance.Y, (int)Emitter.PositionVariance.Y)) + Emitter.Offset;
-            this.Life = Emitter.Rand.Next(Emitter.Life - Emitter.LifeVariance, Emitter.Life + Emitter.LifeVariance);
+            this.Position = emitter.Position + new Vector2(emitter.Rand.Next((int)-emitter.PositionVariance.X, (int)emitter.PositionVariance.X), emitter.Rand.Next((int)-emitter.PositionVariance.Y, (int)emitter.PositionVariance.Y)) + emitter.Offset;
+            this.Life = emitter.Rand.Next(emitter.Life - emitter.LifeVariance, emitter.Life + emitter.LifeVariance);
             this.LifeStart = this.Life;
-            this.Angle = Emitter.Rand.Next((int)Emitter.Angle - Emitter.Rand.Next(0, (int)Emitter.AngleVariance), (int)Emitter.Angle + Emitter.Rand.Next(0, (int)Emitter.AngleVariance));
-            this.Speed = Emitter.Rand.Next(Emitter.Speed - Emitter.SpeedVariance, Emitter.Speed + Emitter.SpeedVariance);
-            this.StartColor = Emitter.StartColor;
-            this.EndColor = Emitter.EndColor;
-            this.StartAlpha = Emitter.StartAlpha;
-            this.EndAlpha = Emitter.EndAlpha;
-            this.Mode = Emitter.VelocityMode;
+            this.Angle = emitter.Rand.Next((int)emitter.Angle - emitter.Rand.Next(0, (int)emitter.AngleVariance), (int)emitter.Angle + emitter.Rand.Next(0, (int)emitter.AngleVariance));
+            this.Speed = emitter.Rand.Next(emitter.Speed - emitter.SpeedVariance, emitter.Speed + emitter.SpeedVariance);
+            this.StartColor = emitter.StartColor;
+            this.EndColor = emitter.EndColor;
+            this.StartAlpha = emitter.StartAlpha;
+            this.EndAlpha = emitter.EndAlpha;
+            this.Mode = emitter.VelocityMode;
             if (this.Mode == VelocityMode.Linear)
             {
                 this.Velocity = new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)), (float)(-Speed * Math.Sin(Angle * Math.PI / 180)));

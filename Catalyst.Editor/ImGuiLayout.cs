@@ -37,7 +37,7 @@ namespace Catalyst.XNA
         private Vector2 _windowSize;
         private Vector2 _menuSize;
 
-        public Rectangle ViewBounds;
+        public Vector2 ViewBounds = Vector2.Zero;
 
         float scene_size = 0;
         float right_dock_size = 0;
@@ -135,13 +135,13 @@ namespace Catalyst.XNA
                     ImGui.SetWindowPos(new Vector2(scene_size, _menuSize.Y));
                     ImGui.SetWindowSize(new Vector2(_windowSize.X - scene_size-right_dock_size, _windowSize.Y - _menuSize.Y));
 
-                    CalculateViewBounds((int)scene_size, (int)_menuSize.Y, (int)(_windowSize.X - scene_size - right_dock_size), (int)(_windowSize.Y - _menuSize.Y));
-
                     view_size = ImGui.GetWindowSize().X;
 
                     ImGui.SetWindowCollapsed(false);
 
-                    ViewportRenderer.RenderViewPort(gameTime);
+                    ViewBounds = CalculateViewBounds((int)(_windowSize.X - scene_size - right_dock_size), (int)(_windowSize.Y - _menuSize.Y-50));
+
+                    ViewportRenderer.RenderViewPort(gameTime, ViewBounds, new Rectangle((int)scene_size, (int)_menuSize.Y, (int)ViewBounds.X, (int)ViewBounds.Y));
 
                     ImGui.End();
                 }
@@ -161,7 +161,7 @@ namespace Catalyst.XNA
 
             if (new_project_window)
             {
-                ImGui.OpenPopup("New Project");
+                ImGui.OpenPopup("New Scene");
                 NewProjectWindow();
             }
 
@@ -275,11 +275,11 @@ namespace Catalyst.XNA
 
             bool r = true;
 
-            if (ImGui.BeginPopupModal("New Project", ref r, window_flags))
+            if (ImGui.BeginPopupModal("New Scene", ref r, window_flags))
             {
                 
                 ImGui.PushFont(HeadingFont);
-                ImGui.Text("Create a new project");
+                ImGui.Text("Create a new Scene");
                 ImGui.PushFont(DefaultFont);
 
                 ImGui.Text("Enter a name: ");
@@ -299,7 +299,7 @@ namespace Catalyst.XNA
                 if(ImGui.Button("Choose Project Directory"))
                 {
                     System.Windows.Forms.FolderBrowserDialog openFileDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-                    openFileDialog1.RootFolder = Environment.SpecialFolder.Personal;
+                    openFileDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
                     if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         projectDir = openFileDialog1.SelectedPath;
@@ -364,28 +364,27 @@ namespace Catalyst.XNA
             return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         }
 
-        public void CalculateViewBounds(int x, int y, int width, int height)
+        public Vector2 CalculateViewBounds(int width, int height)
         {
             float ratio = (float)ProjectManager.Current.Width / (float)ProjectManager.Current.Height;
             float actual = (float)width / (float)height;
 
-            Vector2 ScreenOffset = new Vector2(x,y);
+            Vector2 size;
 
             if (actual > ratio)
             {
-                //ScreenOffset = new Vector2(((width-height * (ratio))) / 2, 0);
-                ViewBounds = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, (int)(height * (ratio)), height);
+                size = new Vector2((height * (ratio)), height);
             }
             else if (actual < ratio)
             {
-               // ScreenOffset = new Vector2(0, (height - (int)(width * (1 / ratio))) / 2);
-                ViewBounds = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, width, (int)(width * 1 / ratio));
+                size = new Vector2(width, (int)(width * 1 / ratio));
             }
             else
             {
-                ViewBounds = new Rectangle(0, 0, width, height);
-                //ScreenOffset = Vector2.Zero;
+                size = new Vector2(width, height);
             }
+
+            return size;
         }
     }
 }

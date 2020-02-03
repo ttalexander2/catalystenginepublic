@@ -15,6 +15,7 @@ using Microsoft.Build;
 using Microsoft.Build.Construction;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using CatalystEditor;
 
 namespace Catalyst.XNA
 {
@@ -26,6 +27,7 @@ namespace Catalyst.XNA
         public static bool scene_loaded = false;
 
         private static string _file;
+        public static bool ChangeGrid = false;
         public static string FileName
         {
             get
@@ -81,14 +83,15 @@ namespace Catalyst.XNA
             FileName = file;
             Unsaved = true;
 
-            ProjectManager.scene_loaded = true;
+            scene_loaded = true;
+            ChangeGrid = true;
         }
 
         public static void Save()
         {
             Directory.CreateDirectory(ProjectPath);
 
-            CatalystSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, "Content", "Scenes", FileName + Extension), SerializationMode.Binary);
+            CatalystSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
 
             Unsaved = false;
         }
@@ -102,6 +105,7 @@ namespace Catalyst.XNA
 
             Unsaved = true;
             scene_loaded = true;
+            ChangeGrid = true;
         }
 
         public static Scene Load()
@@ -117,7 +121,7 @@ namespace Catalyst.XNA
 
         public static Scene LoadTestWorld()
         {
-            Scene scene = new Scene(Graphics.Width * 2, Graphics.Height * 2);
+            Scene scene = new Scene(Graphics.Width * 8, Graphics.Height * 8);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
@@ -125,6 +129,13 @@ namespace Catalyst.XNA
             scene.Systems.Add(new SpriteRenderSystem(scene));
             scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
+
+            /**
+            TexturePacker p = new TexturePacker();
+            TextureAtlas atlas = p.AtlasFromBinary(Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.atlas"), Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.meta"));
+            */
+            
+
 
             Entity testEntity = scene.Manager.NewEntity();
             var sprite = new Sprite(testEntity, "test", 0, 0, new Engine.Rendering.MTexture[] { }, Origin.TopLeft) { AnimationSpeed = 6.0f, Layer = 1.0f };
@@ -148,6 +159,8 @@ namespace Catalyst.XNA
                 grass.AddComponent<Sprite>(grass_sprite);
                 grass.AddComponent<Solid>();
             }
+
+            ChangeGrid = true;
 
             return scene;
         }

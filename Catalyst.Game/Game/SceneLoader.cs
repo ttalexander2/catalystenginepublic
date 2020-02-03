@@ -17,9 +17,8 @@ namespace Catalyst.Game
 {
     public static class SceneLoader
     {
-        public static World LoadScene(string ContentDirectory)
+        public static Scene LoadScene(string ContentDirectory)
         {
-            World world = new World();
 
             Scene scene = new Scene(Graphics.Width*2, Graphics.Height*2);
             scene.Systems.Add(new InputSystem(scene));
@@ -84,7 +83,7 @@ namespace Catalyst.Game
             p.GetComponent<ParticleEmitter>().Texture = BasicShapes.GenerateCircleTexture(1, Color.White, 1.0f);
             **/
 
-            return world;
+            return scene;
         }
     }
 }

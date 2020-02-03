@@ -9,35 +9,124 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Vector2 = Microsoft.Xna.Framework.Vector2;
+using Vector2 = System.Numerics.Vector2;
 
 namespace CatalystEditor
 {
     public static class ViewportRenderer
     {
-        public static float MaxZoom = 10;
-        public static float MinZoom = 0.1f;
+        public static float MaxZoom = 5;
+        public static float MinZoom = 0.01f;
         public static float Zoom = 1;
 
-        public static bool Playing = false;
         public static bool Grid = true;
-        public static int GridSize = 32;
+        public static int GridSize = 64;
 
-        public static void RenderViewPort(GameTime gameTime)
+        public static bool Playing = false;
+
+        public static Catalyst.Engine.Utilities.Vector2 Position = Catalyst.Engine.Utilities.Vector2.Zero;
+        private static Catalyst.Engine.Utilities.Vector2 _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
+
+        public static IntPtr RenderTargetPointer;
+
+        public static void RenderViewPort(GameTime gameTime, Vector2 view_bounds, Rectangle bounds)
         {
-            KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.OemPlus))
+            if (!Playing)
             {
-                ProjectManager.Current.Camera.Zoom += 0.01f;
+                if (ImGui.Button("Update: Off"))
+                {
+                    Playing = !Playing;
+                }
+            }
+            else
+            {
+                if (ImGui.Button("Update: On"))
+                {
+                    Playing = !Playing;
+                }
             }
 
-            if (state.IsKeyDown(Keys.OemMinus))
+            ImGui.SameLine();
+
+            if (ImGui.Button("Reset Position"))
             {
-                ProjectManager.Current.Camera.Zoom -= 0.01f;
+                Position = Catalyst.Engine.Utilities.Vector2.Zero;
+            }
+
+            ImGui.SameLine();
+
+            ImGui.PushItemWidth(200);
+            float prev_zoom = Zoom;
+
+
+            MouseState m = Mouse.GetState();
+            KeyboardState k = Keyboard.GetState();
+
+            _ = ImGui.SliderFloat("Zoom", ref Zoom, MinZoom, MaxZoom);
+
+            //ImGui.SameLine();
+
+            Zoom += ImGui.GetIO().MouseWheel/20;
+            if (Zoom < MinZoom)
+            {
+                Zoom = MinZoom;
+            }
+
+            if (Zoom > MaxZoom)
+            {
+                Zoom = MaxZoom;
+            }
+
+            ImGui.SameLine();
+
+            ImGui.Checkbox("Grid", ref Grid);
+
+            ImGui.SameLine();
+
+            int grid = GridSize;
+
+
+            ImGui.SliderInt("Grid Size", ref GridSize, 1, 256);
+            ImGui.SameLine();
+            ImGuiLayout.HelpMarker("CTRL+click to input value.");
+
+            if (grid != GridSize)
+            {
+                ProjectManager.ChangeGrid = true;
             }
 
 
+            if (m.MiddleButton == ButtonState.Pressed || (k.IsKeyDown(Keys.LeftControl) && m.LeftButton == ButtonState.Pressed) && bounds.Contains(m.Position))
+            {
+                if (_dPos == Catalyst.Engine.Utilities.Vector2.Zero)
+                {
+                    _dPos = new Catalyst.Engine.Utilities.Vector2(m.Position.X + Position.X, m.Position.Y + Position.Y);
+                }
+                Position = new Catalyst.Engine.Utilities.Vector2(_dPos.X - m.Position.X, _dPos.Y - m.Position.Y);
+            }
+            else if (m.MiddleButton == ButtonState.Released)
+            {
+                _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
+            }
 
+            RenderTargetPointer = Catalyst.XNA.CatalystEditor.Instance.Renderer.BindTexture(Catalyst.XNA.CatalystEditor.Instance.RenderTarget);
+            ImGui.Image(RenderTargetPointer, view_bounds);
+
+            
+
+
+
+
+        }
+
+        public static Matrix GetTransformMatrix()
+        {
+            Matrix Transform =
+                             Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                             Matrix.CreateRotationZ(0) *
+                             Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+                             Matrix.CreateTranslation(new Vector3(0, 0, 0));
+            return Transform;
         }
 
     }

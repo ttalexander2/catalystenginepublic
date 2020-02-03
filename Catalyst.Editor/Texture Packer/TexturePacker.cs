@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Catalyst.Engine.Rendering;
 using MonoGame.Framework.Content.Pipeline;
 using MonoGame.Framework.Content.Pipeline.Builder;
 using Rectangle = System.Drawing.Rectangle;
@@ -21,8 +22,10 @@ namespace CatalystEditor
         public bool Force = false;
         public bool Trim = false;
         public bool XML = false;
+
+        public TexturePacker() { }
         
-        public async Task<bool> PackAtlas(string input_directory, string output_directory, string output_name, params string[] args)
+        public bool PackAtlas(string input_directory, string output_directory, string output_name, params string[] args)
         {
 
             foreach (string a in args)
@@ -222,6 +225,8 @@ namespace CatalystEditor
             {
                 throw new TexturePackerException(String.Format("Cannot read. Atlas meta file {0} does not exist!", atlas_file));
             }
+
+            TextureAtlas atlas = new TextureAtlas();
 
             using (BinaryReader reader = new BinaryReader(new FileStream(meta_file, FileMode.Open)))
             {

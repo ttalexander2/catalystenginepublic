@@ -56,7 +56,7 @@ namespace Catalyst.Engine.Rendering
                         {
                             if (emitter.Mode == ParticleEmitter.ParticleMode.Continuous)
                             {
-                                p.Reset();
+                                p.Reset(emitter);
                             }
                             else
                             {
