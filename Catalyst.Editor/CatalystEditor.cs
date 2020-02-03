@@ -42,6 +42,8 @@ namespace Catalyst.XNA
 
         private Texture2D _gridTexture;
 
+        public IntPtr RenderTargetPointer;
+
         public CatalystEditor()
         {
             Instance = this;
@@ -167,6 +169,7 @@ namespace Catalyst.XNA
 
                 Graphics.GraphicsDevice.SetRenderTargets(null);
 
+
             }
 
             // Call BeforeLayout first to set things up
@@ -180,7 +183,6 @@ namespace Catalyst.XNA
             // Call AfterLayout now to finish up and draw all the things
 
             Renderer.AfterLayout();
-
 
             /**
             Catalyst.Engine.Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
@@ -200,7 +202,6 @@ namespace Catalyst.XNA
                 UpdateGrid();
                 ProjectManager.ChangeGrid = false;
             }
-
 
             base.Draw(gameTime);
         }

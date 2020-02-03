@@ -30,9 +30,9 @@ namespace Catalyst.XNA
         private int _indexBufferSize;
 
         // Textures
-        private Dictionary<IntPtr, Texture2D> _loadedTextures;
+        public Dictionary<IntPtr, Texture2D> _loadedTextures;
 
-        private int _textureId;
+        private int _textureId = 1;
         private IntPtr? _fontTextureId;
 
         // Input
@@ -104,6 +104,16 @@ namespace Catalyst.XNA
 
             return id;
         }
+
+        public virtual IntPtr BindRenderTarget(Texture2D texture)
+        {
+            var id = new IntPtr(0);
+
+            _loadedTextures[id] = texture;
+
+            return id;
+        }
+
 
         /// <summary>
         /// Removes a previously created texture pointer, releasing its reference and allowing it to be deallocated
@@ -365,6 +375,7 @@ namespace Catalyst.XNA
 
                     foreach (var pass in effect.CurrentTechnique.Passes)
                     {
+                        pass.Apply();
                         pass.Apply();
 
 #pragma warning disable CS0618 // // FNA does not expose an alternative method.

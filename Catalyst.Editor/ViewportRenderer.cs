@@ -27,8 +27,6 @@ namespace CatalystEditor
         public static Catalyst.Engine.Utilities.Vector2 Position = Catalyst.Engine.Utilities.Vector2.Zero;
         private static Catalyst.Engine.Utilities.Vector2 _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
 
-        public static IntPtr RenderTargetPointer;
-
         public static void RenderViewPort(GameTime gameTime, Vector2 view_bounds, Rectangle bounds)
         {
             if (!Playing)
@@ -109,9 +107,8 @@ namespace CatalystEditor
                 _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
             }
 
-            RenderTargetPointer = Catalyst.XNA.CatalystEditor.Instance.Renderer.BindTexture(Catalyst.XNA.CatalystEditor.Instance.RenderTarget);
-            ImGui.Image(RenderTargetPointer, view_bounds);
-
+            IntPtr p = Catalyst.XNA.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.XNA.CatalystEditor.Instance.RenderTarget);
+            ImGui.Image(p, view_bounds);
             
 
 
