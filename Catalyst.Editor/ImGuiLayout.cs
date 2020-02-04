@@ -38,6 +38,7 @@ namespace Catalyst.XNA
         private Vector2 _menuSize;
 
         public Vector2 ViewBounds = Vector2.Zero;
+        public Rectangle ViewRect = Rectangle.Empty;
 
         float scene_size = 0;
         float right_dock_size = 0;
@@ -141,7 +142,9 @@ namespace Catalyst.XNA
 
                     ViewBounds = CalculateViewBounds((int)(_windowSize.X - scene_size - right_dock_size), (int)(_windowSize.Y - _menuSize.Y-50));
 
-                    ViewportRenderer.RenderViewPort(gameTime, ViewBounds, new Rectangle((int)scene_size, (int)_menuSize.Y, (int)ViewBounds.X, (int)ViewBounds.Y));
+                    ViewRect = new Rectangle((int)scene_size, (int)_menuSize.Y, (int)ViewBounds.X, (int)ViewBounds.Y);
+
+                    ViewportRenderer.RenderViewPort(gameTime, ViewBounds, ViewRect);
 
                     ImGui.End();
                 }

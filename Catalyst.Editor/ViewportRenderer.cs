@@ -1,4 +1,5 @@
 ﻿using Catalyst.Engine;
+using Catalyst.Engine.Physics;
 using Catalyst.XNA;
 using ImGuiNET;
 using Microsoft.Xna.Framework;
@@ -63,8 +64,11 @@ namespace CatalystEditor
             _ = ImGui.SliderFloat("Zoom", ref Zoom, MinZoom, MaxZoom);
 
             //ImGui.SameLine();
+            if(bounds.Contains(m.Position))
+            {
+                Zoom += ImGui.GetIO().MouseWheel / 20;
+            }
 
-            Zoom += ImGui.GetIO().MouseWheel/20;
             if (Zoom < MinZoom)
             {
                 Zoom = MinZoom;
@@ -94,7 +98,7 @@ namespace CatalystEditor
             }
 
 
-            if (m.MiddleButton == ButtonState.Pressed || (k.IsKeyDown(Keys.LeftControl) && m.LeftButton == ButtonState.Pressed) && bounds.Contains(m.Position))
+            if (bounds.Contains(m.Position) && (m.MiddleButton == ButtonState.Pressed || (k.IsKeyDown(Keys.LeftControl) && m.LeftButton == ButtonState.Pressed)))
             {
                 if (_dPos == Catalyst.Engine.Utilities.Vector2.Zero)
                 {
@@ -109,9 +113,6 @@ namespace CatalystEditor
 
             IntPtr p = Catalyst.XNA.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.XNA.CatalystEditor.Instance.RenderTarget);
             ImGui.Image(p, view_bounds);
-            
-
-
 
 
         }
