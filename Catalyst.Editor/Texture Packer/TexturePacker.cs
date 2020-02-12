@@ -10,22 +10,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Catalyst.Engine.Rendering;
+using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Framework.Content.Pipeline;
 using MonoGame.Framework.Content.Pipeline.Builder;
 using Rectangle = System.Drawing.Rectangle;
 
 namespace CatalystEditor
 {
-    public class TexturePacker
+    public static class TexturePacker
     {
-        public bool Verbose = false;
-        public bool Force = false;
-        public bool Trim = false;
-        public bool XML = false;
-
-        public TexturePacker() { }
+        public static bool Verbose = false;
+        public static bool Force = false;
+        public static bool Trim = false;
+        public static bool Xml = false;
         
-        public bool PackAtlas(string input_directory, string output_directory, string output_name, params string[] args)
+        public static bool PackAtlas(string input_directory, string output_directory, string output_name, params string[] args)
         {
 
             foreach (string a in args)
@@ -47,14 +46,14 @@ namespace CatalystEditor
                 }
                 if (a == "-x" || a == "--XML")
                 {
-                    XML = true;
+                    Xml = true;
                     continue;
                 }
             }
 
             if (Verbose)
             {
-                Console.WriteLine(String.Format("Arguemts: Verbose[{0}], Force Recompilation[{1}], Trim Sprites[{2}], XML instead of binary[{3}]\n", Verbose, Force, Trim, XML));
+                Console.WriteLine(String.Format("Arguemts: Verbose[{0}], Force Recompilation[{1}], Trim Sprites[{2}], XML instead of binary[{3}]\n", Verbose, Force, Trim, Xml));
             }
 
             if (!File.GetAttributes(input_directory).HasFlag(FileAttributes.Directory))
@@ -133,7 +132,7 @@ namespace CatalystEditor
 
             bitmaps = bitmaps.OrderByDescending(p => p.Height).ToList();
 
-            BinaryTreePacker packed = new BinaryTreePacker(this, total_area / bitmaps.Count / 4, max_height, 0, true);
+            BinaryTreePacker packed = new BinaryTreePacker(total_area / bitmaps.Count / 4, max_height, 0, true);
 
             foreach(Bitmap b in bitmaps)
             {
@@ -156,7 +155,7 @@ namespace CatalystEditor
             atlas.Save(Path.Combine(output_directory, output_name + ".atlas"), ImageFormat.Png);
             //PipelineManager pipelineManager = new PipelineManager()
 
-            if (XML)
+            if (Xml)
             {
                 WriteMetaToXml(packed.Root, Path.Combine(output_directory, output_name + ".meta"));
             }
@@ -169,7 +168,7 @@ namespace CatalystEditor
 
         }
 
-        private Bitmap DrawPackedNodes(Bitmap atlas, PackedNode root)
+        private static Bitmap DrawPackedNodes(Bitmap atlas, PackedNode root)
         {
             if (root == null)
             {
@@ -185,14 +184,14 @@ namespace CatalystEditor
             return atlas;
         }
 
-        private void WriteMetaToBinary(PackedNode root, string file_output)
+        private static void WriteMetaToBinary(PackedNode root, string file_output)
         {
             BinaryWriter writer = new BinaryWriter(new FileStream(file_output, FileMode.Create));
             WriteTreeBinary(root, writer);
             writer.Close();
         }
 
-        private void WriteTreeBinary(PackedNode root, BinaryWriter writer)
+        private static void WriteTreeBinary(PackedNode root, BinaryWriter writer)
         {
             if (root == null)
                 return;
@@ -214,7 +213,7 @@ namespace CatalystEditor
 
         }
 
-        public void AtlasFromBinary(string atlas_file, string meta_file)
+        public static TextureAtlas AtlasFromBinary(string atlas_file, string meta_file)
         {
             if (!File.Exists(atlas_file))
             {
@@ -223,18 +222,33 @@ namespace CatalystEditor
 
             if (!File.Exists(meta_file))
             {
-                throw new TexturePackerException(String.Format("Cannot read. Atlas meta file {0} does not exist!", atlas_file));
+                throw new TexturePackerException(String.Format("Cannot read. Atlas meta file {0} does not exist!", meta_file));
             }
 
-            TextureAtlas atlas = new TextureAtlas();
+            TextureAtlas atlas = new TextureAtlas(atlas_file);
+            atlas.LoadContent();
 
             using (BinaryReader reader = new BinaryReader(new FileStream(meta_file, FileMode.Open)))
             {
-
+                int count = 0;
+                while (reader.BaseStream.Position < reader.BaseStream.Length)
+                {
+                    string tag = reader.ReadString();
+                    int x = reader.ReadInt32();
+                    int y = reader.ReadInt32();
+                    int w = reader.ReadInt32();
+                    int h = reader.ReadInt32();
+                    bool rotate = reader.ReadBoolean();
+                    MTexture t = new MTexture(count, new Catalyst.Engine.Utilities.Rectangle(x, y, w, h), tag, rotate, atlas);
+                    atlas.Textures.Add(count, t);
+                    count++;
+                }
             }
+
+            return atlas;
         }
 
-        private void WriteMetaToXml(PackedNode root, string file_output)
+        private static void WriteMetaToXml(PackedNode root, string file_output)
         {
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
@@ -245,7 +259,7 @@ namespace CatalystEditor
             writer.Close();
         }
 
-        private void WriteTreeXml(PackedNode root, XmlWriter writer)
+        private static void WriteTreeXml(PackedNode root, XmlWriter writer)
         {
             if (root == null)
                 return;
@@ -279,7 +293,7 @@ namespace CatalystEditor
 
         }
 
-        private Bitmap TrimBitmap(Bitmap source)
+        private static Bitmap TrimBitmap(Bitmap source)
         {
             System.Drawing.Rectangle srcRect = default(System.Drawing.Rectangle);
             BitmapData data = null;
@@ -330,7 +344,7 @@ namespace CatalystEditor
 
 
 
-        private byte[] HashDirectory(string directory)
+        private static byte[] HashDirectory(string directory)
         {
             List<string> files = Directory.GetFiles(directory, "*.png", SearchOption.AllDirectories).OrderBy(p => p).ToList();
 

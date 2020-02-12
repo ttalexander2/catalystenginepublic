@@ -16,6 +16,8 @@ namespace Catalyst.Engine.Rendering
         public string Tag { get; private set; }
         public TextureAtlas Atlas { get; private set; }
 
+        public bool Rotate { get; private set; }
+
         public int X
         {
             get
@@ -50,12 +52,13 @@ namespace Catalyst.Engine.Rendering
 
 
 
-        public MTexture(int id, Rectangle bounds, string tag, TextureAtlas atlas)
+        public MTexture(int id, Rectangle bounds, string tag, bool rotate, TextureAtlas atlas)
         {
             ID = id;
             Bounds = bounds;
             Tag = tag;
             Atlas = atlas;
+            Rotate = rotate;
         }
     }
 }

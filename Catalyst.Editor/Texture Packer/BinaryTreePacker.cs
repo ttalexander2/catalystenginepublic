@@ -17,14 +17,11 @@ namespace CatalystEditor
         public int Padding { get; private set; }
         public bool Rotate { get; private set; }
 
-        private TexturePacker _packer;
-
-        public PackedNode(TexturePacker packer, System.Drawing.Rectangle rect, int padding, bool rotate)
+        public PackedNode(System.Drawing.Rectangle rect, int padding, bool rotate)
         {
             Rect = rect;
             Padding = padding;
             Rotate = rotate;
-            _packer = packer;
         }
 
         internal PackedNode Insert(Bitmap img)
@@ -35,15 +32,15 @@ namespace CatalystEditor
                 Image = img;
 
                 if (Rect.Width - img.Width > 0)
-                    Right = new PackedNode(_packer, new System.Drawing.Rectangle(Rect.X + img.Width + Padding, Rect.Y, Rect.Width - img.Width - Padding, img.Height), Padding, Rotate);
+                    Right = new PackedNode(new System.Drawing.Rectangle(Rect.X + img.Width + Padding, Rect.Y, Rect.Width - img.Width - Padding, img.Height), Padding, Rotate);
                 if (Rect.X <= Padding)
                 {
-                    Left = new PackedNode(_packer, new System.Drawing.Rectangle(Padding, Rect.Y + img.Height + Padding, Rect.Width, Rect.Height), Padding, Rotate);
+                    Left = new PackedNode(new System.Drawing.Rectangle(Padding, Rect.Y + img.Height + Padding, Rect.Width, Rect.Height), Padding, Rotate);
                 }
                 Rect = new System.Drawing.Rectangle(Rect.X, Rect.Y, img.Width, img.Height);
                 Rotate = false;
 
-                if (_packer.Verbose)
+                if (TexturePacker.Verbose)
                     Console.WriteLine(String.Format("Inserted texure [{0}] at location: [{1}], with rotation [{2}]", img.Tag, Rect, Rotate));
 
 
@@ -91,22 +88,20 @@ namespace CatalystEditor
         private int _maxY;
         private int _padding;
         private bool _rotate;
-        private TexturePacker _packer;
-        public BinaryTreePacker(TexturePacker packer, int max_X, int max_Y, int padding, bool rotate)
+        public BinaryTreePacker(int max_X, int max_Y, int padding, bool rotate)
         {
             _maxX = max_X;
             _maxY = max_Y;
             _padding = padding;
             _rotate = rotate;
             Root = null;
-            _packer = packer;
         }
 
         public PackedNode Insert(Bitmap img)
         {
             if (Root == null)
             {
-                Root = new PackedNode(_packer, new System.Drawing.Rectangle(_padding, _padding, _maxX, _maxY), _padding, _rotate);
+                Root = new PackedNode(new System.Drawing.Rectangle(_padding, _padding, _maxX, _maxY), _padding, _rotate);
                 return Root;
             }
 

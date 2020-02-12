@@ -134,13 +134,13 @@ namespace Catalyst.XNA
                 if (ImGui.Begin("Game Viewport", ref oof, view_flags))
                 {
                     ImGui.SetWindowPos(new Vector2(scene_size, _menuSize.Y));
-                    ImGui.SetWindowSize(new Vector2(_windowSize.X - scene_size-right_dock_size, _windowSize.Y - _menuSize.Y));
+                    ImGui.SetWindowSize(new Vector2(_windowSize.X - right_dock_size, _windowSize.Y - _menuSize.Y));
 
                     view_size = ImGui.GetWindowSize().X;
 
                     ImGui.SetWindowCollapsed(false);
 
-                    ViewBounds = CalculateViewBounds((int)(_windowSize.X - scene_size - right_dock_size), (int)(_windowSize.Y - _menuSize.Y-50));
+                    ViewBounds = CalculateViewBounds((int)(_windowSize.X - right_dock_size), (int)(_windowSize.X - right_dock_size)/(16/9));
 
                     ViewRect = new Rectangle((int)scene_size, (int)_menuSize.Y, (int)ViewBounds.X, (int)ViewBounds.Y);
 
@@ -369,7 +369,7 @@ namespace Catalyst.XNA
 
         public Vector2 CalculateViewBounds(int width, int height)
         {
-            float ratio = (float)ProjectManager.Current.Width / (float)ProjectManager.Current.Height;
+            float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
             float actual = (float)width / (float)height;
 
             Vector2 size;

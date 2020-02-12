@@ -23,6 +23,7 @@ namespace Catalyst.XNA
     {
 
         public static Scene Current { get; set; }
+        public static Scene Backup { get; set; }
         public static List<Type> Types { get; protected set; }
         public static bool scene_loaded = false;
 
@@ -121,7 +122,7 @@ namespace Catalyst.XNA
 
         public static Scene LoadTestWorld()
         {
-            Scene scene = new Scene(Graphics.Width * 8, Graphics.Height * 8);
+            Scene scene = new Scene(Graphics.Width * 8, Graphics.Height*3);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
@@ -130,15 +131,12 @@ namespace Catalyst.XNA
             scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
 
-            /**
-            TexturePacker p = new TexturePacker();
-            TextureAtlas atlas = p.AtlasFromBinary(Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.atlas"), Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.meta"));
-            */
-            
+            TextureAtlas atlas = TexturePacker.AtlasFromBinary(Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.atlas"), Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.meta"));
+
 
 
             Entity testEntity = scene.Manager.NewEntity();
-            var sprite = new Sprite(testEntity, "test", 0, 0, new Engine.Rendering.MTexture[] { }, Origin.TopLeft) { AnimationSpeed = 6.0f, Layer = 1.0f };
+            var sprite = new Sprite(testEntity, "test", 0, 0, new Engine.Rendering.MTexture[] { atlas.Textures[0] }, Origin.TopLeft) { AnimationSpeed = 6.0f };
             testEntity.AddComponent<Sprite>(sprite);
             testEntity.AddComponent<Player>();
 
@@ -146,14 +144,14 @@ namespace Catalyst.XNA
 
 
             Entity testEntity2 = scene.Manager.NewEntity();
-            var sprite2 = new Sprite(testEntity2, "test", 0, 200, new Engine.Rendering.MTexture[] { }, Origin.TopLeft) { AnimationSpeed = 6.0f };
+            var sprite2 = new Sprite(testEntity2, "test", 0, 200, new Engine.Rendering.MTexture[] { atlas.Textures[0] }, Origin.TopLeft) { AnimationSpeed = 6.0f };
             testEntity2.AddComponent<Sprite>(sprite2);
             testEntity2.AddComponent<Solid>();
 
             for (int i = 0; i < 100; i++)
             {
                 Entity grass = scene.Manager.NewEntity();
-                var grass_sprite = new Sprite(grass, "grass_" + i, 16 + 32 * i, 344 + Graphics.Height, new Engine.Rendering.MTexture[] { }, Origin.Center);
+                var grass_sprite = new Sprite(grass, "grass_" + i, 16 + 32 * i, 344 + Graphics.Height, new Engine.Rendering.MTexture[] { atlas.Textures[1] }, Origin.Center);
                 grass.GetComponent<Transform>().CollisionDims = new Vector2(32, 32);
                 grass.GetComponent<Transform>().CollisionOffset = new Vector2(3, 3);
                 grass.AddComponent<Sprite>(grass_sprite);

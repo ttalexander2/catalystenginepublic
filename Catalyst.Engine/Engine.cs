@@ -120,6 +120,8 @@ namespace Catalyst.Engine
             Graphics.GraphicsDevice.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
             Graphics.GraphicsDevice.ApplyChanges();
 
+            Graphics.Content = Content;
+
             float ratio = (float)Graphics.Width / (float)Graphics.Height;
             float actual = (float)Graphics.GraphicsDevice.PreferredBackBufferWidth / (float)Graphics.GraphicsDevice.PreferredBackBufferHeight;
 

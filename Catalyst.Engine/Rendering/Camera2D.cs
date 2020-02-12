@@ -88,13 +88,12 @@ namespace Catalyst.Engine.Rendering
             return Transform;
         }
 
-        public Matrix GetScaledTransformation(GraphicsDevice graphicsDevice)
+        public Matrix GetScaledTransformation(GraphicsDevice graphicsDevice, float scale)
         {
-            Vector2 p = Position * Graphics.SpriteScale;
             Transform =
-              Matrix.CreateTranslation(new Vector3(-p.X, -p.Y, 0)) *
+              Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
                                          Matrix.CreateRotationZ(Rotation) *
-                                         Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+                                         Matrix.CreateScale(new Vector3(Zoom * scale, Zoom * scale, 1)) *
                                          Matrix.CreateTranslation(new Vector3(0, 0, 0));
             return Transform;
         }

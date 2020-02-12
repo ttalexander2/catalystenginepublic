@@ -1,5 +1,6 @@
 ﻿using Catalyst.Engine;
 using Catalyst.Engine.Physics;
+using Catalyst.Engine.Rendering;
 using Catalyst.XNA;
 using ImGuiNET;
 using Microsoft.Xna.Framework;
@@ -35,6 +36,8 @@ namespace CatalystEditor
                 if (ImGui.Button("Update: Off"))
                 {
                     Playing = !Playing;
+                    ProjectManager.Backup = Catalyst.Engine.Utilities.Utility.DeepClone<Scene>(ProjectManager.Current);
+                    Grid = false;
                 }
             }
             else
@@ -42,6 +45,18 @@ namespace CatalystEditor
                 if (ImGui.Button("Update: On"))
                 {
                     Playing = !Playing;
+                    ProjectManager.Current = null;
+                    ProjectManager.Current = ProjectManager.Backup;
+                    ProjectManager.Backup = null;
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                    foreach (Sprite s in ProjectManager.Current.Manager.GetComponents<Sprite>().Values)
+                    {
+                        s.Texture.Atlas.LoadContent();
+                    }
+
+                    Grid = true;
                 }
             }
 
