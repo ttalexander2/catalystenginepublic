@@ -12,6 +12,10 @@ using Rectangle = Catalyst.Engine.Utilities.Rectangle;
 
 namespace Catalyst.Engine.Physics
 {
+    /// <summary>
+    /// Transform component representing physical location of an entity.
+    /// <extends></extends>
+    /// </summary>
     [Serializable]
     public class Transform : AComponent
     {

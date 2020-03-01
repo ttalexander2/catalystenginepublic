@@ -13,6 +13,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants />
     <Optimize>false</Optimize>
+    <DocumentationFile>C:\Users\Thomas\source\repos\catalyst-engine\Catalyst.Engine\Documentation\Catalyst.Engine.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

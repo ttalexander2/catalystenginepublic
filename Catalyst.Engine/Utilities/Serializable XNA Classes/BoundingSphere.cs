@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using Microsoft.Xna.Framework;
 
-namespace Chroma.Engine.Utilities
+namespace Catalyst.Engine.Utilities
 {
     /// <summary>
     /// Describes a sphere in 3D-space for bounding operations.
@@ -134,7 +134,7 @@ namespace Chroma.Engine.Utilities
             //check if all corner is in sphere
             bool inside = true;
 
-            Vector3[] corners = frustum.GetCorners();
+            Microsoft.Xna.Framework.Vector3[] corners = frustum.GetCorners();
             foreach (Vector3 corner in corners)
             {
                 if (this.Contains(corner) == ContainmentType.Disjoint)
@@ -364,6 +364,87 @@ namespace Chroma.Engine.Utilities
             return new BoundingSphere(center, radius);
         }
 
+        public static BoundingSphere CreateFromPoints(IEnumerable<Microsoft.Xna.Framework.Vector3> points)
+        {
+            if (points == null)
+                throw new ArgumentNullException("points");
+
+            // From "Real-Time Collision Detection" (Page 89)
+
+            var minx = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            var maxx = -minx;
+            var miny = minx;
+            var maxy = -minx;
+            var minz = minx;
+            var maxz = -minx;
+
+            // Find the most extreme points along the principle axis.
+            var numPoints = 0;
+            foreach (var pt in points)
+            {
+                ++numPoints;
+
+                if (pt.X < minx.X)
+                    minx = pt;
+                if (pt.X > maxx.X)
+                    maxx = pt;
+                if (pt.Y < miny.Y)
+                    miny = pt;
+                if (pt.Y > maxy.Y)
+                    maxy = pt;
+                if (pt.Z < minz.Z)
+                    minz = pt;
+                if (pt.Z > maxz.Z)
+                    maxz = pt;
+            }
+
+            if (numPoints == 0)
+                throw new ArgumentException("You should have at least one point in points.");
+
+            var sqDistX = Vector3.DistanceSquared(maxx, minx);
+            var sqDistY = Vector3.DistanceSquared(maxy, miny);
+            var sqDistZ = Vector3.DistanceSquared(maxz, minz);
+
+            // Pick the pair of most distant points.
+            var min = minx;
+            var max = maxx;
+            if (sqDistY > sqDistX && sqDistY > sqDistZ)
+            {
+                max = maxy;
+                min = miny;
+            }
+            if (sqDistZ > sqDistX && sqDistZ > sqDistY)
+            {
+                max = maxz;
+                min = minz;
+            }
+
+            var center = (min + max) * 0.5f;
+            var radius = Vector3.Distance(max, center);
+
+            // Test every point and expand the sphere.
+            // The current bounding sphere is just a good approximation and may not enclose all points.            
+            // From: Mathematics for 3D Game Programming and Computer Graphics, Eric Lengyel, Third Edition.
+            // Page 218
+            float sqRadius = radius * radius;
+            foreach (var pt in points)
+            {
+                Vector3 diff = ((Catalyst.Engine.Utilities.Vector3)pt - center);
+                float sqDist = diff.LengthSquared();
+                if (sqDist > sqRadius)
+                {
+                    float distance = (float)Math.Sqrt(sqDist); // equal to diff.Length();
+                    Vector3 direction = diff / distance;
+                    Vector3 G = center - radius * direction;
+                    center = (G + (Catalyst.Engine.Utilities.Vector3)pt) / 2;
+                    radius = Vector3.Distance(pt, center);
+                    sqRadius = radius * radius;
+                }
+            }
+
+            return new BoundingSphere(center, radius);
+        }
+
         /// <summary>
         /// Creates the smallest <see cref="BoundingSphere"/> that can contain two spheres.
         /// </summary>
@@ -551,7 +632,7 @@ namespace Chroma.Engine.Utilities
         /// <param name="result">Distance of ray intersection or <c>null</c> if there is no intersection as an output parameter.</param>
         public void Intersects(ref Ray ray, out float? result)
         {
-            Microsoft.Xna.Framework.BoundingSphere x = this;
+            Catalyst.Engine.Utilities.BoundingSphere x = this;
             ray.Intersects(ref x, out result);
         }
 
@@ -634,14 +715,14 @@ namespace Chroma.Engine.Utilities
 
         #endregion
 
-        public static implicit operator Microsoft.Xna.Framework.BoundingSphere(Chroma.Engine.Utilities.BoundingSphere x)
+        public static implicit operator Microsoft.Xna.Framework.BoundingSphere(Catalyst.Engine.Utilities.BoundingSphere x)
         {
             return new Microsoft.Xna.Framework.BoundingSphere(x.Center, x.Radius);
         }
 
-        public static implicit operator Chroma.Engine.Utilities.BoundingSphere(Microsoft.Xna.Framework.BoundingSphere x)
+        public static implicit operator Catalyst.Engine.Utilities.BoundingSphere(Microsoft.Xna.Framework.BoundingSphere x)
         {
-            return new Chroma.Engine.Utilities.BoundingSphere(x.Center, x.Radius);
+            return new Catalyst.Engine.Utilities.BoundingSphere(x.Center, x.Radius);
         }
     }
 }

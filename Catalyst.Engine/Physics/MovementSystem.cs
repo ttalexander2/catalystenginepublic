@@ -9,16 +9,29 @@ using Microsoft.Xna.Framework;
 
 namespace Catalyst.Engine.Physics
 {
+    /// <summary>
+    /// Class to handle the updating of transorm and velocity components.
+    /// Currently moves all Actor entities, and checks for collision with Solid entites.
+    /// <remarks>Currently runs in O(n * m) where n is of actors and m is number of solids. 
+    /// Quad tree needs to be implemented to reduce runtime complexity.</remarks>
+    /// </summary>
     [Serializable]
     public class MovementSystem : ASystem
     {
 
         private QuadTree quad;
+        /// <summary>
+        /// Create and initialize movement system.
+        /// </summary>
+        /// <param name="scene"></param>
         public MovementSystem(Scene scene) : base(scene)
         {
             quad = new QuadTree(new Utilities.Rectangle(0, 0, Graphics.Width, Graphics.Height));
         }
-
+        /// <summary>
+        /// Update all transform and velocity components held by actors.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
             MoveActors(gameTime);

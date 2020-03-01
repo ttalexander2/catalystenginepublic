@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using Microsoft.Xna.Framework;
 
-namespace Chroma.Engine.Utilities
+namespace Catalyst.Engine.Utilities
 {
     internal class PlaneHelper
     {
@@ -308,14 +308,14 @@ namespace Chroma.Engine.Utilities
 
         #endregion
 
-        public static implicit operator Microsoft.Xna.Framework.Plane(Chroma.Engine.Utilities.Plane x)
+        public static implicit operator Microsoft.Xna.Framework.Plane(Catalyst.Engine.Utilities.Plane x)
         {
             return new Microsoft.Xna.Framework.Plane(x.Normal, x.D);
         }
 
-        public static implicit operator Chroma.Engine.Utilities.Plane(Microsoft.Xna.Framework.Plane x)
+        public static implicit operator Catalyst.Engine.Utilities.Plane(Microsoft.Xna.Framework.Plane x)
         {
-            return new Chroma.Engine.Utilities.Plane(x.Normal, x.D);
+            return new Catalyst.Engine.Utilities.Plane(x.Normal, x.D);
         }
     }
 }

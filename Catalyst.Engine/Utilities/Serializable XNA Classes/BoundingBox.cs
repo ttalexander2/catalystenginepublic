@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using Microsoft.Xna.Framework;
 
-namespace Chroma.Engine.Utilities
+namespace Catalyst.Engine.Utilities
 {
     [Serializable]
     [DebuggerDisplay("{DebugDisplayString,nq}")]
@@ -73,7 +73,7 @@ namespace Chroma.Engine.Utilities
             //Because question is not frustum contain box but reverse and this is not the same
             int i;
             ContainmentType contained;
-            Vector3[] corners = frustum.GetCorners();
+            Microsoft.Xna.Framework.Vector3[] corners = frustum.GetCorners();
 
             // First we check if frustum is in box
             for (i = 0; i < corners.Length; i++)
@@ -202,7 +202,32 @@ namespace Chroma.Engine.Utilities
             return result;
         }
 
+        public ContainmentType Contains(Microsoft.Xna.Framework.Vector3 point)
+        {
+            ContainmentType result;
+            this.Contains(ref point, out result);
+            return result;
+        }
+
         public void Contains(ref Vector3 point, out ContainmentType result)
+        {
+            //first we get if point is out of box
+            if (point.X < this.Min.X
+                || point.X > this.Max.X
+                || point.Y < this.Min.Y
+                || point.Y > this.Max.Y
+                || point.Z < this.Min.Z
+                || point.Z > this.Max.Z)
+            {
+                result = ContainmentType.Disjoint;
+            }
+            else
+            {
+                result = ContainmentType.Contains;
+            }
+        }
+
+        public void Contains(ref Microsoft.Xna.Framework.Vector3 point, out ContainmentType result)
         {
             //first we get if point is out of box
             if (point.X < this.Min.X
@@ -583,14 +608,14 @@ namespace Chroma.Engine.Utilities
 
         #endregion Public Methods
 
-        public static implicit operator Microsoft.Xna.Framework.BoundingBox(Chroma.Engine.Utilities.BoundingBox x)
+        public static implicit operator Microsoft.Xna.Framework.BoundingBox(Catalyst.Engine.Utilities.BoundingBox x)
         {
             return new Microsoft.Xna.Framework.BoundingBox(x.Min, x.Max);
         }
 
-        public static implicit operator Chroma.Engine.Utilities.BoundingBox(Microsoft.Xna.Framework.BoundingBox x)
+        public static implicit operator Catalyst.Engine.Utilities.BoundingBox(Microsoft.Xna.Framework.BoundingBox x)
         {
-            return new Chroma.Engine.Utilities.BoundingBox(x.Min, x.Max);
+            return new Catalyst.Engine.Utilities.BoundingBox(x.Min, x.Max);
         }
     }
 }

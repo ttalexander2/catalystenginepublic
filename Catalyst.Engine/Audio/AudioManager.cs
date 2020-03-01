@@ -10,12 +10,28 @@ using System.IO;
 
 namespace Catalyst.Engine.Audio
 {
+    /// <summary>
+    /// Manages FMOD audio, creates, loads, updates and unloads fmod system.
+    /// Currently loads the master bank.
+    /// </summary>
     public class AudioManager
     {
+        /// <summary>
+        /// System controlling game audio.
+        /// </summary>
         public FMOD.Studio.System StudioSystem;
+        /// <summary>
+        /// Master bank holding all game audio.
+        /// </summary>
         public FMOD.Studio.Bank Bank;
+        /// <summary>
+        /// Reference bank containing strings used for references.
+        /// </summary>
         public FMOD.Studio.Bank Strings;
 
+        /// <summary>
+        /// Creates the FMOD System. Check Console.Error if audio does not work.
+        /// </summary>
         public AudioManager()
         {
             try
@@ -29,6 +45,10 @@ namespace Catalyst.Engine.Audio
 
         }
 
+        /// <summary>
+        /// Function to initialize the FMOD Studio system. Loads "master.bank" and "master.strings.bank"
+        /// </summary>
+        /// <param name="liveUpdate">Initialize with live update integration with FMOD Studio.</param>
         public void Initialize(bool liveUpdate)
         {
             if (liveUpdate)
@@ -57,11 +77,17 @@ namespace Catalyst.Engine.Audio
             
         }
 
+        /// <summary>
+        /// Update call for FMOD. Called once per frame.
+        /// </summary>
         public void Update()
         {
             StudioSystem.update();
         }
 
+        /// <summary>
+        /// Release FMOD studio system.
+        /// </summary>
         public void Unload()
         {
             StudioSystem.release();
