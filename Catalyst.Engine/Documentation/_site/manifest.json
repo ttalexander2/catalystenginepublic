@@ -1,0 +1,3666 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/Thomas/source/repos/catalyst-engine/Catalyst.Engine/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.AComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.AComponent.html",
+          "hash": "UYmZUlpMt58UGNUksWNh4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ARenderSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ARenderSystem.html",
+          "hash": "ejzC7ewIfxWFj4JMIvf3HA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ASystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ASystem.html",
+          "hash": "MYwW70Ic9059Unu6iDnsOw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Actor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Actor.html",
+          "hash": "ygmnKBL3aKcR4JSCLblfqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Audio.AudioManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Audio.AudioManager.html",
+          "hash": "iwxgjg1UDA+6AyFLj0O/xw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Audio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Audio.html",
+          "hash": "tZEXY0JnwWMztIIUntg8Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ECDictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ECDictionaryExtensions.html",
+          "hash": "vY4Po6IdHZPimuYlBRAPVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ECManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ECManager.html",
+          "hash": "U3KQnUTULF3nVxwKbZxqog=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Engine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Engine.html",
+          "hash": "r/+vNHSBWTZBWc5n23Dgpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Entity.html",
+          "hash": "aboGqsN7VegLta36uiMFbw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Graphics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Graphics.html",
+          "hash": "3X7o0YBBRxTN5r7Uw2ME1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateAttributeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateAttributeException.html",
+          "hash": "QRuwIFOFkZwKMIQSXSj2Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateBoolean.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateBoolean.html",
+          "hash": "UV3U7Ax/i74xHXQHs4/2Wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateColor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateColor.html",
+          "hash": "0YxRH5ugv2rHSCjtl4CEMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateColorMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateColorMode.html",
+          "hash": "pmEE8keXcvf0VzjJ1KYVgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateDouble.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateDouble.html",
+          "hash": "NttKR1SoTvkKJYHDFz2Imw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateEntitySelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateEntitySelector.html",
+          "hash": "v2vAgsEdlXroxP4B/M92lQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateEnum.html",
+          "hash": "rm3QYadZA4yI778nUwDL1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateFloat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateFloat.html",
+          "hash": "hzIKmgQKCoBPRub0DT18zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateFloatMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateFloatMode.html",
+          "hash": "3PczWQWI8tQcUrjgDzx5MQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateInteger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateInteger.html",
+          "hash": "dW/9WEgjWmF63l4tZsnVxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateIntegerMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateIntegerMode.html",
+          "hash": "1/PM8L+ztJ8EZL6XIoynqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateLabel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateLabel.html",
+          "hash": "dKt9zHRLS16NVV/y3ezYuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateString.html",
+          "hash": "wXrKOJt3MAlkEDJfvRjS4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateVector2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateVector2.html",
+          "hash": "raiRCUTDIaV1C0ht+RE76A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateVector3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateVector3.html",
+          "hash": "wia9HM9gC9+KiAph3SBHwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateVector4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateVector4.html",
+          "hash": "RgcdAkLarGgw4X1eE98tgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Input.Controller.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Input.Controller.html",
+          "hash": "+fghzjQnKSxIeAmmW6y7Rg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Input.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Input.Input.html",
+          "hash": "z/UtkmheclBUpAiZ2WouqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Input.InputSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Input.InputSystem.html",
+          "hash": "YaaqS7kCbLAIAV0BNeZS8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Input.html",
+          "hash": "RqNRIjMZ6goQDAruobD9LQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Physics.MovementSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Physics.MovementSystem.html",
+          "hash": "GfQnKzPnR4xY3oQAxVdQnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Physics.QuadTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Physics.QuadTree.html",
+          "hash": "TYvR3GTdHDq97Ryf4tXZuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Physics.Transform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Physics.Transform.html",
+          "hash": "hh42doTNwf2ffphZ15Kr1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Physics.Velocity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Physics.Velocity.html",
+          "hash": "OFvH0LrTjPI0P+QYJuDYmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Physics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Physics.html",
+          "hash": "UaF0rVcUfJPG/cc759U/cQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.BasicShapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.BasicShapes.html",
+          "hash": "6nxOF2286C/dpaz2S4SHKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Camera2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.Camera2D.html",
+          "hash": "Z/8HEZuANjlnPz94daZgAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.CameraSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.CameraSystem.html",
+          "hash": "d5XqNOmnAtd3PYAOBq1gmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.MTexture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.MTexture.html",
+          "hash": "sCSJooKOJ2E/F98dpcQm+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Particle.VelocityMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.Particle.VelocityMode.html",
+          "hash": "Bmw/sFyL3vJ8S3ZI6ZxA0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Particle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.Particle.html",
+          "hash": "pXxNnNPLYhNeoaCwCUrbsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.ParticleEmitter.ParticleMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.ParticleEmitter.ParticleMode.html",
+          "hash": "DFtYwXaSmXCElntCPkt43A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.ParticleEmitter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.ParticleEmitter.html",
+          "hash": "iMdcN6K0FpaQds/wjBa1cg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.ParticleSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.ParticleSystem.html",
+          "hash": "JsLTkyUKvIRpU2gfIPpE1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Sprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.Sprite.html",
+          "hash": "AYGyAw0HWKVlXDzu3t3ZAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.SpriteRenderSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.SpriteRenderSystem.html",
+          "hash": "AM7H6b7eiFM9uXaX/dfqGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.TextureAtlas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.TextureAtlas.html",
+          "hash": "ZbgAndzkDAgq/zESKH5wNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.html",
+          "hash": "DbP5g1SL4mOTfNqHYv095A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Scene.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Scene.html",
+          "hash": "Jkdqnwncjd13mnxCTmFuBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Solid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Solid.html",
+          "hash": "gTETswq+9Z126ZL7Av6Wdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Alarm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Alarm.html",
+          "hash": "cEbxja07rXLte7g9pym56A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.BoundingBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.BoundingBox.html",
+          "hash": "R2xEpvtuRW7JI6QymWmRXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.BoundingSphere.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.BoundingSphere.html",
+          "hash": "MXUFMQWeFJ4sPmVwiF3hWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.CatalystSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.CatalystSerializer.html",
+          "hash": "onIROqNB1Q0nDzS9ttH0Yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Color.html",
+          "hash": "azR64zPJx0wueOFXr61DlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.FrameCounter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.FrameCounter.html",
+          "hash": "QmnLFvmOmK7D+sdqqmThTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.IScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.IScript.html",
+          "hash": "92FZLW4W+0V/hfjYOxcSkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Matrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Matrix.html",
+          "hash": "Y53yVkgazyeSpEnnTMP7lA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Origin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Origin.html",
+          "hash": "NxHJ3Snd/K/ifxfVzfIS/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Plane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Plane.html",
+          "hash": "skOfRX3bW+9cUW/SRN3Kkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Point.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Point.html",
+          "hash": "6C258TXms5R9YjYZWyBwKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Quaternion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Quaternion.html",
+          "hash": "X0B0AHrfl9/5QhAazSFaZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Ray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Ray.html",
+          "hash": "AgUfNrl232OfVcKK3yp1Ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Rectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Rectangle.html",
+          "hash": "RD9ZrzvCnNN6T0Rkqx742Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.SerializationMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.SerializationMode.html",
+          "hash": "sL33kqub/bqNxdz1a41ftg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Utility.html",
+          "hash": "CsWNurQp8GV4tsgKeE4siA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Vector2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Vector2.html",
+          "hash": "PAIw4KjZYuI2dlj/QITx4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Vector3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Vector3.html",
+          "hash": "xqPJ2MPa4m9C9YHURwMjug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.Vector4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.Vector4.html",
+          "hash": "XBrlNzNbuTVEhLGABUzvrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.html",
+          "hash": "nT+HXx1Qfs/aEdzTTJQMrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.html",
+          "hash": "5VtQOBtKYenpROJrRuDJcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chroma.Engine.Utilities.BoundingBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chroma.Engine.Utilities.BoundingBox.html",
+          "hash": "E29sRyGa+tXMaOsxaYfVfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chroma.Engine.Utilities.BoundingSphere.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chroma.Engine.Utilities.BoundingSphere.html",
+          "hash": "NeYP1JKunF+gbR8iVGT2fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chroma.Engine.Utilities.Plane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chroma.Engine.Utilities.Plane.html",
+          "hash": "FgFiYhXqEq8G+8HWypJsaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chroma.Engine.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chroma.Engine.Utilities.html",
+          "hash": "adZBBxEL6I5Vd5Uwymg4tQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.ADVANCEDSETTINGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.ADVANCEDSETTINGS.html",
+          "hash": "lNrXXW757oTml26+w6uisA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.ASYNCREADINFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.ASYNCREADINFO.html",
+          "hash": "9ivKqg4hug35aJWDCHsJWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.ATTRIBUTES_3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.ATTRIBUTES_3D.html",
+          "hash": "uJ/v5svNxZaknTiUUD8rpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CB_3D_ROLLOFF_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CB_3D_ROLLOFF_CALLBACK.html",
+          "hash": "0qMOGx8TyJCinrl2nVQuOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CHANNELCONTROL_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CHANNELCONTROL_CALLBACK.html",
+          "hash": "6CtfEJ5knyAGbXI2VW2ZMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CHANNELCONTROL_CALLBACK_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CHANNELCONTROL_CALLBACK_TYPE.html",
+          "hash": "R+wfeUFgU7qKP1RqH+9GMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CHANNELCONTROL_DSP_INDEX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CHANNELCONTROL_DSP_INDEX.html",
+          "hash": "8x4z3zqEhiEXDEmwnWE5DQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CHANNELCONTROL_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CHANNELCONTROL_TYPE.html",
+          "hash": "woF1WKwWIf/sSNwH1wvfUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CHANNELMASK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CHANNELMASK.html",
+          "hash": "fAurKsYKS5nio9mvWEB80w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CHANNELORDER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CHANNELORDER.html",
+          "hash": "1eG0RklCA6s3u3C2vtNEXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.COMPLEX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.COMPLEX.html",
+          "hash": "flJiaLHta5bkx+wZXLfm7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CONSTANTS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CONSTANTS.html",
+          "hash": "LQTWyCOB/LnscEvvhbhtbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.CREATESOUNDEXINFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.CREATESOUNDEXINFO.html",
+          "hash": "i2giNTALqu+A7X25ythhtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Channel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Channel.html",
+          "hash": "xr63scZ4EMzOUlS5GjP2Lg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.ChannelGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.ChannelGroup.html",
+          "hash": "alnfAVTxgLYRAEs8+amIPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DEBUG_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DEBUG_CALLBACK.html",
+          "hash": "/v3yiSQSLQ1E41H7VyceCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DEBUG_FLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DEBUG_FLAGS.html",
+          "hash": "G3gBGx0O/I52OJfkUm9vRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DEBUG_MODE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DEBUG_MODE.html",
+          "hash": "7lby5zdlkpldPKTyVdlHGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DRIVER_STATE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DRIVER_STATE.html",
+          "hash": "Aruc7LCOg3zaQ2DFgF/KtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP.html",
+          "hash": "9Wxfm2j0zgVwlTlDEbERWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSPCONNECTION_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSPCONNECTION_TYPE.html",
+          "hash": "YcHLq8fa2KnFUVN074pVZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSPConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSPConnection.html",
+          "hash": "4ne5SZCHjBIgK3FAFzKyyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_ALLOC_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_ALLOC_FUNC.html",
+          "hash": "X1H1QtluFswycTVOmw0PxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_BUFFER_ARRAY.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_BUFFER_ARRAY.html",
+          "hash": "ZLpz6rRB3ZNVZvvLR8C/aA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_CHANNELMIX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_CHANNELMIX.html",
+          "hash": "PZNz/YjdCBHnORa+xTC8bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_CHANNELMIX_OUTPUT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_CHANNELMIX_OUTPUT.html",
+          "hash": "aJwZf+nYfWB4VoguRcGC0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_CHORUS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_CHORUS.html",
+          "hash": "NfY5mnTuacSi5/kNCeifvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_COMPRESSOR.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_COMPRESSOR.html",
+          "hash": "llo+uZOtVSA8NEaL56Zl+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_CONVOLUTION_REVERB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_CONVOLUTION_REVERB.html",
+          "hash": "eTgMdLSYAjklVXrUZUyN8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_CREATECALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_CREATECALLBACK.html",
+          "hash": "bXLqWhFCxv73xK3U5cqCMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_DELAY.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_DELAY.html",
+          "hash": "rKi6sgPET3+kd/gOAG0dag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_DESCRIPTION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_DESCRIPTION.html",
+          "hash": "l/AHWaD0PbZD1o1UcUgamg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_DFT_FFTREAL_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_DFT_FFTREAL_FUNC.html",
+          "hash": "SK0oiYUpidx0R5AmFDhFfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_DFT_IFFTREAL_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_DFT_IFFTREAL_FUNC.html",
+          "hash": "kNWN4QRwToAf9DlbhxKfWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_DISTORTION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_DISTORTION.html",
+          "hash": "AWAZq5nTiLfZ5WzBy2KzeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_ECHO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_ECHO.html",
+          "hash": "D8c95YRRkjDXwt/s290RXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_ENVELOPEFOLLOWER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_ENVELOPEFOLLOWER.html",
+          "hash": "gN5Qijc4amCvxUn72CXMGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_FADER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_FADER.html",
+          "hash": "eqxkXloUc9Db4Ra9A3gxdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_FFT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_FFT.html",
+          "hash": "94VAXSBrfePLGe8YLdOL+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_FFT_WINDOW.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_FFT_WINDOW.html",
+          "hash": "lznadkVQ4A0ybpb+OLLiCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_FLANGE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_FLANGE.html",
+          "hash": "9eZKeT/HWCddrbc/25R3Sg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_FREE_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_FREE_FUNC.html",
+          "hash": "iJPZANEhgavSSmic0qtr4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETBLOCKSIZE_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETBLOCKSIZE_FUNC.html",
+          "hash": "VRBcxCZW21nWOFHbztL8Jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETCLOCK_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETCLOCK_FUNC.html",
+          "hash": "3QnpK5Too/GvxPU9di1Bqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETLISTENERATTRIBUTES_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETLISTENERATTRIBUTES_FUNC.html",
+          "hash": "yskHL+L/qvqHcs0Pgv6Bwg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETPARAM_BOOL_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETPARAM_BOOL_CALLBACK.html",
+          "hash": "r+DLZOPo7NGHYNUCwb69mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETPARAM_DATA_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETPARAM_DATA_CALLBACK.html",
+          "hash": "IYKekr4P+p4WgAOZMJmj/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETPARAM_FLOAT_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETPARAM_FLOAT_CALLBACK.html",
+          "hash": "xC9qK/tGP0ekzmhIdOV/Vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETPARAM_INT_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETPARAM_INT_CALLBACK.html",
+          "hash": "RC0hlxdy68d2ZIQsVr74YA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETSAMPLERATE_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETSAMPLERATE_FUNC.html",
+          "hash": "wPuC4QetDKE9/CV4Chr/Uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETSPEAKERMODE_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETSPEAKERMODE_FUNC.html",
+          "hash": "xphZJ1fdI3HOgJPu7LmFXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_GETUSERDATA_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_GETUSERDATA_FUNC.html",
+          "hash": "KavaoCKpskklaiOI2/mNyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_HIGHPASS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_HIGHPASS.html",
+          "hash": "8UAvcwF/Ce4lxAlg50zLtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_HIGHPASS_SIMPLE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_HIGHPASS_SIMPLE.html",
+          "hash": "0p69737uchOOPIwADdgw2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_ITECHO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_ITECHO.html",
+          "hash": "JOLmL/lrIkSxQ1nkKEGwCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_ITLOWPASS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_ITLOWPASS.html",
+          "hash": "Kn3pM2cRKRqrbtM0lTGCuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_LIMITER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_LIMITER.html",
+          "hash": "bOguCdWVn+K2Yy/UQs2T7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_LOG_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_LOG_FUNC.html",
+          "hash": "OuZSYZzcSAjs3yf0SItwdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_LOWPASS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_LOWPASS.html",
+          "hash": "dF56mOIT9JyfLGlgzIdq2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_LOWPASS_SIMPLE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_LOWPASS_SIMPLE.html",
+          "hash": "/lSR6xZDCBYUFbBC43403Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_METERING_INFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_METERING_INFO.html",
+          "hash": "HPiijcqFuFSJ75Fa8+BXRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_MULTIBAND_EQ.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_MULTIBAND_EQ.html",
+          "hash": "Vw2cAA9QGMNb87E83HDy0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_MULTIBAND_EQ_FILTER_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_MULTIBAND_EQ_FILTER_TYPE.html",
+          "hash": "VvoXpZi4gZiCwn8fH8sjtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_NORMALIZE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_NORMALIZE.html",
+          "hash": "bhkVA72JfVcBqUk+WghXcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_OBJECTPAN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_OBJECTPAN.html",
+          "hash": "mXkm5KLY6yZo5T0qmO0/9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_OSCILLATOR.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_OSCILLATOR.html",
+          "hash": "vowdxZwq2SkOh2Ko+bQNqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN.html",
+          "hash": "JtlUQLLtVe5DCdyncdOBiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_2D_STEREO_MODE_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_2D_STEREO_MODE_TYPE.html",
+          "hash": "r634nBM6KcZp7926M6eO3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_3D_EXTENT_MODE_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_3D_EXTENT_MODE_TYPE.html",
+          "hash": "584e+n14QzTK0nuuXntYxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_3D_ROLLOFF_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_3D_ROLLOFF_TYPE.html",
+          "hash": "OBLgaHPkNYwjRz+loyjezQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_GETROLLOFFGAIN_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_GETROLLOFFGAIN_FUNC.html",
+          "hash": "XAy5k4AFirp+JBNZszmfEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_MODE_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_MODE_TYPE.html",
+          "hash": "gAt2jLR1EQ/jHF6Pu/KSCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_SUMMONOMATRIX_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_SUMMONOMATRIX_FUNC.html",
+          "hash": "K6chXwx1+jzNZYiPcT7nCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_SUMMONOTOSURROUNDMATRIX_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_SUMMONOTOSURROUNDMATRIX_FUNC.html",
+          "hash": "icfZIDXcGJW5vJZlF+rATQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_SUMSTEREOMATRIX_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_SUMSTEREOMATRIX_FUNC.html",
+          "hash": "h7xTp8XBpOvAbJP2kmZV9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_SUMSTEREOTOSURROUNDMATRIX_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_SUMSTEREOTOSURROUNDMATRIX_FUNC.html",
+          "hash": "P6Z+jmYYnMNn+siC+23APw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_SUMSURROUNDMATRIX_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_SUMSURROUNDMATRIX_FUNC.html",
+          "hash": "PQhWkxwJgG1uVXee09icgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PAN_SURROUND_FLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PAN_SURROUND_FLAGS.html",
+          "hash": "UWZrjw3EdIZNUaMVB118mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMEQ.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMEQ.html",
+          "hash": "1bzq8XElewICsHmZ2QG/iA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_3DATTRIBUTES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_3DATTRIBUTES.html",
+          "hash": "PSuEEvBtZkn4AaF6jRYhqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_3DATTRIBUTES_MULTI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_3DATTRIBUTES_MULTI.html",
+          "hash": "SGeWaPTjlSE9jkCg7olaJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DATA_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DATA_TYPE.html",
+          "hash": "Ny+xUQM9Gkzm3+3Gf4BU1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DESC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DESC.html",
+          "hash": "1U8yerpgaom+Kp/2FJyNTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DESC_BOOL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DESC_BOOL.html",
+          "hash": "Q3YODZQNEfxok1sYFTJaxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DESC_DATA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DESC_DATA.html",
+          "hash": "oHG60kLk+K8hVutDh6ZN9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DESC_FLOAT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DESC_FLOAT.html",
+          "hash": "EtDTBckpJa7tl0wDdipS4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DESC_INT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DESC_INT.html",
+          "hash": "W04AhZWSHU66kk2z6TWyaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_DESC_UNION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_DESC_UNION.html",
+          "hash": "iGoRb0yD2kXoRTQbfi8jUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_FFT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_FFT.html",
+          "hash": "B+W9AW8lQAnyJK3vacXZTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING.html",
+          "hash": "yyyDTNyI1v9F6eG78BrPZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING_PIECEWISE_LINEAR.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING_PIECEWISE_LINEAR.html",
+          "hash": "G9drZ5Aw0CPqt3ZGxsO1gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING_TYPE.html",
+          "hash": "vtUWnwwvG5sNbRWGbifgDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_OVERALLGAIN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_OVERALLGAIN.html",
+          "hash": "kP5IkUtudjLQVv7tLLYw9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_SIDECHAIN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_SIDECHAIN.html",
+          "hash": "GXQHVLZZ1Si/ocllaVKlNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PARAMETER_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PARAMETER_TYPE.html",
+          "hash": "dB6NKI+ii3SbJ8z6CvI4Zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PITCHSHIFT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PITCHSHIFT.html",
+          "hash": "a6JDVZfEZBR4lYMpUFtDIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PROCESS_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PROCESS_CALLBACK.html",
+          "hash": "bg8LuApkfzcXKta++Zfxfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_PROCESS_OPERATION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_PROCESS_OPERATION.html",
+          "hash": "YWmHBmBjnHVoXkLKbFKpMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_READCALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_READCALLBACK.html",
+          "hash": "znWSPmWV7mlnv0sDYrppag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_REALLOC_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_REALLOC_FUNC.html",
+          "hash": "LqEmli3iu5ifH5H926dO8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_RELEASECALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_RELEASECALLBACK.html",
+          "hash": "yFTvtyjgUR6/GnPj+p9Tpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_RESAMPLER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_RESAMPLER.html",
+          "hash": "vGupP0angpS1pVubpx7NeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_RESETCALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_RESETCALLBACK.html",
+          "hash": "6xVgFcjcN8K/kxOXrNF4vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_RETURN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_RETURN.html",
+          "hash": "vqRGjzbmfdBoS4vS1YT9Xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SEND.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SEND.html",
+          "hash": "biN5IQ2rjBKWrIBi34Yjcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SETPARAM_BOOL_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SETPARAM_BOOL_CALLBACK.html",
+          "hash": "Jeukq07neF1doaEVu/sgWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SETPARAM_DATA_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SETPARAM_DATA_CALLBACK.html",
+          "hash": "QZmqL3n7Kgiu7dbXJo4AGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SETPARAM_FLOAT_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SETPARAM_FLOAT_CALLBACK.html",
+          "hash": "jODT+OKxYKb44MbJ3IzBRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SETPARAM_INT_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SETPARAM_INT_CALLBACK.html",
+          "hash": "d6HU0BWXPAGgL92+U3KdIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SETPOSITIONCALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SETPOSITIONCALLBACK.html",
+          "hash": "e+fxlEq7BXAZgpYj7OqiDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SFXREVERB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SFXREVERB.html",
+          "hash": "WRhNfgSMVwTeSF1cN4NPgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SHOULDIPROCESS_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SHOULDIPROCESS_CALLBACK.html",
+          "hash": "qY6BUYFQQRSC1m8Kpytf9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_STATE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_STATE.html",
+          "hash": "6eFZk5wliOry3RVbJWDYtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_STATE_DFT_FUNCTIONS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_STATE_DFT_FUNCTIONS.html",
+          "hash": "Y+AeojecQ73nXuKsJFF2KQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_STATE_FUNCTIONS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_STATE_FUNCTIONS.html",
+          "hash": "6ToQDnfKH4l6bQ+qBqYK8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_STATE_PAN_FUNCTIONS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_STATE_PAN_FUNCTIONS.html",
+          "hash": "+ZZM6S/4un2uA6T8S/f7uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SYSTEM_DEREGISTER_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SYSTEM_DEREGISTER_CALLBACK.html",
+          "hash": "OKcIXzRpGeO4+pR/LtjHGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SYSTEM_MIX_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SYSTEM_MIX_CALLBACK.html",
+          "hash": "8J8Ur/ltewkyv5VJy3gUCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_SYSTEM_REGISTER_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_SYSTEM_REGISTER_CALLBACK.html",
+          "hash": "gG0j11UXbyQQmRKnUqiK7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_THREE_EQ.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_THREE_EQ.html",
+          "hash": "HRxsUn0KoWVQhAUr0bPUCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_THREE_EQ_CROSSOVERSLOPE_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_THREE_EQ_CROSSOVERSLOPE_TYPE.html",
+          "hash": "FWpLBBANlhKFhcfPvPGqEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_TRANSCEIVER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_TRANSCEIVER.html",
+          "hash": "eARI78wyBxlQg5egQ6iLtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_TRANSCEIVER_SPEAKERMODE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_TRANSCEIVER_SPEAKERMODE.html",
+          "hash": "b9QHCqZ3l/cJST31ua31Gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_TREMOLO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_TREMOLO.html",
+          "hash": "s8hhXCLx9wFd+mKZiPxo2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.DSP_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.DSP_TYPE.html",
+          "hash": "F96Bgq5LcJ/BxhCdpLYk5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Debug.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Debug.html",
+          "hash": "tlq5YTgPNYSTsEjx8tks8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.ERRORCALLBACK_INFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.ERRORCALLBACK_INFO.html",
+          "hash": "NwEfIWY0AcxntYN/QiT+dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.ERRORCALLBACK_INSTANCETYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.ERRORCALLBACK_INSTANCETYPE.html",
+          "hash": "EOH3WXvJBdfCjJyiIbfQIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Error.html",
+          "hash": "iOT1ROeVFga7bpM76W8Fpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_ASYNCCANCEL_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_ASYNCCANCEL_CALLBACK.html",
+          "hash": "NQvqEvOhPwjGJcgW+V/BGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_ASYNCDONE_FUNC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_ASYNCDONE_FUNC.html",
+          "hash": "m4ww34RlVjTvi28T6URilw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_ASYNCREAD_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_ASYNCREAD_CALLBACK.html",
+          "hash": "Ff3HcJfOBB1W6iRDmcCqEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_CLOSE_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_CLOSE_CALLBACK.html",
+          "hash": "Er0V5dNqvdbTHeS9pbJpmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_OPEN_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_OPEN_CALLBACK.html",
+          "hash": "jp5LMno2Q+HSlXvzOj8wgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_READ_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_READ_CALLBACK.html",
+          "hash": "eKQmVcc/A5+3UNpJwrkFRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.FILE_SEEK_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.FILE_SEEK_CALLBACK.html",
+          "hash": "O/P71lLqKAW3tCcUb3m77g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Factory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Factory.html",
+          "hash": "7ZEYtv98EMET3OIXJM/MYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Geometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Geometry.html",
+          "hash": "E4mKw9qxF6LXMiZTuV33ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.INITFLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.INITFLAGS.html",
+          "hash": "FljrOH8HtShOrmjJIAForA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.MEMORY_ALLOC_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.MEMORY_ALLOC_CALLBACK.html",
+          "hash": "klyxJ3SHmxViXOy9FKOn3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.MEMORY_FREE_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.MEMORY_FREE_CALLBACK.html",
+          "hash": "X2XYpQA+kiM/j6rnPHSL9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.MEMORY_REALLOC_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.MEMORY_REALLOC_CALLBACK.html",
+          "hash": "ijNxQfOdHUETHwHDLTd9TQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.MEMORY_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.MEMORY_TYPE.html",
+          "hash": "On/PAR+9/eH2MhmWqEudTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.MODE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.MODE.html",
+          "hash": "HTJNJtRi5GtdJp3vOU1jtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Memory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Memory.html",
+          "hash": "85WEVf0512KzOsZIWzTMuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.OPENSTATE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.OPENSTATE.html",
+          "hash": "y1MhT9hXGzzaWKcsSG/7Ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.OUTPUTTYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.OUTPUTTYPE.html",
+          "hash": "W7M3AZ7syQE7VWojp39vpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.PLUGINLIST.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.PLUGINLIST.html",
+          "hash": "kE5vPI2AqDEJnuM6WpaIuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.PLUGINTYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.PLUGINTYPE.html",
+          "hash": "GhcSzKtItu9t1M9s4obrIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.PORT_INDEX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.PORT_INDEX.html",
+          "hash": "/fpciW5ZmECU5ZW+lJcNoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.PRESET.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.PRESET.html",
+          "hash": "YY+8LNHx76xL/jRUgd00rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.RESULT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.RESULT.html",
+          "hash": "IeXP/mqRzvGGfmP0whSK/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.REVERB_PROPERTIES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.REVERB_PROPERTIES.html",
+          "hash": "GddhfqHPNxODriwTUFBWKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Reverb3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Reverb3D.html",
+          "hash": "PJfr7yRbHX4XZtK/qAA4Qg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SOUNDGROUP_BEHAVIOR.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SOUNDGROUP_BEHAVIOR.html",
+          "hash": "IKStyBKCEOtbpjqLxgdFcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SOUND_FORMAT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SOUND_FORMAT.html",
+          "hash": "TVlafLAsEGLtVp8eRwc1fQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SOUND_NONBLOCK_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SOUND_NONBLOCK_CALLBACK.html",
+          "hash": "MRlNzbOd0gjnCKhebeecoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SOUND_PCMREAD_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SOUND_PCMREAD_CALLBACK.html",
+          "hash": "vdk+SKOCpvFllceN2vRWPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SOUND_PCMSETPOS_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SOUND_PCMSETPOS_CALLBACK.html",
+          "hash": "zeNbcupZhNzmxhRiDqeFPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SOUND_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SOUND_TYPE.html",
+          "hash": "kSnYoxBkJbI6p3RTYZTxuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SPEAKER.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SPEAKER.html",
+          "hash": "g/FGXMKhTD+puiZaiY+87Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SPEAKERMODE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SPEAKERMODE.html",
+          "hash": "TLPnYZEshKwWrK/sBltUbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SYSTEM_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SYSTEM_CALLBACK.html",
+          "hash": "YaqpPesMMjENOdRZLPJ0tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SYSTEM_CALLBACK_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SYSTEM_CALLBACK_TYPE.html",
+          "hash": "33Jb0oV9hvKD5zXfBQj6RA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Sound.html",
+          "hash": "x1m1qQMjgj9Ugs1tYth7iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.SoundGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.SoundGroup.html",
+          "hash": "kR7rz6wSjMwjJxbXrwCmYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.StringWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.StringWrapper.html",
+          "hash": "fh9albuW5iDnD4AbJ6cHGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.ADVANCEDSETTINGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.ADVANCEDSETTINGS.html",
+          "hash": "0vq2yN1jaAO2XgIOQ66T7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.BANK_INFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.BANK_INFO.html",
+          "hash": "l0DsxjIqhw0qGL0Sdpv/JQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.BUFFER_INFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.BUFFER_INFO.html",
+          "hash": "JclHs5rmg6gZUxYwyS6F4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.BUFFER_USAGE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.BUFFER_USAGE.html",
+          "hash": "P75m659g+ZBLZe0QueWVUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.Bank.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.Bank.html",
+          "hash": "Nptut+7Bpn6ENMuxz1vjXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.Bus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.Bus.html",
+          "hash": "QkSMjf1pfG33EV7B0e1ijQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.COMMANDCAPTURE_FLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.COMMANDCAPTURE_FLAGS.html",
+          "hash": "ynHD7u0zo2tXGWEIx1Uabw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.COMMANDREPLAY_CREATE_INSTANCE_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.COMMANDREPLAY_CREATE_INSTANCE_CALLBACK.html",
+          "hash": "LmW5TWWtrVNAySUDHACDxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.COMMANDREPLAY_FLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.COMMANDREPLAY_FLAGS.html",
+          "hash": "7SmAvmfvQY/zB2RJzEFf3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.COMMANDREPLAY_FRAME_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.COMMANDREPLAY_FRAME_CALLBACK.html",
+          "hash": "qgCSeylP7OpHIcx08/DpVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.COMMANDREPLAY_LOAD_BANK_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.COMMANDREPLAY_LOAD_BANK_CALLBACK.html",
+          "hash": "/Zypx/k5VWCWIxN52k8wAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.COMMAND_INFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.COMMAND_INFO.html",
+          "hash": "8kxJygPKGGTCfn+79kxMQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.CPU_USAGE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.CPU_USAGE.html",
+          "hash": "Yx3/Nj+5P7dyfSoxxNcbkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.CommandReplay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.CommandReplay.html",
+          "hash": "uJsDm2KV+8znWE5WMTMIvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.EVENT_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.EVENT_CALLBACK.html",
+          "hash": "A97OHyBShRZJCIhKlAZrbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.EVENT_CALLBACK_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.EVENT_CALLBACK_TYPE.html",
+          "hash": "aUIHwApAM9sXbSbLffOB8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.EVENT_PROPERTY.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.EVENT_PROPERTY.html",
+          "hash": "EHF7+Ay1yNoP59zdhu1Zsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.EventDescription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.EventDescription.html",
+          "hash": "MuEnXhGG506+aHLopUsMcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.EventInstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.EventInstance.html",
+          "hash": "3g9RatMSy7qc6JbD4bPHuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.INITFLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.INITFLAGS.html",
+          "hash": "YTpxVQejZG3gjN2hxUcGCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.INSTANCETYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.INSTANCETYPE.html",
+          "hash": "ef2OIUx9I67OY3WBe+OXYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.LOADING_STATE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.LOADING_STATE.html",
+          "hash": "+5NVcagPLeXE67E2Rzjgmw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.LOAD_BANK_FLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.LOAD_BANK_FLAGS.html",
+          "hash": "blxQLB/dnZsfgfr14X2GWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PARAMETER_DESCRIPTION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PARAMETER_DESCRIPTION.html",
+          "hash": "UHimfcPJwq9ixNjA2p5kzg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PARAMETER_FLAGS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PARAMETER_FLAGS.html",
+          "hash": "D6Iez2XGsLwntS7ccP6ikQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PARAMETER_ID.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PARAMETER_ID.html",
+          "hash": "OG965V9MJfxsQWmdugcOyA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PARAMETER_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PARAMETER_TYPE.html",
+          "hash": "iYZpqgnMavllvfAdzb6oGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PLAYBACK_STATE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PLAYBACK_STATE.html",
+          "hash": "TTnMnyYZNtJmql/zpTl+Nw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PLUGIN_INSTANCE_PROPERTIES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PLUGIN_INSTANCE_PROPERTIES.html",
+          "hash": "0MS0hqkdOiNAEBXtRO8qJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.PROGRAMMER_SOUND_PROPERTIES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.PROGRAMMER_SOUND_PROPERTIES.html",
+          "hash": "DK/y+zTcwBo5lt71Y7EocA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.SOUND_INFO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.SOUND_INFO.html",
+          "hash": "86fb2sTyQkZlwPfDm2guvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.STOP_MODE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.STOP_MODE.html",
+          "hash": "HRaf9TK8fjXhrJNQvjdJ7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.STUDIO_VERSION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.STUDIO_VERSION.html",
+          "hash": "2vmEPKQrSMsTNnl7D3vTcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.SYSTEM_CALLBACK.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.SYSTEM_CALLBACK.html",
+          "hash": "sin03M6hrX6GgPeSkI4SIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.SYSTEM_CALLBACK_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.SYSTEM_CALLBACK_TYPE.html",
+          "hash": "/e4kcg9dEmTMKIGFTiwXkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.System.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.System.html",
+          "hash": "ln/fUAhsf5wC/9MtoywbRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.TIMELINE_BEAT_PROPERTIES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.TIMELINE_BEAT_PROPERTIES.html",
+          "hash": "WZLpJceOr6S0Fx3Rq+BcCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.TIMELINE_MARKER_PROPERTIES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.TIMELINE_MARKER_PROPERTIES.html",
+          "hash": "MJ+GgVD94QRkIYwyKJJrfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.USER_PROPERTY.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.USER_PROPERTY.html",
+          "hash": "lEb/+L6HrhV1Ugies8kjNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.USER_PROPERTY_TYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.USER_PROPERTY_TYPE.html",
+          "hash": "YaWZ4/2va4DIzDW1gp6lxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.Util.html",
+          "hash": "tdSCYbtpta/V/kWtDIFMqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.VCA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.VCA.html",
+          "hash": "4Lhs2oDri8AeA+8qpu5JCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.Studio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.Studio.html",
+          "hash": "zEwKZaazbANfo56fQVbDvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.System.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.System.html",
+          "hash": "kKOC5xZ3Bef/+yF7vQufYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.TAG.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.TAG.html",
+          "hash": "tFIqvnA4vN3YDBIY4cMPnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.TAGDATATYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.TAGDATATYPE.html",
+          "hash": "v/aveNVFqm4f8Go7ML1UqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.TAGTYPE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.TAGTYPE.html",
+          "hash": "NkkcjXkrBwbbl6hYvqwD0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.TIMEUNIT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.TIMEUNIT.html",
+          "hash": "uhWYsVG3c0NVyA11x4tHBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.VECTOR.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.VECTOR.html",
+          "hash": "LqgDJH7iyZazwN+E004IPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.VERSION.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.VERSION.html",
+          "hash": "iTN907mNkcQ/qnmlzENWzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FMOD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FMOD.html",
+          "hash": "5CtgY2I35u2aMv1TKRBNVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "ELy18B2U50nzXXPspBdBDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "nlpHMuMAop9WG03ufoPkRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "yERnFsQ+WDYmONQr409Tcw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "TBqY9SQWyfMQJtZCNLOrOQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 294,
+          "skipped_file_count": 284
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
