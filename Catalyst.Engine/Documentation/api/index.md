@@ -1,2 +1,3 @@
-# PLACEHOLDER
-TODO: Add .NET projects to the *src* folder and run `docfx` to generate **REAL** *API Documentation*!
+# Catalyst Engine API
+
+This refers to the Catalyst.Engine csproj. This represents the API used for both the game and interfacing with the editor.
