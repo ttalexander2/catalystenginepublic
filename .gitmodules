@@ -1,0 +1,9 @@
+[submodule "Catalyst.Engine/Documentation/catalystdocs"]
+	path = Catalyst.Engine/Documentation/catalystdocs
+	url = https://github.com/ttalexander2/catalystdocs.git
+[submodule "Catalyst.Engine/Documentation/--name"]
+	path = Catalyst.Engine/Documentation/--name
+	url = https://github.com/ttalexander2/catalystdocs.git
+[submodule "Catalyst.Engine/Documentation/_site"]
+	path = Catalyst.Engine/Documentation/_site
+	url = https://github.com/ttalexander2/catalystdocs.git
