@@ -6,15 +6,15 @@ using System.Runtime.Serialization;
 namespace Catalyst.Engine
 {
     [Serializable]
-    public class Actor : AComponent
+    public class Actor : Component
     {
         public static new string Name => "Actor";
 
         public Actor(Entity entity) : base(entity)
         {
-            if (!entity.HasComponent<Transform>())
+            if (!entity.HasComponent<Position>())
             {
-                entity.AddComponent<Transform>();
+                entity.AddComponent<Position>();
             }
             if (!entity.HasComponent<Velocity>())
             {

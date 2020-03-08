@@ -12,6 +12,7 @@ using Rectangle = Catalyst.Engine.Utilities.Rectangle;
 
 namespace Catalyst.Engine.Rendering
 {
+    [Serializable]
     public class Particle
     {
         public bool Active { get; internal set; }

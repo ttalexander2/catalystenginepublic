@@ -40,7 +40,7 @@ namespace Catalyst.Engine
         private Entity() { }
 
         #region adders
-        public AComponent AddComponent<T>() where T : AComponent
+        public Component AddComponent<T>() where T : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -48,14 +48,14 @@ namespace Catalyst.Engine
             return _manager.Components[t.AssemblyQualifiedName][UID];
         }
 
-        public AComponent AddComponent(Type t)
+        public Component AddComponent(Type t)
         {
-            _manager.Components[t.AssemblyQualifiedName][UID] = (AComponent)Activator.CreateInstance(t, new Object[] { this });
+            _manager.Components[t.AssemblyQualifiedName][UID] = (Component)Activator.CreateInstance(t, new Object[] { this });
             _typeSet.Add(t.AssemblyQualifiedName);
             return _manager.Components[t.AssemblyQualifiedName][UID];
         }
 
-        public void AddComponents<T, U>() where T : AComponent where U : AComponent
+        public void AddComponents<T, U>() where T : Component where U : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -63,7 +63,7 @@ namespace Catalyst.Engine
             AddComponent<U>();
         }
 
-        public void AddComponents<T, U, V>() where T : AComponent where U : AComponent where V : AComponent
+        public void AddComponents<T, U, V>() where T : Component where U : Component where V : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -71,7 +71,7 @@ namespace Catalyst.Engine
             AddComponents<U, V>();
         }
 
-        public void AddComponents<T, U, V, W>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent
+        public void AddComponents<T, U, V, W>() where T : Component where U : Component where V : Component where W : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -79,7 +79,7 @@ namespace Catalyst.Engine
             AddComponents<U, V, W>();
         }
 
-        public void AddComponents<T, U, V, W, X>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent where X : AComponent
+        public void AddComponents<T, U, V, W, X>() where T : Component where U : Component where V : Component where W : Component where X : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -87,7 +87,7 @@ namespace Catalyst.Engine
             AddComponents<U, V, W, X>();
         }
 
-        public void AddComponents<T, U, V, W, X, Y>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent where X : AComponent where Y : AComponent
+        public void AddComponents<T, U, V, W, X, Y>() where T : Component where U : Component where V : Component where W : Component where X : Component where Y : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -95,7 +95,7 @@ namespace Catalyst.Engine
             AddComponents<U, V, W, X, Y>();
         }
 
-        public void AddComponents<T, U, V, W, X, Y, Z>() where T : AComponent where U : AComponent where V : AComponent where W : AComponent where X : AComponent where Y : AComponent where Z : AComponent
+        public void AddComponents<T, U, V, W, X, Y, Z>() where T : Component where U : Component where V : Component where W : Component where X : Component where Y : Component where Z : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
@@ -104,14 +104,14 @@ namespace Catalyst.Engine
         }
 
 
-        public void AddChild<P, C>() where P : AComponent where C : P
+        public void AddChild<P, C>() where P : Component where C : P
         {
             Type t = typeof(P);
             _manager.Components[t.AssemblyQualifiedName][UID] = (C)Activator.CreateInstance(typeof(C), new Object[] { this });
             _typeSet.Add(t.AssemblyQualifiedName);
         }
 
-        public void AddComponent<T>(AComponent c) where T : AComponent
+        public void AddComponent<T>(Component c) where T : Component
         {
 
             if (c.UID != UID || !(c is T)) { return; }
@@ -120,7 +120,7 @@ namespace Catalyst.Engine
             _typeSet.Add(t.AssemblyQualifiedName);
         }
 
-        internal void AddComponent(AComponent c)
+        internal void AddComponent(Component c)
         {
             if (c.UID != UID)
             {
@@ -133,12 +133,12 @@ namespace Catalyst.Engine
 
         #endregion
 
-        public T GetComponent<T>() where T : AComponent
+        public T GetComponent<T>() where T : Component
         {
             return _manager.GetComponent<T>(UID);
         }
 
-        public void RemoveComponent<T>() where T : AComponent
+        public void RemoveComponent<T>() where T : Component
         {
             Type t = typeof(T);
             _manager.Components[t.AssemblyQualifiedName].Remove(UID);
@@ -155,7 +155,7 @@ namespace Catalyst.Engine
             _manager.EntityDict.Remove(UID);
         }
 
-        public bool HasComponent<T>() where T : AComponent
+        public bool HasComponent<T>() where T : Component
         {
             Type t = typeof(T);
             return _typeSet.Contains(t.AssemblyQualifiedName);

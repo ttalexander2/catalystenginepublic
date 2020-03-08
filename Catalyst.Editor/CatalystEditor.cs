@@ -12,6 +12,7 @@ using CatalystEditor;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Catalyst.Engine.Physics;
+using Catalyst.Engine;
 
 namespace Catalyst.XNA
 {
@@ -124,6 +125,12 @@ namespace Catalyst.XNA
                 ProjectManager.Current.Update(gameTime);
                 ProjectManager.Current.PostUpdate(gameTime);
             }
+            else if (ProjectManager.scene_loaded && !ViewportRenderer.Playing)
+            {
+
+
+            }
+
 
             base.Update(gameTime);
         }
@@ -164,19 +171,6 @@ namespace Catalyst.XNA
                 //Catalyst.Engine.Graphics.SpriteBatch.Draw(_testTexture, new Vector2(0, 0), null, Color.White);
 
                 MouseState m = Mouse.GetState();
-
-                if (_layout.ViewRect.Contains(m.Position) && m.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
-                {
-                    foreach (Transform s in ProjectManager.Current.Manager.GetComponents<Transform>().Values)
-                    {
-                        Rectangle r = new Rectangle(s.Position.ToPoint(), s.Dimensions.ToPoint());
-                        if (r.Contains(m.Position))
-                        {
-                            DrawBorder(r, 2, Color.Green);
-                        }
-
-                    }
-                }
 
 
 

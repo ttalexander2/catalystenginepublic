@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace Catalyst.Engine.Physics
 {
     [Serializable]
-    public class Velocity : AComponent
+    public class Velocity : Component
     {
-        [ImmediateVector2]
+        [GuiVector2]
         public Utilities.Vector2 V { get; set; }
         public Velocity(Entity entity) : base(entity)
         {

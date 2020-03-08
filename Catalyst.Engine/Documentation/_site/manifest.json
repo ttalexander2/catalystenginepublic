@@ -137,10 +137,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateAttributeException.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiAttributeException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateAttributeException.html",
+          "relative_path": "api/Catalyst.Engine.GuiAttributeException.html",
           "hash": "QRuwIFOFkZwKMIQSXSj2Iw=="
         }
       },
@@ -149,10 +149,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateBoolean.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiBoolean.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateBoolean.html",
+          "relative_path": "api/Catalyst.Engine.GuiBoolean.html",
           "hash": "UV3U7Ax/i74xHXQHs4/2Wg=="
         }
       },
@@ -161,10 +161,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateColor.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiColor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateColor.html",
+          "relative_path": "api/Catalyst.Engine.GuiColor.html",
           "hash": "0YxRH5ugv2rHSCjtl4CEMQ=="
         }
       },
@@ -173,10 +173,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateColorMode.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiColorMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateColorMode.html",
+          "relative_path": "api/Catalyst.Engine.GuiColorMode.html",
           "hash": "pmEE8keXcvf0VzjJ1KYVgQ=="
         }
       },
@@ -185,10 +185,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateDouble.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiDouble.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateDouble.html",
+          "relative_path": "api/Catalyst.Engine.GuiDouble.html",
           "hash": "NttKR1SoTvkKJYHDFz2Imw=="
         }
       },
@@ -197,10 +197,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateEntitySelector.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiEntitySelector.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateEntitySelector.html",
+          "relative_path": "api/Catalyst.Engine.GuiEntitySelector.html",
           "hash": "v2vAgsEdlXroxP4B/M92lQ=="
         }
       },
@@ -209,10 +209,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateEnum.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiEnum.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateEnum.html",
+          "relative_path": "api/Catalyst.Engine.GuiEnum.html",
           "hash": "rm3QYadZA4yI778nUwDL1g=="
         }
       },
@@ -221,10 +221,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateFloat.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiFloat.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateFloat.html",
+          "relative_path": "api/Catalyst.Engine.GuiFloat.html",
           "hash": "hzIKmgQKCoBPRub0DT18zg=="
         }
       },
@@ -233,10 +233,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateFloatMode.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiFloatMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateFloatMode.html",
+          "relative_path": "api/Catalyst.Engine.GuiFloatMode.html",
           "hash": "3PczWQWI8tQcUrjgDzx5MQ=="
         }
       },
@@ -245,10 +245,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateInteger.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiInteger.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateInteger.html",
+          "relative_path": "api/Catalyst.Engine.GuiInteger.html",
           "hash": "dW/9WEgjWmF63l4tZsnVxQ=="
         }
       },
@@ -257,10 +257,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateIntegerMode.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiIntegerMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateIntegerMode.html",
+          "relative_path": "api/Catalyst.Engine.GuiIntegerMode.html",
           "hash": "1/PM8L+ztJ8EZL6XIoynqQ=="
         }
       },
@@ -269,10 +269,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateLabel.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiLabel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateLabel.html",
+          "relative_path": "api/Catalyst.Engine.GuiLabel.html",
           "hash": "dKt9zHRLS16NVV/y3ezYuA=="
         }
       },
@@ -281,10 +281,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateString.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiString.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateString.html",
+          "relative_path": "api/Catalyst.Engine.GuiString.html",
           "hash": "wXrKOJt3MAlkEDJfvRjS4A=="
         }
       },
@@ -293,10 +293,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateVector2.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiVector2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateVector2.html",
+          "relative_path": "api/Catalyst.Engine.GuiVector2.html",
           "hash": "raiRCUTDIaV1C0ht+RE76A=="
         }
       },
@@ -305,10 +305,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateVector3.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiVector3.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateVector3.html",
+          "relative_path": "api/Catalyst.Engine.GuiVector3.html",
           "hash": "wia9HM9gC9+KiAph3SBHwQ=="
         }
       },
@@ -317,10 +317,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ImmediateVector4.yml",
+      "source_relative_path": "api/Catalyst.Engine.GuiVector4.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.ImmediateVector4.html",
+          "relative_path": "api/Catalyst.Engine.GuiVector4.html",
           "hash": "RgcdAkLarGgw4X1eE98tgA=="
         }
       },

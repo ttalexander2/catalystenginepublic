@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 namespace Catalyst.Game
 {
     [Serializable]
-    public class Player : AComponent
+    public class Player : Component
     {
-        [ImmediateInteger]
+        [GuiInteger]
         public int HorizontalSpeed = 5;
-        [ImmediateInteger]
+        [GuiInteger]
         public int VerticalSpeed = 5;
 
         public static new string Name => "Player Component";

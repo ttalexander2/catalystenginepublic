@@ -162,11 +162,11 @@ namespace Catalyst.XNA
             if (_entitySelected > -1)
             {
                 var dict = ProjectManager.Current.Manager.GetComponentDictionary();
-                foreach (String t in dict.Keys)
+                foreach (string t in dict.Keys)
                 {
                     if (dict[t].ContainsKey(_entitySelected))
                     {
-                        AComponent c = dict[t][_entitySelected];
+                        Component c = dict[t][_entitySelected];
                         ImGui.PushFont(ImGuiLayout.SlightlyLargerFontThanNormal);
                         ImGui.Text(c.GetType().Name);
                         if(ImGui.BeginPopupContextItem(String.Format("{0}_context", t)))

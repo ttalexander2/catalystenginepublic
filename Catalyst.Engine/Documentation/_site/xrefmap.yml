@@ -1248,745 +1248,745 @@ references:
   commentId: F:Catalyst.Engine.Graphics.Width
   fullName: Catalyst.Engine.Graphics.Width
   nameWithType: Graphics.Width
-- uid: Catalyst.Engine.ImmediateAttributeException
-  name: ImmediateAttributeException
-  href: api/Catalyst.Engine.ImmediateAttributeException.html
-  commentId: T:Catalyst.Engine.ImmediateAttributeException
-  fullName: Catalyst.Engine.ImmediateAttributeException
-  nameWithType: ImmediateAttributeException
-- uid: Catalyst.Engine.ImmediateAttributeException.#ctor
-  name: ImmediateAttributeException()
-  href: api/Catalyst.Engine.ImmediateAttributeException.html#Catalyst_Engine_ImmediateAttributeException__ctor
-  commentId: M:Catalyst.Engine.ImmediateAttributeException.#ctor
-  fullName: Catalyst.Engine.ImmediateAttributeException.ImmediateAttributeException()
-  nameWithType: ImmediateAttributeException.ImmediateAttributeException()
-- uid: Catalyst.Engine.ImmediateAttributeException.#ctor(System.String)
-  name: ImmediateAttributeException(String)
-  href: api/Catalyst.Engine.ImmediateAttributeException.html#Catalyst_Engine_ImmediateAttributeException__ctor_System_String_
-  commentId: M:Catalyst.Engine.ImmediateAttributeException.#ctor(System.String)
-  fullName: Catalyst.Engine.ImmediateAttributeException.ImmediateAttributeException(System.String)
-  nameWithType: ImmediateAttributeException.ImmediateAttributeException(String)
-- uid: Catalyst.Engine.ImmediateAttributeException.#ctor*
-  name: ImmediateAttributeException
-  href: api/Catalyst.Engine.ImmediateAttributeException.html#Catalyst_Engine_ImmediateAttributeException__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateAttributeException.#ctor
+- uid: Catalyst.Engine.GuiAttributeException
+  name: GuiAttributeException
+  href: api/Catalyst.Engine.GuiAttributeException.html
+  commentId: T:Catalyst.Engine.GuiAttributeException
+  fullName: Catalyst.Engine.GuiAttributeException
+  nameWithType: GuiAttributeException
+- uid: Catalyst.Engine.GuiAttributeException.#ctor
+  name: GuiAttributeException()
+  href: api/Catalyst.Engine.GuiAttributeException.html#Catalyst_Engine_GuiAttributeException__ctor
+  commentId: M:Catalyst.Engine.GuiAttributeException.#ctor
+  fullName: Catalyst.Engine.GuiAttributeException.GuiAttributeException()
+  nameWithType: GuiAttributeException.GuiAttributeException()
+- uid: Catalyst.Engine.GuiAttributeException.#ctor(System.String)
+  name: GuiAttributeException(String)
+  href: api/Catalyst.Engine.GuiAttributeException.html#Catalyst_Engine_GuiAttributeException__ctor_System_String_
+  commentId: M:Catalyst.Engine.GuiAttributeException.#ctor(System.String)
+  fullName: Catalyst.Engine.GuiAttributeException.GuiAttributeException(System.String)
+  nameWithType: GuiAttributeException.GuiAttributeException(String)
+- uid: Catalyst.Engine.GuiAttributeException.#ctor*
+  name: GuiAttributeException
+  href: api/Catalyst.Engine.GuiAttributeException.html#Catalyst_Engine_GuiAttributeException__ctor_
+  commentId: Overload:Catalyst.Engine.GuiAttributeException.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateAttributeException.ImmediateAttributeException
-  nameWithType: ImmediateAttributeException.ImmediateAttributeException
-- uid: Catalyst.Engine.ImmediateBoolean
-  name: ImmediateBoolean
-  href: api/Catalyst.Engine.ImmediateBoolean.html
-  commentId: T:Catalyst.Engine.ImmediateBoolean
-  fullName: Catalyst.Engine.ImmediateBoolean
-  nameWithType: ImmediateBoolean
-- uid: Catalyst.Engine.ImmediateBoolean.#ctor
-  name: ImmediateBoolean()
-  href: api/Catalyst.Engine.ImmediateBoolean.html#Catalyst_Engine_ImmediateBoolean__ctor
-  commentId: M:Catalyst.Engine.ImmediateBoolean.#ctor
-  fullName: Catalyst.Engine.ImmediateBoolean.ImmediateBoolean()
-  nameWithType: ImmediateBoolean.ImmediateBoolean()
-- uid: Catalyst.Engine.ImmediateBoolean.#ctor*
-  name: ImmediateBoolean
-  href: api/Catalyst.Engine.ImmediateBoolean.html#Catalyst_Engine_ImmediateBoolean__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateBoolean.#ctor
+  fullName: Catalyst.Engine.GuiAttributeException.GuiAttributeException
+  nameWithType: GuiAttributeException.GuiAttributeException
+- uid: Catalyst.Engine.GuiBoolean
+  name: GuiBoolean
+  href: api/Catalyst.Engine.GuiBoolean.html
+  commentId: T:Catalyst.Engine.GuiBoolean
+  fullName: Catalyst.Engine.GuiBoolean
+  nameWithType: GuiBoolean
+- uid: Catalyst.Engine.GuiBoolean.#ctor
+  name: GuiBoolean()
+  href: api/Catalyst.Engine.GuiBoolean.html#Catalyst_Engine_GuiBoolean__ctor
+  commentId: M:Catalyst.Engine.GuiBoolean.#ctor
+  fullName: Catalyst.Engine.GuiBoolean.GuiBoolean()
+  nameWithType: GuiBoolean.GuiBoolean()
+- uid: Catalyst.Engine.GuiBoolean.#ctor*
+  name: GuiBoolean
+  href: api/Catalyst.Engine.GuiBoolean.html#Catalyst_Engine_GuiBoolean__ctor_
+  commentId: Overload:Catalyst.Engine.GuiBoolean.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateBoolean.ImmediateBoolean
-  nameWithType: ImmediateBoolean.ImmediateBoolean
-- uid: Catalyst.Engine.ImmediateColor
-  name: ImmediateColor
-  href: api/Catalyst.Engine.ImmediateColor.html
-  commentId: T:Catalyst.Engine.ImmediateColor
-  fullName: Catalyst.Engine.ImmediateColor
-  nameWithType: ImmediateColor
-- uid: Catalyst.Engine.ImmediateColor.#ctor
-  name: ImmediateColor()
-  href: api/Catalyst.Engine.ImmediateColor.html#Catalyst_Engine_ImmediateColor__ctor
-  commentId: M:Catalyst.Engine.ImmediateColor.#ctor
-  fullName: Catalyst.Engine.ImmediateColor.ImmediateColor()
-  nameWithType: ImmediateColor.ImmediateColor()
-- uid: Catalyst.Engine.ImmediateColor.#ctor(Catalyst.Engine.ImmediateColorMode)
-  name: ImmediateColor(ImmediateColorMode)
-  href: api/Catalyst.Engine.ImmediateColor.html#Catalyst_Engine_ImmediateColor__ctor_Catalyst_Engine_ImmediateColorMode_
-  commentId: M:Catalyst.Engine.ImmediateColor.#ctor(Catalyst.Engine.ImmediateColorMode)
-  fullName: Catalyst.Engine.ImmediateColor.ImmediateColor(Catalyst.Engine.ImmediateColorMode)
-  nameWithType: ImmediateColor.ImmediateColor(ImmediateColorMode)
-- uid: Catalyst.Engine.ImmediateColor.#ctor*
-  name: ImmediateColor
-  href: api/Catalyst.Engine.ImmediateColor.html#Catalyst_Engine_ImmediateColor__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateColor.#ctor
+  fullName: Catalyst.Engine.GuiBoolean.GuiBoolean
+  nameWithType: GuiBoolean.GuiBoolean
+- uid: Catalyst.Engine.GuiColor
+  name: GuiColor
+  href: api/Catalyst.Engine.GuiColor.html
+  commentId: T:Catalyst.Engine.GuiColor
+  fullName: Catalyst.Engine.GuiColor
+  nameWithType: GuiColor
+- uid: Catalyst.Engine.GuiColor.#ctor
+  name: GuiColor()
+  href: api/Catalyst.Engine.GuiColor.html#Catalyst_Engine_GuiColor__ctor
+  commentId: M:Catalyst.Engine.GuiColor.#ctor
+  fullName: Catalyst.Engine.GuiColor.GuiColor()
+  nameWithType: GuiColor.GuiColor()
+- uid: Catalyst.Engine.GuiColor.#ctor(Catalyst.Engine.GuiColorMode)
+  name: GuiColor(GuiColorMode)
+  href: api/Catalyst.Engine.GuiColor.html#Catalyst_Engine_GuiColor__ctor_Catalyst_Engine_GuiColorMode_
+  commentId: M:Catalyst.Engine.GuiColor.#ctor(Catalyst.Engine.GuiColorMode)
+  fullName: Catalyst.Engine.GuiColor.GuiColor(Catalyst.Engine.GuiColorMode)
+  nameWithType: GuiColor.GuiColor(GuiColorMode)
+- uid: Catalyst.Engine.GuiColor.#ctor*
+  name: GuiColor
+  href: api/Catalyst.Engine.GuiColor.html#Catalyst_Engine_GuiColor__ctor_
+  commentId: Overload:Catalyst.Engine.GuiColor.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateColor.ImmediateColor
-  nameWithType: ImmediateColor.ImmediateColor
-- uid: Catalyst.Engine.ImmediateColor.Mode
+  fullName: Catalyst.Engine.GuiColor.GuiColor
+  nameWithType: GuiColor.GuiColor
+- uid: Catalyst.Engine.GuiColor.Mode
   name: Mode
-  href: api/Catalyst.Engine.ImmediateColor.html#Catalyst_Engine_ImmediateColor_Mode
-  commentId: P:Catalyst.Engine.ImmediateColor.Mode
-  fullName: Catalyst.Engine.ImmediateColor.Mode
-  nameWithType: ImmediateColor.Mode
-- uid: Catalyst.Engine.ImmediateColor.Mode*
+  href: api/Catalyst.Engine.GuiColor.html#Catalyst_Engine_GuiColor_Mode
+  commentId: P:Catalyst.Engine.GuiColor.Mode
+  fullName: Catalyst.Engine.GuiColor.Mode
+  nameWithType: GuiColor.Mode
+- uid: Catalyst.Engine.GuiColor.Mode*
   name: Mode
-  href: api/Catalyst.Engine.ImmediateColor.html#Catalyst_Engine_ImmediateColor_Mode_
-  commentId: Overload:Catalyst.Engine.ImmediateColor.Mode
+  href: api/Catalyst.Engine.GuiColor.html#Catalyst_Engine_GuiColor_Mode_
+  commentId: Overload:Catalyst.Engine.GuiColor.Mode
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateColor.Mode
-  nameWithType: ImmediateColor.Mode
-- uid: Catalyst.Engine.ImmediateColorMode
-  name: ImmediateColorMode
-  href: api/Catalyst.Engine.ImmediateColorMode.html
-  commentId: T:Catalyst.Engine.ImmediateColorMode
-  fullName: Catalyst.Engine.ImmediateColorMode
-  nameWithType: ImmediateColorMode
-- uid: Catalyst.Engine.ImmediateColorMode.RGB
+  fullName: Catalyst.Engine.GuiColor.Mode
+  nameWithType: GuiColor.Mode
+- uid: Catalyst.Engine.GuiColorMode
+  name: GuiColorMode
+  href: api/Catalyst.Engine.GuiColorMode.html
+  commentId: T:Catalyst.Engine.GuiColorMode
+  fullName: Catalyst.Engine.GuiColorMode
+  nameWithType: GuiColorMode
+- uid: Catalyst.Engine.GuiColorMode.RGB
   name: RGB
-  href: api/Catalyst.Engine.ImmediateColorMode.html#Catalyst_Engine_ImmediateColorMode_RGB
-  commentId: F:Catalyst.Engine.ImmediateColorMode.RGB
-  fullName: Catalyst.Engine.ImmediateColorMode.RGB
-  nameWithType: ImmediateColorMode.RGB
-- uid: Catalyst.Engine.ImmediateColorMode.RGBA
+  href: api/Catalyst.Engine.GuiColorMode.html#Catalyst_Engine_GuiColorMode_RGB
+  commentId: F:Catalyst.Engine.GuiColorMode.RGB
+  fullName: Catalyst.Engine.GuiColorMode.RGB
+  nameWithType: GuiColorMode.RGB
+- uid: Catalyst.Engine.GuiColorMode.RGBA
   name: RGBA
-  href: api/Catalyst.Engine.ImmediateColorMode.html#Catalyst_Engine_ImmediateColorMode_RGBA
-  commentId: F:Catalyst.Engine.ImmediateColorMode.RGBA
-  fullName: Catalyst.Engine.ImmediateColorMode.RGBA
-  nameWithType: ImmediateColorMode.RGBA
-- uid: Catalyst.Engine.ImmediateDouble
-  name: ImmediateDouble
-  href: api/Catalyst.Engine.ImmediateDouble.html
-  commentId: T:Catalyst.Engine.ImmediateDouble
-  fullName: Catalyst.Engine.ImmediateDouble
-  nameWithType: ImmediateDouble
-- uid: Catalyst.Engine.ImmediateDouble.#ctor
-  name: ImmediateDouble()
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble__ctor
-  commentId: M:Catalyst.Engine.ImmediateDouble.#ctor
-  fullName: Catalyst.Engine.ImmediateDouble.ImmediateDouble()
-  nameWithType: ImmediateDouble.ImmediateDouble()
-- uid: Catalyst.Engine.ImmediateDouble.#ctor(System.Double,System.Double)
-  name: ImmediateDouble(Double, Double)
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble__ctor_System_Double_System_Double_
-  commentId: M:Catalyst.Engine.ImmediateDouble.#ctor(System.Double,System.Double)
-  fullName: Catalyst.Engine.ImmediateDouble.ImmediateDouble(System.Double, System.Double)
-  nameWithType: ImmediateDouble.ImmediateDouble(Double, Double)
-- uid: Catalyst.Engine.ImmediateDouble.#ctor*
-  name: ImmediateDouble
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateDouble.#ctor
+  href: api/Catalyst.Engine.GuiColorMode.html#Catalyst_Engine_GuiColorMode_RGBA
+  commentId: F:Catalyst.Engine.GuiColorMode.RGBA
+  fullName: Catalyst.Engine.GuiColorMode.RGBA
+  nameWithType: GuiColorMode.RGBA
+- uid: Catalyst.Engine.GuiDouble
+  name: GuiDouble
+  href: api/Catalyst.Engine.GuiDouble.html
+  commentId: T:Catalyst.Engine.GuiDouble
+  fullName: Catalyst.Engine.GuiDouble
+  nameWithType: GuiDouble
+- uid: Catalyst.Engine.GuiDouble.#ctor
+  name: GuiDouble()
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble__ctor
+  commentId: M:Catalyst.Engine.GuiDouble.#ctor
+  fullName: Catalyst.Engine.GuiDouble.GuiDouble()
+  nameWithType: GuiDouble.GuiDouble()
+- uid: Catalyst.Engine.GuiDouble.#ctor(System.Double,System.Double)
+  name: GuiDouble(Double, Double)
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble__ctor_System_Double_System_Double_
+  commentId: M:Catalyst.Engine.GuiDouble.#ctor(System.Double,System.Double)
+  fullName: Catalyst.Engine.GuiDouble.GuiDouble(System.Double, System.Double)
+  nameWithType: GuiDouble.GuiDouble(Double, Double)
+- uid: Catalyst.Engine.GuiDouble.#ctor*
+  name: GuiDouble
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble__ctor_
+  commentId: Overload:Catalyst.Engine.GuiDouble.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateDouble.ImmediateDouble
-  nameWithType: ImmediateDouble.ImmediateDouble
-- uid: Catalyst.Engine.ImmediateDouble.HasRange
+  fullName: Catalyst.Engine.GuiDouble.GuiDouble
+  nameWithType: GuiDouble.GuiDouble
+- uid: Catalyst.Engine.GuiDouble.HasRange
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble_HasRange
-  commentId: P:Catalyst.Engine.ImmediateDouble.HasRange
-  fullName: Catalyst.Engine.ImmediateDouble.HasRange
-  nameWithType: ImmediateDouble.HasRange
-- uid: Catalyst.Engine.ImmediateDouble.HasRange*
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble_HasRange
+  commentId: P:Catalyst.Engine.GuiDouble.HasRange
+  fullName: Catalyst.Engine.GuiDouble.HasRange
+  nameWithType: GuiDouble.HasRange
+- uid: Catalyst.Engine.GuiDouble.HasRange*
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble_HasRange_
-  commentId: Overload:Catalyst.Engine.ImmediateDouble.HasRange
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble_HasRange_
+  commentId: Overload:Catalyst.Engine.GuiDouble.HasRange
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateDouble.HasRange
-  nameWithType: ImmediateDouble.HasRange
-- uid: Catalyst.Engine.ImmediateDouble.Max
+  fullName: Catalyst.Engine.GuiDouble.HasRange
+  nameWithType: GuiDouble.HasRange
+- uid: Catalyst.Engine.GuiDouble.Max
   name: Max
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble_Max
-  commentId: P:Catalyst.Engine.ImmediateDouble.Max
-  fullName: Catalyst.Engine.ImmediateDouble.Max
-  nameWithType: ImmediateDouble.Max
-- uid: Catalyst.Engine.ImmediateDouble.Max*
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble_Max
+  commentId: P:Catalyst.Engine.GuiDouble.Max
+  fullName: Catalyst.Engine.GuiDouble.Max
+  nameWithType: GuiDouble.Max
+- uid: Catalyst.Engine.GuiDouble.Max*
   name: Max
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble_Max_
-  commentId: Overload:Catalyst.Engine.ImmediateDouble.Max
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble_Max_
+  commentId: Overload:Catalyst.Engine.GuiDouble.Max
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateDouble.Max
-  nameWithType: ImmediateDouble.Max
-- uid: Catalyst.Engine.ImmediateDouble.Min
+  fullName: Catalyst.Engine.GuiDouble.Max
+  nameWithType: GuiDouble.Max
+- uid: Catalyst.Engine.GuiDouble.Min
   name: Min
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble_Min
-  commentId: P:Catalyst.Engine.ImmediateDouble.Min
-  fullName: Catalyst.Engine.ImmediateDouble.Min
-  nameWithType: ImmediateDouble.Min
-- uid: Catalyst.Engine.ImmediateDouble.Min*
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble_Min
+  commentId: P:Catalyst.Engine.GuiDouble.Min
+  fullName: Catalyst.Engine.GuiDouble.Min
+  nameWithType: GuiDouble.Min
+- uid: Catalyst.Engine.GuiDouble.Min*
   name: Min
-  href: api/Catalyst.Engine.ImmediateDouble.html#Catalyst_Engine_ImmediateDouble_Min_
-  commentId: Overload:Catalyst.Engine.ImmediateDouble.Min
+  href: api/Catalyst.Engine.GuiDouble.html#Catalyst_Engine_GuiDouble_Min_
+  commentId: Overload:Catalyst.Engine.GuiDouble.Min
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateDouble.Min
-  nameWithType: ImmediateDouble.Min
-- uid: Catalyst.Engine.ImmediateEntitySelector
-  name: ImmediateEntitySelector
-  href: api/Catalyst.Engine.ImmediateEntitySelector.html
-  commentId: T:Catalyst.Engine.ImmediateEntitySelector
-  fullName: Catalyst.Engine.ImmediateEntitySelector
-  nameWithType: ImmediateEntitySelector
-- uid: Catalyst.Engine.ImmediateEntitySelector.#ctor
-  name: ImmediateEntitySelector()
-  href: api/Catalyst.Engine.ImmediateEntitySelector.html#Catalyst_Engine_ImmediateEntitySelector__ctor
-  commentId: M:Catalyst.Engine.ImmediateEntitySelector.#ctor
-  fullName: Catalyst.Engine.ImmediateEntitySelector.ImmediateEntitySelector()
-  nameWithType: ImmediateEntitySelector.ImmediateEntitySelector()
-- uid: Catalyst.Engine.ImmediateEntitySelector.#ctor*
-  name: ImmediateEntitySelector
-  href: api/Catalyst.Engine.ImmediateEntitySelector.html#Catalyst_Engine_ImmediateEntitySelector__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateEntitySelector.#ctor
+  fullName: Catalyst.Engine.GuiDouble.Min
+  nameWithType: GuiDouble.Min
+- uid: Catalyst.Engine.GuiEntitySelector
+  name: GuiEntitySelector
+  href: api/Catalyst.Engine.GuiEntitySelector.html
+  commentId: T:Catalyst.Engine.GuiEntitySelector
+  fullName: Catalyst.Engine.GuiEntitySelector
+  nameWithType: GuiEntitySelector
+- uid: Catalyst.Engine.GuiEntitySelector.#ctor
+  name: GuiEntitySelector()
+  href: api/Catalyst.Engine.GuiEntitySelector.html#Catalyst_Engine_GuiEntitySelector__ctor
+  commentId: M:Catalyst.Engine.GuiEntitySelector.#ctor
+  fullName: Catalyst.Engine.GuiEntitySelector.GuiEntitySelector()
+  nameWithType: GuiEntitySelector.GuiEntitySelector()
+- uid: Catalyst.Engine.GuiEntitySelector.#ctor*
+  name: GuiEntitySelector
+  href: api/Catalyst.Engine.GuiEntitySelector.html#Catalyst_Engine_GuiEntitySelector__ctor_
+  commentId: Overload:Catalyst.Engine.GuiEntitySelector.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateEntitySelector.ImmediateEntitySelector
-  nameWithType: ImmediateEntitySelector.ImmediateEntitySelector
-- uid: Catalyst.Engine.ImmediateEnum
-  name: ImmediateEnum
-  href: api/Catalyst.Engine.ImmediateEnum.html
-  commentId: T:Catalyst.Engine.ImmediateEnum
-  fullName: Catalyst.Engine.ImmediateEnum
-  nameWithType: ImmediateEnum
-- uid: Catalyst.Engine.ImmediateEnum.#ctor
-  name: ImmediateEnum()
-  href: api/Catalyst.Engine.ImmediateEnum.html#Catalyst_Engine_ImmediateEnum__ctor
-  commentId: M:Catalyst.Engine.ImmediateEnum.#ctor
-  fullName: Catalyst.Engine.ImmediateEnum.ImmediateEnum()
-  nameWithType: ImmediateEnum.ImmediateEnum()
-- uid: Catalyst.Engine.ImmediateEnum.#ctor*
-  name: ImmediateEnum
-  href: api/Catalyst.Engine.ImmediateEnum.html#Catalyst_Engine_ImmediateEnum__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateEnum.#ctor
+  fullName: Catalyst.Engine.GuiEntitySelector.GuiEntitySelector
+  nameWithType: GuiEntitySelector.GuiEntitySelector
+- uid: Catalyst.Engine.GuiEnum
+  name: GuiEnum
+  href: api/Catalyst.Engine.GuiEnum.html
+  commentId: T:Catalyst.Engine.GuiEnum
+  fullName: Catalyst.Engine.GuiEnum
+  nameWithType: GuiEnum
+- uid: Catalyst.Engine.GuiEnum.#ctor
+  name: GuiEnum()
+  href: api/Catalyst.Engine.GuiEnum.html#Catalyst_Engine_GuiEnum__ctor
+  commentId: M:Catalyst.Engine.GuiEnum.#ctor
+  fullName: Catalyst.Engine.GuiEnum.GuiEnum()
+  nameWithType: GuiEnum.GuiEnum()
+- uid: Catalyst.Engine.GuiEnum.#ctor*
+  name: GuiEnum
+  href: api/Catalyst.Engine.GuiEnum.html#Catalyst_Engine_GuiEnum__ctor_
+  commentId: Overload:Catalyst.Engine.GuiEnum.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateEnum.ImmediateEnum
-  nameWithType: ImmediateEnum.ImmediateEnum
-- uid: Catalyst.Engine.ImmediateFloat
-  name: ImmediateFloat
-  href: api/Catalyst.Engine.ImmediateFloat.html
-  commentId: T:Catalyst.Engine.ImmediateFloat
-  fullName: Catalyst.Engine.ImmediateFloat
-  nameWithType: ImmediateFloat
-- uid: Catalyst.Engine.ImmediateFloat.#ctor
-  name: ImmediateFloat()
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat__ctor
-  commentId: M:Catalyst.Engine.ImmediateFloat.#ctor
-  fullName: Catalyst.Engine.ImmediateFloat.ImmediateFloat()
-  nameWithType: ImmediateFloat.ImmediateFloat()
-- uid: Catalyst.Engine.ImmediateFloat.#ctor(Catalyst.Engine.ImmediateFloatMode)
-  name: ImmediateFloat(ImmediateFloatMode)
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat__ctor_Catalyst_Engine_ImmediateFloatMode_
-  commentId: M:Catalyst.Engine.ImmediateFloat.#ctor(Catalyst.Engine.ImmediateFloatMode)
-  fullName: Catalyst.Engine.ImmediateFloat.ImmediateFloat(Catalyst.Engine.ImmediateFloatMode)
-  nameWithType: ImmediateFloat.ImmediateFloat(ImmediateFloatMode)
-- uid: Catalyst.Engine.ImmediateFloat.#ctor(Catalyst.Engine.ImmediateFloatMode,System.Single,System.Single)
-  name: ImmediateFloat(ImmediateFloatMode, Single, Single)
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat__ctor_Catalyst_Engine_ImmediateFloatMode_System_Single_System_Single_
-  commentId: M:Catalyst.Engine.ImmediateFloat.#ctor(Catalyst.Engine.ImmediateFloatMode,System.Single,System.Single)
-  fullName: Catalyst.Engine.ImmediateFloat.ImmediateFloat(Catalyst.Engine.ImmediateFloatMode, System.Single, System.Single)
-  nameWithType: ImmediateFloat.ImmediateFloat(ImmediateFloatMode, Single, Single)
-- uid: Catalyst.Engine.ImmediateFloat.#ctor(System.Single,System.Single)
-  name: ImmediateFloat(Single, Single)
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat__ctor_System_Single_System_Single_
-  commentId: M:Catalyst.Engine.ImmediateFloat.#ctor(System.Single,System.Single)
-  fullName: Catalyst.Engine.ImmediateFloat.ImmediateFloat(System.Single, System.Single)
-  nameWithType: ImmediateFloat.ImmediateFloat(Single, Single)
-- uid: Catalyst.Engine.ImmediateFloat.#ctor*
-  name: ImmediateFloat
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateFloat.#ctor
+  fullName: Catalyst.Engine.GuiEnum.GuiEnum
+  nameWithType: GuiEnum.GuiEnum
+- uid: Catalyst.Engine.GuiFloat
+  name: GuiFloat
+  href: api/Catalyst.Engine.GuiFloat.html
+  commentId: T:Catalyst.Engine.GuiFloat
+  fullName: Catalyst.Engine.GuiFloat
+  nameWithType: GuiFloat
+- uid: Catalyst.Engine.GuiFloat.#ctor
+  name: GuiFloat()
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat__ctor
+  commentId: M:Catalyst.Engine.GuiFloat.#ctor
+  fullName: Catalyst.Engine.GuiFloat.GuiFloat()
+  nameWithType: GuiFloat.GuiFloat()
+- uid: Catalyst.Engine.GuiFloat.#ctor(Catalyst.Engine.GuiFloatMode)
+  name: GuiFloat(GuiFloatMode)
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat__ctor_Catalyst_Engine_GuiFloatMode_
+  commentId: M:Catalyst.Engine.GuiFloat.#ctor(Catalyst.Engine.GuiFloatMode)
+  fullName: Catalyst.Engine.GuiFloat.GuiFloat(Catalyst.Engine.GuiFloatMode)
+  nameWithType: GuiFloat.GuiFloat(GuiFloatMode)
+- uid: Catalyst.Engine.GuiFloat.#ctor(Catalyst.Engine.GuiFloatMode,System.Single,System.Single)
+  name: GuiFloat(GuiFloatMode, Single, Single)
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat__ctor_Catalyst_Engine_GuiFloatMode_System_Single_System_Single_
+  commentId: M:Catalyst.Engine.GuiFloat.#ctor(Catalyst.Engine.GuiFloatMode,System.Single,System.Single)
+  fullName: Catalyst.Engine.GuiFloat.GuiFloat(Catalyst.Engine.GuiFloatMode, System.Single, System.Single)
+  nameWithType: GuiFloat.GuiFloat(GuiFloatMode, Single, Single)
+- uid: Catalyst.Engine.GuiFloat.#ctor(System.Single,System.Single)
+  name: GuiFloat(Single, Single)
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat__ctor_System_Single_System_Single_
+  commentId: M:Catalyst.Engine.GuiFloat.#ctor(System.Single,System.Single)
+  fullName: Catalyst.Engine.GuiFloat.GuiFloat(System.Single, System.Single)
+  nameWithType: GuiFloat.GuiFloat(Single, Single)
+- uid: Catalyst.Engine.GuiFloat.#ctor*
+  name: GuiFloat
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat__ctor_
+  commentId: Overload:Catalyst.Engine.GuiFloat.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateFloat.ImmediateFloat
-  nameWithType: ImmediateFloat.ImmediateFloat
-- uid: Catalyst.Engine.ImmediateFloat.HasRange
+  fullName: Catalyst.Engine.GuiFloat.GuiFloat
+  nameWithType: GuiFloat.GuiFloat
+- uid: Catalyst.Engine.GuiFloat.HasRange
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_HasRange
-  commentId: P:Catalyst.Engine.ImmediateFloat.HasRange
-  fullName: Catalyst.Engine.ImmediateFloat.HasRange
-  nameWithType: ImmediateFloat.HasRange
-- uid: Catalyst.Engine.ImmediateFloat.HasRange*
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_HasRange
+  commentId: P:Catalyst.Engine.GuiFloat.HasRange
+  fullName: Catalyst.Engine.GuiFloat.HasRange
+  nameWithType: GuiFloat.HasRange
+- uid: Catalyst.Engine.GuiFloat.HasRange*
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_HasRange_
-  commentId: Overload:Catalyst.Engine.ImmediateFloat.HasRange
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_HasRange_
+  commentId: Overload:Catalyst.Engine.GuiFloat.HasRange
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateFloat.HasRange
-  nameWithType: ImmediateFloat.HasRange
-- uid: Catalyst.Engine.ImmediateFloat.Max
+  fullName: Catalyst.Engine.GuiFloat.HasRange
+  nameWithType: GuiFloat.HasRange
+- uid: Catalyst.Engine.GuiFloat.Max
   name: Max
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_Max
-  commentId: P:Catalyst.Engine.ImmediateFloat.Max
-  fullName: Catalyst.Engine.ImmediateFloat.Max
-  nameWithType: ImmediateFloat.Max
-- uid: Catalyst.Engine.ImmediateFloat.Max*
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_Max
+  commentId: P:Catalyst.Engine.GuiFloat.Max
+  fullName: Catalyst.Engine.GuiFloat.Max
+  nameWithType: GuiFloat.Max
+- uid: Catalyst.Engine.GuiFloat.Max*
   name: Max
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_Max_
-  commentId: Overload:Catalyst.Engine.ImmediateFloat.Max
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_Max_
+  commentId: Overload:Catalyst.Engine.GuiFloat.Max
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateFloat.Max
-  nameWithType: ImmediateFloat.Max
-- uid: Catalyst.Engine.ImmediateFloat.Min
+  fullName: Catalyst.Engine.GuiFloat.Max
+  nameWithType: GuiFloat.Max
+- uid: Catalyst.Engine.GuiFloat.Min
   name: Min
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_Min
-  commentId: P:Catalyst.Engine.ImmediateFloat.Min
-  fullName: Catalyst.Engine.ImmediateFloat.Min
-  nameWithType: ImmediateFloat.Min
-- uid: Catalyst.Engine.ImmediateFloat.Min*
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_Min
+  commentId: P:Catalyst.Engine.GuiFloat.Min
+  fullName: Catalyst.Engine.GuiFloat.Min
+  nameWithType: GuiFloat.Min
+- uid: Catalyst.Engine.GuiFloat.Min*
   name: Min
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_Min_
-  commentId: Overload:Catalyst.Engine.ImmediateFloat.Min
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_Min_
+  commentId: Overload:Catalyst.Engine.GuiFloat.Min
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateFloat.Min
-  nameWithType: ImmediateFloat.Min
-- uid: Catalyst.Engine.ImmediateFloat.Mode
+  fullName: Catalyst.Engine.GuiFloat.Min
+  nameWithType: GuiFloat.Min
+- uid: Catalyst.Engine.GuiFloat.Mode
   name: Mode
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_Mode
-  commentId: P:Catalyst.Engine.ImmediateFloat.Mode
-  fullName: Catalyst.Engine.ImmediateFloat.Mode
-  nameWithType: ImmediateFloat.Mode
-- uid: Catalyst.Engine.ImmediateFloat.Mode*
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_Mode
+  commentId: P:Catalyst.Engine.GuiFloat.Mode
+  fullName: Catalyst.Engine.GuiFloat.Mode
+  nameWithType: GuiFloat.Mode
+- uid: Catalyst.Engine.GuiFloat.Mode*
   name: Mode
-  href: api/Catalyst.Engine.ImmediateFloat.html#Catalyst_Engine_ImmediateFloat_Mode_
-  commentId: Overload:Catalyst.Engine.ImmediateFloat.Mode
+  href: api/Catalyst.Engine.GuiFloat.html#Catalyst_Engine_GuiFloat_Mode_
+  commentId: Overload:Catalyst.Engine.GuiFloat.Mode
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateFloat.Mode
-  nameWithType: ImmediateFloat.Mode
-- uid: Catalyst.Engine.ImmediateFloatMode
-  name: ImmediateFloatMode
-  href: api/Catalyst.Engine.ImmediateFloatMode.html
-  commentId: T:Catalyst.Engine.ImmediateFloatMode
-  fullName: Catalyst.Engine.ImmediateFloatMode
-  nameWithType: ImmediateFloatMode
-- uid: Catalyst.Engine.ImmediateFloatMode.Angle
+  fullName: Catalyst.Engine.GuiFloat.Mode
+  nameWithType: GuiFloat.Mode
+- uid: Catalyst.Engine.GuiFloatMode
+  name: GuiFloatMode
+  href: api/Catalyst.Engine.GuiFloatMode.html
+  commentId: T:Catalyst.Engine.GuiFloatMode
+  fullName: Catalyst.Engine.GuiFloatMode
+  nameWithType: GuiFloatMode
+- uid: Catalyst.Engine.GuiFloatMode.Angle
   name: Angle
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_Angle
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.Angle
-  fullName: Catalyst.Engine.ImmediateFloatMode.Angle
-  nameWithType: ImmediateFloatMode.Angle
-- uid: Catalyst.Engine.ImmediateFloatMode.Default
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_Angle
+  commentId: F:Catalyst.Engine.GuiFloatMode.Angle
+  fullName: Catalyst.Engine.GuiFloatMode.Angle
+  nameWithType: GuiFloatMode.Angle
+- uid: Catalyst.Engine.GuiFloatMode.Default
   name: Default
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_Default
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.Default
-  fullName: Catalyst.Engine.ImmediateFloatMode.Default
-  nameWithType: ImmediateFloatMode.Default
-- uid: Catalyst.Engine.ImmediateFloatMode.Drag
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_Default
+  commentId: F:Catalyst.Engine.GuiFloatMode.Default
+  fullName: Catalyst.Engine.GuiFloatMode.Default
+  nameWithType: GuiFloatMode.Default
+- uid: Catalyst.Engine.GuiFloatMode.Drag
   name: Drag
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_Drag
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.Drag
-  fullName: Catalyst.Engine.ImmediateFloatMode.Drag
-  nameWithType: ImmediateFloatMode.Drag
-- uid: Catalyst.Engine.ImmediateFloatMode.Scientific
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_Drag
+  commentId: F:Catalyst.Engine.GuiFloatMode.Drag
+  fullName: Catalyst.Engine.GuiFloatMode.Drag
+  nameWithType: GuiFloatMode.Drag
+- uid: Catalyst.Engine.GuiFloatMode.Scientific
   name: Scientific
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_Scientific
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.Scientific
-  fullName: Catalyst.Engine.ImmediateFloatMode.Scientific
-  nameWithType: ImmediateFloatMode.Scientific
-- uid: Catalyst.Engine.ImmediateFloatMode.Slider
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_Scientific
+  commentId: F:Catalyst.Engine.GuiFloatMode.Scientific
+  fullName: Catalyst.Engine.GuiFloatMode.Scientific
+  nameWithType: GuiFloatMode.Scientific
+- uid: Catalyst.Engine.GuiFloatMode.Slider
   name: Slider
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_Slider
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.Slider
-  fullName: Catalyst.Engine.ImmediateFloatMode.Slider
-  nameWithType: ImmediateFloatMode.Slider
-- uid: Catalyst.Engine.ImmediateFloatMode.Small
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_Slider
+  commentId: F:Catalyst.Engine.GuiFloatMode.Slider
+  fullName: Catalyst.Engine.GuiFloatMode.Slider
+  nameWithType: GuiFloatMode.Slider
+- uid: Catalyst.Engine.GuiFloatMode.Small
   name: Small
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_Small
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.Small
-  fullName: Catalyst.Engine.ImmediateFloatMode.Small
-  nameWithType: ImmediateFloatMode.Small
-- uid: Catalyst.Engine.ImmediateFloatMode.SmallDrag
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_Small
+  commentId: F:Catalyst.Engine.GuiFloatMode.Small
+  fullName: Catalyst.Engine.GuiFloatMode.Small
+  nameWithType: GuiFloatMode.Small
+- uid: Catalyst.Engine.GuiFloatMode.SmallDrag
   name: SmallDrag
-  href: api/Catalyst.Engine.ImmediateFloatMode.html#Catalyst_Engine_ImmediateFloatMode_SmallDrag
-  commentId: F:Catalyst.Engine.ImmediateFloatMode.SmallDrag
-  fullName: Catalyst.Engine.ImmediateFloatMode.SmallDrag
-  nameWithType: ImmediateFloatMode.SmallDrag
-- uid: Catalyst.Engine.ImmediateInteger
-  name: ImmediateInteger
-  href: api/Catalyst.Engine.ImmediateInteger.html
-  commentId: T:Catalyst.Engine.ImmediateInteger
-  fullName: Catalyst.Engine.ImmediateInteger
-  nameWithType: ImmediateInteger
-- uid: Catalyst.Engine.ImmediateInteger.#ctor
-  name: ImmediateInteger()
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger__ctor
-  commentId: M:Catalyst.Engine.ImmediateInteger.#ctor
-  fullName: Catalyst.Engine.ImmediateInteger.ImmediateInteger()
-  nameWithType: ImmediateInteger.ImmediateInteger()
-- uid: Catalyst.Engine.ImmediateInteger.#ctor(Catalyst.Engine.ImmediateIntegerMode)
-  name: ImmediateInteger(ImmediateIntegerMode)
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger__ctor_Catalyst_Engine_ImmediateIntegerMode_
-  commentId: M:Catalyst.Engine.ImmediateInteger.#ctor(Catalyst.Engine.ImmediateIntegerMode)
-  fullName: Catalyst.Engine.ImmediateInteger.ImmediateInteger(Catalyst.Engine.ImmediateIntegerMode)
-  nameWithType: ImmediateInteger.ImmediateInteger(ImmediateIntegerMode)
-- uid: Catalyst.Engine.ImmediateInteger.#ctor(Catalyst.Engine.ImmediateIntegerMode,System.Int32,System.Int32)
-  name: ImmediateInteger(ImmediateIntegerMode, Int32, Int32)
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger__ctor_Catalyst_Engine_ImmediateIntegerMode_System_Int32_System_Int32_
-  commentId: M:Catalyst.Engine.ImmediateInteger.#ctor(Catalyst.Engine.ImmediateIntegerMode,System.Int32,System.Int32)
-  fullName: Catalyst.Engine.ImmediateInteger.ImmediateInteger(Catalyst.Engine.ImmediateIntegerMode, System.Int32, System.Int32)
-  nameWithType: ImmediateInteger.ImmediateInteger(ImmediateIntegerMode, Int32, Int32)
-- uid: Catalyst.Engine.ImmediateInteger.#ctor(System.Int32,System.Int32)
-  name: ImmediateInteger(Int32, Int32)
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger__ctor_System_Int32_System_Int32_
-  commentId: M:Catalyst.Engine.ImmediateInteger.#ctor(System.Int32,System.Int32)
-  fullName: Catalyst.Engine.ImmediateInteger.ImmediateInteger(System.Int32, System.Int32)
-  nameWithType: ImmediateInteger.ImmediateInteger(Int32, Int32)
-- uid: Catalyst.Engine.ImmediateInteger.#ctor*
-  name: ImmediateInteger
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateInteger.#ctor
+  href: api/Catalyst.Engine.GuiFloatMode.html#Catalyst_Engine_GuiFloatMode_SmallDrag
+  commentId: F:Catalyst.Engine.GuiFloatMode.SmallDrag
+  fullName: Catalyst.Engine.GuiFloatMode.SmallDrag
+  nameWithType: GuiFloatMode.SmallDrag
+- uid: Catalyst.Engine.GuiInteger
+  name: GuiInteger
+  href: api/Catalyst.Engine.GuiInteger.html
+  commentId: T:Catalyst.Engine.GuiInteger
+  fullName: Catalyst.Engine.GuiInteger
+  nameWithType: GuiInteger
+- uid: Catalyst.Engine.GuiInteger.#ctor
+  name: GuiInteger()
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger__ctor
+  commentId: M:Catalyst.Engine.GuiInteger.#ctor
+  fullName: Catalyst.Engine.GuiInteger.GuiInteger()
+  nameWithType: GuiInteger.GuiInteger()
+- uid: Catalyst.Engine.GuiInteger.#ctor(Catalyst.Engine.GuiIntegerMode)
+  name: GuiInteger(GuiIntegerMode)
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger__ctor_Catalyst_Engine_GuiIntegerMode_
+  commentId: M:Catalyst.Engine.GuiInteger.#ctor(Catalyst.Engine.GuiIntegerMode)
+  fullName: Catalyst.Engine.GuiInteger.GuiInteger(Catalyst.Engine.GuiIntegerMode)
+  nameWithType: GuiInteger.GuiInteger(GuiIntegerMode)
+- uid: Catalyst.Engine.GuiInteger.#ctor(Catalyst.Engine.GuiIntegerMode,System.Int32,System.Int32)
+  name: GuiInteger(GuiIntegerMode, Int32, Int32)
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger__ctor_Catalyst_Engine_GuiIntegerMode_System_Int32_System_Int32_
+  commentId: M:Catalyst.Engine.GuiInteger.#ctor(Catalyst.Engine.GuiIntegerMode,System.Int32,System.Int32)
+  fullName: Catalyst.Engine.GuiInteger.GuiInteger(Catalyst.Engine.GuiIntegerMode, System.Int32, System.Int32)
+  nameWithType: GuiInteger.GuiInteger(GuiIntegerMode, Int32, Int32)
+- uid: Catalyst.Engine.GuiInteger.#ctor(System.Int32,System.Int32)
+  name: GuiInteger(Int32, Int32)
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger__ctor_System_Int32_System_Int32_
+  commentId: M:Catalyst.Engine.GuiInteger.#ctor(System.Int32,System.Int32)
+  fullName: Catalyst.Engine.GuiInteger.GuiInteger(System.Int32, System.Int32)
+  nameWithType: GuiInteger.GuiInteger(Int32, Int32)
+- uid: Catalyst.Engine.GuiInteger.#ctor*
+  name: GuiInteger
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger__ctor_
+  commentId: Overload:Catalyst.Engine.GuiInteger.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateInteger.ImmediateInteger
-  nameWithType: ImmediateInteger.ImmediateInteger
-- uid: Catalyst.Engine.ImmediateInteger.HasRange
+  fullName: Catalyst.Engine.GuiInteger.GuiInteger
+  nameWithType: GuiInteger.GuiInteger
+- uid: Catalyst.Engine.GuiInteger.HasRange
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_HasRange
-  commentId: P:Catalyst.Engine.ImmediateInteger.HasRange
-  fullName: Catalyst.Engine.ImmediateInteger.HasRange
-  nameWithType: ImmediateInteger.HasRange
-- uid: Catalyst.Engine.ImmediateInteger.HasRange*
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_HasRange
+  commentId: P:Catalyst.Engine.GuiInteger.HasRange
+  fullName: Catalyst.Engine.GuiInteger.HasRange
+  nameWithType: GuiInteger.HasRange
+- uid: Catalyst.Engine.GuiInteger.HasRange*
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_HasRange_
-  commentId: Overload:Catalyst.Engine.ImmediateInteger.HasRange
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_HasRange_
+  commentId: Overload:Catalyst.Engine.GuiInteger.HasRange
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateInteger.HasRange
-  nameWithType: ImmediateInteger.HasRange
-- uid: Catalyst.Engine.ImmediateInteger.Max
+  fullName: Catalyst.Engine.GuiInteger.HasRange
+  nameWithType: GuiInteger.HasRange
+- uid: Catalyst.Engine.GuiInteger.Max
   name: Max
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_Max
-  commentId: P:Catalyst.Engine.ImmediateInteger.Max
-  fullName: Catalyst.Engine.ImmediateInteger.Max
-  nameWithType: ImmediateInteger.Max
-- uid: Catalyst.Engine.ImmediateInteger.Max*
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_Max
+  commentId: P:Catalyst.Engine.GuiInteger.Max
+  fullName: Catalyst.Engine.GuiInteger.Max
+  nameWithType: GuiInteger.Max
+- uid: Catalyst.Engine.GuiInteger.Max*
   name: Max
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_Max_
-  commentId: Overload:Catalyst.Engine.ImmediateInteger.Max
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_Max_
+  commentId: Overload:Catalyst.Engine.GuiInteger.Max
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateInteger.Max
-  nameWithType: ImmediateInteger.Max
-- uid: Catalyst.Engine.ImmediateInteger.Min
+  fullName: Catalyst.Engine.GuiInteger.Max
+  nameWithType: GuiInteger.Max
+- uid: Catalyst.Engine.GuiInteger.Min
   name: Min
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_Min
-  commentId: P:Catalyst.Engine.ImmediateInteger.Min
-  fullName: Catalyst.Engine.ImmediateInteger.Min
-  nameWithType: ImmediateInteger.Min
-- uid: Catalyst.Engine.ImmediateInteger.Min*
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_Min
+  commentId: P:Catalyst.Engine.GuiInteger.Min
+  fullName: Catalyst.Engine.GuiInteger.Min
+  nameWithType: GuiInteger.Min
+- uid: Catalyst.Engine.GuiInteger.Min*
   name: Min
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_Min_
-  commentId: Overload:Catalyst.Engine.ImmediateInteger.Min
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_Min_
+  commentId: Overload:Catalyst.Engine.GuiInteger.Min
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateInteger.Min
-  nameWithType: ImmediateInteger.Min
-- uid: Catalyst.Engine.ImmediateInteger.Mode
+  fullName: Catalyst.Engine.GuiInteger.Min
+  nameWithType: GuiInteger.Min
+- uid: Catalyst.Engine.GuiInteger.Mode
   name: Mode
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_Mode
-  commentId: P:Catalyst.Engine.ImmediateInteger.Mode
-  fullName: Catalyst.Engine.ImmediateInteger.Mode
-  nameWithType: ImmediateInteger.Mode
-- uid: Catalyst.Engine.ImmediateInteger.Mode*
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_Mode
+  commentId: P:Catalyst.Engine.GuiInteger.Mode
+  fullName: Catalyst.Engine.GuiInteger.Mode
+  nameWithType: GuiInteger.Mode
+- uid: Catalyst.Engine.GuiInteger.Mode*
   name: Mode
-  href: api/Catalyst.Engine.ImmediateInteger.html#Catalyst_Engine_ImmediateInteger_Mode_
-  commentId: Overload:Catalyst.Engine.ImmediateInteger.Mode
+  href: api/Catalyst.Engine.GuiInteger.html#Catalyst_Engine_GuiInteger_Mode_
+  commentId: Overload:Catalyst.Engine.GuiInteger.Mode
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateInteger.Mode
-  nameWithType: ImmediateInteger.Mode
-- uid: Catalyst.Engine.ImmediateIntegerMode
-  name: ImmediateIntegerMode
-  href: api/Catalyst.Engine.ImmediateIntegerMode.html
-  commentId: T:Catalyst.Engine.ImmediateIntegerMode
-  fullName: Catalyst.Engine.ImmediateIntegerMode
-  nameWithType: ImmediateIntegerMode
-- uid: Catalyst.Engine.ImmediateIntegerMode.Default
+  fullName: Catalyst.Engine.GuiInteger.Mode
+  nameWithType: GuiInteger.Mode
+- uid: Catalyst.Engine.GuiIntegerMode
+  name: GuiIntegerMode
+  href: api/Catalyst.Engine.GuiIntegerMode.html
+  commentId: T:Catalyst.Engine.GuiIntegerMode
+  fullName: Catalyst.Engine.GuiIntegerMode
+  nameWithType: GuiIntegerMode
+- uid: Catalyst.Engine.GuiIntegerMode.Default
   name: Default
-  href: api/Catalyst.Engine.ImmediateIntegerMode.html#Catalyst_Engine_ImmediateIntegerMode_Default
-  commentId: F:Catalyst.Engine.ImmediateIntegerMode.Default
-  fullName: Catalyst.Engine.ImmediateIntegerMode.Default
-  nameWithType: ImmediateIntegerMode.Default
-- uid: Catalyst.Engine.ImmediateIntegerMode.Drag
+  href: api/Catalyst.Engine.GuiIntegerMode.html#Catalyst_Engine_GuiIntegerMode_Default
+  commentId: F:Catalyst.Engine.GuiIntegerMode.Default
+  fullName: Catalyst.Engine.GuiIntegerMode.Default
+  nameWithType: GuiIntegerMode.Default
+- uid: Catalyst.Engine.GuiIntegerMode.Drag
   name: Drag
-  href: api/Catalyst.Engine.ImmediateIntegerMode.html#Catalyst_Engine_ImmediateIntegerMode_Drag
-  commentId: F:Catalyst.Engine.ImmediateIntegerMode.Drag
-  fullName: Catalyst.Engine.ImmediateIntegerMode.Drag
-  nameWithType: ImmediateIntegerMode.Drag
-- uid: Catalyst.Engine.ImmediateIntegerMode.Percent
+  href: api/Catalyst.Engine.GuiIntegerMode.html#Catalyst_Engine_GuiIntegerMode_Drag
+  commentId: F:Catalyst.Engine.GuiIntegerMode.Drag
+  fullName: Catalyst.Engine.GuiIntegerMode.Drag
+  nameWithType: GuiIntegerMode.Drag
+- uid: Catalyst.Engine.GuiIntegerMode.Percent
   name: Percent
-  href: api/Catalyst.Engine.ImmediateIntegerMode.html#Catalyst_Engine_ImmediateIntegerMode_Percent
-  commentId: F:Catalyst.Engine.ImmediateIntegerMode.Percent
-  fullName: Catalyst.Engine.ImmediateIntegerMode.Percent
-  nameWithType: ImmediateIntegerMode.Percent
-- uid: Catalyst.Engine.ImmediateIntegerMode.Slider
+  href: api/Catalyst.Engine.GuiIntegerMode.html#Catalyst_Engine_GuiIntegerMode_Percent
+  commentId: F:Catalyst.Engine.GuiIntegerMode.Percent
+  fullName: Catalyst.Engine.GuiIntegerMode.Percent
+  nameWithType: GuiIntegerMode.Percent
+- uid: Catalyst.Engine.GuiIntegerMode.Slider
   name: Slider
-  href: api/Catalyst.Engine.ImmediateIntegerMode.html#Catalyst_Engine_ImmediateIntegerMode_Slider
-  commentId: F:Catalyst.Engine.ImmediateIntegerMode.Slider
-  fullName: Catalyst.Engine.ImmediateIntegerMode.Slider
-  nameWithType: ImmediateIntegerMode.Slider
-- uid: Catalyst.Engine.ImmediateLabel
-  name: ImmediateLabel
-  href: api/Catalyst.Engine.ImmediateLabel.html
-  commentId: T:Catalyst.Engine.ImmediateLabel
-  fullName: Catalyst.Engine.ImmediateLabel
-  nameWithType: ImmediateLabel
-- uid: Catalyst.Engine.ImmediateLabel.#ctor
-  name: ImmediateLabel()
-  href: api/Catalyst.Engine.ImmediateLabel.html#Catalyst_Engine_ImmediateLabel__ctor
-  commentId: M:Catalyst.Engine.ImmediateLabel.#ctor
-  fullName: Catalyst.Engine.ImmediateLabel.ImmediateLabel()
-  nameWithType: ImmediateLabel.ImmediateLabel()
-- uid: Catalyst.Engine.ImmediateLabel.#ctor(System.String)
-  name: ImmediateLabel(String)
-  href: api/Catalyst.Engine.ImmediateLabel.html#Catalyst_Engine_ImmediateLabel__ctor_System_String_
-  commentId: M:Catalyst.Engine.ImmediateLabel.#ctor(System.String)
-  fullName: Catalyst.Engine.ImmediateLabel.ImmediateLabel(System.String)
-  nameWithType: ImmediateLabel.ImmediateLabel(String)
-- uid: Catalyst.Engine.ImmediateLabel.#ctor*
-  name: ImmediateLabel
-  href: api/Catalyst.Engine.ImmediateLabel.html#Catalyst_Engine_ImmediateLabel__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateLabel.#ctor
+  href: api/Catalyst.Engine.GuiIntegerMode.html#Catalyst_Engine_GuiIntegerMode_Slider
+  commentId: F:Catalyst.Engine.GuiIntegerMode.Slider
+  fullName: Catalyst.Engine.GuiIntegerMode.Slider
+  nameWithType: GuiIntegerMode.Slider
+- uid: Catalyst.Engine.GuiLabel
+  name: GuiLabel
+  href: api/Catalyst.Engine.GuiLabel.html
+  commentId: T:Catalyst.Engine.GuiLabel
+  fullName: Catalyst.Engine.GuiLabel
+  nameWithType: GuiLabel
+- uid: Catalyst.Engine.GuiLabel.#ctor
+  name: GuiLabel()
+  href: api/Catalyst.Engine.GuiLabel.html#Catalyst_Engine_GuiLabel__ctor
+  commentId: M:Catalyst.Engine.GuiLabel.#ctor
+  fullName: Catalyst.Engine.GuiLabel.GuiLabel()
+  nameWithType: GuiLabel.GuiLabel()
+- uid: Catalyst.Engine.GuiLabel.#ctor(System.String)
+  name: GuiLabel(String)
+  href: api/Catalyst.Engine.GuiLabel.html#Catalyst_Engine_GuiLabel__ctor_System_String_
+  commentId: M:Catalyst.Engine.GuiLabel.#ctor(System.String)
+  fullName: Catalyst.Engine.GuiLabel.GuiLabel(System.String)
+  nameWithType: GuiLabel.GuiLabel(String)
+- uid: Catalyst.Engine.GuiLabel.#ctor*
+  name: GuiLabel
+  href: api/Catalyst.Engine.GuiLabel.html#Catalyst_Engine_GuiLabel__ctor_
+  commentId: Overload:Catalyst.Engine.GuiLabel.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateLabel.ImmediateLabel
-  nameWithType: ImmediateLabel.ImmediateLabel
-- uid: Catalyst.Engine.ImmediateLabel.Label
+  fullName: Catalyst.Engine.GuiLabel.GuiLabel
+  nameWithType: GuiLabel.GuiLabel
+- uid: Catalyst.Engine.GuiLabel.Label
   name: Label
-  href: api/Catalyst.Engine.ImmediateLabel.html#Catalyst_Engine_ImmediateLabel_Label
-  commentId: P:Catalyst.Engine.ImmediateLabel.Label
-  fullName: Catalyst.Engine.ImmediateLabel.Label
-  nameWithType: ImmediateLabel.Label
-- uid: Catalyst.Engine.ImmediateLabel.Label*
+  href: api/Catalyst.Engine.GuiLabel.html#Catalyst_Engine_GuiLabel_Label
+  commentId: P:Catalyst.Engine.GuiLabel.Label
+  fullName: Catalyst.Engine.GuiLabel.Label
+  nameWithType: GuiLabel.Label
+- uid: Catalyst.Engine.GuiLabel.Label*
   name: Label
-  href: api/Catalyst.Engine.ImmediateLabel.html#Catalyst_Engine_ImmediateLabel_Label_
-  commentId: Overload:Catalyst.Engine.ImmediateLabel.Label
+  href: api/Catalyst.Engine.GuiLabel.html#Catalyst_Engine_GuiLabel_Label_
+  commentId: Overload:Catalyst.Engine.GuiLabel.Label
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateLabel.Label
-  nameWithType: ImmediateLabel.Label
-- uid: Catalyst.Engine.ImmediateString
-  name: ImmediateString
-  href: api/Catalyst.Engine.ImmediateString.html
-  commentId: T:Catalyst.Engine.ImmediateString
-  fullName: Catalyst.Engine.ImmediateString
-  nameWithType: ImmediateString
-- uid: Catalyst.Engine.ImmediateString.#ctor
-  name: ImmediateString()
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString__ctor
-  commentId: M:Catalyst.Engine.ImmediateString.#ctor
-  fullName: Catalyst.Engine.ImmediateString.ImmediateString()
-  nameWithType: ImmediateString.ImmediateString()
-- uid: Catalyst.Engine.ImmediateString.#ctor(System.String)
-  name: ImmediateString(String)
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString__ctor_System_String_
-  commentId: M:Catalyst.Engine.ImmediateString.#ctor(System.String)
-  fullName: Catalyst.Engine.ImmediateString.ImmediateString(System.String)
-  nameWithType: ImmediateString.ImmediateString(String)
-- uid: Catalyst.Engine.ImmediateString.#ctor*
-  name: ImmediateString
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateString.#ctor
+  fullName: Catalyst.Engine.GuiLabel.Label
+  nameWithType: GuiLabel.Label
+- uid: Catalyst.Engine.GuiString
+  name: GuiString
+  href: api/Catalyst.Engine.GuiString.html
+  commentId: T:Catalyst.Engine.GuiString
+  fullName: Catalyst.Engine.GuiString
+  nameWithType: GuiString
+- uid: Catalyst.Engine.GuiString.#ctor
+  name: GuiString()
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString__ctor
+  commentId: M:Catalyst.Engine.GuiString.#ctor
+  fullName: Catalyst.Engine.GuiString.GuiString()
+  nameWithType: GuiString.GuiString()
+- uid: Catalyst.Engine.GuiString.#ctor(System.String)
+  name: GuiString(String)
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString__ctor_System_String_
+  commentId: M:Catalyst.Engine.GuiString.#ctor(System.String)
+  fullName: Catalyst.Engine.GuiString.GuiString(System.String)
+  nameWithType: GuiString.GuiString(String)
+- uid: Catalyst.Engine.GuiString.#ctor*
+  name: GuiString
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString__ctor_
+  commentId: Overload:Catalyst.Engine.GuiString.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateString.ImmediateString
-  nameWithType: ImmediateString.ImmediateString
-- uid: Catalyst.Engine.ImmediateString.HasHint
+  fullName: Catalyst.Engine.GuiString.GuiString
+  nameWithType: GuiString.GuiString
+- uid: Catalyst.Engine.GuiString.HasHint
   name: HasHint
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString_HasHint
-  commentId: P:Catalyst.Engine.ImmediateString.HasHint
-  fullName: Catalyst.Engine.ImmediateString.HasHint
-  nameWithType: ImmediateString.HasHint
-- uid: Catalyst.Engine.ImmediateString.HasHint*
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString_HasHint
+  commentId: P:Catalyst.Engine.GuiString.HasHint
+  fullName: Catalyst.Engine.GuiString.HasHint
+  nameWithType: GuiString.HasHint
+- uid: Catalyst.Engine.GuiString.HasHint*
   name: HasHint
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString_HasHint_
-  commentId: Overload:Catalyst.Engine.ImmediateString.HasHint
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString_HasHint_
+  commentId: Overload:Catalyst.Engine.GuiString.HasHint
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateString.HasHint
-  nameWithType: ImmediateString.HasHint
-- uid: Catalyst.Engine.ImmediateString.Hint
+  fullName: Catalyst.Engine.GuiString.HasHint
+  nameWithType: GuiString.HasHint
+- uid: Catalyst.Engine.GuiString.Hint
   name: Hint
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString_Hint
-  commentId: P:Catalyst.Engine.ImmediateString.Hint
-  fullName: Catalyst.Engine.ImmediateString.Hint
-  nameWithType: ImmediateString.Hint
-- uid: Catalyst.Engine.ImmediateString.Hint*
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString_Hint
+  commentId: P:Catalyst.Engine.GuiString.Hint
+  fullName: Catalyst.Engine.GuiString.Hint
+  nameWithType: GuiString.Hint
+- uid: Catalyst.Engine.GuiString.Hint*
   name: Hint
-  href: api/Catalyst.Engine.ImmediateString.html#Catalyst_Engine_ImmediateString_Hint_
-  commentId: Overload:Catalyst.Engine.ImmediateString.Hint
+  href: api/Catalyst.Engine.GuiString.html#Catalyst_Engine_GuiString_Hint_
+  commentId: Overload:Catalyst.Engine.GuiString.Hint
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateString.Hint
-  nameWithType: ImmediateString.Hint
-- uid: Catalyst.Engine.ImmediateVector2
-  name: ImmediateVector2
-  href: api/Catalyst.Engine.ImmediateVector2.html
-  commentId: T:Catalyst.Engine.ImmediateVector2
-  fullName: Catalyst.Engine.ImmediateVector2
-  nameWithType: ImmediateVector2
-- uid: Catalyst.Engine.ImmediateVector2.#ctor
-  name: ImmediateVector2()
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2__ctor
-  commentId: M:Catalyst.Engine.ImmediateVector2.#ctor
-  fullName: Catalyst.Engine.ImmediateVector2.ImmediateVector2()
-  nameWithType: ImmediateVector2.ImmediateVector2()
-- uid: Catalyst.Engine.ImmediateVector2.#ctor(Catalyst.Engine.Utilities.Vector2,Catalyst.Engine.Utilities.Vector2)
-  name: ImmediateVector2(Vector2, Vector2)
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2__ctor_Catalyst_Engine_Utilities_Vector2_Catalyst_Engine_Utilities_Vector2_
-  commentId: M:Catalyst.Engine.ImmediateVector2.#ctor(Catalyst.Engine.Utilities.Vector2,Catalyst.Engine.Utilities.Vector2)
-  fullName: Catalyst.Engine.ImmediateVector2.ImmediateVector2(Catalyst.Engine.Utilities.Vector2, Catalyst.Engine.Utilities.Vector2)
-  nameWithType: ImmediateVector2.ImmediateVector2(Vector2, Vector2)
-- uid: Catalyst.Engine.ImmediateVector2.#ctor*
-  name: ImmediateVector2
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateVector2.#ctor
+  fullName: Catalyst.Engine.GuiString.Hint
+  nameWithType: GuiString.Hint
+- uid: Catalyst.Engine.GuiVector2
+  name: GuiVector2
+  href: api/Catalyst.Engine.GuiVector2.html
+  commentId: T:Catalyst.Engine.GuiVector2
+  fullName: Catalyst.Engine.GuiVector2
+  nameWithType: GuiVector2
+- uid: Catalyst.Engine.GuiVector2.#ctor
+  name: GuiVector2()
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2__ctor
+  commentId: M:Catalyst.Engine.GuiVector2.#ctor
+  fullName: Catalyst.Engine.GuiVector2.GuiVector2()
+  nameWithType: GuiVector2.GuiVector2()
+- uid: Catalyst.Engine.GuiVector2.#ctor(Catalyst.Engine.Utilities.Vector2,Catalyst.Engine.Utilities.Vector2)
+  name: GuiVector2(Vector2, Vector2)
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2__ctor_Catalyst_Engine_Utilities_Vector2_Catalyst_Engine_Utilities_Vector2_
+  commentId: M:Catalyst.Engine.GuiVector2.#ctor(Catalyst.Engine.Utilities.Vector2,Catalyst.Engine.Utilities.Vector2)
+  fullName: Catalyst.Engine.GuiVector2.GuiVector2(Catalyst.Engine.Utilities.Vector2, Catalyst.Engine.Utilities.Vector2)
+  nameWithType: GuiVector2.GuiVector2(Vector2, Vector2)
+- uid: Catalyst.Engine.GuiVector2.#ctor*
+  name: GuiVector2
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2__ctor_
+  commentId: Overload:Catalyst.Engine.GuiVector2.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector2.ImmediateVector2
-  nameWithType: ImmediateVector2.ImmediateVector2
-- uid: Catalyst.Engine.ImmediateVector2.HasRange
+  fullName: Catalyst.Engine.GuiVector2.GuiVector2
+  nameWithType: GuiVector2.GuiVector2
+- uid: Catalyst.Engine.GuiVector2.HasRange
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2_HasRange
-  commentId: P:Catalyst.Engine.ImmediateVector2.HasRange
-  fullName: Catalyst.Engine.ImmediateVector2.HasRange
-  nameWithType: ImmediateVector2.HasRange
-- uid: Catalyst.Engine.ImmediateVector2.HasRange*
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2_HasRange
+  commentId: P:Catalyst.Engine.GuiVector2.HasRange
+  fullName: Catalyst.Engine.GuiVector2.HasRange
+  nameWithType: GuiVector2.HasRange
+- uid: Catalyst.Engine.GuiVector2.HasRange*
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2_HasRange_
-  commentId: Overload:Catalyst.Engine.ImmediateVector2.HasRange
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2_HasRange_
+  commentId: Overload:Catalyst.Engine.GuiVector2.HasRange
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector2.HasRange
-  nameWithType: ImmediateVector2.HasRange
-- uid: Catalyst.Engine.ImmediateVector2.Max
+  fullName: Catalyst.Engine.GuiVector2.HasRange
+  nameWithType: GuiVector2.HasRange
+- uid: Catalyst.Engine.GuiVector2.Max
   name: Max
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2_Max
-  commentId: P:Catalyst.Engine.ImmediateVector2.Max
-  fullName: Catalyst.Engine.ImmediateVector2.Max
-  nameWithType: ImmediateVector2.Max
-- uid: Catalyst.Engine.ImmediateVector2.Max*
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2_Max
+  commentId: P:Catalyst.Engine.GuiVector2.Max
+  fullName: Catalyst.Engine.GuiVector2.Max
+  nameWithType: GuiVector2.Max
+- uid: Catalyst.Engine.GuiVector2.Max*
   name: Max
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2_Max_
-  commentId: Overload:Catalyst.Engine.ImmediateVector2.Max
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2_Max_
+  commentId: Overload:Catalyst.Engine.GuiVector2.Max
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector2.Max
-  nameWithType: ImmediateVector2.Max
-- uid: Catalyst.Engine.ImmediateVector2.Min
+  fullName: Catalyst.Engine.GuiVector2.Max
+  nameWithType: GuiVector2.Max
+- uid: Catalyst.Engine.GuiVector2.Min
   name: Min
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2_Min
-  commentId: P:Catalyst.Engine.ImmediateVector2.Min
-  fullName: Catalyst.Engine.ImmediateVector2.Min
-  nameWithType: ImmediateVector2.Min
-- uid: Catalyst.Engine.ImmediateVector2.Min*
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2_Min
+  commentId: P:Catalyst.Engine.GuiVector2.Min
+  fullName: Catalyst.Engine.GuiVector2.Min
+  nameWithType: GuiVector2.Min
+- uid: Catalyst.Engine.GuiVector2.Min*
   name: Min
-  href: api/Catalyst.Engine.ImmediateVector2.html#Catalyst_Engine_ImmediateVector2_Min_
-  commentId: Overload:Catalyst.Engine.ImmediateVector2.Min
+  href: api/Catalyst.Engine.GuiVector2.html#Catalyst_Engine_GuiVector2_Min_
+  commentId: Overload:Catalyst.Engine.GuiVector2.Min
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector2.Min
-  nameWithType: ImmediateVector2.Min
-- uid: Catalyst.Engine.ImmediateVector3
-  name: ImmediateVector3
-  href: api/Catalyst.Engine.ImmediateVector3.html
-  commentId: T:Catalyst.Engine.ImmediateVector3
-  fullName: Catalyst.Engine.ImmediateVector3
-  nameWithType: ImmediateVector3
-- uid: Catalyst.Engine.ImmediateVector3.#ctor
-  name: ImmediateVector3()
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3__ctor
-  commentId: M:Catalyst.Engine.ImmediateVector3.#ctor
-  fullName: Catalyst.Engine.ImmediateVector3.ImmediateVector3()
-  nameWithType: ImmediateVector3.ImmediateVector3()
-- uid: Catalyst.Engine.ImmediateVector3.#ctor(Catalyst.Engine.Utilities.Vector3,Catalyst.Engine.Utilities.Vector3)
-  name: ImmediateVector3(Vector3, Vector3)
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3__ctor_Catalyst_Engine_Utilities_Vector3_Catalyst_Engine_Utilities_Vector3_
-  commentId: M:Catalyst.Engine.ImmediateVector3.#ctor(Catalyst.Engine.Utilities.Vector3,Catalyst.Engine.Utilities.Vector3)
-  fullName: Catalyst.Engine.ImmediateVector3.ImmediateVector3(Catalyst.Engine.Utilities.Vector3, Catalyst.Engine.Utilities.Vector3)
-  nameWithType: ImmediateVector3.ImmediateVector3(Vector3, Vector3)
-- uid: Catalyst.Engine.ImmediateVector3.#ctor*
-  name: ImmediateVector3
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateVector3.#ctor
+  fullName: Catalyst.Engine.GuiVector2.Min
+  nameWithType: GuiVector2.Min
+- uid: Catalyst.Engine.GuiVector3
+  name: GuiVector3
+  href: api/Catalyst.Engine.GuiVector3.html
+  commentId: T:Catalyst.Engine.GuiVector3
+  fullName: Catalyst.Engine.GuiVector3
+  nameWithType: GuiVector3
+- uid: Catalyst.Engine.GuiVector3.#ctor
+  name: GuiVector3()
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3__ctor
+  commentId: M:Catalyst.Engine.GuiVector3.#ctor
+  fullName: Catalyst.Engine.GuiVector3.GuiVector3()
+  nameWithType: GuiVector3.GuiVector3()
+- uid: Catalyst.Engine.GuiVector3.#ctor(Catalyst.Engine.Utilities.Vector3,Catalyst.Engine.Utilities.Vector3)
+  name: GuiVector3(Vector3, Vector3)
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3__ctor_Catalyst_Engine_Utilities_Vector3_Catalyst_Engine_Utilities_Vector3_
+  commentId: M:Catalyst.Engine.GuiVector3.#ctor(Catalyst.Engine.Utilities.Vector3,Catalyst.Engine.Utilities.Vector3)
+  fullName: Catalyst.Engine.GuiVector3.GuiVector3(Catalyst.Engine.Utilities.Vector3, Catalyst.Engine.Utilities.Vector3)
+  nameWithType: GuiVector3.GuiVector3(Vector3, Vector3)
+- uid: Catalyst.Engine.GuiVector3.#ctor*
+  name: GuiVector3
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3__ctor_
+  commentId: Overload:Catalyst.Engine.GuiVector3.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector3.ImmediateVector3
-  nameWithType: ImmediateVector3.ImmediateVector3
-- uid: Catalyst.Engine.ImmediateVector3.HasRange
+  fullName: Catalyst.Engine.GuiVector3.GuiVector3
+  nameWithType: GuiVector3.GuiVector3
+- uid: Catalyst.Engine.GuiVector3.HasRange
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3_HasRange
-  commentId: P:Catalyst.Engine.ImmediateVector3.HasRange
-  fullName: Catalyst.Engine.ImmediateVector3.HasRange
-  nameWithType: ImmediateVector3.HasRange
-- uid: Catalyst.Engine.ImmediateVector3.HasRange*
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3_HasRange
+  commentId: P:Catalyst.Engine.GuiVector3.HasRange
+  fullName: Catalyst.Engine.GuiVector3.HasRange
+  nameWithType: GuiVector3.HasRange
+- uid: Catalyst.Engine.GuiVector3.HasRange*
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3_HasRange_
-  commentId: Overload:Catalyst.Engine.ImmediateVector3.HasRange
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3_HasRange_
+  commentId: Overload:Catalyst.Engine.GuiVector3.HasRange
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector3.HasRange
-  nameWithType: ImmediateVector3.HasRange
-- uid: Catalyst.Engine.ImmediateVector3.Max
+  fullName: Catalyst.Engine.GuiVector3.HasRange
+  nameWithType: GuiVector3.HasRange
+- uid: Catalyst.Engine.GuiVector3.Max
   name: Max
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3_Max
-  commentId: P:Catalyst.Engine.ImmediateVector3.Max
-  fullName: Catalyst.Engine.ImmediateVector3.Max
-  nameWithType: ImmediateVector3.Max
-- uid: Catalyst.Engine.ImmediateVector3.Max*
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3_Max
+  commentId: P:Catalyst.Engine.GuiVector3.Max
+  fullName: Catalyst.Engine.GuiVector3.Max
+  nameWithType: GuiVector3.Max
+- uid: Catalyst.Engine.GuiVector3.Max*
   name: Max
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3_Max_
-  commentId: Overload:Catalyst.Engine.ImmediateVector3.Max
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3_Max_
+  commentId: Overload:Catalyst.Engine.GuiVector3.Max
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector3.Max
-  nameWithType: ImmediateVector3.Max
-- uid: Catalyst.Engine.ImmediateVector3.Min
+  fullName: Catalyst.Engine.GuiVector3.Max
+  nameWithType: GuiVector3.Max
+- uid: Catalyst.Engine.GuiVector3.Min
   name: Min
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3_Min
-  commentId: P:Catalyst.Engine.ImmediateVector3.Min
-  fullName: Catalyst.Engine.ImmediateVector3.Min
-  nameWithType: ImmediateVector3.Min
-- uid: Catalyst.Engine.ImmediateVector3.Min*
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3_Min
+  commentId: P:Catalyst.Engine.GuiVector3.Min
+  fullName: Catalyst.Engine.GuiVector3.Min
+  nameWithType: GuiVector3.Min
+- uid: Catalyst.Engine.GuiVector3.Min*
   name: Min
-  href: api/Catalyst.Engine.ImmediateVector3.html#Catalyst_Engine_ImmediateVector3_Min_
-  commentId: Overload:Catalyst.Engine.ImmediateVector3.Min
+  href: api/Catalyst.Engine.GuiVector3.html#Catalyst_Engine_GuiVector3_Min_
+  commentId: Overload:Catalyst.Engine.GuiVector3.Min
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector3.Min
-  nameWithType: ImmediateVector3.Min
-- uid: Catalyst.Engine.ImmediateVector4
-  name: ImmediateVector4
-  href: api/Catalyst.Engine.ImmediateVector4.html
-  commentId: T:Catalyst.Engine.ImmediateVector4
-  fullName: Catalyst.Engine.ImmediateVector4
-  nameWithType: ImmediateVector4
-- uid: Catalyst.Engine.ImmediateVector4.#ctor
-  name: ImmediateVector4()
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4__ctor
-  commentId: M:Catalyst.Engine.ImmediateVector4.#ctor
-  fullName: Catalyst.Engine.ImmediateVector4.ImmediateVector4()
-  nameWithType: ImmediateVector4.ImmediateVector4()
-- uid: Catalyst.Engine.ImmediateVector4.#ctor(Catalyst.Engine.Utilities.Vector4,Catalyst.Engine.Utilities.Vector4)
-  name: ImmediateVector4(Vector4, Vector4)
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4__ctor_Catalyst_Engine_Utilities_Vector4_Catalyst_Engine_Utilities_Vector4_
-  commentId: M:Catalyst.Engine.ImmediateVector4.#ctor(Catalyst.Engine.Utilities.Vector4,Catalyst.Engine.Utilities.Vector4)
-  fullName: Catalyst.Engine.ImmediateVector4.ImmediateVector4(Catalyst.Engine.Utilities.Vector4, Catalyst.Engine.Utilities.Vector4)
-  nameWithType: ImmediateVector4.ImmediateVector4(Vector4, Vector4)
-- uid: Catalyst.Engine.ImmediateVector4.#ctor*
-  name: ImmediateVector4
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4__ctor_
-  commentId: Overload:Catalyst.Engine.ImmediateVector4.#ctor
+  fullName: Catalyst.Engine.GuiVector3.Min
+  nameWithType: GuiVector3.Min
+- uid: Catalyst.Engine.GuiVector4
+  name: GuiVector4
+  href: api/Catalyst.Engine.GuiVector4.html
+  commentId: T:Catalyst.Engine.GuiVector4
+  fullName: Catalyst.Engine.GuiVector4
+  nameWithType: GuiVector4
+- uid: Catalyst.Engine.GuiVector4.#ctor
+  name: GuiVector4()
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4__ctor
+  commentId: M:Catalyst.Engine.GuiVector4.#ctor
+  fullName: Catalyst.Engine.GuiVector4.GuiVector4()
+  nameWithType: GuiVector4.GuiVector4()
+- uid: Catalyst.Engine.GuiVector4.#ctor(Catalyst.Engine.Utilities.Vector4,Catalyst.Engine.Utilities.Vector4)
+  name: GuiVector4(Vector4, Vector4)
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4__ctor_Catalyst_Engine_Utilities_Vector4_Catalyst_Engine_Utilities_Vector4_
+  commentId: M:Catalyst.Engine.GuiVector4.#ctor(Catalyst.Engine.Utilities.Vector4,Catalyst.Engine.Utilities.Vector4)
+  fullName: Catalyst.Engine.GuiVector4.GuiVector4(Catalyst.Engine.Utilities.Vector4, Catalyst.Engine.Utilities.Vector4)
+  nameWithType: GuiVector4.GuiVector4(Vector4, Vector4)
+- uid: Catalyst.Engine.GuiVector4.#ctor*
+  name: GuiVector4
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4__ctor_
+  commentId: Overload:Catalyst.Engine.GuiVector4.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector4.ImmediateVector4
-  nameWithType: ImmediateVector4.ImmediateVector4
-- uid: Catalyst.Engine.ImmediateVector4.HasRange
+  fullName: Catalyst.Engine.GuiVector4.GuiVector4
+  nameWithType: GuiVector4.GuiVector4
+- uid: Catalyst.Engine.GuiVector4.HasRange
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4_HasRange
-  commentId: P:Catalyst.Engine.ImmediateVector4.HasRange
-  fullName: Catalyst.Engine.ImmediateVector4.HasRange
-  nameWithType: ImmediateVector4.HasRange
-- uid: Catalyst.Engine.ImmediateVector4.HasRange*
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4_HasRange
+  commentId: P:Catalyst.Engine.GuiVector4.HasRange
+  fullName: Catalyst.Engine.GuiVector4.HasRange
+  nameWithType: GuiVector4.HasRange
+- uid: Catalyst.Engine.GuiVector4.HasRange*
   name: HasRange
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4_HasRange_
-  commentId: Overload:Catalyst.Engine.ImmediateVector4.HasRange
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4_HasRange_
+  commentId: Overload:Catalyst.Engine.GuiVector4.HasRange
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector4.HasRange
-  nameWithType: ImmediateVector4.HasRange
-- uid: Catalyst.Engine.ImmediateVector4.Max
+  fullName: Catalyst.Engine.GuiVector4.HasRange
+  nameWithType: GuiVector4.HasRange
+- uid: Catalyst.Engine.GuiVector4.Max
   name: Max
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4_Max
-  commentId: P:Catalyst.Engine.ImmediateVector4.Max
-  fullName: Catalyst.Engine.ImmediateVector4.Max
-  nameWithType: ImmediateVector4.Max
-- uid: Catalyst.Engine.ImmediateVector4.Max*
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4_Max
+  commentId: P:Catalyst.Engine.GuiVector4.Max
+  fullName: Catalyst.Engine.GuiVector4.Max
+  nameWithType: GuiVector4.Max
+- uid: Catalyst.Engine.GuiVector4.Max*
   name: Max
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4_Max_
-  commentId: Overload:Catalyst.Engine.ImmediateVector4.Max
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4_Max_
+  commentId: Overload:Catalyst.Engine.GuiVector4.Max
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector4.Max
-  nameWithType: ImmediateVector4.Max
-- uid: Catalyst.Engine.ImmediateVector4.Min
+  fullName: Catalyst.Engine.GuiVector4.Max
+  nameWithType: GuiVector4.Max
+- uid: Catalyst.Engine.GuiVector4.Min
   name: Min
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4_Min
-  commentId: P:Catalyst.Engine.ImmediateVector4.Min
-  fullName: Catalyst.Engine.ImmediateVector4.Min
-  nameWithType: ImmediateVector4.Min
-- uid: Catalyst.Engine.ImmediateVector4.Min*
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4_Min
+  commentId: P:Catalyst.Engine.GuiVector4.Min
+  fullName: Catalyst.Engine.GuiVector4.Min
+  nameWithType: GuiVector4.Min
+- uid: Catalyst.Engine.GuiVector4.Min*
   name: Min
-  href: api/Catalyst.Engine.ImmediateVector4.html#Catalyst_Engine_ImmediateVector4_Min_
-  commentId: Overload:Catalyst.Engine.ImmediateVector4.Min
+  href: api/Catalyst.Engine.GuiVector4.html#Catalyst_Engine_GuiVector4_Min_
+  commentId: Overload:Catalyst.Engine.GuiVector4.Min
   isSpec: "True"
-  fullName: Catalyst.Engine.ImmediateVector4.Min
-  nameWithType: ImmediateVector4.Min
+  fullName: Catalyst.Engine.GuiVector4.Min
+  nameWithType: GuiVector4.Min
 - uid: Catalyst.Engine.Input
   name: Catalyst.Engine.Input
   href: api/Catalyst.Engine.Input.html

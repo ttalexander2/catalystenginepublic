@@ -213,7 +213,7 @@ namespace CatalystEditor
 
         }
 
-        public static TextureAtlas AtlasFromBinary(string atlas_file, string meta_file)
+        public static Atlas AtlasFromBinary(string atlas_file, string meta_file)
         {
             if (!File.Exists(atlas_file))
             {
@@ -225,7 +225,7 @@ namespace CatalystEditor
                 throw new TexturePackerException(String.Format("Cannot read. Atlas meta file {0} does not exist!", meta_file));
             }
 
-            TextureAtlas atlas = new TextureAtlas(atlas_file);
+            Atlas atlas = new Atlas(atlas_file);
             atlas.LoadContent();
 
             using (BinaryReader reader = new BinaryReader(new FileStream(meta_file, FileMode.Open)))
@@ -239,7 +239,7 @@ namespace CatalystEditor
                     int w = reader.ReadInt32();
                     int h = reader.ReadInt32();
                     bool rotate = reader.ReadBoolean();
-                    MTexture t = new MTexture(count, new Catalyst.Engine.Utilities.Rectangle(x, y, w, h), tag, rotate, atlas);
+                    Catalyst.Engine.Rendering.PackedTexture t = new Catalyst.Engine.Rendering.PackedTexture(count, tag, atlas, new Catalyst.Engine.Utilities.Rectangle(x, y, w, h), rotate);
                     atlas.Textures.Add(count, t);
                     count++;
                 }

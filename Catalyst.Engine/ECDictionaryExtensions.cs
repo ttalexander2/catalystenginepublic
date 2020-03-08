@@ -8,9 +8,9 @@ namespace Catalyst.Engine
 {
     public static class ECDictionaryExtensions
     {
-        public static Dictionary<Entity, AComponent> Filter<A>(this Dictionary<Entity, AComponent> components) where A : AComponent
+        public static Dictionary<Entity, Component> Filter<A>(this Dictionary<Entity, Component> components) where A : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>())
@@ -22,9 +22,9 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<Entity, AComponent> Filter<A, B>(this Dictionary<Entity, AComponent> components) where A : AComponent where B : AComponent
+        public static Dictionary<Entity, Component> Filter<A, B>(this Dictionary<Entity, Component> components) where A : Component where B : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>() || !entity.HasComponent<B>())
@@ -36,9 +36,9 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<Entity, AComponent> Filter<A, B, C>(this Dictionary<Entity, AComponent> components) where A : AComponent where B : AComponent where C  : AComponent
+        public static Dictionary<Entity, Component> Filter<A, B, C>(this Dictionary<Entity, Component> components) where A : Component where B : Component where C  : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>() || !entity.HasComponent<B>() || !entity.HasComponent<C>())
@@ -50,9 +50,9 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<Entity, AComponent> Filter<A, B, C, D>(this Dictionary<Entity, AComponent> components) where A : AComponent where B : AComponent where C : AComponent where D : AComponent
+        public static Dictionary<Entity, Component> Filter<A, B, C, D>(this Dictionary<Entity, Component> components) where A : Component where B : Component where C : Component where D : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>() || !entity.HasComponent<B>() || !entity.HasComponent<C>() || !entity.HasComponent<D>())
@@ -64,9 +64,9 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<Entity, AComponent> Filter<A, B, C, D, E>(this Dictionary<Entity, AComponent> components) where A : AComponent where B : AComponent where C : AComponent where D : AComponent where E : AComponent
+        public static Dictionary<Entity, Component> Filter<A, B, C, D, E>(this Dictionary<Entity, Component> components) where A : Component where B : Component where C : Component where D : Component where E : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>() || !entity.HasComponent<B>() || !entity.HasComponent<C>() || !entity.HasComponent<D>() || !entity.HasComponent<E>())
@@ -78,9 +78,9 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<Entity, AComponent> Filter<A, B, C, D, E, F>(this Dictionary<Entity, AComponent> components) where A : AComponent where B : AComponent where C : AComponent where D : AComponent where E : AComponent where F : AComponent
+        public static Dictionary<Entity, Component> Filter<A, B, C, D, E, F>(this Dictionary<Entity, Component> components) where A : Component where B : Component where C : Component where D : Component where E : Component where F : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>() || !entity.HasComponent<B>() || !entity.HasComponent<C>() || !entity.HasComponent<D>() || !entity.HasComponent<E>() || !entity.HasComponent<F>())
@@ -92,9 +92,9 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<Entity, AComponent> Filter<A, B, C, D, E, F, G>(this Dictionary<Entity, AComponent> components) where A : AComponent where B : AComponent where C : AComponent where D : AComponent where E : AComponent where F : AComponent where G : AComponent
+        public static Dictionary<Entity, Component> Filter<A, B, C, D, E, F, G>(this Dictionary<Entity, Component> components) where A : Component where B : Component where C : Component where D : Component where E : Component where F : Component where G : Component
         {
-            Dictionary<Entity, AComponent> returnDict = new Dictionary<Entity, AComponent>(components);
+            Dictionary<Entity, Component> returnDict = new Dictionary<Entity, Component>(components);
             foreach (Entity entity in returnDict.Keys)
             {
                 if (!entity.HasComponent<A>() || !entity.HasComponent<B>() || !entity.HasComponent<C>() || !entity.HasComponent<D>() || !entity.HasComponent<E>() || !entity.HasComponent<F>() || !entity.HasComponent<G>())
@@ -106,7 +106,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A>(this Dictionary<int, Entity> entities) where A : AComponent
+        public static Dictionary<int, Entity> Filter<A>(this Dictionary<int, Entity> entities) where A : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)
@@ -120,7 +120,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A, B>(this Dictionary<int, Entity> entities) where A : AComponent where B : AComponent
+        public static Dictionary<int, Entity> Filter<A, B>(this Dictionary<int, Entity> entities) where A : Component where B : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)
@@ -134,7 +134,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A, B, C>(this Dictionary<int, Entity> entities) where A : AComponent where B : AComponent where C : AComponent
+        public static Dictionary<int, Entity> Filter<A, B, C>(this Dictionary<int, Entity> entities) where A : Component where B : Component where C : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)
@@ -148,7 +148,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A, B, C, D>(this Dictionary<int, Entity> entities) where A : AComponent where B : AComponent where C : AComponent where D : AComponent
+        public static Dictionary<int, Entity> Filter<A, B, C, D>(this Dictionary<int, Entity> entities) where A : Component where B : Component where C : Component where D : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)
@@ -162,7 +162,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A, B, C, D, E>(this Dictionary<int, Entity> entities) where A : AComponent where B : AComponent where C : AComponent where D : AComponent where E : AComponent
+        public static Dictionary<int, Entity> Filter<A, B, C, D, E>(this Dictionary<int, Entity> entities) where A : Component where B : Component where C : Component where D : Component where E : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)
@@ -176,7 +176,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A, B, C, D, E, F>(this Dictionary<int, Entity> entities) where A : AComponent where B : AComponent where C : AComponent where D : AComponent where E : AComponent where F : AComponent
+        public static Dictionary<int, Entity> Filter<A, B, C, D, E, F>(this Dictionary<int, Entity> entities) where A : Component where B : Component where C : Component where D : Component where E : Component where F : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)
@@ -190,7 +190,7 @@ namespace Catalyst.Engine
             return returnDict;
         }
 
-        public static Dictionary<int, Entity> Filter<A, B, C, D, E, F, G>(this Dictionary<int, Entity> entities) where A : AComponent where B : AComponent where C : AComponent where D : AComponent where E : AComponent where F : AComponent where G : AComponent
+        public static Dictionary<int, Entity> Filter<A, B, C, D, E, F, G>(this Dictionary<int, Entity> entities) where A : Component where B : Component where C : Component where D : Component where E : Component where F : Component where G : Component
         {
             Dictionary<int, Entity> returnDict = new Dictionary<int, Entity>(entities);
             foreach (Entity entity in returnDict.Values)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using static Catalyst.Engine.Rendering.Sprite;
 
 namespace Catalyst.Engine.Utilities
 {
@@ -107,34 +108,6 @@ namespace Catalyst.Engine.Utilities
             return cropped;
         }
 
-
-        public static Utilities.Vector2 OriginToVectorOffset(Origin origin, Utilities.Vector2 dimensions)
-        {
-            switch (origin)
-            {
-                case (Origin.TopLeft):
-                    return new Utilities.Vector2(0, 0);
-                case (Origin.TopRight):
-                    return new Utilities.Vector2(dimensions.X, 0);
-                case (Origin.TopCenter):
-                    return new Utilities.Vector2((int)(dimensions.X / 2), 0);
-                case (Origin.CenterLeft):
-                    return new Utilities.Vector2(0, (int)(dimensions.Y / 2));
-                case (Origin.CenterRight):
-                    return new Utilities.Vector2(dimensions.X, (int)(dimensions.Y / 2));
-                case (Origin.Center):
-                    return new Utilities.Vector2((int)(dimensions.X / 2), (int)(dimensions.Y / 2));
-                case (Origin.BottomLeft):
-                    return new Utilities.Vector2(0, dimensions.Y);
-                case (Origin.BottomRight):
-                    return new Utilities.Vector2(dimensions.X, dimensions.Y);
-                case (Origin.BottomCenter):
-                    return new Utilities.Vector2((int)(dimensions.X / 2), dimensions.Y);
-                default:
-                    return new Utilities.Vector2(0, 0);
-            }
-
-        }
 
         public static T Clamp<T>(this T val, T min, T max) where T : IComparable<T>
         {

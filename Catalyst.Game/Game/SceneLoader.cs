@@ -25,7 +25,7 @@ namespace Catalyst.Game
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
             scene.Systems.Add(new MovementSystem(scene));
-            scene.Systems.Add(new SpriteRenderSystem(scene));
+            scene.Systems.Add(new SpriteRenderer(scene));
             scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
 

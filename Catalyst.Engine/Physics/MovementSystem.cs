@@ -16,7 +16,7 @@ namespace Catalyst.Engine.Physics
     /// Quad tree needs to be implemented to reduce runtime complexity.</remarks>
     /// </summary>
     [Serializable]
-    public class MovementSystem : ASystem
+    public class MovementSystem : System
     {
 
         private QuadTree quad;
@@ -49,7 +49,7 @@ namespace Catalyst.Engine.Physics
 
         private void MoveX(Actor actor)
         {
-            Transform t = actor.Entity.GetComponent<Transform>();
+            Position t = actor.Entity.GetComponent<Position>();
             Velocity v = actor.Entity.GetComponent<Velocity>(); 
             int move = (int)Math.Round(v.V.X);
             if (move != 0)
@@ -60,19 +60,15 @@ namespace Catalyst.Engine.Physics
 
                 while (move != 0)
                 {
-                    Transform collision = ActorColliding(t, new Utilities.Vector2(sign, 0));
+                    Position collision = ActorColliding(t, new Utilities.Vector2(sign, 0));
                     if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Utilities.Vector2(sign, 0);
+                        t.Coordinates += new Utilities.Vector2(sign, 0);
                         move -= sign;
                     }
                     else
                     {
-                        if (collision.CollisionAction != null)
-                        {
-                            collision.CollisionAction.Invoke();
-                        }
                         break;
                     }
                 }
@@ -81,7 +77,7 @@ namespace Catalyst.Engine.Physics
 
         private void MoveY(Actor actor)
         {
-            Transform t = actor.Entity.GetComponent<Transform>();
+            Position t = actor.Entity.GetComponent<Position>();
             Velocity v = actor.Entity.GetComponent<Velocity>();
             int move = (int)Math.Round(v.V.Y);
             if (move != 0)
@@ -92,19 +88,15 @@ namespace Catalyst.Engine.Physics
 
                 while (move != 0)
                 {
-                    Transform collision = ActorColliding(t, new Utilities.Vector2(0, sign));
+                    Position collision = ActorColliding(t, new Utilities.Vector2(0, sign));
                     if (collision == null)
                     {
                         //No solid immediately beside us
-                        t.Position += new Utilities.Vector2(0, sign);
+                        t.Coordinates += new Utilities.Vector2(0, sign);
                         move -= sign;
                     }
                     else
                     {
-                        if (collision.CollisionAction != null)
-                        {
-                            collision.CollisionAction.Invoke();
-                        }
                         break;
                     }
                 }
@@ -112,7 +104,7 @@ namespace Catalyst.Engine.Physics
         }
 
         //Uses AABB Algorithm -- Needs working QuadTree to increase efficiency
-        private Transform ActorColliding(Transform actor, Utilities.Vector2 offset)
+        private Position ActorColliding(Position actor, Utilities.Vector2 offset)
         {
             if (actor == null) { return null; }
             
@@ -151,10 +143,10 @@ namespace Catalyst.Engine.Physics
             
             foreach (Solid s in scene.Manager.GetComponents<Solid>().Values)
             {
-                if (s.Entity.HasComponent<Transform>())
+                if (s.Entity.HasComponent<Position>())
                 {
-                    Transform solid = s.Entity.GetComponent<Transform>();
-
+                    Position solid = s.Entity.GetComponent<Position>();
+                    /**
                     Utilities.Vector2 actorOffset = actor.Position + actor.CollisionOffset + offset - actor.Origin;
                     Utilities.Vector2 solidOffset = solid.Position + solid.CollisionOffset - solid.Origin;
 
@@ -165,6 +157,7 @@ namespace Catalyst.Engine.Physics
                     {
                         return solid;
                     }
+    */
                 }
 
             }

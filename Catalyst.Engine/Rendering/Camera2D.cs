@@ -18,15 +18,15 @@ namespace Catalyst.Engine.Rendering
     {
         
         public Scene Scene { get; set; }
-        [ImmediateEntitySelector]
+        [GuiEntitySelector]
         public Entity Following { get; set; }
-        
+        [GuiFloat(0,float.MaxValue)]
         public float Speed { get; set; }
         
         public Matrix Transform { get; set; }
         
         private Vector2 _position;
-        [ImmediateLabel]
+        [GuiLabel]
         public Vector2 Position 
         { 
             get { return _position; }
@@ -35,10 +35,11 @@ namespace Catalyst.Engine.Rendering
                 _position = Vector2.Clamp(value, Vector2.Zero, Bounds-Size);
             }
         }
-        [ImmediateVector2]
+        [GuiVector2]
         public Vector2 Bounds { get; set; }
         
         private float _zoom;
+        [GuiFloat(0.01f, float.MaxValue)]
         public float Zoom
         {
             get { return _zoom; }
@@ -46,11 +47,15 @@ namespace Catalyst.Engine.Rendering
         }
         
         private float _rotation;
+        [GuiFloat(0,360)]
         public float Rotation
         {
             get { return _rotation; }
             set { _rotation = value; }
         }
+
+        [GuiVector2]
+        public Vector2 Offset { get; set; }
         
         public Vector2 Size { get; private set; }
 

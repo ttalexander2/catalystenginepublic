@@ -21,7 +21,7 @@ namespace Catalyst.Engine
 
         public ECManager Manager { get; private set; }
 
-        public List<ASystem> Systems { get; private set; }
+        public List<System> Systems { get; private set; }
 
         public Camera2D Camera { get; set; }
 
@@ -41,7 +41,7 @@ namespace Catalyst.Engine
             Width = width;
             Height = height;
             Manager = new ECManager();
-            Systems = new List<ASystem>();
+            Systems = new List<System>();
             Dimensions = new Utilities.Vector2(width, height);
             Camera = new Camera2D(this, new Utilities.Vector2(width, height));
             this.Name = "scene_" + this.GetHashCode().ToString();
@@ -52,7 +52,7 @@ namespace Catalyst.Engine
             Width = width;
             Height = height;
             Manager = new ECManager();
-            Systems = new List<ASystem>();
+            Systems = new List<System>();
             Dimensions = new Utilities.Vector2(width, height);
             Camera = new Camera2D(this, new Utilities.Vector2(width, height));
             this.Name = name;
@@ -74,9 +74,9 @@ namespace Catalyst.Engine
         {
             for (int i = 0; i < Systems.Count; i++)
             {
-                if (Systems[i] is ARenderSystem)
+                if (Systems[i] is RenderSystem)
                 {
-                    ((ARenderSystem)Systems[i]).LoadContent();
+                    ((RenderSystem)Systems[i]).LoadContent();
                 }
             }
         }
@@ -109,11 +109,11 @@ namespace Catalyst.Engine
         {
             for (int i = 0; i < Systems.Count; i++)
             {
-                ASystem system = Systems[i];
+                System system = Systems[i];
                 if (system.Renders)
                 {
                     try {
-                        ((ARenderSystem)system).PreRender(gameTime);
+                        ((RenderSystem)system).PreRender(gameTime);
                     } catch (InvalidCastException e)
                     {
 #if DEBUG
@@ -129,12 +129,12 @@ namespace Catalyst.Engine
         {
             for (int i = 0; i < Systems.Count; i++)
             {
-                ASystem system = Systems[i];
+                System system = Systems[i];
                 if (system.Renders)
                 {
                     try
                     {
-                        ((ARenderSystem)system).Render(gameTime);
+                        ((RenderSystem)system).Render(gameTime);
                     }
                     catch (InvalidCastException e)
                     {
@@ -151,12 +151,12 @@ namespace Catalyst.Engine
         {
             for (int i = 0; i < Systems.Count; i++)
             {
-                ASystem system = Systems[i];
+                System system = Systems[i];
                 if (system.Renders)
                 {
                     try
                     {
-                        ((ARenderSystem)system).PostRender(gameTime);
+                        ((RenderSystem)system).PostRender(gameTime);
                     }
                     catch (InvalidCastException e)
                     {
@@ -173,12 +173,12 @@ namespace Catalyst.Engine
         {
             for (int i = 0; i < Systems.Count; i++)
             {
-                ASystem system = Systems[i];
+                System system = Systems[i];
                 if (system.Renders)
                 {
                     try
                     {
-                        ((ARenderSystem)system).RenderUI(gameTime);
+                        ((RenderSystem)system).RenderUI(gameTime);
                     }
                     catch (InvalidCastException e)
                     {

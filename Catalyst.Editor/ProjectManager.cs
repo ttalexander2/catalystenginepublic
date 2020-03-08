@@ -16,6 +16,7 @@ using Microsoft.Build.Construction;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CatalystEditor;
+using static Catalyst.Engine.Rendering.Sprite;
 
 namespace Catalyst.XNA
 {
@@ -77,7 +78,7 @@ namespace Catalyst.XNA
             Current.Systems.Add(new PlayerSystem(Current));
             Current.Systems.Add(new GravitySystem(Current));
             Current.Systems.Add(new MovementSystem(Current));
-            Current.Systems.Add(new SpriteRenderSystem(Current));
+            Current.Systems.Add(new SpriteRenderer(Current));
             Current.Systems.Add(new ParticleSystem(Current));
             Current.Systems.Add(new CameraSystem(Current));
 
@@ -116,8 +117,8 @@ namespace Catalyst.XNA
 
         public static void RefreshTypes()
         {
-            Types = Assembly.GetAssembly(typeof(AComponent)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))).ToList<Type>();
+            Types = Assembly.GetAssembly(typeof(Component)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))).ToList<Type>();
         }
 
         public static Scene LoadTestWorld()
@@ -127,16 +128,16 @@ namespace Catalyst.XNA
             scene.Systems.Add(new PlayerSystem(scene));
             scene.Systems.Add(new GravitySystem(scene));
             scene.Systems.Add(new MovementSystem(scene));
-            scene.Systems.Add(new SpriteRenderSystem(scene));
+            scene.Systems.Add(new SpriteRenderer(scene));
             scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
 
-            TextureAtlas atlas = TexturePacker.AtlasFromBinary(Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.atlas"), Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.meta"));
+            Atlas atlas = TexturePacker.AtlasFromBinary(Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.atlas"), Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.meta"));
 
 
 
             Entity testEntity = scene.Manager.NewEntity();
-            var sprite = new Sprite(testEntity, "test", 0, 0, new Engine.Rendering.MTexture[] { atlas.Textures[0] }, Origin.TopLeft) { AnimationSpeed = 6.0f };
+            var sprite = new Sprite(testEntity, atlas.Textures[0]);
             testEntity.AddComponent<Sprite>(sprite);
             testEntity.AddComponent<Player>();
 
@@ -144,19 +145,9 @@ namespace Catalyst.XNA
 
 
             Entity testEntity2 = scene.Manager.NewEntity();
-            var sprite2 = new Sprite(testEntity2, "test", 0, 200, new Engine.Rendering.MTexture[] { atlas.Textures[0] }, Origin.TopLeft) { AnimationSpeed = 6.0f };
+            var sprite2 = new Sprite(testEntity2, atlas.Textures[0]);
             testEntity2.AddComponent<Sprite>(sprite2);
             testEntity2.AddComponent<Solid>();
-
-            for (int i = 0; i < 100; i++)
-            {
-                Entity grass = scene.Manager.NewEntity();
-                var grass_sprite = new Sprite(grass, "grass_" + i, 16 + 32 * i, 344 + Graphics.Height, new Engine.Rendering.MTexture[] { atlas.Textures[1] }, Origin.Center);
-                grass.GetComponent<Transform>().CollisionDims = new Vector2(32, 32);
-                grass.GetComponent<Transform>().CollisionOffset = new Vector2(3, 3);
-                grass.AddComponent<Sprite>(grass_sprite);
-                grass.AddComponent<Solid>();
-            }
 
             ChangeGrid = true;
 

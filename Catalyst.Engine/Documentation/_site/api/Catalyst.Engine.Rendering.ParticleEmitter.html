@@ -167,7 +167,7 @@ public class ParticleEmitter : AComponent</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateFloat(ImmediateFloatMode.Angle)]
+    <pre><code class="lang-csharp hljs">[GuiFloat(GuiFloatMode.Angle)]
 public float Angle { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -195,7 +195,7 @@ public float Angle { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateFloat(ImmediateFloatMode.Angle)]
+    <pre><code class="lang-csharp hljs">[GuiFloat(GuiFloatMode.Angle)]
 public float AngleVariance { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -223,7 +223,7 @@ public float AngleVariance { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateInteger(ImmediateIntegerMode.Slider, 0, 10000)]
+    <pre><code class="lang-csharp hljs">[GuiInteger(GuiIntegerMode.Slider, 0, 10000)]
 public int Count { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -251,7 +251,7 @@ public int Count { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateFloat(ImmediateFloatMode.Slider, 0F, 1F)]
+    <pre><code class="lang-csharp hljs">[GuiFloat(GuiFloatMode.Slider, 0F, 1F)]
 public float EndAlpha { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -279,7 +279,7 @@ public float EndAlpha { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateColor]
+    <pre><code class="lang-csharp hljs">[GuiColor]
 public Color EndColor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -307,7 +307,7 @@ public Color EndColor { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateEntitySelector]
+    <pre><code class="lang-csharp hljs">[GuiEntitySelector]
 public Entity Follow { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -335,7 +335,7 @@ public Entity Follow { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateBoolean]
+    <pre><code class="lang-csharp hljs">[GuiBoolean]
 public bool FollowCamera { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -363,7 +363,7 @@ public bool FollowCamera { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateInteger(0, 999999)]
+    <pre><code class="lang-csharp hljs">[GuiInteger(0, 999999)]
 public int Life { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -391,7 +391,7 @@ public int Life { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateInteger(0, 999999)]
+    <pre><code class="lang-csharp hljs">[GuiInteger(0, 999999)]
 public int LifeVariance { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -419,7 +419,7 @@ public int LifeVariance { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateEnum]
+    <pre><code class="lang-csharp hljs">[GuiEnum]
 public ParticleEmitter.ParticleMode Mode { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -447,7 +447,7 @@ public ParticleEmitter.ParticleMode Mode { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateVector2]
+    <pre><code class="lang-csharp hljs">[GuiVector2]
 public Vector2 Offset { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -529,7 +529,7 @@ public Vector2 Offset { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateVector2]
+    <pre><code class="lang-csharp hljs">[GuiVector2]
 public Vector2 PositionVariance { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -557,7 +557,7 @@ public Vector2 PositionVariance { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateInteger(ImmediateIntegerMode.Slider, 0, 1000)]
+    <pre><code class="lang-csharp hljs">[GuiInteger(GuiIntegerMode.Slider, 0, 1000)]
 public int Speed { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -585,7 +585,7 @@ public int Speed { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateInteger(ImmediateIntegerMode.Slider, 0, 1000)]
+    <pre><code class="lang-csharp hljs">[GuiInteger(GuiIntegerMode.Slider, 0, 1000)]
 public int SpeedVariance { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -613,7 +613,7 @@ public int SpeedVariance { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateFloat(ImmediateFloatMode.Slider, 0F, 1F)]
+    <pre><code class="lang-csharp hljs">[GuiFloat(GuiFloatMode.Slider, 0F, 1F)]
 public float StartAlpha { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -641,7 +641,7 @@ public float StartAlpha { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateColor]
+    <pre><code class="lang-csharp hljs">[GuiColor]
 public Color StartColor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -696,7 +696,7 @@ public Color StartColor { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ImmediateEnum]
+    <pre><code class="lang-csharp hljs">[GuiEnum]
 public Particle.VelocityMode VelocityMode { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>

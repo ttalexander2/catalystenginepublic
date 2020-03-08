@@ -18,14 +18,14 @@ namespace Catalyst.Engine.Utilities
         private bool _renders;
         private bool _active;
 
-        public Alarm(Scene scene, IScript script, object[] args, bool renders, bool loop, bool startImmediately, float seconds)
+        public Alarm(Scene scene, IScript script, object[] args, bool renders, bool loop, bool startGuily, float seconds)
         {
             _script = script;
             _loop = loop;
             _interval = seconds;
             _scriptArgs = args;
             _renders = renders;
-            _active = startImmediately;
+            _active = startGuily;
         }
 
         public void Update(GameTime gameTime)

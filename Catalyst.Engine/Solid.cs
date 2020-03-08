@@ -5,16 +5,16 @@ using System.Runtime.Serialization;
 namespace Catalyst.Engine
 {
     [Serializable]
-    public class Solid : AComponent
+    public class Solid : Component
     {
         
         public static new string Name => "Solid Transform";
 
         public Solid(Entity entity) : base(entity)
         {
-            if (!entity.HasComponent<Transform>())
+            if (!entity.HasComponent<Position>())
             {
-                entity.AddComponent<Transform>();
+                entity.AddComponent<Position>();
             }
         }
 

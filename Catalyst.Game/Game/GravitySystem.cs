@@ -7,7 +7,7 @@ using Vector2 = Catalyst.Engine.Utilities.Vector2;
 namespace Catalyst.Game
 {
     [Serializable]
-    public class GravitySystem : ASystem
+    public class GravitySystem : Engine.System
     {
         
         public float Gravity { get; set; }

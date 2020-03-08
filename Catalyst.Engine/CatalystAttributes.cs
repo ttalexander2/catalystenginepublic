@@ -6,53 +6,53 @@ namespace Catalyst.Engine
 
     #region Integer
     [Serializable]
-    public class ImmediateInteger : Attribute
+    public class GuiInteger : Attribute
     {
         public int Min { get; private set; }
         public int Max { get; private set; }
         public bool HasRange { get; private set; }
-        public ImmediateIntegerMode Mode { get; private set; }
+        public GuiIntegerMode Mode { get; private set; }
 
-        public ImmediateInteger(ImmediateIntegerMode mode, int min, int max)
+        public GuiInteger(GuiIntegerMode mode, int min, int max)
         {
             this.Min = min;
             this.Max = max;
             this.Mode = mode;
             this.HasRange = true;
-            if (mode == ImmediateIntegerMode.Percent)
+            if (mode == GuiIntegerMode.Percent)
             {
-                throw new ImmediateAttributeException("Percent attribute type does not take a (min, max)!");
+                throw new GuiAttributeException("Percent attribute type does not take a (min, max)!");
             }
         }
 
-        public ImmediateInteger(int min, int max)
+        public GuiInteger(int min, int max)
         {
             this.Min = min;
             this.Max = max;
-            this.Mode = ImmediateIntegerMode.Default;
+            this.Mode = GuiIntegerMode.Default;
             this.HasRange = true;
         }
 
-        public ImmediateInteger(ImmediateIntegerMode mode)
+        public GuiInteger(GuiIntegerMode mode)
         {
             this.HasRange = false;
             this.Mode = mode;
-            if(mode == ImmediateIntegerMode.Slider)
+            if(mode == GuiIntegerMode.Slider)
             {
-                throw new ImmediateAttributeException("Slider attribute type must have a range (min, max)!");
+                throw new GuiAttributeException("Slider attribute type must have a range (min, max)!");
             }
         }
 
 
-        public ImmediateInteger()
+        public GuiInteger()
         {
             this.HasRange = false;
-            this.Mode = ImmediateIntegerMode.Default;
+            this.Mode = GuiIntegerMode.Default;
         }
     }
 
     [Serializable]
-    public enum ImmediateIntegerMode
+    public enum GuiIntegerMode
     {
         Default,
         Drag,
@@ -64,57 +64,57 @@ namespace Catalyst.Engine
 
     #region Float
     [Serializable]
-    public class ImmediateFloat : Attribute
+    public class GuiFloat : Attribute
     {
         public float Min { get; private set; }
         public float Max { get; private set; }
         public bool HasRange { get; private set; }
-        public ImmediateFloatMode Mode { get; private set; }
+        public GuiFloatMode Mode { get; private set; }
 
-        public ImmediateFloat(ImmediateFloatMode mode, float min, float max)
+        public GuiFloat(GuiFloatMode mode, float min, float max)
         {
             this.Min = min;
             this.Max = max;
             this.Mode = mode;
             this.HasRange = true;
-            if (mode == ImmediateFloatMode.Angle)
+            if (mode == GuiFloatMode.Angle)
             {
-                throw new ImmediateAttributeException("Angle (min, max) is automatically in degrees (-360, 360)");
+                throw new GuiAttributeException("Angle (min, max) is automatically in degrees (-360, 360)");
             }
         }
 
-        public ImmediateFloat(float min, float max)
+        public GuiFloat(float min, float max)
         {
             this.Min = min;
             this.Max = max;
-            this.Mode = ImmediateFloatMode.Default;
+            this.Mode = GuiFloatMode.Default;
             this.HasRange = true;
         }
 
-        public ImmediateFloat(ImmediateFloatMode mode)
+        public GuiFloat(GuiFloatMode mode)
         {
             this.HasRange = false;
             this.Mode = mode;
-            if (mode == ImmediateFloatMode.Slider)
+            if (mode == GuiFloatMode.Slider)
             {
-                throw new ImmediateAttributeException("Slider attribute type must have a range (min, max)");
+                throw new GuiAttributeException("Slider attribute type must have a range (min, max)");
             }
-            if (mode == ImmediateFloatMode.SmallDrag)
+            if (mode == GuiFloatMode.SmallDrag)
             {
-                throw new ImmediateAttributeException("Drag attribute type must have a range (min, max)");
+                throw new GuiAttributeException("Drag attribute type must have a range (min, max)");
             }
         }
 
 
-        public ImmediateFloat()
+        public GuiFloat()
         {
             this.HasRange = false;
-            this.Mode = ImmediateFloatMode.Default;
+            this.Mode = GuiFloatMode.Default;
         }
     }
 
     [Serializable]
-    public enum ImmediateFloatMode
+    public enum GuiFloatMode
     {
         Default,
         Scientific,
@@ -130,20 +130,20 @@ namespace Catalyst.Engine
 
     #region Double
     [Serializable]
-    public class ImmediateDouble : Attribute
+    public class GuiDouble : Attribute
     {
         public double Min { get; private set; }
         public double Max { get; private set; }
         public bool HasRange { get; private set; }
 
-        public ImmediateDouble(double min, double max)
+        public GuiDouble(double min, double max)
         {
             this.Min = min;
             this.Max = max;
             this.HasRange = true;
         }
 
-        public ImmediateDouble()
+        public GuiDouble()
         {
             this.HasRange = false;
         }
@@ -153,18 +153,18 @@ namespace Catalyst.Engine
 
     #region Vector2
     [Serializable]
-    public class ImmediateVector2 : Attribute
+    public class GuiVector2 : Attribute
     {
         public Vector2 Min { get; private set; }
         public Vector2 Max { get; private set; }
         public bool HasRange { get; private set; }
 
-        public ImmediateVector2()
+        public GuiVector2()
         {
             HasRange = false;
         }
 
-        public ImmediateVector2(Vector2 min, Vector2 max)
+        public GuiVector2(Vector2 min, Vector2 max)
         {
             HasRange = true;
             this.Min = min;
@@ -176,18 +176,18 @@ namespace Catalyst.Engine
 
     #region Vector3
     [Serializable]
-    public class ImmediateVector3 : Attribute
+    public class GuiVector3 : Attribute
     {
         public Vector3 Min { get; private set; }
         public Vector3 Max { get; private set; }
         public bool HasRange { get; private set; }
 
-        public ImmediateVector3()
+        public GuiVector3()
         {
             HasRange = false;
         }
 
-        public ImmediateVector3(Vector3 min, Vector3 max)
+        public GuiVector3(Vector3 min, Vector3 max)
         {
             HasRange = true;
             this.Min = min;
@@ -198,18 +198,18 @@ namespace Catalyst.Engine
 
     #region Vector4
     [Serializable]
-    public class ImmediateVector4 : Attribute
+    public class GuiVector4 : Attribute
     {
         public Vector4 Min { get; private set; }
         public Vector4 Max { get; private set; }
         public bool HasRange { get; private set; }
 
-        public ImmediateVector4()
+        public GuiVector4()
         {
             HasRange = false;
         }
 
-        public ImmediateVector4(Vector4 min, Vector4 max)
+        public GuiVector4(Vector4 min, Vector4 max)
         {
             HasRange = true;
             this.Min = min;
@@ -220,21 +220,21 @@ namespace Catalyst.Engine
 
     #region Color
     [Serializable]
-    public class ImmediateColor : Attribute
+    public class GuiColor : Attribute
     {
-        public ImmediateColorMode Mode { get; private set; }
-        public ImmediateColor()
+        public GuiColorMode Mode { get; private set; }
+        public GuiColor()
         {
-            Mode = ImmediateColorMode.RGBA;
+            Mode = GuiColorMode.RGBA;
         }
 
-        public ImmediateColor(ImmediateColorMode mode)
+        public GuiColor(GuiColorMode mode)
         {
             this.Mode = mode;
         }
     }
 
-    public enum ImmediateColorMode
+    public enum GuiColorMode
     {
         RGB,
         RGBA
@@ -245,15 +245,15 @@ namespace Catalyst.Engine
 
     #region Label
     [Serializable]
-    public class ImmediateLabel : Attribute
+    public class GuiLabel : Attribute
     {
         public string Label { get; private set; }
-        public ImmediateLabel()
+        public GuiLabel()
         {
             Label = null;
         }
 
-        public ImmediateLabel(string label_string)
+        public GuiLabel(string label_string)
         {
             Label = label_string;
         }
@@ -263,17 +263,17 @@ namespace Catalyst.Engine
     #region String
 
     [Serializable]
-    public class ImmediateString : Attribute
+    public class GuiString : Attribute
     {
         public string Hint { get; private set; }
         public bool HasHint { get; private set; }
 
-        public ImmediateString()
+        public GuiString()
         {
             this.HasHint = false;
         }
 
-        public ImmediateString(string hint)
+        public GuiString(string hint)
         {
             this.Hint = hint;
             this.HasHint = true;
@@ -285,9 +285,9 @@ namespace Catalyst.Engine
     #region Boolean
 
     [Serializable]
-    public class ImmediateBoolean : Attribute
+    public class GuiBoolean : Attribute
     {
-        public ImmediateBoolean()
+        public GuiBoolean()
         {
         }
     }
@@ -296,9 +296,9 @@ namespace Catalyst.Engine
 
     #region Enum
     [Serializable]
-    public class ImmediateEnum : Attribute
+    public class GuiEnum : Attribute
     {
-        public ImmediateEnum()
+        public GuiEnum()
         {
         }
     }
@@ -306,9 +306,9 @@ namespace Catalyst.Engine
 
     #region EntitySelector
     [Serializable]
-    public class ImmediateEntitySelector : Attribute
+    public class GuiEntitySelector : Attribute
     {
-        public ImmediateEntitySelector()
+        public GuiEntitySelector()
         {
         }
     }
@@ -317,14 +317,14 @@ namespace Catalyst.Engine
     #region Exception
 
     [Serializable]
-    public class ImmediateAttributeException : Exception
+    public class GuiAttributeException : Exception
     {
-        public ImmediateAttributeException()
+        public GuiAttributeException()
         {
 
         }
 
-        public ImmediateAttributeException(string message) :
+        public GuiAttributeException(string message) :
             base(String.Format("Immediate Attribute Exception: {0}", message))
         {
 

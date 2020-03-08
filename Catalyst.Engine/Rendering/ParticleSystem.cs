@@ -13,7 +13,7 @@ using System.Runtime.Serialization;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class ParticleSystem : ARenderSystem
+    public class ParticleSystem : RenderSystem
     {
         public ParticleSystem(Scene scene) : base(scene){}
 
@@ -35,7 +35,7 @@ namespace Catalyst.Engine.Rendering
 
                 if (emitter.Follow != null)
                 {
-                    emitter.Position = emitter.Follow.GetComponent<Transform>().Position;
+                    emitter.Position = emitter.Follow.GetComponent<Position>().Coordinates;
                 }
 
                 if (emitter.FollowCamera)
@@ -76,7 +76,7 @@ namespace Catalyst.Engine.Rendering
             {
                 foreach (Particle p in emitter.Particles)
                 {
-                    Graphics.SpriteBatch.Draw(emitter.Texture.Atlas.Texture, p.Position, emitter.Texture.Bounds, p.Color * p.Alpha, 0, Microsoft.Xna.Framework.Vector2.Zero, 1, new SpriteEffects(), 0);
+                    Graphics.SpriteBatch.Draw(emitter.Sprite.Texture, p.Position, emitter.Sprite.TextureRect, p.Color * p.Alpha, 0, Microsoft.Xna.Framework.Vector2.Zero, 1, new SpriteEffects(), 0);
                 }
 
             }

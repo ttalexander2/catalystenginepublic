@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class CameraSystem : ASystem
+    public class CameraSystem : System
     {
         public CameraSystem(Scene scene) : base(scene)
         {
@@ -19,12 +19,11 @@ namespace Catalyst.Engine.Rendering
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (scene.Camera.Following != null && scene.Camera.Following.HasComponent<Transform>())
+            if (scene.Camera.Following != null && scene.Camera.Following.HasComponent<Position>())
             {
-                Transform follow = scene.Camera.Following.GetComponent<Transform>();
-                Utilities.Vector2 offset = follow.Dimensions;
+                Position follow = scene.Camera.Following.GetComponent<Position>();
                 Camera2D cam = scene.Camera;
-                scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, follow.Position-(scene.Camera.Size/2)+offset, cam.Speed));
+                scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, follow.Coordinates-(scene.Camera.Size/2)+cam.Offset, cam.Speed));
             }
         }
     }

@@ -18,7 +18,8 @@ namespace Catalyst.Engine
         
         internal Dictionary<int, Entity> EntityDict = new Dictionary<int, Entity>();
         
-        internal Dictionary<string, Dictionary<int, AComponent>> Components = new Dictionary<string, Dictionary<int, AComponent>>();
+        internal Dictionary<string, Dictionary<int, Component>> Components = new Dictionary<string, Dictionary<int, Component>>();
+
 
         internal ECManager()
         {
@@ -51,36 +52,36 @@ namespace Catalyst.Engine
             EntityDict.TryGetValue(UID, out val);
             return val;
         }
-        public T GetComponent<T>(int UID) where T : AComponent
+        public T GetComponent<T>(int UID) where T : Component
         {
             Type t = typeof(T);
 
-            AComponent val;
+            Component val;
             Components[t.AssemblyQualifiedName].TryGetValue(UID, out val);
             return val != null ? (T)val : null;
         }
 
-        public T GetComponent<T>(Entity e) where T : AComponent
+        public T GetComponent<T>(Entity e) where T : Component
         {
             Type t = typeof(T);
 
-            AComponent val;
+            Component val;
             Components[t.AssemblyQualifiedName].TryGetValue(e.UID, out val);
             return val != null ? (T)val : null;
         }
 
-        public Dictionary<int, AComponent> GetComponents<T>() where T : AComponent
+        public Dictionary<int, Component> GetComponents<T>() where T : Component
         {
             Type t = typeof(T);
             return Components[t.AssemblyQualifiedName];
         }
 
-        public Dictionary<string, Dictionary<int, AComponent>> GetComponentDictionary()
+        public Dictionary<string, Dictionary<int, Component>> GetComponentDictionary()
         {
             return Components;
         }
 
-        public void RemoveComponent(AComponent c)
+        public void RemoveComponent(Component c)
         {
             Type t = c.GetType();
             Components[t.AssemblyQualifiedName].Remove(c.UID);
@@ -91,11 +92,11 @@ namespace Catalyst.Engine
             Entity e = NewEntity();
             foreach (string t in Components.Keys)
             {
-                AComponent val;
+                Component val;
                 Components[t].TryGetValue(uid, out val);
                 if (val != null)
                 {
-                    e.AddComponent(val.DeepClone<AComponent>());
+                    e.AddComponent(val.DeepClone<Component>());
                 }
 
             }
@@ -105,23 +106,23 @@ namespace Catalyst.Engine
         public void RefreshTypes()
         {
             foreach (Type type in
-            Assembly.GetAssembly(typeof(AComponent)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
+            Assembly.GetAssembly(typeof(Component)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))))
             {
                 if (!Components.Keys.Contains(type.AssemblyQualifiedName))
                 {
-                    Components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
+                    Components[type.AssemblyQualifiedName] = new Dictionary<int, Component>();
                 }
             }
 
             foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
             {
                 foreach (Type type in ass.GetTypes()
-                .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))))
+                .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))))
                 {
                     if (!Components.Keys.Contains(type.AssemblyQualifiedName))
                     {
-                        Components[type.AssemblyQualifiedName] = new Dictionary<int, AComponent>();
+                        Components[type.AssemblyQualifiedName] = new Dictionary<int, Component>();
                     }
                 }
             }

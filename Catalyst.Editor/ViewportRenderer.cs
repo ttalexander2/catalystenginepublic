@@ -51,9 +51,16 @@ namespace CatalystEditor
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
 
-                    foreach (Sprite s in ProjectManager.Current.Manager.GetComponents<Sprite>().Values)
+                    var dict = ProjectManager.Current.Manager.GetComponentDictionary();
+                    foreach (string s in dict.Keys)
                     {
-                        s.Texture.Atlas.LoadContent();
+                        if (typeof(Loadable).IsAssignableFrom(Type.GetType(s)))
+                        {
+                            foreach (Component c in dict[s].Values)
+                            {
+                                ((Loadable)c).LoadContent();
+                            }
+                        }
                     }
 
                     Grid = true;

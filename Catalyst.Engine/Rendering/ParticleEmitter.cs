@@ -13,19 +13,19 @@ using Rectangle = Catalyst.Engine.Utilities.Rectangle;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class ParticleEmitter : AComponent
+    public class ParticleEmitter : Component, Loadable
     {
-        [ImmediateEntitySelector]
+        [GuiEntitySelector]
         public Entity Follow { get; set; }
-        [ImmediateBoolean]
+        [GuiBoolean]
         public bool FollowCamera { get; set; }
 
         public Vector2 Position { get; set; }
-        [ImmediateVector2]
+        [GuiVector2]
         public Vector2 PositionVariance { get; set; }
-        [ImmediateEnum]
+        [GuiEnum]
         public Particle.VelocityMode VelocityMode { get; set; }
-        [ImmediateVector2]
+        [GuiVector2]
         public Vector2 Offset { get; set; }
 
         [NonSerialized]
@@ -38,34 +38,35 @@ namespace Catalyst.Engine.Rendering
             }
         }
 
-        public MTexture Texture { get; set; }
-        [ImmediateEnum]
+        public Sprite Sprite { get; set; }
+        [GuiEnum]
         public ParticleMode Mode { get; set; }
-        [ImmediateColor]
+        [GuiColor]
         public Color StartColor { get; set; }
-        [ImmediateColor]
+        [GuiColor]
         public Color EndColor { get; set; }
-        [ImmediateFloat(ImmediateFloatMode.Slider, 0, 1)]
+        [GuiFloat(GuiFloatMode.Slider, 0, 1)]
         public float StartAlpha { get; set; }
-        [ImmediateFloat(ImmediateFloatMode.Slider, 0, 1)]
+        [GuiFloat(GuiFloatMode.Slider, 0, 1)]
         public float EndAlpha { get; set; }
-        [ImmediateInteger(0, 999999)]
+        [GuiInteger(0, 999999)]
         public int Life { get; set; }
-        [ImmediateInteger(0, 999999)]
+        [GuiInteger(0, 999999)]
         public int LifeVariance { get; set; }
-        [ImmediateInteger(ImmediateIntegerMode.Slider, 0, 1000)]
+        [GuiInteger(GuiIntegerMode.Slider, 0, 1000)]
         public int Speed { get; internal set; }
-        [ImmediateInteger(ImmediateIntegerMode.Slider, 0, 1000)]
+        [GuiInteger(GuiIntegerMode.Slider, 0, 1000)]
         public int SpeedVariance { get; set; }
-        [ImmediateFloat(ImmediateFloatMode.Angle)]
+        [GuiFloat(GuiFloatMode.Angle)]
         public float Angle { get; set; }
-        [ImmediateFloat(ImmediateFloatMode.Angle)]
+        [GuiFloat(GuiFloatMode.Angle)]
         public float AngleVariance { get; set; }
-        [ImmediateInteger(ImmediateIntegerMode.Slider, 0, 10000)]
+        [GuiInteger(GuiIntegerMode.Slider, 0, 10000)]
         public int Count { get; set; }
         internal Random Rand { get; private set; }
         public ParticleEmitter(Entity entity) : base(entity)
         {
+            Sprite = new Sprite(entity, BasicShapes.GenerateCircleTexture(1, Color.White, 1));
             Mode = ParticleMode.Continuous;
             VelocityMode = Particle.VelocityMode.Linear;
             StartColor = Color.Lerp(Color.Cyan, Color.White, 0.5f);
@@ -85,10 +86,6 @@ namespace Catalyst.Engine.Rendering
             Rand = new Random();
             FollowCamera = false;
             Initialize();
-
-
-
-
             Launch();
         }
         [Serializable]
@@ -119,6 +116,14 @@ namespace Catalyst.Engine.Rendering
                 }
 
             }
+        }
+
+        public void LoadContent()
+        {
+            Sprite = new Sprite(Entity, BasicShapes.GenerateCircleTexture(1, Color.White, 1));
+            Initialize();
+            if (Mode == ParticleMode.Continuous)
+                Launch();
         }
     }
 }

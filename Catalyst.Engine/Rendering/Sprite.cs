@@ -1,162 +1,163 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using Catalyst.Engine.Physics;
+﻿using Catalyst.Engine.Physics;
 using Catalyst.Engine.Utilities;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Vector2 = Catalyst.Engine.Utilities.Vector2;
-using Color = Catalyst.Engine.Utilities.Color;
-using Rectangle = Catalyst.Engine.Utilities.Rectangle;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class Sprite : AComponent
+    public class Sprite : Component, Loadable
     {
+        public Entity Entity { get; private set; }
+        [GuiString]
+        public String Name { get; set; }
+        public bool Packed { get; internal set; }
 
-        public new string Name { get; set; }
-
-        [ImmediateFloat(ImmediateFloatMode.Slider, 0, 1)]
-        public float Layer { get; set; }
-
-        private int _textureHeight;
-        
-        private int _textureWidth;
-
-        public List<MTexture> Textures = new List<MTexture>();
-        public MTexture Texture
+        private Rectangle _textureRect;
+        public Rectangle TextureRect
         {
             get
             {
-                return Textures[CurrentTexture];
+                if (Packed) return PackedTexture.Bounds;
+                else return _textureRect;
             }
         }
-        public int CurrentTexture { get; set; }
-        [ImmediateFloat(0,1000)]
-        public float AnimationSpeed { get; set; }
-        [ImmediateBoolean]
-        public bool Visible { get; set; }
-        [ImmediateLabel]
-        public int Frame { get; set; }
-        [ImmediateBoolean]
-        public bool Loop { get; set; }
-        [ImmediateBoolean]
-        public bool Animating { get; set; }
+
+        public PackedTexture PackedTexture { get; private set; }
+
+        #region Sprite
+        [GuiFloat(GuiFloatMode.Slider, 0, 1)]
+        public float Layer { get; set; }
+
+        [GuiFloat(GuiFloatMode.Slider, 0, 1)]
+        public float Distance { get; set; }
+
+        [NonSerialized]
+        private Texture2D _texture;
+        private string _texturePath;
+
+        public virtual Texture2D Texture
+        {
+            get
+            {
+                if (Packed) return PackedTexture.Atlas.Texture;
+                else return _texture;
+            }
+        }
+
+        [GuiBoolean]
+        public bool Active { get; set; }
+
+        [GuiEnum]
+        public SpriteOrigin Origin { get; set; }
+
+        private Vector2 _originVec2;
+        public Vector2 OriginVec2
+        {
+            get
+            {
+                if (_originVec2 == null)
+                {
+                    _originVec2 = OriginToVectorOffset(Origin, TextureRect);
+                }
+                return _originVec2;
+            }
+        }
+
+        [GuiFloat(GuiFloatMode.Slider, -2.0f * (float)Math.PI, 2.0f * (float)Math.PI)]
+        public float Rotation { get; set; }
+        [GuiFloat(0.01f, 9999.0f)]
+        public float Scale { get; set; }
 
         public SpriteEffects spriteEffects = new SpriteEffects();
-        
-        public Color debugColor = Color.Red * 0.4f; //Float = transparency
+        #endregion
 
-        internal TimeSpan TimeChanged = new TimeSpan();
+        public Sprite(Entity entity) : base(entity) { }
 
-        public Sprite(Entity entity) : base(entity)
+
+        public Sprite(Entity entity, PackedTexture packedTextureInfo) : base(entity)
         {
-            Transform transform = new Transform(entity);
-            Vector2 dims = GetDims();
-            transform.Origin = Utility.OriginToVectorOffset(Origin.TopLeft, dims);
-            transform.CollisionOffset = new Vector2();
-            transform.CollisionDims = transform.Dimensions;
-            Animating = Textures.Count > 1;
-            entity.AddComponent<Transform>(transform);
-            Visible = true;
-            Loop = true;
-            AnimationSpeed = 2.0f;
+            Entity = entity;
+            PackedTexture = packedTextureInfo;
+            Packed = true;
+            Layer = 0;
+            Distance = 0;
+            Active = true;
+            Origin = SpriteOrigin.TopLeft;
+            Rotation = 0;
+            Scale = 1;
         }
 
-        public Sprite(Entity entity, string name, int x, int y, MTexture[] textures, Origin origin) : base(entity)
+        public Sprite(Entity entity, Texture2D texture) : base(entity)
         {
-            Transform transform = new Transform(entity);
-            this.Name = name;
-            this.Textures.AddRange(textures);
-            Vector2 dims = GetDims();
-            transform.Dimensions = dims;
-            transform.Position = new Vector2(x, y);
-            transform.Origin = Utility.OriginToVectorOffset(origin, dims);
-            transform.CollisionOffset = new Vector2();
-            transform.CollisionDims = transform.Dimensions;
-            Animating = Textures.Count > 1;
-            entity.AddComponent<Transform>(transform);
-            Visible = true;
-            Loop = true;
-            AnimationSpeed = 2.0f;
+            Packed = false;
+            _texture = texture;
+            _textureRect = new Rectangle(texture.Bounds);
+            Layer = 0;
+            Distance = 0;
+            Active = true;
+            Origin = SpriteOrigin.TopLeft;
+            Rotation = 0;
+            Scale = 1;
+            _texturePath = texture.Name;
         }
 
-        public Sprite(Entity entity, string name, int x, int y, float scale, float rotation, MTexture[] textures, Origin origin) : base(entity)
+        [Serializable]
+        public enum SpriteOrigin
         {
-            Transform transform = new Transform(entity);
-            this.Name = name;
-            this.Textures.AddRange(textures);
-            Vector2 dims = GetDims();
-            transform.Dimensions = dims;
-            transform.Position = new Vector2(x, y);
-            transform.Origin = Utility.OriginToVectorOffset(origin, dims);
-            transform.Scale = scale;
-            transform.Rotation = rotation;
-            transform.CollisionOffset = new Vector2();
-            transform.CollisionDims = transform.Dimensions;
-            Animating = Textures.Count > 1;
-            entity.AddComponent<Transform>(transform);
-            Visible = true;
-            Loop = true;
-            AnimationSpeed = 2.0f;
+            TopLeft,
+            BottomLeft,
+            TopRight,
+            BottomRight,
+            Center,
+            TopCenter,
+            BottomCenter,
+            CenterLeft,
+            CenterRight
         }
 
-        public Sprite(Entity entity, string name, int x, int y, MTexture[] textures, int xOrigin, int yOrigin) : base(entity)
+        public void LoadContent()
         {
-            Transform transform = new Transform(entity);
-            this.Name = name;
-            this.Textures.AddRange(textures);
-            Vector2 dims = GetDims();
-            transform.Dimensions = dims;
-            transform.Position = new Vector2(x, y);
-            transform.Origin = new Vector2(xOrigin, yOrigin);
-            transform.CollisionOffset = new Vector2();
-            transform.CollisionDims = transform.Dimensions;
-            Animating = Textures.Count > 1;
-            entity.AddComponent<Transform>(transform);
-            Visible = true;
-            Loop = true;
-            AnimationSpeed = 2.0f;
-        }
-
-        public Sprite(Entity entity, string name, int x, int y, float scale, float rotation, MTexture[] textures, int xOrigin, int yOrigin) : base(entity)
-        {
-            Transform transform = new Transform(entity);
-            this.Name = name;
-            this.Textures.AddRange(textures);
-            Vector2 dims = GetDims();
-            transform.Dimensions = dims;
-            transform.Position = new Vector2(x, y);
-            transform.Origin = new Vector2(xOrigin, yOrigin);
-            transform.Scale = scale;
-            transform.Rotation = rotation;
-            transform.CollisionOffset = new Vector2();
-            transform.CollisionDims = transform.Dimensions;
-            Animating = Textures.Count > 1;
-            entity.AddComponent<Transform>(transform);
-            Visible = true;
-            Loop = true;
-            AnimationSpeed = 2.0f;
-        }
-
-
-        private Vector2 GetDims()
-        {
-            for (int i = 0; i < Textures.Count; i++)
+            if (Packed)
             {
-                if (Textures[i].Width > _textureWidth) _textureWidth = Textures[i].Width;
-                if (Textures[i].Height > _textureHeight) _textureHeight = Textures[i].Height;
+                PackedTexture.Atlas.LoadContent();
             }
-            return new Vector2(_textureWidth, _textureHeight);
+            else
+            {
+                _texture = Graphics.Content.Load<Texture2D>(_texturePath);
+            }
         }
 
+        public static Utilities.Vector2 OriginToVectorOffset(SpriteOrigin origin, Utilities.Rectangle dimensions)
+        {
+            switch (origin)
+            {
+                case (SpriteOrigin.TopLeft):
+                    return new Utilities.Vector2(0, 0);
+                case (SpriteOrigin.TopRight):
+                    return new Utilities.Vector2(dimensions.X, 0);
+                case (SpriteOrigin.TopCenter):
+                    return new Utilities.Vector2((int)(dimensions.X / 2), 0);
+                case (SpriteOrigin.CenterLeft):
+                    return new Utilities.Vector2(0, (int)(dimensions.Y / 2));
+                case (SpriteOrigin.CenterRight):
+                    return new Utilities.Vector2(dimensions.X, (int)(dimensions.Y / 2));
+                case (SpriteOrigin.Center):
+                    return new Utilities.Vector2((int)(dimensions.X / 2), (int)(dimensions.Y / 2));
+                case (SpriteOrigin.BottomLeft):
+                    return new Utilities.Vector2(0, dimensions.Y);
+                case (SpriteOrigin.BottomRight):
+                    return new Utilities.Vector2(dimensions.X, dimensions.Y);
+                case (SpriteOrigin.BottomCenter):
+                    return new Utilities.Vector2((int)(dimensions.X / 2), dimensions.Y);
+                default:
+                    return new Utilities.Vector2(0, 0);
+            }
 
-
+        }
     }
-
-
-
-
 }
-

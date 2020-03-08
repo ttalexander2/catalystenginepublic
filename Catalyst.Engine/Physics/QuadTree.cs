@@ -16,7 +16,7 @@ namespace Catalyst.Engine.Physics
         private int _maxLevels = 5;
 
         private int _level;
-        private List<Transform> _objects;
+        private List<Position> _objects;
         private Utilities.Rectangle _bounds;
         private QuadTree[] _nodes;
 
@@ -25,7 +25,7 @@ namespace Catalyst.Engine.Physics
         {
             throw new Exception("QUAD TREE IS BROKEN");
             _level = parentLevel;
-            _objects = new List<Transform>();
+            _objects = new List<Position>();
             _bounds = parentBounds;
             _nodes = new QuadTree[4];
         }
@@ -33,7 +33,7 @@ namespace Catalyst.Engine.Physics
         public QuadTree(Utilities.Rectangle parentBounds)
         {
             _level = 0;
-            _objects = new List<Transform>();
+            _objects = new List<Position>();
             _bounds = parentBounds;
             _nodes = new QuadTree[4];
         }
@@ -66,12 +66,12 @@ namespace Catalyst.Engine.Physics
             _nodes[3] = new QuadTree(_level + 1, new Utilities.Rectangle(x + subWidth, y + subHeight, subWidth, subHeight));
         }
 
-        private int GetIndex(Transform collider)
+        private int GetIndex(Position collider)
         {
             int index = -1;
             double verticalMidpoint = _bounds.X + (_bounds.Width / 2);
             double horizontalMidpoint = _bounds.Y + (_bounds.Height / 2);
-
+            /**
             bool topQuadrant = (collider.Position.Y + collider.Origin.Y < horizontalMidpoint && collider.Position.Y + collider.Origin.Y + collider.CollisionDims.Y < horizontalMidpoint);
             bool bottomQuadrant = (collider.Position.Y + collider.Origin.Y > horizontalMidpoint);
 
@@ -97,10 +97,12 @@ namespace Catalyst.Engine.Physics
                     index = 3;
                 }
             }
+
+            */
             return index;
         }
 
-        public void Insert(Transform collider)
+        public void Insert(Position collider)
         {
 
             if (_nodes[0] != null)
@@ -140,7 +142,7 @@ namespace Catalyst.Engine.Physics
             }
         }
 
-        public List<Transform> Retrieve(List<Transform> returnObjects, Transform pRect)
+        public List<Position> Retrieve(List<Position> returnObjects, Position pRect)
         {
             int index = GetIndex(pRect);
             if (index != -1 && _nodes[0] != null)

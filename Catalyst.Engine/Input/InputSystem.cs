@@ -13,7 +13,7 @@ namespace Catalyst.Engine.Input
     /// System to manage updating input components.
     /// </summary>
     [Serializable]
-    public class InputSystem : ASystem
+    public class InputSystem : System
     {
         /// <summary>
         /// Create and initialize InputSystem for a scene.

@@ -11,7 +11,7 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class ASystem
+    public abstract class System
     {
         
         protected Scene scene;
@@ -23,12 +23,12 @@ namespace Catalyst.Engine
                 return scene.Manager;
             }
         }
-        public ASystem(Scene scene)
+        public System(Scene scene)
         {
             this.scene = scene;
         }
 
-        private ASystem() { }
+        private System() { }
 
         public virtual bool Renders => false;
         public virtual void Initialize() { }
@@ -40,8 +40,8 @@ namespace Catalyst.Engine
 
         private static Type[] DerivedTypes()
         {
-            return Assembly.GetAssembly(typeof(AComponent)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(ASystem))).ToArray();
+            return Assembly.GetAssembly(typeof(Component)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(System))).ToArray();
         }
 
     }

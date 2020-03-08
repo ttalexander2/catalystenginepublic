@@ -14,7 +14,7 @@ using Vector2 = Catalyst.Engine.Utilities.Vector2;
 namespace Catalyst.Game
 {
     [Serializable]
-    public class PlayerSystem : ASystem
+    public class PlayerSystem : Engine.System
     {
         public PlayerSystem(Scene scene): base(scene){}
 

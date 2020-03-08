@@ -10,7 +10,7 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class AComponent
+    public abstract class Component
     {
         public static string Name => "Abstract Component";
         
@@ -20,7 +20,7 @@ namespace Catalyst.Engine
         
         public Entity Entity { get; internal set; }
 
-        public AComponent(Entity entity)
+        public Component(Entity entity)
         {
             this.Entity = entity;
             this.UID = entity.UID;
@@ -29,8 +29,8 @@ namespace Catalyst.Engine
 
         private static Type[] DerivedTypes()
         {
-            return Assembly.GetAssembly(typeof(AComponent)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AComponent))).ToArray();
+            return Assembly.GetAssembly(typeof(Component)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))).ToArray();
         }
     }
 }

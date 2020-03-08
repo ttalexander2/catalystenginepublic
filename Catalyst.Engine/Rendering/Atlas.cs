@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class TextureAtlas
+    public class Atlas : Loadable
     {
         public string Name
         {
             get
             {
-                return System.IO.Path.GetFileNameWithoutExtension(Path);
+                return global::System.IO.Path.GetFileNameWithoutExtension(Path);
             }
         }
         public string Path { get; private set; }
-        public Dictionary<int, MTexture> Textures = new Dictionary<int, MTexture>();
+        public Dictionary<int, PackedTexture> Textures = new Dictionary<int, PackedTexture>();
         public Texture2D Texture
         {
             get
@@ -30,14 +30,14 @@ namespace Catalyst.Engine.Rendering
         [NonSerialized]
         private Texture2D _texture;
 
-        public TextureAtlas(string path)
+        public Atlas(string path)
         {
             Path = path;
         }
 
         public void LoadContent()
         {
-            _texture = Graphics.Content.Load<Texture2D>(System.IO.Path.Combine("Content", "Atlases", System.IO.Path.GetFileNameWithoutExtension(Path)));
+            _texture = Graphics.Content.Load<Texture2D>(global::System.IO.Path.Combine("Content", "Atlases", global::System.IO.Path.GetFileNameWithoutExtension(Path)));
         }
     }
 }

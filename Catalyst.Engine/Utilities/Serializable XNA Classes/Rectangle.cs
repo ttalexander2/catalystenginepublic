@@ -190,6 +190,22 @@ namespace Catalyst.Engine.Utilities
 
         /// <summary>
         /// Creates a new instance of <see cref="Rectangle"/> struct, with the specified
+        /// position, width, and height.
+        /// </summary>
+        /// <param name="x">The x coordinate of the top-left corner of the created <see cref="Rectangle"/>.</param>
+        /// <param name="y">The y coordinate of the top-left corner of the created <see cref="Rectangle"/>.</param>
+        /// <param name="width">The width of the created <see cref="Rectangle"/>.</param>
+        /// <param name="height">The height of the created <see cref="Rectangle"/>.</param>
+        public Rectangle(Microsoft.Xna.Framework.Rectangle rect)
+        {
+            this.X = rect.X;
+            this.Y = rect.Y;
+            this.Width = rect.Width;
+            this.Height = rect.Height;
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="Rectangle"/> struct, with the specified
         /// location and size.
         /// </summary>
         /// <param name="location">The x and y coordinates of the top-left corner of the created <see cref="Rectangle"/>.</param>

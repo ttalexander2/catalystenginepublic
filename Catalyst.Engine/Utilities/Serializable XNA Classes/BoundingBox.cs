@@ -256,7 +256,7 @@ namespace Catalyst.Engine.Utilities
         /// <param name="index">The base index to start iterating from</param>
         /// <param name="count">The number of points to iterate</param>
         /// <returns>A bounding box that encapsulates the given point cloud.</returns>
-        /// <exception cref="System.ArgumentException">Thrown if the given array is null or has no points.</exception>
+        /// <exception cref="global::System.ArgumentException">Thrown if the given array is null or has no points.</exception>
         public static BoundingBox CreateFromPoints(Vector3[] points, int index = 0, int count = -1)
         {
             if (points == null || points.Length == 0)
@@ -289,7 +289,7 @@ namespace Catalyst.Engine.Utilities
         /// <param name="index">The base index to start iterating from</param>
         /// <param name="count">The number of points to iterate</param>
         /// <returns>A bounding box that encapsulates the given point cloud.</returns>
-        /// <exception cref="System.ArgumentException">Thrown if the given list is null or has no points.</exception>
+        /// <exception cref="global::System.ArgumentException">Thrown if the given list is null or has no points.</exception>
         public static BoundingBox CreateFromPoints(List<Vector3> points, int index = 0, int count = -1)
         {
             if (points == null || points.Count == 0)
@@ -320,7 +320,7 @@ namespace Catalyst.Engine.Utilities
         /// </summary>
         /// <param name="points">The list of Vector3 instances defining the point cloud to bound</param>
         /// <returns>A bounding box that encapsulates the given point cloud.</returns>
-        /// <exception cref="System.ArgumentException">Thrown if the given list has no points.</exception>
+        /// <exception cref="global::System.ArgumentException">Thrown if the given list has no points.</exception>
         public static BoundingBox CreateFromPoints(IEnumerable<Vector3> points)
         {
             if (points == null)

@@ -11,10 +11,10 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class ARenderSystem : ASystem
+    public abstract class RenderSystem : System
     {
 
-        internal ARenderSystem(Scene scene) : base(scene)
+        internal RenderSystem(Scene scene) : base(scene)
         {
         }
         public override bool Renders => true;
@@ -31,8 +31,8 @@ namespace Catalyst.Engine
 
         private static Type[] DerivedTypes()
         {
-            return Assembly.GetAssembly(typeof(AComponent)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(ARenderSystem))).ToArray();
+            return Assembly.GetAssembly(typeof(Component)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(RenderSystem))).ToArray();
         }
     }
 }

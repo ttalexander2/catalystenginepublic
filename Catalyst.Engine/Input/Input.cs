@@ -13,7 +13,7 @@ namespace Catalyst.Engine.Input
     /// Input component class, used to keep track of the input for a current frame.
     /// </summary>
     [Serializable]
-    public sealed class Input : AComponent
+    public sealed class Input : Component
     {
         public static new string Name => "Input";
 
@@ -30,17 +30,17 @@ namespace Catalyst.Engine.Input
         /// <summary>
         /// Current mouse's X position.
         /// </summary>
-        [ImmediateLabel]
+        [GuiLabel]
         public int MouseX { get; internal set; }
         /// <summary>
         /// Current mouse's Y position.
         /// </summary>
-        [ImmediateLabel]
+        [GuiLabel]
         public int MouseY { get; internal set; }
         /// <summary>
         /// Right click occured this frame.
         /// </summary>
-        [ImmediateLabel]
+        [GuiLabel]
         public bool MousePressed { get; internal set; }
         /// <summary>
         /// Current frame's state of the gamepad. See <see cref="Microsoft.Xna.Framework.Input.GamePadState"/>
