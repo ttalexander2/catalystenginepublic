@@ -7,77 +7,6 @@ references:
   commentId: N:Catalyst.Engine
   fullName: Catalyst.Engine
   nameWithType: Catalyst.Engine
-- uid: Catalyst.Engine.AComponent
-  name: AComponent
-  href: api/Catalyst.Engine.AComponent.html
-  commentId: T:Catalyst.Engine.AComponent
-  fullName: Catalyst.Engine.AComponent
-  nameWithType: AComponent
-- uid: Catalyst.Engine.AComponent.#ctor(Catalyst.Engine.Entity)
-  name: AComponent(Entity)
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent__ctor_Catalyst_Engine_Entity_
-  commentId: M:Catalyst.Engine.AComponent.#ctor(Catalyst.Engine.Entity)
-  fullName: Catalyst.Engine.AComponent.AComponent(Catalyst.Engine.Entity)
-  nameWithType: AComponent.AComponent(Entity)
-- uid: Catalyst.Engine.AComponent.#ctor*
-  name: AComponent
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent__ctor_
-  commentId: Overload:Catalyst.Engine.AComponent.#ctor
-  isSpec: "True"
-  fullName: Catalyst.Engine.AComponent.AComponent
-  nameWithType: AComponent.AComponent
-- uid: Catalyst.Engine.AComponent.Active
-  name: Active
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Active
-  commentId: P:Catalyst.Engine.AComponent.Active
-  fullName: Catalyst.Engine.AComponent.Active
-  nameWithType: AComponent.Active
-- uid: Catalyst.Engine.AComponent.Active*
-  name: Active
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Active_
-  commentId: Overload:Catalyst.Engine.AComponent.Active
-  isSpec: "True"
-  fullName: Catalyst.Engine.AComponent.Active
-  nameWithType: AComponent.Active
-- uid: Catalyst.Engine.AComponent.Entity
-  name: Entity
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Entity
-  commentId: P:Catalyst.Engine.AComponent.Entity
-  fullName: Catalyst.Engine.AComponent.Entity
-  nameWithType: AComponent.Entity
-- uid: Catalyst.Engine.AComponent.Entity*
-  name: Entity
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Entity_
-  commentId: Overload:Catalyst.Engine.AComponent.Entity
-  isSpec: "True"
-  fullName: Catalyst.Engine.AComponent.Entity
-  nameWithType: AComponent.Entity
-- uid: Catalyst.Engine.AComponent.Name
-  name: Name
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Name
-  commentId: P:Catalyst.Engine.AComponent.Name
-  fullName: Catalyst.Engine.AComponent.Name
-  nameWithType: AComponent.Name
-- uid: Catalyst.Engine.AComponent.Name*
-  name: Name
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Name_
-  commentId: Overload:Catalyst.Engine.AComponent.Name
-  isSpec: "True"
-  fullName: Catalyst.Engine.AComponent.Name
-  nameWithType: AComponent.Name
-- uid: Catalyst.Engine.AComponent.UID
-  name: UID
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_UID
-  commentId: P:Catalyst.Engine.AComponent.UID
-  fullName: Catalyst.Engine.AComponent.UID
-  nameWithType: AComponent.UID
-- uid: Catalyst.Engine.AComponent.UID*
-  name: UID
-  href: api/Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_UID_
-  commentId: Overload:Catalyst.Engine.AComponent.UID
-  isSpec: "True"
-  fullName: Catalyst.Engine.AComponent.UID
-  nameWithType: AComponent.UID
 - uid: Catalyst.Engine.Actor
   name: Actor
   href: api/Catalyst.Engine.Actor.html
@@ -110,232 +39,6 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Actor.Name
   nameWithType: Actor.Name
-- uid: Catalyst.Engine.ARenderSystem
-  name: ARenderSystem
-  href: api/Catalyst.Engine.ARenderSystem.html
-  commentId: T:Catalyst.Engine.ARenderSystem
-  fullName: Catalyst.Engine.ARenderSystem
-  nameWithType: ARenderSystem
-- uid: Catalyst.Engine.ARenderSystem.DebugRender(Microsoft.Xna.Framework.GameTime)
-  name: DebugRender(GameTime)
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_DebugRender_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ARenderSystem.DebugRender(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ARenderSystem.DebugRender(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ARenderSystem.DebugRender(GameTime)
-- uid: Catalyst.Engine.ARenderSystem.DebugRender*
-  name: DebugRender
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_DebugRender_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.DebugRender
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.DebugRender
-  nameWithType: ARenderSystem.DebugRender
-- uid: Catalyst.Engine.ARenderSystem.LoadContent
-  name: LoadContent()
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_LoadContent
-  commentId: M:Catalyst.Engine.ARenderSystem.LoadContent
-  fullName: Catalyst.Engine.ARenderSystem.LoadContent()
-  nameWithType: ARenderSystem.LoadContent()
-- uid: Catalyst.Engine.ARenderSystem.LoadContent*
-  name: LoadContent
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_LoadContent_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.LoadContent
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.LoadContent
-  nameWithType: ARenderSystem.LoadContent
-- uid: Catalyst.Engine.ARenderSystem.PostRender(Microsoft.Xna.Framework.GameTime)
-  name: PostRender(GameTime)
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_PostRender_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ARenderSystem.PostRender(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ARenderSystem.PostRender(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ARenderSystem.PostRender(GameTime)
-- uid: Catalyst.Engine.ARenderSystem.PostRender*
-  name: PostRender
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_PostRender_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.PostRender
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.PostRender
-  nameWithType: ARenderSystem.PostRender
-- uid: Catalyst.Engine.ARenderSystem.PreRender(Microsoft.Xna.Framework.GameTime)
-  name: PreRender(GameTime)
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_PreRender_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ARenderSystem.PreRender(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ARenderSystem.PreRender(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ARenderSystem.PreRender(GameTime)
-- uid: Catalyst.Engine.ARenderSystem.PreRender*
-  name: PreRender
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_PreRender_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.PreRender
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.PreRender
-  nameWithType: ARenderSystem.PreRender
-- uid: Catalyst.Engine.ARenderSystem.Render(Microsoft.Xna.Framework.GameTime)
-  name: Render(GameTime)
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_Render_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ARenderSystem.Render(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ARenderSystem.Render(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ARenderSystem.Render(GameTime)
-- uid: Catalyst.Engine.ARenderSystem.Render*
-  name: Render
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_Render_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.Render
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.Render
-  nameWithType: ARenderSystem.Render
-- uid: Catalyst.Engine.ARenderSystem.Renders
-  name: Renders
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_Renders
-  commentId: P:Catalyst.Engine.ARenderSystem.Renders
-  fullName: Catalyst.Engine.ARenderSystem.Renders
-  nameWithType: ARenderSystem.Renders
-- uid: Catalyst.Engine.ARenderSystem.Renders*
-  name: Renders
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_Renders_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.Renders
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.Renders
-  nameWithType: ARenderSystem.Renders
-- uid: Catalyst.Engine.ARenderSystem.RenderUI(Microsoft.Xna.Framework.GameTime)
-  name: RenderUI(GameTime)
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_RenderUI_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ARenderSystem.RenderUI(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ARenderSystem.RenderUI(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ARenderSystem.RenderUI(GameTime)
-- uid: Catalyst.Engine.ARenderSystem.RenderUI*
-  name: RenderUI
-  href: api/Catalyst.Engine.ARenderSystem.html#Catalyst_Engine_ARenderSystem_RenderUI_
-  commentId: Overload:Catalyst.Engine.ARenderSystem.RenderUI
-  isSpec: "True"
-  fullName: Catalyst.Engine.ARenderSystem.RenderUI
-  nameWithType: ARenderSystem.RenderUI
-- uid: Catalyst.Engine.ASystem
-  name: ASystem
-  href: api/Catalyst.Engine.ASystem.html
-  commentId: T:Catalyst.Engine.ASystem
-  fullName: Catalyst.Engine.ASystem
-  nameWithType: ASystem
-- uid: Catalyst.Engine.ASystem.#ctor(Catalyst.Engine.Scene)
-  name: ASystem(Scene)
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem__ctor_Catalyst_Engine_Scene_
-  commentId: M:Catalyst.Engine.ASystem.#ctor(Catalyst.Engine.Scene)
-  fullName: Catalyst.Engine.ASystem.ASystem(Catalyst.Engine.Scene)
-  nameWithType: ASystem.ASystem(Scene)
-- uid: Catalyst.Engine.ASystem.#ctor*
-  name: ASystem
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem__ctor_
-  commentId: Overload:Catalyst.Engine.ASystem.#ctor
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.ASystem
-  nameWithType: ASystem.ASystem
-- uid: Catalyst.Engine.ASystem.End(Microsoft.Xna.Framework.GameTime)
-  name: End(GameTime)
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_End_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ASystem.End(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ASystem.End(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ASystem.End(GameTime)
-- uid: Catalyst.Engine.ASystem.End*
-  name: End
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_End_
-  commentId: Overload:Catalyst.Engine.ASystem.End
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.End
-  nameWithType: ASystem.End
-- uid: Catalyst.Engine.ASystem.Initialize
-  name: Initialize()
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Initialize
-  commentId: M:Catalyst.Engine.ASystem.Initialize
-  fullName: Catalyst.Engine.ASystem.Initialize()
-  nameWithType: ASystem.Initialize()
-- uid: Catalyst.Engine.ASystem.Initialize*
-  name: Initialize
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Initialize_
-  commentId: Overload:Catalyst.Engine.ASystem.Initialize
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.Initialize
-  nameWithType: ASystem.Initialize
-- uid: Catalyst.Engine.ASystem.Manager
-  name: Manager
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Manager
-  commentId: P:Catalyst.Engine.ASystem.Manager
-  fullName: Catalyst.Engine.ASystem.Manager
-  nameWithType: ASystem.Manager
-- uid: Catalyst.Engine.ASystem.Manager*
-  name: Manager
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Manager_
-  commentId: Overload:Catalyst.Engine.ASystem.Manager
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.Manager
-  nameWithType: ASystem.Manager
-- uid: Catalyst.Engine.ASystem.PostUpdate(Microsoft.Xna.Framework.GameTime)
-  name: PostUpdate(GameTime)
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_PostUpdate_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ASystem.PostUpdate(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ASystem.PostUpdate(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ASystem.PostUpdate(GameTime)
-- uid: Catalyst.Engine.ASystem.PostUpdate*
-  name: PostUpdate
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_PostUpdate_
-  commentId: Overload:Catalyst.Engine.ASystem.PostUpdate
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.PostUpdate
-  nameWithType: ASystem.PostUpdate
-- uid: Catalyst.Engine.ASystem.PreUpdate(Microsoft.Xna.Framework.GameTime)
-  name: PreUpdate(GameTime)
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_PreUpdate_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ASystem.PreUpdate(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ASystem.PreUpdate(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ASystem.PreUpdate(GameTime)
-- uid: Catalyst.Engine.ASystem.PreUpdate*
-  name: PreUpdate
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_PreUpdate_
-  commentId: Overload:Catalyst.Engine.ASystem.PreUpdate
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.PreUpdate
-  nameWithType: ASystem.PreUpdate
-- uid: Catalyst.Engine.ASystem.Renders
-  name: Renders
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Renders
-  commentId: P:Catalyst.Engine.ASystem.Renders
-  fullName: Catalyst.Engine.ASystem.Renders
-  nameWithType: ASystem.Renders
-- uid: Catalyst.Engine.ASystem.Renders*
-  name: Renders
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Renders_
-  commentId: Overload:Catalyst.Engine.ASystem.Renders
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.Renders
-  nameWithType: ASystem.Renders
-- uid: Catalyst.Engine.ASystem.Save(Microsoft.Xna.Framework.GameTime)
-  name: Save(GameTime)
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Save_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ASystem.Save(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ASystem.Save(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ASystem.Save(GameTime)
-- uid: Catalyst.Engine.ASystem.Save*
-  name: Save
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Save_
-  commentId: Overload:Catalyst.Engine.ASystem.Save
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.Save
-  nameWithType: ASystem.Save
-- uid: Catalyst.Engine.ASystem.scene
-  name: scene
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_scene
-  commentId: F:Catalyst.Engine.ASystem.scene
-  fullName: Catalyst.Engine.ASystem.scene
-  nameWithType: ASystem.scene
-- uid: Catalyst.Engine.ASystem.Update(Microsoft.Xna.Framework.GameTime)
-  name: Update(GameTime)
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Update_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.ASystem.Update(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.ASystem.Update(Microsoft.Xna.Framework.GameTime)
-  nameWithType: ASystem.Update(GameTime)
-- uid: Catalyst.Engine.ASystem.Update*
-  name: Update
-  href: api/Catalyst.Engine.ASystem.html#Catalyst_Engine_ASystem_Update_
-  commentId: Overload:Catalyst.Engine.ASystem.Update
-  isSpec: "True"
-  fullName: Catalyst.Engine.ASystem.Update
-  nameWithType: ASystem.Update
 - uid: Catalyst.Engine.Audio
   name: Catalyst.Engine.Audio
   href: api/Catalyst.Engine.Audio.html
@@ -418,6 +121,77 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Audio.AudioManager.Update
   nameWithType: AudioManager.Update
+- uid: Catalyst.Engine.Component
+  name: Component
+  href: api/Catalyst.Engine.Component.html
+  commentId: T:Catalyst.Engine.Component
+  fullName: Catalyst.Engine.Component
+  nameWithType: Component
+- uid: Catalyst.Engine.Component.#ctor(Catalyst.Engine.Entity)
+  name: Component(Entity)
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component__ctor_Catalyst_Engine_Entity_
+  commentId: M:Catalyst.Engine.Component.#ctor(Catalyst.Engine.Entity)
+  fullName: Catalyst.Engine.Component.Component(Catalyst.Engine.Entity)
+  nameWithType: Component.Component(Entity)
+- uid: Catalyst.Engine.Component.#ctor*
+  name: Component
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component__ctor_
+  commentId: Overload:Catalyst.Engine.Component.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.Component.Component
+  nameWithType: Component.Component
+- uid: Catalyst.Engine.Component.Active
+  name: Active
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_Active
+  commentId: P:Catalyst.Engine.Component.Active
+  fullName: Catalyst.Engine.Component.Active
+  nameWithType: Component.Active
+- uid: Catalyst.Engine.Component.Active*
+  name: Active
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_Active_
+  commentId: Overload:Catalyst.Engine.Component.Active
+  isSpec: "True"
+  fullName: Catalyst.Engine.Component.Active
+  nameWithType: Component.Active
+- uid: Catalyst.Engine.Component.Entity
+  name: Entity
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_Entity
+  commentId: P:Catalyst.Engine.Component.Entity
+  fullName: Catalyst.Engine.Component.Entity
+  nameWithType: Component.Entity
+- uid: Catalyst.Engine.Component.Entity*
+  name: Entity
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_Entity_
+  commentId: Overload:Catalyst.Engine.Component.Entity
+  isSpec: "True"
+  fullName: Catalyst.Engine.Component.Entity
+  nameWithType: Component.Entity
+- uid: Catalyst.Engine.Component.Name
+  name: Name
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_Name
+  commentId: P:Catalyst.Engine.Component.Name
+  fullName: Catalyst.Engine.Component.Name
+  nameWithType: Component.Name
+- uid: Catalyst.Engine.Component.Name*
+  name: Name
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_Name_
+  commentId: Overload:Catalyst.Engine.Component.Name
+  isSpec: "True"
+  fullName: Catalyst.Engine.Component.Name
+  nameWithType: Component.Name
+- uid: Catalyst.Engine.Component.UID
+  name: UID
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_UID
+  commentId: P:Catalyst.Engine.Component.UID
+  fullName: Catalyst.Engine.Component.UID
+  nameWithType: Component.UID
+- uid: Catalyst.Engine.Component.UID*
+  name: UID
+  href: api/Catalyst.Engine.Component.html#Catalyst_Engine_Component_UID_
+  commentId: Overload:Catalyst.Engine.Component.UID
+  isSpec: "True"
+  fullName: Catalyst.Engine.Component.UID
+  nameWithType: Component.UID
 - uid: Catalyst.Engine.ECDictionaryExtensions
   name: ECDictionaryExtensions
   href: api/Catalyst.Engine.ECDictionaryExtensions.html
@@ -431,15 +205,15 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.ECDictionaryExtensions.Filter
   nameWithType: ECDictionaryExtensions.Filter
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``1(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__1_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``1(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``1(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__1_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``1(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``1(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__1_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -449,15 +223,15 @@ references:
   fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A)(System.Collections.Generic.Dictionary(Of System.Int32, Catalyst.Engine.Entity))
   nameWithType: ECDictionaryExtensions.Filter<A>(Dictionary<Int32, Entity>)
   nameWithType.vb: ECDictionaryExtensions.Filter(Of A)(Dictionary(Of Int32, Entity))
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``2(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A, B>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__2_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``2(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A, B)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A, B>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``2(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A, B>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__2_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``2(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A, B)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A, B>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``2(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A, B>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__2_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -467,15 +241,15 @@ references:
   fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B)(System.Collections.Generic.Dictionary(Of System.Int32, Catalyst.Engine.Entity))
   nameWithType: ECDictionaryExtensions.Filter<A, B>(Dictionary<Int32, Entity>)
   nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B)(Dictionary(Of Int32, Entity))
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``3(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A, B, C>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__3_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``3(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A, B, C)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A, B, C>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``3(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A, B, C>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__3_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``3(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A, B, C)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A, B, C>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``3(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A, B, C>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__3_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -485,15 +259,15 @@ references:
   fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C)(System.Collections.Generic.Dictionary(Of System.Int32, Catalyst.Engine.Entity))
   nameWithType: ECDictionaryExtensions.Filter<A, B, C>(Dictionary<Int32, Entity>)
   nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C)(Dictionary(Of Int32, Entity))
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``4(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A, B, C, D>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__4_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``4(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A, B, C, D)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``4(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A, B, C, D>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__4_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``4(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A, B, C, D)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``4(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A, B, C, D>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__4_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -503,15 +277,15 @@ references:
   fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D)(System.Collections.Generic.Dictionary(Of System.Int32, Catalyst.Engine.Entity))
   nameWithType: ECDictionaryExtensions.Filter<A, B, C, D>(Dictionary<Int32, Entity>)
   nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D)(Dictionary(Of Int32, Entity))
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``5(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A, B, C, D, E>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__5_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``5(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A, B, C, D, E)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D, E>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``5(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A, B, C, D, E>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__5_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``5(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A, B, C, D, E)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D, E>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``5(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A, B, C, D, E>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__5_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -521,15 +295,15 @@ references:
   fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E)(System.Collections.Generic.Dictionary(Of System.Int32, Catalyst.Engine.Entity))
   nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E>(Dictionary<Int32, Entity>)
   nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E)(Dictionary(Of Int32, Entity))
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``6(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A, B, C, D, E, F>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__6_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``6(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A, B, C, D, E, F)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D, E, F>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E, F)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E, F>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E, F)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``6(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A, B, C, D, E, F>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__6_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``6(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A, B, C, D, E, F)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D, E, F>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E, F)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E, F>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E, F)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``6(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A, B, C, D, E, F>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__6_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -539,15 +313,15 @@ references:
   fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E, F)(System.Collections.Generic.Dictionary(Of System.Int32, Catalyst.Engine.Entity))
   nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E, F>(Dictionary<Int32, Entity>)
   nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E, F)(Dictionary(Of Int32, Entity))
-- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``7(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name: Filter<A, B, C, D, E, F, G>(Dictionary<Entity, AComponent>)
-  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__7_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_AComponent__
-  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``7(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.AComponent})
-  name.vb: Filter(Of A, B, C, D, E, F, G)(Dictionary(Of Entity, AComponent))
-  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D, E, F, G>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.AComponent>)
-  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E, F, G)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.AComponent))
-  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E, F, G>(Dictionary<Entity, AComponent>)
-  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E, F, G)(Dictionary(Of Entity, AComponent))
+- uid: Catalyst.Engine.ECDictionaryExtensions.Filter``7(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name: Filter<A, B, C, D, E, F, G>(Dictionary<Entity, Component>)
+  href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__7_System_Collections_Generic_Dictionary_Catalyst_Engine_Entity_Catalyst_Engine_Component__
+  commentId: M:Catalyst.Engine.ECDictionaryExtensions.Filter``7(System.Collections.Generic.Dictionary{Catalyst.Engine.Entity,Catalyst.Engine.Component})
+  name.vb: Filter(Of A, B, C, D, E, F, G)(Dictionary(Of Entity, Component))
+  fullName: Catalyst.Engine.ECDictionaryExtensions.Filter<A, B, C, D, E, F, G>(System.Collections.Generic.Dictionary<Catalyst.Engine.Entity, Catalyst.Engine.Component>)
+  fullName.vb: Catalyst.Engine.ECDictionaryExtensions.Filter(Of A, B, C, D, E, F, G)(System.Collections.Generic.Dictionary(Of Catalyst.Engine.Entity, Catalyst.Engine.Component))
+  nameWithType: ECDictionaryExtensions.Filter<A, B, C, D, E, F, G>(Dictionary<Entity, Component>)
+  nameWithType.vb: ECDictionaryExtensions.Filter(Of A, B, C, D, E, F, G)(Dictionary(Of Entity, Component))
 - uid: Catalyst.Engine.ECDictionaryExtensions.Filter``7(System.Collections.Generic.Dictionary{System.Int32,Catalyst.Engine.Entity})
   name: Filter<A, B, C, D, E, F, G>(Dictionary<Int32, Entity>)
   href: api/Catalyst.Engine.ECDictionaryExtensions.html#Catalyst_Engine_ECDictionaryExtensions_Filter__7_System_Collections_Generic_Dictionary_System_Int32_Catalyst_Engine_Entity__
@@ -682,12 +456,12 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.ECManager.RefreshTypes
   nameWithType: ECManager.RefreshTypes
-- uid: Catalyst.Engine.ECManager.RemoveComponent(Catalyst.Engine.AComponent)
-  name: RemoveComponent(AComponent)
-  href: api/Catalyst.Engine.ECManager.html#Catalyst_Engine_ECManager_RemoveComponent_Catalyst_Engine_AComponent_
-  commentId: M:Catalyst.Engine.ECManager.RemoveComponent(Catalyst.Engine.AComponent)
-  fullName: Catalyst.Engine.ECManager.RemoveComponent(Catalyst.Engine.AComponent)
-  nameWithType: ECManager.RemoveComponent(AComponent)
+- uid: Catalyst.Engine.ECManager.RemoveComponent(Catalyst.Engine.Component)
+  name: RemoveComponent(Component)
+  href: api/Catalyst.Engine.ECManager.html#Catalyst_Engine_ECManager_RemoveComponent_Catalyst_Engine_Component_
+  commentId: M:Catalyst.Engine.ECManager.RemoveComponent(Catalyst.Engine.Component)
+  fullName: Catalyst.Engine.ECManager.RemoveComponent(Catalyst.Engine.Component)
+  nameWithType: ECManager.RemoveComponent(Component)
 - uid: Catalyst.Engine.ECManager.RemoveComponent*
   name: RemoveComponent
   href: api/Catalyst.Engine.ECManager.html#Catalyst_Engine_ECManager_RemoveComponent_
@@ -982,15 +756,15 @@ references:
   fullName.vb: Catalyst.Engine.Entity.AddComponent(Of T)()
   nameWithType: Entity.AddComponent<T>()
   nameWithType.vb: Entity.AddComponent(Of T)()
-- uid: Catalyst.Engine.Entity.AddComponent``1(Catalyst.Engine.AComponent)
-  name: AddComponent<T>(AComponent)
-  href: api/Catalyst.Engine.Entity.html#Catalyst_Engine_Entity_AddComponent__1_Catalyst_Engine_AComponent_
-  commentId: M:Catalyst.Engine.Entity.AddComponent``1(Catalyst.Engine.AComponent)
-  name.vb: AddComponent(Of T)(AComponent)
-  fullName: Catalyst.Engine.Entity.AddComponent<T>(Catalyst.Engine.AComponent)
-  fullName.vb: Catalyst.Engine.Entity.AddComponent(Of T)(Catalyst.Engine.AComponent)
-  nameWithType: Entity.AddComponent<T>(AComponent)
-  nameWithType.vb: Entity.AddComponent(Of T)(AComponent)
+- uid: Catalyst.Engine.Entity.AddComponent``1(Catalyst.Engine.Component)
+  name: AddComponent<T>(Component)
+  href: api/Catalyst.Engine.Entity.html#Catalyst_Engine_Entity_AddComponent__1_Catalyst_Engine_Component_
+  commentId: M:Catalyst.Engine.Entity.AddComponent``1(Catalyst.Engine.Component)
+  name.vb: AddComponent(Of T)(Component)
+  fullName: Catalyst.Engine.Entity.AddComponent<T>(Catalyst.Engine.Component)
+  fullName.vb: Catalyst.Engine.Entity.AddComponent(Of T)(Catalyst.Engine.Component)
+  nameWithType: Entity.AddComponent<T>(Component)
+  nameWithType.vb: Entity.AddComponent(Of T)(Component)
 - uid: Catalyst.Engine.Entity.AddComponents*
   name: AddComponents
   href: api/Catalyst.Engine.Entity.html#Catalyst_Engine_Entity_AddComponents_
@@ -1292,6 +1066,75 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.GuiBoolean.GuiBoolean
   nameWithType: GuiBoolean.GuiBoolean
+- uid: Catalyst.Engine.GuiButton
+  name: GuiButton
+  href: api/Catalyst.Engine.GuiButton.html
+  commentId: T:Catalyst.Engine.GuiButton
+  fullName: Catalyst.Engine.GuiButton
+  nameWithType: GuiButton
+- uid: Catalyst.Engine.GuiButton.#ctor
+  name: GuiButton()
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton__ctor
+  commentId: M:Catalyst.Engine.GuiButton.#ctor
+  fullName: Catalyst.Engine.GuiButton.GuiButton()
+  nameWithType: GuiButton.GuiButton()
+- uid: Catalyst.Engine.GuiButton.#ctor(System.Object[])
+  name: GuiButton(Object[])
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton__ctor_System_Object___
+  commentId: M:Catalyst.Engine.GuiButton.#ctor(System.Object[])
+  name.vb: GuiButton(Object())
+  fullName: Catalyst.Engine.GuiButton.GuiButton(System.Object[])
+  fullName.vb: Catalyst.Engine.GuiButton.GuiButton(System.Object())
+  nameWithType: GuiButton.GuiButton(Object[])
+  nameWithType.vb: GuiButton.GuiButton(Object())
+- uid: Catalyst.Engine.GuiButton.#ctor(System.String)
+  name: GuiButton(String)
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton__ctor_System_String_
+  commentId: M:Catalyst.Engine.GuiButton.#ctor(System.String)
+  fullName: Catalyst.Engine.GuiButton.GuiButton(System.String)
+  nameWithType: GuiButton.GuiButton(String)
+- uid: Catalyst.Engine.GuiButton.#ctor(System.String,System.Object[])
+  name: GuiButton(String, Object[])
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton__ctor_System_String_System_Object___
+  commentId: M:Catalyst.Engine.GuiButton.#ctor(System.String,System.Object[])
+  name.vb: GuiButton(String, Object())
+  fullName: Catalyst.Engine.GuiButton.GuiButton(System.String, System.Object[])
+  fullName.vb: Catalyst.Engine.GuiButton.GuiButton(System.String, System.Object())
+  nameWithType: GuiButton.GuiButton(String, Object[])
+  nameWithType.vb: GuiButton.GuiButton(String, Object())
+- uid: Catalyst.Engine.GuiButton.#ctor*
+  name: GuiButton
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton__ctor_
+  commentId: Overload:Catalyst.Engine.GuiButton.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.GuiButton.GuiButton
+  nameWithType: GuiButton.GuiButton
+- uid: Catalyst.Engine.GuiButton.ButtonText
+  name: ButtonText
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton_ButtonText
+  commentId: P:Catalyst.Engine.GuiButton.ButtonText
+  fullName: Catalyst.Engine.GuiButton.ButtonText
+  nameWithType: GuiButton.ButtonText
+- uid: Catalyst.Engine.GuiButton.ButtonText*
+  name: ButtonText
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton_ButtonText_
+  commentId: Overload:Catalyst.Engine.GuiButton.ButtonText
+  isSpec: "True"
+  fullName: Catalyst.Engine.GuiButton.ButtonText
+  nameWithType: GuiButton.ButtonText
+- uid: Catalyst.Engine.GuiButton.Params
+  name: Params
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton_Params
+  commentId: P:Catalyst.Engine.GuiButton.Params
+  fullName: Catalyst.Engine.GuiButton.Params
+  nameWithType: GuiButton.Params
+- uid: Catalyst.Engine.GuiButton.Params*
+  name: Params
+  href: api/Catalyst.Engine.GuiButton.html#Catalyst_Engine_GuiButton_Params_
+  commentId: Overload:Catalyst.Engine.GuiButton.Params
+  isSpec: "True"
+  fullName: Catalyst.Engine.GuiButton.Params
+  nameWithType: GuiButton.Params
 - uid: Catalyst.Engine.GuiColor
   name: GuiColor
   href: api/Catalyst.Engine.GuiColor.html
@@ -1744,6 +1587,25 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.GuiLabel.Label
   nameWithType: GuiLabel.Label
+- uid: Catalyst.Engine.GuiSpriteSelector
+  name: GuiSpriteSelector
+  href: api/Catalyst.Engine.GuiSpriteSelector.html
+  commentId: T:Catalyst.Engine.GuiSpriteSelector
+  fullName: Catalyst.Engine.GuiSpriteSelector
+  nameWithType: GuiSpriteSelector
+- uid: Catalyst.Engine.GuiSpriteSelector.#ctor
+  name: GuiSpriteSelector()
+  href: api/Catalyst.Engine.GuiSpriteSelector.html#Catalyst_Engine_GuiSpriteSelector__ctor
+  commentId: M:Catalyst.Engine.GuiSpriteSelector.#ctor
+  fullName: Catalyst.Engine.GuiSpriteSelector.GuiSpriteSelector()
+  nameWithType: GuiSpriteSelector.GuiSpriteSelector()
+- uid: Catalyst.Engine.GuiSpriteSelector.#ctor*
+  name: GuiSpriteSelector
+  href: api/Catalyst.Engine.GuiSpriteSelector.html#Catalyst_Engine_GuiSpriteSelector__ctor_
+  commentId: Overload:Catalyst.Engine.GuiSpriteSelector.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.GuiSpriteSelector.GuiSpriteSelector
+  nameWithType: GuiSpriteSelector.GuiSpriteSelector
 - uid: Catalyst.Engine.GuiString
   name: GuiString
   href: api/Catalyst.Engine.GuiString.html
@@ -2180,6 +2042,25 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Input.InputSystem.PreUpdate
   nameWithType: InputSystem.PreUpdate
+- uid: Catalyst.Engine.Loadable
+  name: Loadable
+  href: api/Catalyst.Engine.Loadable.html
+  commentId: T:Catalyst.Engine.Loadable
+  fullName: Catalyst.Engine.Loadable
+  nameWithType: Loadable
+- uid: Catalyst.Engine.Loadable.LoadContent
+  name: LoadContent()
+  href: api/Catalyst.Engine.Loadable.html#Catalyst_Engine_Loadable_LoadContent
+  commentId: M:Catalyst.Engine.Loadable.LoadContent
+  fullName: Catalyst.Engine.Loadable.LoadContent()
+  nameWithType: Loadable.LoadContent()
+- uid: Catalyst.Engine.Loadable.LoadContent*
+  name: LoadContent
+  href: api/Catalyst.Engine.Loadable.html#Catalyst_Engine_Loadable_LoadContent_
+  commentId: Overload:Catalyst.Engine.Loadable.LoadContent
+  isSpec: "True"
+  fullName: Catalyst.Engine.Loadable.LoadContent
+  nameWithType: Loadable.LoadContent
 - uid: Catalyst.Engine.Physics
   name: Catalyst.Engine.Physics
   href: api/Catalyst.Engine.Physics.html
@@ -2218,6 +2099,51 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Physics.MovementSystem.Update
   nameWithType: MovementSystem.Update
+- uid: Catalyst.Engine.Physics.Position
+  name: Position
+  href: api/Catalyst.Engine.Physics.Position.html
+  commentId: T:Catalyst.Engine.Physics.Position
+  fullName: Catalyst.Engine.Physics.Position
+  nameWithType: Position
+- uid: Catalyst.Engine.Physics.Position.#ctor(Catalyst.Engine.Entity)
+  name: Position(Entity)
+  href: api/Catalyst.Engine.Physics.Position.html#Catalyst_Engine_Physics_Position__ctor_Catalyst_Engine_Entity_
+  commentId: M:Catalyst.Engine.Physics.Position.#ctor(Catalyst.Engine.Entity)
+  fullName: Catalyst.Engine.Physics.Position.Position(Catalyst.Engine.Entity)
+  nameWithType: Position.Position(Entity)
+- uid: Catalyst.Engine.Physics.Position.#ctor*
+  name: Position
+  href: api/Catalyst.Engine.Physics.Position.html#Catalyst_Engine_Physics_Position__ctor_
+  commentId: Overload:Catalyst.Engine.Physics.Position.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.Physics.Position.Position
+  nameWithType: Position.Position
+- uid: Catalyst.Engine.Physics.Position.Coordinates
+  name: Coordinates
+  href: api/Catalyst.Engine.Physics.Position.html#Catalyst_Engine_Physics_Position_Coordinates
+  commentId: P:Catalyst.Engine.Physics.Position.Coordinates
+  fullName: Catalyst.Engine.Physics.Position.Coordinates
+  nameWithType: Position.Coordinates
+- uid: Catalyst.Engine.Physics.Position.Coordinates*
+  name: Coordinates
+  href: api/Catalyst.Engine.Physics.Position.html#Catalyst_Engine_Physics_Position_Coordinates_
+  commentId: Overload:Catalyst.Engine.Physics.Position.Coordinates
+  isSpec: "True"
+  fullName: Catalyst.Engine.Physics.Position.Coordinates
+  nameWithType: Position.Coordinates
+- uid: Catalyst.Engine.Physics.Position.Name
+  name: Name
+  href: api/Catalyst.Engine.Physics.Position.html#Catalyst_Engine_Physics_Position_Name
+  commentId: P:Catalyst.Engine.Physics.Position.Name
+  fullName: Catalyst.Engine.Physics.Position.Name
+  nameWithType: Position.Name
+- uid: Catalyst.Engine.Physics.Position.Name*
+  name: Name
+  href: api/Catalyst.Engine.Physics.Position.html#Catalyst_Engine_Physics_Position_Name_
+  commentId: Overload:Catalyst.Engine.Physics.Position.Name
+  isSpec: "True"
+  fullName: Catalyst.Engine.Physics.Position.Name
+  nameWithType: Position.Name
 - uid: Catalyst.Engine.Physics.QuadTree
   name: QuadTree
   href: api/Catalyst.Engine.Physics.QuadTree.html
@@ -2250,12 +2176,12 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Physics.QuadTree.Clear
   nameWithType: QuadTree.Clear
-- uid: Catalyst.Engine.Physics.QuadTree.Insert(Catalyst.Engine.Physics.Transform)
-  name: Insert(Transform)
-  href: api/Catalyst.Engine.Physics.QuadTree.html#Catalyst_Engine_Physics_QuadTree_Insert_Catalyst_Engine_Physics_Transform_
-  commentId: M:Catalyst.Engine.Physics.QuadTree.Insert(Catalyst.Engine.Physics.Transform)
-  fullName: Catalyst.Engine.Physics.QuadTree.Insert(Catalyst.Engine.Physics.Transform)
-  nameWithType: QuadTree.Insert(Transform)
+- uid: Catalyst.Engine.Physics.QuadTree.Insert(Catalyst.Engine.Physics.Position)
+  name: Insert(Position)
+  href: api/Catalyst.Engine.Physics.QuadTree.html#Catalyst_Engine_Physics_QuadTree_Insert_Catalyst_Engine_Physics_Position_
+  commentId: M:Catalyst.Engine.Physics.QuadTree.Insert(Catalyst.Engine.Physics.Position)
+  fullName: Catalyst.Engine.Physics.QuadTree.Insert(Catalyst.Engine.Physics.Position)
+  nameWithType: QuadTree.Insert(Position)
 - uid: Catalyst.Engine.Physics.QuadTree.Insert*
   name: Insert
   href: api/Catalyst.Engine.Physics.QuadTree.html#Catalyst_Engine_Physics_QuadTree_Insert_
@@ -2263,15 +2189,15 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Physics.QuadTree.Insert
   nameWithType: QuadTree.Insert
-- uid: Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List{Catalyst.Engine.Physics.Transform},Catalyst.Engine.Physics.Transform)
-  name: Retrieve(List<Transform>, Transform)
-  href: api/Catalyst.Engine.Physics.QuadTree.html#Catalyst_Engine_Physics_QuadTree_Retrieve_System_Collections_Generic_List_Catalyst_Engine_Physics_Transform__Catalyst_Engine_Physics_Transform_
-  commentId: M:Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List{Catalyst.Engine.Physics.Transform},Catalyst.Engine.Physics.Transform)
-  name.vb: Retrieve(List(Of Transform), Transform)
-  fullName: Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List<Catalyst.Engine.Physics.Transform>, Catalyst.Engine.Physics.Transform)
-  fullName.vb: Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List(Of Catalyst.Engine.Physics.Transform), Catalyst.Engine.Physics.Transform)
-  nameWithType: QuadTree.Retrieve(List<Transform>, Transform)
-  nameWithType.vb: QuadTree.Retrieve(List(Of Transform), Transform)
+- uid: Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List{Catalyst.Engine.Physics.Position},Catalyst.Engine.Physics.Position)
+  name: Retrieve(List<Position>, Position)
+  href: api/Catalyst.Engine.Physics.QuadTree.html#Catalyst_Engine_Physics_QuadTree_Retrieve_System_Collections_Generic_List_Catalyst_Engine_Physics_Position__Catalyst_Engine_Physics_Position_
+  commentId: M:Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List{Catalyst.Engine.Physics.Position},Catalyst.Engine.Physics.Position)
+  name.vb: Retrieve(List(Of Position), Position)
+  fullName: Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List<Catalyst.Engine.Physics.Position>, Catalyst.Engine.Physics.Position)
+  fullName.vb: Catalyst.Engine.Physics.QuadTree.Retrieve(System.Collections.Generic.List(Of Catalyst.Engine.Physics.Position), Catalyst.Engine.Physics.Position)
+  nameWithType: QuadTree.Retrieve(List<Position>, Position)
+  nameWithType.vb: QuadTree.Retrieve(List(Of Position), Position)
 - uid: Catalyst.Engine.Physics.QuadTree.Retrieve*
   name: Retrieve
   href: api/Catalyst.Engine.Physics.QuadTree.html#Catalyst_Engine_Physics_QuadTree_Retrieve_
@@ -2279,142 +2205,6 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Physics.QuadTree.Retrieve
   nameWithType: QuadTree.Retrieve
-- uid: Catalyst.Engine.Physics.Transform
-  name: Transform
-  href: api/Catalyst.Engine.Physics.Transform.html
-  commentId: T:Catalyst.Engine.Physics.Transform
-  fullName: Catalyst.Engine.Physics.Transform
-  nameWithType: Transform
-- uid: Catalyst.Engine.Physics.Transform.#ctor(Catalyst.Engine.Entity)
-  name: Transform(Entity)
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform__ctor_Catalyst_Engine_Entity_
-  commentId: M:Catalyst.Engine.Physics.Transform.#ctor(Catalyst.Engine.Entity)
-  fullName: Catalyst.Engine.Physics.Transform.Transform(Catalyst.Engine.Entity)
-  nameWithType: Transform.Transform(Entity)
-- uid: Catalyst.Engine.Physics.Transform.#ctor*
-  name: Transform
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform__ctor_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.#ctor
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Transform
-  nameWithType: Transform.Transform
-- uid: Catalyst.Engine.Physics.Transform.CollisionAction
-  name: CollisionAction
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_CollisionAction
-  commentId: P:Catalyst.Engine.Physics.Transform.CollisionAction
-  fullName: Catalyst.Engine.Physics.Transform.CollisionAction
-  nameWithType: Transform.CollisionAction
-- uid: Catalyst.Engine.Physics.Transform.CollisionAction*
-  name: CollisionAction
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_CollisionAction_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.CollisionAction
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.CollisionAction
-  nameWithType: Transform.CollisionAction
-- uid: Catalyst.Engine.Physics.Transform.CollisionDims
-  name: CollisionDims
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_CollisionDims
-  commentId: P:Catalyst.Engine.Physics.Transform.CollisionDims
-  fullName: Catalyst.Engine.Physics.Transform.CollisionDims
-  nameWithType: Transform.CollisionDims
-- uid: Catalyst.Engine.Physics.Transform.CollisionDims*
-  name: CollisionDims
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_CollisionDims_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.CollisionDims
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.CollisionDims
-  nameWithType: Transform.CollisionDims
-- uid: Catalyst.Engine.Physics.Transform.CollisionOffset
-  name: CollisionOffset
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_CollisionOffset
-  commentId: P:Catalyst.Engine.Physics.Transform.CollisionOffset
-  fullName: Catalyst.Engine.Physics.Transform.CollisionOffset
-  nameWithType: Transform.CollisionOffset
-- uid: Catalyst.Engine.Physics.Transform.CollisionOffset*
-  name: CollisionOffset
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_CollisionOffset_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.CollisionOffset
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.CollisionOffset
-  nameWithType: Transform.CollisionOffset
-- uid: Catalyst.Engine.Physics.Transform.Dimensions
-  name: Dimensions
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Dimensions
-  commentId: P:Catalyst.Engine.Physics.Transform.Dimensions
-  fullName: Catalyst.Engine.Physics.Transform.Dimensions
-  nameWithType: Transform.Dimensions
-- uid: Catalyst.Engine.Physics.Transform.Dimensions*
-  name: Dimensions
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Dimensions_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.Dimensions
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Dimensions
-  nameWithType: Transform.Dimensions
-- uid: Catalyst.Engine.Physics.Transform.Name
-  name: Name
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Name
-  commentId: P:Catalyst.Engine.Physics.Transform.Name
-  fullName: Catalyst.Engine.Physics.Transform.Name
-  nameWithType: Transform.Name
-- uid: Catalyst.Engine.Physics.Transform.Name*
-  name: Name
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Name_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.Name
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Name
-  nameWithType: Transform.Name
-- uid: Catalyst.Engine.Physics.Transform.Origin
-  name: Origin
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Origin
-  commentId: P:Catalyst.Engine.Physics.Transform.Origin
-  fullName: Catalyst.Engine.Physics.Transform.Origin
-  nameWithType: Transform.Origin
-- uid: Catalyst.Engine.Physics.Transform.Origin*
-  name: Origin
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Origin_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.Origin
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Origin
-  nameWithType: Transform.Origin
-- uid: Catalyst.Engine.Physics.Transform.Position
-  name: Position
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Position
-  commentId: P:Catalyst.Engine.Physics.Transform.Position
-  fullName: Catalyst.Engine.Physics.Transform.Position
-  nameWithType: Transform.Position
-- uid: Catalyst.Engine.Physics.Transform.Position*
-  name: Position
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Position_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.Position
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Position
-  nameWithType: Transform.Position
-- uid: Catalyst.Engine.Physics.Transform.Rotation
-  name: Rotation
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Rotation
-  commentId: P:Catalyst.Engine.Physics.Transform.Rotation
-  fullName: Catalyst.Engine.Physics.Transform.Rotation
-  nameWithType: Transform.Rotation
-- uid: Catalyst.Engine.Physics.Transform.Rotation*
-  name: Rotation
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Rotation_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.Rotation
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Rotation
-  nameWithType: Transform.Rotation
-- uid: Catalyst.Engine.Physics.Transform.Scale
-  name: Scale
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Scale
-  commentId: P:Catalyst.Engine.Physics.Transform.Scale
-  fullName: Catalyst.Engine.Physics.Transform.Scale
-  nameWithType: Transform.Scale
-- uid: Catalyst.Engine.Physics.Transform.Scale*
-  name: Scale
-  href: api/Catalyst.Engine.Physics.Transform.html#Catalyst_Engine_Physics_Transform_Scale_
-  commentId: Overload:Catalyst.Engine.Physics.Transform.Scale
-  isSpec: "True"
-  fullName: Catalyst.Engine.Physics.Transform.Scale
-  nameWithType: Transform.Scale
 - uid: Catalyst.Engine.Physics.Velocity
   name: Velocity
   href: api/Catalyst.Engine.Physics.Velocity.html
@@ -2453,6 +2243,205 @@ references:
   commentId: N:Catalyst.Engine.Rendering
   fullName: Catalyst.Engine.Rendering
   nameWithType: Catalyst.Engine.Rendering
+- uid: Catalyst.Engine.Rendering.AnimatedSprite
+  name: AnimatedSprite
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html
+  commentId: T:Catalyst.Engine.Rendering.AnimatedSprite
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite
+  nameWithType: AnimatedSprite
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.#ctor(Catalyst.Engine.Entity,Catalyst.Engine.Rendering.PackedTexture[])
+  name: AnimatedSprite(Entity, PackedTexture[])
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite__ctor_Catalyst_Engine_Entity_Catalyst_Engine_Rendering_PackedTexture___
+  commentId: M:Catalyst.Engine.Rendering.AnimatedSprite.#ctor(Catalyst.Engine.Entity,Catalyst.Engine.Rendering.PackedTexture[])
+  name.vb: AnimatedSprite(Entity, PackedTexture())
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.AnimatedSprite(Catalyst.Engine.Entity, Catalyst.Engine.Rendering.PackedTexture[])
+  fullName.vb: Catalyst.Engine.Rendering.AnimatedSprite.AnimatedSprite(Catalyst.Engine.Entity, Catalyst.Engine.Rendering.PackedTexture())
+  nameWithType: AnimatedSprite.AnimatedSprite(Entity, PackedTexture[])
+  nameWithType.vb: AnimatedSprite.AnimatedSprite(Entity, PackedTexture())
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.#ctor(Catalyst.Engine.Entity,Microsoft.Xna.Framework.Graphics.Texture2D[])
+  name: AnimatedSprite(Entity, Texture2D[])
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite__ctor_Catalyst_Engine_Entity_Microsoft_Xna_Framework_Graphics_Texture2D___
+  commentId: M:Catalyst.Engine.Rendering.AnimatedSprite.#ctor(Catalyst.Engine.Entity,Microsoft.Xna.Framework.Graphics.Texture2D[])
+  name.vb: AnimatedSprite(Entity, Texture2D())
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.AnimatedSprite(Catalyst.Engine.Entity, Microsoft.Xna.Framework.Graphics.Texture2D[])
+  fullName.vb: Catalyst.Engine.Rendering.AnimatedSprite.AnimatedSprite(Catalyst.Engine.Entity, Microsoft.Xna.Framework.Graphics.Texture2D())
+  nameWithType: AnimatedSprite.AnimatedSprite(Entity, Texture2D[])
+  nameWithType.vb: AnimatedSprite.AnimatedSprite(Entity, Texture2D())
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.#ctor*
+  name: AnimatedSprite
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite__ctor_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.AnimatedSprite
+  nameWithType: AnimatedSprite.AnimatedSprite
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Animating
+  name: Animating
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Animating
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.Animating
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Animating
+  nameWithType: AnimatedSprite.Animating
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Animating*
+  name: Animating
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Animating_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.Animating
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Animating
+  nameWithType: AnimatedSprite.Animating
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed
+  name: AnimationSpeed
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_AnimationSpeed
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed
+  nameWithType: AnimatedSprite.AnimationSpeed
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed*
+  name: AnimationSpeed
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_AnimationSpeed_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed
+  nameWithType: AnimatedSprite.AnimationSpeed
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Count
+  name: Count
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Count
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.Count
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Count
+  nameWithType: AnimatedSprite.Count
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Count*
+  name: Count
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Count_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.Count
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Count
+  nameWithType: AnimatedSprite.Count
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture
+  name: CurrentTexture
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_CurrentTexture
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture
+  nameWithType: AnimatedSprite.CurrentTexture
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture*
+  name: CurrentTexture
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_CurrentTexture_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture
+  nameWithType: AnimatedSprite.CurrentTexture
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Frame
+  name: Frame
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Frame
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.Frame
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Frame
+  nameWithType: AnimatedSprite.Frame
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Frame*
+  name: Frame
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Frame_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.Frame
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Frame
+  nameWithType: AnimatedSprite.Frame
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Loop
+  name: Loop
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Loop
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.Loop
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Loop
+  nameWithType: AnimatedSprite.Loop
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Loop*
+  name: Loop
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Loop_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.Loop
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Loop
+  nameWithType: AnimatedSprite.Loop
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Texture
+  name: Texture
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Texture
+  commentId: P:Catalyst.Engine.Rendering.AnimatedSprite.Texture
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Texture
+  nameWithType: AnimatedSprite.Texture
+- uid: Catalyst.Engine.Rendering.AnimatedSprite.Texture*
+  name: Texture
+  href: api/Catalyst.Engine.Rendering.AnimatedSprite.html#Catalyst_Engine_Rendering_AnimatedSprite_Texture_
+  commentId: Overload:Catalyst.Engine.Rendering.AnimatedSprite.Texture
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.AnimatedSprite.Texture
+  nameWithType: AnimatedSprite.Texture
+- uid: Catalyst.Engine.Rendering.Atlas
+  name: Atlas
+  href: api/Catalyst.Engine.Rendering.Atlas.html
+  commentId: T:Catalyst.Engine.Rendering.Atlas
+  fullName: Catalyst.Engine.Rendering.Atlas
+  nameWithType: Atlas
+- uid: Catalyst.Engine.Rendering.Atlas.#ctor(System.String)
+  name: Atlas(String)
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas__ctor_System_String_
+  commentId: M:Catalyst.Engine.Rendering.Atlas.#ctor(System.String)
+  fullName: Catalyst.Engine.Rendering.Atlas.Atlas(System.String)
+  nameWithType: Atlas.Atlas(String)
+- uid: Catalyst.Engine.Rendering.Atlas.#ctor*
+  name: Atlas
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas__ctor_
+  commentId: Overload:Catalyst.Engine.Rendering.Atlas.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Atlas.Atlas
+  nameWithType: Atlas.Atlas
+- uid: Catalyst.Engine.Rendering.Atlas.LoadContent
+  name: LoadContent()
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_LoadContent
+  commentId: M:Catalyst.Engine.Rendering.Atlas.LoadContent
+  fullName: Catalyst.Engine.Rendering.Atlas.LoadContent()
+  nameWithType: Atlas.LoadContent()
+- uid: Catalyst.Engine.Rendering.Atlas.LoadContent*
+  name: LoadContent
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_LoadContent_
+  commentId: Overload:Catalyst.Engine.Rendering.Atlas.LoadContent
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Atlas.LoadContent
+  nameWithType: Atlas.LoadContent
+- uid: Catalyst.Engine.Rendering.Atlas.Name
+  name: Name
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Name
+  commentId: P:Catalyst.Engine.Rendering.Atlas.Name
+  fullName: Catalyst.Engine.Rendering.Atlas.Name
+  nameWithType: Atlas.Name
+- uid: Catalyst.Engine.Rendering.Atlas.Name*
+  name: Name
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Name_
+  commentId: Overload:Catalyst.Engine.Rendering.Atlas.Name
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Atlas.Name
+  nameWithType: Atlas.Name
+- uid: Catalyst.Engine.Rendering.Atlas.Path
+  name: Path
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Path
+  commentId: P:Catalyst.Engine.Rendering.Atlas.Path
+  fullName: Catalyst.Engine.Rendering.Atlas.Path
+  nameWithType: Atlas.Path
+- uid: Catalyst.Engine.Rendering.Atlas.Path*
+  name: Path
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Path_
+  commentId: Overload:Catalyst.Engine.Rendering.Atlas.Path
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Atlas.Path
+  nameWithType: Atlas.Path
+- uid: Catalyst.Engine.Rendering.Atlas.Texture
+  name: Texture
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Texture
+  commentId: P:Catalyst.Engine.Rendering.Atlas.Texture
+  fullName: Catalyst.Engine.Rendering.Atlas.Texture
+  nameWithType: Atlas.Texture
+- uid: Catalyst.Engine.Rendering.Atlas.Texture*
+  name: Texture
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Texture_
+  commentId: Overload:Catalyst.Engine.Rendering.Atlas.Texture
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Atlas.Texture
+  nameWithType: Atlas.Texture
+- uid: Catalyst.Engine.Rendering.Atlas.Textures
+  name: Textures
+  href: api/Catalyst.Engine.Rendering.Atlas.html#Catalyst_Engine_Rendering_Atlas_Textures
+  commentId: F:Catalyst.Engine.Rendering.Atlas.Textures
+  fullName: Catalyst.Engine.Rendering.Atlas.Textures
+  nameWithType: Atlas.Textures
 - uid: Catalyst.Engine.Rendering.BasicShapes
   name: BasicShapes
   href: api/Catalyst.Engine.Rendering.BasicShapes.html
@@ -2569,6 +2558,19 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.Camera2D.MoveTowards
   nameWithType: Camera2D.MoveTowards
+- uid: Catalyst.Engine.Rendering.Camera2D.Offset
+  name: Offset
+  href: api/Catalyst.Engine.Rendering.Camera2D.html#Catalyst_Engine_Rendering_Camera2D_Offset
+  commentId: P:Catalyst.Engine.Rendering.Camera2D.Offset
+  fullName: Catalyst.Engine.Rendering.Camera2D.Offset
+  nameWithType: Camera2D.Offset
+- uid: Catalyst.Engine.Rendering.Camera2D.Offset*
+  name: Offset
+  href: api/Catalyst.Engine.Rendering.Camera2D.html#Catalyst_Engine_Rendering_Camera2D_Offset_
+  commentId: Overload:Catalyst.Engine.Rendering.Camera2D.Offset
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Camera2D.Offset
+  nameWithType: Camera2D.Offset
 - uid: Catalyst.Engine.Rendering.Camera2D.Position
   name: Position
   href: api/Catalyst.Engine.Rendering.Camera2D.html#Catalyst_Engine_Rendering_Camera2D_Position
@@ -2692,142 +2694,96 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.CameraSystem.PostUpdate
   nameWithType: CameraSystem.PostUpdate
-- uid: Catalyst.Engine.Rendering.MTexture
-  name: MTexture
-  href: api/Catalyst.Engine.Rendering.MTexture.html
-  commentId: T:Catalyst.Engine.Rendering.MTexture
-  fullName: Catalyst.Engine.Rendering.MTexture
-  nameWithType: MTexture
-- uid: Catalyst.Engine.Rendering.MTexture.#ctor(System.Int32,Catalyst.Engine.Utilities.Rectangle,System.String,System.Boolean,Catalyst.Engine.Rendering.TextureAtlas)
-  name: MTexture(Int32, Rectangle, String, Boolean, TextureAtlas)
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture__ctor_System_Int32_Catalyst_Engine_Utilities_Rectangle_System_String_System_Boolean_Catalyst_Engine_Rendering_TextureAtlas_
-  commentId: M:Catalyst.Engine.Rendering.MTexture.#ctor(System.Int32,Catalyst.Engine.Utilities.Rectangle,System.String,System.Boolean,Catalyst.Engine.Rendering.TextureAtlas)
-  fullName: Catalyst.Engine.Rendering.MTexture.MTexture(System.Int32, Catalyst.Engine.Utilities.Rectangle, System.String, System.Boolean, Catalyst.Engine.Rendering.TextureAtlas)
-  nameWithType: MTexture.MTexture(Int32, Rectangle, String, Boolean, TextureAtlas)
-- uid: Catalyst.Engine.Rendering.MTexture.#ctor*
-  name: MTexture
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture__ctor_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.#ctor
+- uid: Catalyst.Engine.Rendering.Drawable
+  name: Drawable
+  href: api/Catalyst.Engine.Rendering.Drawable.html
+  commentId: T:Catalyst.Engine.Rendering.Drawable
+  fullName: Catalyst.Engine.Rendering.Drawable
+  nameWithType: Drawable
+- uid: Catalyst.Engine.Rendering.PackedTexture
+  name: PackedTexture
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html
+  commentId: T:Catalyst.Engine.Rendering.PackedTexture
+  fullName: Catalyst.Engine.Rendering.PackedTexture
+  nameWithType: PackedTexture
+- uid: Catalyst.Engine.Rendering.PackedTexture.#ctor(System.Int32,System.String,Catalyst.Engine.Rendering.Atlas,Catalyst.Engine.Utilities.Rectangle,System.Boolean)
+  name: PackedTexture(Int32, String, Atlas, Rectangle, Boolean)
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture__ctor_System_Int32_System_String_Catalyst_Engine_Rendering_Atlas_Catalyst_Engine_Utilities_Rectangle_System_Boolean_
+  commentId: M:Catalyst.Engine.Rendering.PackedTexture.#ctor(System.Int32,System.String,Catalyst.Engine.Rendering.Atlas,Catalyst.Engine.Utilities.Rectangle,System.Boolean)
+  fullName: Catalyst.Engine.Rendering.PackedTexture.PackedTexture(System.Int32, System.String, Catalyst.Engine.Rendering.Atlas, Catalyst.Engine.Utilities.Rectangle, System.Boolean)
+  nameWithType: PackedTexture.PackedTexture(Int32, String, Atlas, Rectangle, Boolean)
+- uid: Catalyst.Engine.Rendering.PackedTexture.#ctor*
+  name: PackedTexture
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture__ctor_
+  commentId: Overload:Catalyst.Engine.Rendering.PackedTexture.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.MTexture
-  nameWithType: MTexture.MTexture
-- uid: Catalyst.Engine.Rendering.MTexture.Atlas
+  fullName: Catalyst.Engine.Rendering.PackedTexture.PackedTexture
+  nameWithType: PackedTexture.PackedTexture
+- uid: Catalyst.Engine.Rendering.PackedTexture.Atlas
   name: Atlas
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Atlas
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Atlas
-  fullName: Catalyst.Engine.Rendering.MTexture.Atlas
-  nameWithType: MTexture.Atlas
-- uid: Catalyst.Engine.Rendering.MTexture.Atlas*
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_Atlas
+  commentId: P:Catalyst.Engine.Rendering.PackedTexture.Atlas
+  fullName: Catalyst.Engine.Rendering.PackedTexture.Atlas
+  nameWithType: PackedTexture.Atlas
+- uid: Catalyst.Engine.Rendering.PackedTexture.Atlas*
   name: Atlas
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Atlas_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Atlas
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_Atlas_
+  commentId: Overload:Catalyst.Engine.Rendering.PackedTexture.Atlas
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Atlas
-  nameWithType: MTexture.Atlas
-- uid: Catalyst.Engine.Rendering.MTexture.Bounds
+  fullName: Catalyst.Engine.Rendering.PackedTexture.Atlas
+  nameWithType: PackedTexture.Atlas
+- uid: Catalyst.Engine.Rendering.PackedTexture.Bounds
   name: Bounds
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Bounds
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Bounds
-  fullName: Catalyst.Engine.Rendering.MTexture.Bounds
-  nameWithType: MTexture.Bounds
-- uid: Catalyst.Engine.Rendering.MTexture.Bounds*
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_Bounds
+  commentId: P:Catalyst.Engine.Rendering.PackedTexture.Bounds
+  fullName: Catalyst.Engine.Rendering.PackedTexture.Bounds
+  nameWithType: PackedTexture.Bounds
+- uid: Catalyst.Engine.Rendering.PackedTexture.Bounds*
   name: Bounds
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Bounds_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Bounds
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_Bounds_
+  commentId: Overload:Catalyst.Engine.Rendering.PackedTexture.Bounds
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Bounds
-  nameWithType: MTexture.Bounds
-- uid: Catalyst.Engine.Rendering.MTexture.Height
-  name: Height
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Height
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Height
-  fullName: Catalyst.Engine.Rendering.MTexture.Height
-  nameWithType: MTexture.Height
-- uid: Catalyst.Engine.Rendering.MTexture.Height*
-  name: Height
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Height_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Height
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Height
-  nameWithType: MTexture.Height
-- uid: Catalyst.Engine.Rendering.MTexture.ID
+  fullName: Catalyst.Engine.Rendering.PackedTexture.Bounds
+  nameWithType: PackedTexture.Bounds
+- uid: Catalyst.Engine.Rendering.PackedTexture.ID
   name: ID
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_ID
-  commentId: P:Catalyst.Engine.Rendering.MTexture.ID
-  fullName: Catalyst.Engine.Rendering.MTexture.ID
-  nameWithType: MTexture.ID
-- uid: Catalyst.Engine.Rendering.MTexture.ID*
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_ID
+  commentId: P:Catalyst.Engine.Rendering.PackedTexture.ID
+  fullName: Catalyst.Engine.Rendering.PackedTexture.ID
+  nameWithType: PackedTexture.ID
+- uid: Catalyst.Engine.Rendering.PackedTexture.ID*
   name: ID
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_ID_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.ID
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_ID_
+  commentId: Overload:Catalyst.Engine.Rendering.PackedTexture.ID
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.ID
-  nameWithType: MTexture.ID
-- uid: Catalyst.Engine.Rendering.MTexture.Rotate
-  name: Rotate
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Rotate
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Rotate
-  fullName: Catalyst.Engine.Rendering.MTexture.Rotate
-  nameWithType: MTexture.Rotate
-- uid: Catalyst.Engine.Rendering.MTexture.Rotate*
-  name: Rotate
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Rotate_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Rotate
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Rotate
-  nameWithType: MTexture.Rotate
-- uid: Catalyst.Engine.Rendering.MTexture.Tag
+  fullName: Catalyst.Engine.Rendering.PackedTexture.ID
+  nameWithType: PackedTexture.ID
+- uid: Catalyst.Engine.Rendering.PackedTexture.Tag
   name: Tag
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Tag
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Tag
-  fullName: Catalyst.Engine.Rendering.MTexture.Tag
-  nameWithType: MTexture.Tag
-- uid: Catalyst.Engine.Rendering.MTexture.Tag*
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_Tag
+  commentId: P:Catalyst.Engine.Rendering.PackedTexture.Tag
+  fullName: Catalyst.Engine.Rendering.PackedTexture.Tag
+  nameWithType: PackedTexture.Tag
+- uid: Catalyst.Engine.Rendering.PackedTexture.Tag*
   name: Tag
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Tag_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Tag
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_Tag_
+  commentId: Overload:Catalyst.Engine.Rendering.PackedTexture.Tag
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Tag
-  nameWithType: MTexture.Tag
-- uid: Catalyst.Engine.Rendering.MTexture.Width
-  name: Width
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Width
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Width
-  fullName: Catalyst.Engine.Rendering.MTexture.Width
-  nameWithType: MTexture.Width
-- uid: Catalyst.Engine.Rendering.MTexture.Width*
-  name: Width
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Width_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Width
+  fullName: Catalyst.Engine.Rendering.PackedTexture.Tag
+  nameWithType: PackedTexture.Tag
+- uid: Catalyst.Engine.Rendering.PackedTexture.TextureRotated
+  name: TextureRotated
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_TextureRotated
+  commentId: P:Catalyst.Engine.Rendering.PackedTexture.TextureRotated
+  fullName: Catalyst.Engine.Rendering.PackedTexture.TextureRotated
+  nameWithType: PackedTexture.TextureRotated
+- uid: Catalyst.Engine.Rendering.PackedTexture.TextureRotated*
+  name: TextureRotated
+  href: api/Catalyst.Engine.Rendering.PackedTexture.html#Catalyst_Engine_Rendering_PackedTexture_TextureRotated_
+  commentId: Overload:Catalyst.Engine.Rendering.PackedTexture.TextureRotated
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Width
-  nameWithType: MTexture.Width
-- uid: Catalyst.Engine.Rendering.MTexture.X
-  name: X
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_X
-  commentId: P:Catalyst.Engine.Rendering.MTexture.X
-  fullName: Catalyst.Engine.Rendering.MTexture.X
-  nameWithType: MTexture.X
-- uid: Catalyst.Engine.Rendering.MTexture.X*
-  name: X
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_X_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.X
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.X
-  nameWithType: MTexture.X
-- uid: Catalyst.Engine.Rendering.MTexture.Y
-  name: Y
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Y
-  commentId: P:Catalyst.Engine.Rendering.MTexture.Y
-  fullName: Catalyst.Engine.Rendering.MTexture.Y
-  nameWithType: MTexture.Y
-- uid: Catalyst.Engine.Rendering.MTexture.Y*
-  name: Y
-  href: api/Catalyst.Engine.Rendering.MTexture.html#Catalyst_Engine_Rendering_MTexture_Y_
-  commentId: Overload:Catalyst.Engine.Rendering.MTexture.Y
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.MTexture.Y
-  nameWithType: MTexture.Y
+  fullName: Catalyst.Engine.Rendering.PackedTexture.TextureRotated
+  nameWithType: PackedTexture.TextureRotated
 - uid: Catalyst.Engine.Rendering.Particle
   name: Particle
   href: api/Catalyst.Engine.Rendering.Particle.html
@@ -3170,6 +3126,32 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.ParticleEmitter.FollowCamera
   nameWithType: ParticleEmitter.FollowCamera
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.Gravity
+  name: Gravity
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Gravity
+  commentId: P:Catalyst.Engine.Rendering.ParticleEmitter.Gravity
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.Gravity
+  nameWithType: ParticleEmitter.Gravity
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.Gravity*
+  name: Gravity
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Gravity_
+  commentId: Overload:Catalyst.Engine.Rendering.ParticleEmitter.Gravity
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.Gravity
+  nameWithType: ParticleEmitter.Gravity
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.InitialForce
+  name: InitialForce
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_InitialForce
+  commentId: P:Catalyst.Engine.Rendering.ParticleEmitter.InitialForce
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.InitialForce
+  nameWithType: ParticleEmitter.InitialForce
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.InitialForce*
+  name: InitialForce
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_InitialForce_
+  commentId: Overload:Catalyst.Engine.Rendering.ParticleEmitter.InitialForce
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.InitialForce
+  nameWithType: ParticleEmitter.InitialForce
 - uid: Catalyst.Engine.Rendering.ParticleEmitter.Initialize
   name: Initialize()
   href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Initialize
@@ -3222,6 +3204,19 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.ParticleEmitter.LifeVariance
   nameWithType: ParticleEmitter.LifeVariance
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.LoadContent
+  name: LoadContent()
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_LoadContent
+  commentId: M:Catalyst.Engine.Rendering.ParticleEmitter.LoadContent
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.LoadContent()
+  nameWithType: ParticleEmitter.LoadContent()
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.LoadContent*
+  name: LoadContent
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_LoadContent_
+  commentId: Overload:Catalyst.Engine.Rendering.ParticleEmitter.LoadContent
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.LoadContent
+  nameWithType: ParticleEmitter.LoadContent
 - uid: Catalyst.Engine.Rendering.ParticleEmitter.Mode
   name: Mode
   href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Mode
@@ -3331,6 +3326,19 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.ParticleEmitter.SpeedVariance
   nameWithType: ParticleEmitter.SpeedVariance
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.Sprite
+  name: Sprite
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Sprite
+  commentId: P:Catalyst.Engine.Rendering.ParticleEmitter.Sprite
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.Sprite
+  nameWithType: ParticleEmitter.Sprite
+- uid: Catalyst.Engine.Rendering.ParticleEmitter.Sprite*
+  name: Sprite
+  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Sprite_
+  commentId: Overload:Catalyst.Engine.Rendering.ParticleEmitter.Sprite
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.ParticleEmitter.Sprite
+  nameWithType: ParticleEmitter.Sprite
 - uid: Catalyst.Engine.Rendering.ParticleEmitter.StartAlpha
   name: StartAlpha
   href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_StartAlpha
@@ -3357,19 +3365,6 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.ParticleEmitter.StartColor
   nameWithType: ParticleEmitter.StartColor
-- uid: Catalyst.Engine.Rendering.ParticleEmitter.Texture
-  name: Texture
-  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Texture
-  commentId: P:Catalyst.Engine.Rendering.ParticleEmitter.Texture
-  fullName: Catalyst.Engine.Rendering.ParticleEmitter.Texture
-  nameWithType: ParticleEmitter.Texture
-- uid: Catalyst.Engine.Rendering.ParticleEmitter.Texture*
-  name: Texture
-  href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_Texture_
-  commentId: Overload:Catalyst.Engine.Rendering.ParticleEmitter.Texture
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.ParticleEmitter.Texture
-  nameWithType: ParticleEmitter.Texture
 - uid: Catalyst.Engine.Rendering.ParticleEmitter.VelocityMode
   name: VelocityMode
   href: api/Catalyst.Engine.Rendering.ParticleEmitter.html#Catalyst_Engine_Rendering_ParticleEmitter_VelocityMode
@@ -3453,42 +3448,18 @@ references:
   commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity)
   fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity)
   nameWithType: Sprite.Sprite(Entity)
-- uid: Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,Catalyst.Engine.Rendering.MTexture[],Catalyst.Engine.Utilities.Origin)
-  name: Sprite(Entity, String, Int32, Int32, MTexture[], Origin)
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_Catalyst_Engine_Rendering_MTexture___Catalyst_Engine_Utilities_Origin_
-  commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,Catalyst.Engine.Rendering.MTexture[],Catalyst.Engine.Utilities.Origin)
-  name.vb: Sprite(Entity, String, Int32, Int32, MTexture(), Origin)
-  fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, Catalyst.Engine.Rendering.MTexture[], Catalyst.Engine.Utilities.Origin)
-  fullName.vb: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, Catalyst.Engine.Rendering.MTexture(), Catalyst.Engine.Utilities.Origin)
-  nameWithType: Sprite.Sprite(Entity, String, Int32, Int32, MTexture[], Origin)
-  nameWithType.vb: Sprite.Sprite(Entity, String, Int32, Int32, MTexture(), Origin)
-- uid: Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,Catalyst.Engine.Rendering.MTexture[],System.Int32,System.Int32)
-  name: Sprite(Entity, String, Int32, Int32, MTexture[], Int32, Int32)
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_Catalyst_Engine_Rendering_MTexture___System_Int32_System_Int32_
-  commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,Catalyst.Engine.Rendering.MTexture[],System.Int32,System.Int32)
-  name.vb: Sprite(Entity, String, Int32, Int32, MTexture(), Int32, Int32)
-  fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, Catalyst.Engine.Rendering.MTexture[], System.Int32, System.Int32)
-  fullName.vb: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, Catalyst.Engine.Rendering.MTexture(), System.Int32, System.Int32)
-  nameWithType: Sprite.Sprite(Entity, String, Int32, Int32, MTexture[], Int32, Int32)
-  nameWithType.vb: Sprite.Sprite(Entity, String, Int32, Int32, MTexture(), Int32, Int32)
-- uid: Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,System.Single,System.Single,Catalyst.Engine.Rendering.MTexture[],Catalyst.Engine.Utilities.Origin)
-  name: Sprite(Entity, String, Int32, Int32, Single, Single, MTexture[], Origin)
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_System_Single_System_Single_Catalyst_Engine_Rendering_MTexture___Catalyst_Engine_Utilities_Origin_
-  commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,System.Single,System.Single,Catalyst.Engine.Rendering.MTexture[],Catalyst.Engine.Utilities.Origin)
-  name.vb: Sprite(Entity, String, Int32, Int32, Single, Single, MTexture(), Origin)
-  fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, System.Single, System.Single, Catalyst.Engine.Rendering.MTexture[], Catalyst.Engine.Utilities.Origin)
-  fullName.vb: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, System.Single, System.Single, Catalyst.Engine.Rendering.MTexture(), Catalyst.Engine.Utilities.Origin)
-  nameWithType: Sprite.Sprite(Entity, String, Int32, Int32, Single, Single, MTexture[], Origin)
-  nameWithType.vb: Sprite.Sprite(Entity, String, Int32, Int32, Single, Single, MTexture(), Origin)
-- uid: Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,System.Single,System.Single,Catalyst.Engine.Rendering.MTexture[],System.Int32,System.Int32)
-  name: Sprite(Entity, String, Int32, Int32, Single, Single, MTexture[], Int32, Int32)
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_System_Single_System_Single_Catalyst_Engine_Rendering_MTexture___System_Int32_System_Int32_
-  commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,System.Single,System.Single,Catalyst.Engine.Rendering.MTexture[],System.Int32,System.Int32)
-  name.vb: Sprite(Entity, String, Int32, Int32, Single, Single, MTexture(), Int32, Int32)
-  fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, System.Single, System.Single, Catalyst.Engine.Rendering.MTexture[], System.Int32, System.Int32)
-  fullName.vb: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, System.String, System.Int32, System.Int32, System.Single, System.Single, Catalyst.Engine.Rendering.MTexture(), System.Int32, System.Int32)
-  nameWithType: Sprite.Sprite(Entity, String, Int32, Int32, Single, Single, MTexture[], Int32, Int32)
-  nameWithType.vb: Sprite.Sprite(Entity, String, Int32, Int32, Single, Single, MTexture(), Int32, Int32)
+- uid: Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,Catalyst.Engine.Rendering.PackedTexture)
+  name: Sprite(Entity, PackedTexture)
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_Catalyst_Engine_Rendering_PackedTexture_
+  commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,Catalyst.Engine.Rendering.PackedTexture)
+  fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, Catalyst.Engine.Rendering.PackedTexture)
+  nameWithType: Sprite.Sprite(Entity, PackedTexture)
+- uid: Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,Microsoft.Xna.Framework.Graphics.Texture2D)
+  name: Sprite(Entity, Texture2D)
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_Microsoft_Xna_Framework_Graphics_Texture2D_
+  commentId: M:Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,Microsoft.Xna.Framework.Graphics.Texture2D)
+  fullName: Catalyst.Engine.Rendering.Sprite.Sprite(Catalyst.Engine.Entity, Microsoft.Xna.Framework.Graphics.Texture2D)
+  nameWithType: Sprite.Sprite(Entity, Texture2D)
 - uid: Catalyst.Engine.Rendering.Sprite.#ctor*
   name: Sprite
   href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite__ctor_
@@ -3496,64 +3467,45 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.Sprite.Sprite
   nameWithType: Sprite.Sprite
-- uid: Catalyst.Engine.Rendering.Sprite.Animating
-  name: Animating
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Animating
-  commentId: P:Catalyst.Engine.Rendering.Sprite.Animating
-  fullName: Catalyst.Engine.Rendering.Sprite.Animating
-  nameWithType: Sprite.Animating
-- uid: Catalyst.Engine.Rendering.Sprite.Animating*
-  name: Animating
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Animating_
-  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Animating
+- uid: Catalyst.Engine.Rendering.Sprite.Active
+  name: Active
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Active
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Active
+  fullName: Catalyst.Engine.Rendering.Sprite.Active
+  nameWithType: Sprite.Active
+- uid: Catalyst.Engine.Rendering.Sprite.Active*
+  name: Active
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Active_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Active
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.Sprite.Animating
-  nameWithType: Sprite.Animating
-- uid: Catalyst.Engine.Rendering.Sprite.AnimationSpeed
-  name: AnimationSpeed
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_AnimationSpeed
-  commentId: P:Catalyst.Engine.Rendering.Sprite.AnimationSpeed
-  fullName: Catalyst.Engine.Rendering.Sprite.AnimationSpeed
-  nameWithType: Sprite.AnimationSpeed
-- uid: Catalyst.Engine.Rendering.Sprite.AnimationSpeed*
-  name: AnimationSpeed
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_AnimationSpeed_
-  commentId: Overload:Catalyst.Engine.Rendering.Sprite.AnimationSpeed
+  fullName: Catalyst.Engine.Rendering.Sprite.Active
+  nameWithType: Sprite.Active
+- uid: Catalyst.Engine.Rendering.Sprite.Distance
+  name: Distance
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Distance
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Distance
+  fullName: Catalyst.Engine.Rendering.Sprite.Distance
+  nameWithType: Sprite.Distance
+- uid: Catalyst.Engine.Rendering.Sprite.Distance*
+  name: Distance
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Distance_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Distance
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.Sprite.AnimationSpeed
-  nameWithType: Sprite.AnimationSpeed
-- uid: Catalyst.Engine.Rendering.Sprite.CurrentTexture
-  name: CurrentTexture
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_CurrentTexture
-  commentId: P:Catalyst.Engine.Rendering.Sprite.CurrentTexture
-  fullName: Catalyst.Engine.Rendering.Sprite.CurrentTexture
-  nameWithType: Sprite.CurrentTexture
-- uid: Catalyst.Engine.Rendering.Sprite.CurrentTexture*
-  name: CurrentTexture
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_CurrentTexture_
-  commentId: Overload:Catalyst.Engine.Rendering.Sprite.CurrentTexture
+  fullName: Catalyst.Engine.Rendering.Sprite.Distance
+  nameWithType: Sprite.Distance
+- uid: Catalyst.Engine.Rendering.Sprite.Entity
+  name: Entity
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Entity
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Entity
+  fullName: Catalyst.Engine.Rendering.Sprite.Entity
+  nameWithType: Sprite.Entity
+- uid: Catalyst.Engine.Rendering.Sprite.Entity*
+  name: Entity
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Entity_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Entity
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.Sprite.CurrentTexture
-  nameWithType: Sprite.CurrentTexture
-- uid: Catalyst.Engine.Rendering.Sprite.debugColor
-  name: debugColor
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_debugColor
-  commentId: F:Catalyst.Engine.Rendering.Sprite.debugColor
-  fullName: Catalyst.Engine.Rendering.Sprite.debugColor
-  nameWithType: Sprite.debugColor
-- uid: Catalyst.Engine.Rendering.Sprite.Frame
-  name: Frame
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Frame
-  commentId: P:Catalyst.Engine.Rendering.Sprite.Frame
-  fullName: Catalyst.Engine.Rendering.Sprite.Frame
-  nameWithType: Sprite.Frame
-- uid: Catalyst.Engine.Rendering.Sprite.Frame*
-  name: Frame
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Frame_
-  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Frame
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.Sprite.Frame
-  nameWithType: Sprite.Frame
+  fullName: Catalyst.Engine.Rendering.Sprite.Entity
+  nameWithType: Sprite.Entity
 - uid: Catalyst.Engine.Rendering.Sprite.Layer
   name: Layer
   href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Layer
@@ -3567,19 +3519,19 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.Sprite.Layer
   nameWithType: Sprite.Layer
-- uid: Catalyst.Engine.Rendering.Sprite.Loop
-  name: Loop
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Loop
-  commentId: P:Catalyst.Engine.Rendering.Sprite.Loop
-  fullName: Catalyst.Engine.Rendering.Sprite.Loop
-  nameWithType: Sprite.Loop
-- uid: Catalyst.Engine.Rendering.Sprite.Loop*
-  name: Loop
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Loop_
-  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Loop
+- uid: Catalyst.Engine.Rendering.Sprite.LoadContent
+  name: LoadContent()
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_LoadContent
+  commentId: M:Catalyst.Engine.Rendering.Sprite.LoadContent
+  fullName: Catalyst.Engine.Rendering.Sprite.LoadContent()
+  nameWithType: Sprite.LoadContent()
+- uid: Catalyst.Engine.Rendering.Sprite.LoadContent*
+  name: LoadContent
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_LoadContent_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.LoadContent
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.Sprite.Loop
-  nameWithType: Sprite.Loop
+  fullName: Catalyst.Engine.Rendering.Sprite.LoadContent
+  nameWithType: Sprite.LoadContent
 - uid: Catalyst.Engine.Rendering.Sprite.Name
   name: Name
   href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Name
@@ -3593,12 +3545,163 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.Sprite.Name
   nameWithType: Sprite.Name
+- uid: Catalyst.Engine.Rendering.Sprite.Origin
+  name: Origin
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Origin
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Origin
+  fullName: Catalyst.Engine.Rendering.Sprite.Origin
+  nameWithType: Sprite.Origin
+- uid: Catalyst.Engine.Rendering.Sprite.Origin*
+  name: Origin
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Origin_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Origin
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.Origin
+  nameWithType: Sprite.Origin
+- uid: Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset(Catalyst.Engine.Rendering.Sprite.SpriteOrigin,Catalyst.Engine.Utilities.Rectangle)
+  name: OriginToVectorOffset(Sprite.SpriteOrigin, Rectangle)
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_OriginToVectorOffset_Catalyst_Engine_Rendering_Sprite_SpriteOrigin_Catalyst_Engine_Utilities_Rectangle_
+  commentId: M:Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset(Catalyst.Engine.Rendering.Sprite.SpriteOrigin,Catalyst.Engine.Utilities.Rectangle)
+  fullName: Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset(Catalyst.Engine.Rendering.Sprite.SpriteOrigin, Catalyst.Engine.Utilities.Rectangle)
+  nameWithType: Sprite.OriginToVectorOffset(Sprite.SpriteOrigin, Rectangle)
+- uid: Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset*
+  name: OriginToVectorOffset
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_OriginToVectorOffset_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset
+  nameWithType: Sprite.OriginToVectorOffset
+- uid: Catalyst.Engine.Rendering.Sprite.OriginVec2
+  name: OriginVec2
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_OriginVec2
+  commentId: P:Catalyst.Engine.Rendering.Sprite.OriginVec2
+  fullName: Catalyst.Engine.Rendering.Sprite.OriginVec2
+  nameWithType: Sprite.OriginVec2
+- uid: Catalyst.Engine.Rendering.Sprite.OriginVec2*
+  name: OriginVec2
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_OriginVec2_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.OriginVec2
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.OriginVec2
+  nameWithType: Sprite.OriginVec2
+- uid: Catalyst.Engine.Rendering.Sprite.Packed
+  name: Packed
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Packed
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Packed
+  fullName: Catalyst.Engine.Rendering.Sprite.Packed
+  nameWithType: Sprite.Packed
+- uid: Catalyst.Engine.Rendering.Sprite.Packed*
+  name: Packed
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Packed_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Packed
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.Packed
+  nameWithType: Sprite.Packed
+- uid: Catalyst.Engine.Rendering.Sprite.PackedTexture
+  name: PackedTexture
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_PackedTexture
+  commentId: P:Catalyst.Engine.Rendering.Sprite.PackedTexture
+  fullName: Catalyst.Engine.Rendering.Sprite.PackedTexture
+  nameWithType: Sprite.PackedTexture
+- uid: Catalyst.Engine.Rendering.Sprite.PackedTexture*
+  name: PackedTexture
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_PackedTexture_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.PackedTexture
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.PackedTexture
+  nameWithType: Sprite.PackedTexture
+- uid: Catalyst.Engine.Rendering.Sprite.Rotation
+  name: Rotation
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Rotation
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Rotation
+  fullName: Catalyst.Engine.Rendering.Sprite.Rotation
+  nameWithType: Sprite.Rotation
+- uid: Catalyst.Engine.Rendering.Sprite.Rotation*
+  name: Rotation
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Rotation_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Rotation
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.Rotation
+  nameWithType: Sprite.Rotation
+- uid: Catalyst.Engine.Rendering.Sprite.Scale
+  name: Scale
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Scale
+  commentId: P:Catalyst.Engine.Rendering.Sprite.Scale
+  fullName: Catalyst.Engine.Rendering.Sprite.Scale
+  nameWithType: Sprite.Scale
+- uid: Catalyst.Engine.Rendering.Sprite.Scale*
+  name: Scale
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Scale_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Scale
+  isSpec: "True"
+  fullName: Catalyst.Engine.Rendering.Sprite.Scale
+  nameWithType: Sprite.Scale
 - uid: Catalyst.Engine.Rendering.Sprite.spriteEffects
   name: spriteEffects
   href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_spriteEffects
   commentId: F:Catalyst.Engine.Rendering.Sprite.spriteEffects
   fullName: Catalyst.Engine.Rendering.Sprite.spriteEffects
   nameWithType: Sprite.spriteEffects
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin
+  name: Sprite.SpriteOrigin
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html
+  commentId: T:Catalyst.Engine.Rendering.Sprite.SpriteOrigin
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin
+  nameWithType: Sprite.SpriteOrigin
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomCenter
+  name: BottomCenter
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_BottomCenter
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomCenter
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomCenter
+  nameWithType: Sprite.SpriteOrigin.BottomCenter
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomLeft
+  name: BottomLeft
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_BottomLeft
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomLeft
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomLeft
+  nameWithType: Sprite.SpriteOrigin.BottomLeft
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomRight
+  name: BottomRight
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_BottomRight
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomRight
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.BottomRight
+  nameWithType: Sprite.SpriteOrigin.BottomRight
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.Center
+  name: Center
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_Center
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.Center
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.Center
+  nameWithType: Sprite.SpriteOrigin.Center
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.CenterLeft
+  name: CenterLeft
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_CenterLeft
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.CenterLeft
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.CenterLeft
+  nameWithType: Sprite.SpriteOrigin.CenterLeft
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.CenterRight
+  name: CenterRight
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_CenterRight
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.CenterRight
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.CenterRight
+  nameWithType: Sprite.SpriteOrigin.CenterRight
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopCenter
+  name: TopCenter
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_TopCenter
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopCenter
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopCenter
+  nameWithType: Sprite.SpriteOrigin.TopCenter
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopLeft
+  name: TopLeft
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_TopLeft
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopLeft
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopLeft
+  nameWithType: Sprite.SpriteOrigin.TopLeft
+- uid: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopRight
+  name: TopRight
+  href: api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html#Catalyst_Engine_Rendering_Sprite_SpriteOrigin_TopRight
+  commentId: F:Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopRight
+  fullName: Catalyst.Engine.Rendering.Sprite.SpriteOrigin.TopRight
+  nameWithType: Sprite.SpriteOrigin.TopRight
 - uid: Catalyst.Engine.Rendering.Sprite.Texture
   name: Texture
   href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Texture
@@ -3612,199 +3715,200 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Rendering.Sprite.Texture
   nameWithType: Sprite.Texture
-- uid: Catalyst.Engine.Rendering.Sprite.Textures
-  name: Textures
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Textures
-  commentId: F:Catalyst.Engine.Rendering.Sprite.Textures
-  fullName: Catalyst.Engine.Rendering.Sprite.Textures
-  nameWithType: Sprite.Textures
-- uid: Catalyst.Engine.Rendering.Sprite.Visible
-  name: Visible
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Visible
-  commentId: P:Catalyst.Engine.Rendering.Sprite.Visible
-  fullName: Catalyst.Engine.Rendering.Sprite.Visible
-  nameWithType: Sprite.Visible
-- uid: Catalyst.Engine.Rendering.Sprite.Visible*
-  name: Visible
-  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Visible_
-  commentId: Overload:Catalyst.Engine.Rendering.Sprite.Visible
+- uid: Catalyst.Engine.Rendering.Sprite.TextureRect
+  name: TextureRect
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_TextureRect
+  commentId: P:Catalyst.Engine.Rendering.Sprite.TextureRect
+  fullName: Catalyst.Engine.Rendering.Sprite.TextureRect
+  nameWithType: Sprite.TextureRect
+- uid: Catalyst.Engine.Rendering.Sprite.TextureRect*
+  name: TextureRect
+  href: api/Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_TextureRect_
+  commentId: Overload:Catalyst.Engine.Rendering.Sprite.TextureRect
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.Sprite.Visible
-  nameWithType: Sprite.Visible
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem
-  name: SpriteRenderSystem
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html
-  commentId: T:Catalyst.Engine.Rendering.SpriteRenderSystem
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem
-  nameWithType: SpriteRenderSystem
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.#ctor(Catalyst.Engine.Scene)
-  name: SpriteRenderSystem(Scene)
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem__ctor_Catalyst_Engine_Scene_
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.#ctor(Catalyst.Engine.Scene)
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.SpriteRenderSystem(Catalyst.Engine.Scene)
-  nameWithType: SpriteRenderSystem.SpriteRenderSystem(Scene)
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.#ctor*
-  name: SpriteRenderSystem
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem__ctor_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.#ctor
+  fullName: Catalyst.Engine.Rendering.Sprite.TextureRect
+  nameWithType: Sprite.TextureRect
+- uid: Catalyst.Engine.Rendering.SpriteRenderer
+  name: SpriteRenderer
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html
+  commentId: T:Catalyst.Engine.Rendering.SpriteRenderer
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer
+  nameWithType: SpriteRenderer
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.#ctor(Catalyst.Engine.Scene)
+  name: SpriteRenderer(Scene)
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer__ctor_Catalyst_Engine_Scene_
+  commentId: M:Catalyst.Engine.Rendering.SpriteRenderer.#ctor(Catalyst.Engine.Scene)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.SpriteRenderer(Catalyst.Engine.Scene)
+  nameWithType: SpriteRenderer.SpriteRenderer(Scene)
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.#ctor*
+  name: SpriteRenderer
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer__ctor_
+  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderer.#ctor
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.SpriteRenderSystem
-  nameWithType: SpriteRenderSystem.SpriteRenderSystem
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.OnFrameChange
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.SpriteRenderer
+  nameWithType: SpriteRenderer.SpriteRenderer
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.OnFrameChange
   name: OnFrameChange()
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_OnFrameChange
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.OnFrameChange
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.OnFrameChange()
-  nameWithType: SpriteRenderSystem.OnFrameChange()
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.OnFrameChange*
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_OnFrameChange
+  commentId: M:Catalyst.Engine.Rendering.SpriteRenderer.OnFrameChange
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.OnFrameChange()
+  nameWithType: SpriteRenderer.OnFrameChange()
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.OnFrameChange*
   name: OnFrameChange
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_OnFrameChange_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.OnFrameChange
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_OnFrameChange_
+  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderer.OnFrameChange
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.OnFrameChange
-  nameWithType: SpriteRenderSystem.OnFrameChange
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.OnLastFrame
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.OnFrameChange
+  nameWithType: SpriteRenderer.OnFrameChange
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.OnLastFrame
   name: OnLastFrame()
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_OnLastFrame
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.OnLastFrame
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.OnLastFrame()
-  nameWithType: SpriteRenderSystem.OnLastFrame()
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.OnLastFrame*
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_OnLastFrame
+  commentId: M:Catalyst.Engine.Rendering.SpriteRenderer.OnLastFrame
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.OnLastFrame()
+  nameWithType: SpriteRenderer.OnLastFrame()
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.OnLastFrame*
   name: OnLastFrame
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_OnLastFrame_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.OnLastFrame
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_OnLastFrame_
+  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderer.OnLastFrame
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.OnLastFrame
-  nameWithType: SpriteRenderSystem.OnLastFrame
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.Render(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.OnLastFrame
+  nameWithType: SpriteRenderer.OnLastFrame
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.Render(Microsoft.Xna.Framework.GameTime)
   name: Render(GameTime)
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_Render_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.Render(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.Render(Microsoft.Xna.Framework.GameTime)
-  nameWithType: SpriteRenderSystem.Render(GameTime)
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.Render*
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_Render_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.Rendering.SpriteRenderer.Render(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.Render(Microsoft.Xna.Framework.GameTime)
+  nameWithType: SpriteRenderer.Render(GameTime)
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.Render*
   name: Render
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_Render_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.Render
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_Render_
+  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderer.Render
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.Render
-  nameWithType: SpriteRenderSystem.Render
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.RenderSprite(Microsoft.Xna.Framework.GameTime,Catalyst.Engine.Rendering.Sprite)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.Render
+  nameWithType: SpriteRenderer.Render
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.RenderSprite(Microsoft.Xna.Framework.GameTime,Catalyst.Engine.Rendering.Sprite)
   name: RenderSprite(GameTime, Sprite)
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_RenderSprite_Microsoft_Xna_Framework_GameTime_Catalyst_Engine_Rendering_Sprite_
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.RenderSprite(Microsoft.Xna.Framework.GameTime,Catalyst.Engine.Rendering.Sprite)
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.RenderSprite(Microsoft.Xna.Framework.GameTime, Catalyst.Engine.Rendering.Sprite)
-  nameWithType: SpriteRenderSystem.RenderSprite(GameTime, Sprite)
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.RenderSprite*
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_RenderSprite_Microsoft_Xna_Framework_GameTime_Catalyst_Engine_Rendering_Sprite_
+  commentId: M:Catalyst.Engine.Rendering.SpriteRenderer.RenderSprite(Microsoft.Xna.Framework.GameTime,Catalyst.Engine.Rendering.Sprite)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.RenderSprite(Microsoft.Xna.Framework.GameTime, Catalyst.Engine.Rendering.Sprite)
+  nameWithType: SpriteRenderer.RenderSprite(GameTime, Sprite)
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.RenderSprite*
   name: RenderSprite
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_RenderSprite_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.RenderSprite
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_RenderSprite_
+  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderer.RenderSprite
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.RenderSprite
-  nameWithType: SpriteRenderSystem.RenderSprite
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.Update(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.RenderSprite
+  nameWithType: SpriteRenderer.RenderSprite
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.Update(Microsoft.Xna.Framework.GameTime)
   name: Update(GameTime)
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_Update_Microsoft_Xna_Framework_GameTime_
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.Update(Microsoft.Xna.Framework.GameTime)
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.Update(Microsoft.Xna.Framework.GameTime)
-  nameWithType: SpriteRenderSystem.Update(GameTime)
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.Update*
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_Update_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.Rendering.SpriteRenderer.Update(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.Update(Microsoft.Xna.Framework.GameTime)
+  nameWithType: SpriteRenderer.Update(GameTime)
+- uid: Catalyst.Engine.Rendering.SpriteRenderer.Update*
   name: Update
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_Update_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.Update
+  href: api/Catalyst.Engine.Rendering.SpriteRenderer.html#Catalyst_Engine_Rendering_SpriteRenderer_Update_
+  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderer.Update
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.Update
-  nameWithType: SpriteRenderSystem.Update
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.UpdateSprite(Microsoft.Xna.Framework.GameTime,Catalyst.Engine.Rendering.Sprite)
-  name: UpdateSprite(GameTime, Sprite)
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_UpdateSprite_Microsoft_Xna_Framework_GameTime_Catalyst_Engine_Rendering_Sprite_
-  commentId: M:Catalyst.Engine.Rendering.SpriteRenderSystem.UpdateSprite(Microsoft.Xna.Framework.GameTime,Catalyst.Engine.Rendering.Sprite)
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.UpdateSprite(Microsoft.Xna.Framework.GameTime, Catalyst.Engine.Rendering.Sprite)
-  nameWithType: SpriteRenderSystem.UpdateSprite(GameTime, Sprite)
-- uid: Catalyst.Engine.Rendering.SpriteRenderSystem.UpdateSprite*
-  name: UpdateSprite
-  href: api/Catalyst.Engine.Rendering.SpriteRenderSystem.html#Catalyst_Engine_Rendering_SpriteRenderSystem_UpdateSprite_
-  commentId: Overload:Catalyst.Engine.Rendering.SpriteRenderSystem.UpdateSprite
+  fullName: Catalyst.Engine.Rendering.SpriteRenderer.Update
+  nameWithType: SpriteRenderer.Update
+- uid: Catalyst.Engine.RenderSystem
+  name: RenderSystem
+  href: api/Catalyst.Engine.RenderSystem.html
+  commentId: T:Catalyst.Engine.RenderSystem
+  fullName: Catalyst.Engine.RenderSystem
+  nameWithType: RenderSystem
+- uid: Catalyst.Engine.RenderSystem.DebugRender(Microsoft.Xna.Framework.GameTime)
+  name: DebugRender(GameTime)
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_DebugRender_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.RenderSystem.DebugRender(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.RenderSystem.DebugRender(Microsoft.Xna.Framework.GameTime)
+  nameWithType: RenderSystem.DebugRender(GameTime)
+- uid: Catalyst.Engine.RenderSystem.DebugRender*
+  name: DebugRender
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_DebugRender_
+  commentId: Overload:Catalyst.Engine.RenderSystem.DebugRender
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.SpriteRenderSystem.UpdateSprite
-  nameWithType: SpriteRenderSystem.UpdateSprite
-- uid: Catalyst.Engine.Rendering.TextureAtlas
-  name: TextureAtlas
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html
-  commentId: T:Catalyst.Engine.Rendering.TextureAtlas
-  fullName: Catalyst.Engine.Rendering.TextureAtlas
-  nameWithType: TextureAtlas
-- uid: Catalyst.Engine.Rendering.TextureAtlas.#ctor(System.String)
-  name: TextureAtlas(String)
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas__ctor_System_String_
-  commentId: M:Catalyst.Engine.Rendering.TextureAtlas.#ctor(System.String)
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.TextureAtlas(System.String)
-  nameWithType: TextureAtlas.TextureAtlas(String)
-- uid: Catalyst.Engine.Rendering.TextureAtlas.#ctor*
-  name: TextureAtlas
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas__ctor_
-  commentId: Overload:Catalyst.Engine.Rendering.TextureAtlas.#ctor
-  isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.TextureAtlas
-  nameWithType: TextureAtlas.TextureAtlas
-- uid: Catalyst.Engine.Rendering.TextureAtlas.LoadContent
+  fullName: Catalyst.Engine.RenderSystem.DebugRender
+  nameWithType: RenderSystem.DebugRender
+- uid: Catalyst.Engine.RenderSystem.LoadContent
   name: LoadContent()
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_LoadContent
-  commentId: M:Catalyst.Engine.Rendering.TextureAtlas.LoadContent
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.LoadContent()
-  nameWithType: TextureAtlas.LoadContent()
-- uid: Catalyst.Engine.Rendering.TextureAtlas.LoadContent*
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_LoadContent
+  commentId: M:Catalyst.Engine.RenderSystem.LoadContent
+  fullName: Catalyst.Engine.RenderSystem.LoadContent()
+  nameWithType: RenderSystem.LoadContent()
+- uid: Catalyst.Engine.RenderSystem.LoadContent*
   name: LoadContent
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_LoadContent_
-  commentId: Overload:Catalyst.Engine.Rendering.TextureAtlas.LoadContent
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_LoadContent_
+  commentId: Overload:Catalyst.Engine.RenderSystem.LoadContent
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.LoadContent
-  nameWithType: TextureAtlas.LoadContent
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Name
-  name: Name
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Name
-  commentId: P:Catalyst.Engine.Rendering.TextureAtlas.Name
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Name
-  nameWithType: TextureAtlas.Name
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Name*
-  name: Name
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Name_
-  commentId: Overload:Catalyst.Engine.Rendering.TextureAtlas.Name
+  fullName: Catalyst.Engine.RenderSystem.LoadContent
+  nameWithType: RenderSystem.LoadContent
+- uid: Catalyst.Engine.RenderSystem.PostRender(Microsoft.Xna.Framework.GameTime)
+  name: PostRender(GameTime)
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_PostRender_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.RenderSystem.PostRender(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.RenderSystem.PostRender(Microsoft.Xna.Framework.GameTime)
+  nameWithType: RenderSystem.PostRender(GameTime)
+- uid: Catalyst.Engine.RenderSystem.PostRender*
+  name: PostRender
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_PostRender_
+  commentId: Overload:Catalyst.Engine.RenderSystem.PostRender
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Name
-  nameWithType: TextureAtlas.Name
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Path
-  name: Path
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Path
-  commentId: P:Catalyst.Engine.Rendering.TextureAtlas.Path
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Path
-  nameWithType: TextureAtlas.Path
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Path*
-  name: Path
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Path_
-  commentId: Overload:Catalyst.Engine.Rendering.TextureAtlas.Path
+  fullName: Catalyst.Engine.RenderSystem.PostRender
+  nameWithType: RenderSystem.PostRender
+- uid: Catalyst.Engine.RenderSystem.PreRender(Microsoft.Xna.Framework.GameTime)
+  name: PreRender(GameTime)
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_PreRender_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.RenderSystem.PreRender(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.RenderSystem.PreRender(Microsoft.Xna.Framework.GameTime)
+  nameWithType: RenderSystem.PreRender(GameTime)
+- uid: Catalyst.Engine.RenderSystem.PreRender*
+  name: PreRender
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_PreRender_
+  commentId: Overload:Catalyst.Engine.RenderSystem.PreRender
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Path
-  nameWithType: TextureAtlas.Path
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Texture
-  name: Texture
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Texture
-  commentId: P:Catalyst.Engine.Rendering.TextureAtlas.Texture
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Texture
-  nameWithType: TextureAtlas.Texture
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Texture*
-  name: Texture
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Texture_
-  commentId: Overload:Catalyst.Engine.Rendering.TextureAtlas.Texture
+  fullName: Catalyst.Engine.RenderSystem.PreRender
+  nameWithType: RenderSystem.PreRender
+- uid: Catalyst.Engine.RenderSystem.Render(Microsoft.Xna.Framework.GameTime)
+  name: Render(GameTime)
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_Render_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.RenderSystem.Render(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.RenderSystem.Render(Microsoft.Xna.Framework.GameTime)
+  nameWithType: RenderSystem.Render(GameTime)
+- uid: Catalyst.Engine.RenderSystem.Render*
+  name: Render
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_Render_
+  commentId: Overload:Catalyst.Engine.RenderSystem.Render
   isSpec: "True"
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Texture
-  nameWithType: TextureAtlas.Texture
-- uid: Catalyst.Engine.Rendering.TextureAtlas.Textures
-  name: Textures
-  href: api/Catalyst.Engine.Rendering.TextureAtlas.html#Catalyst_Engine_Rendering_TextureAtlas_Textures
-  commentId: F:Catalyst.Engine.Rendering.TextureAtlas.Textures
-  fullName: Catalyst.Engine.Rendering.TextureAtlas.Textures
-  nameWithType: TextureAtlas.Textures
+  fullName: Catalyst.Engine.RenderSystem.Render
+  nameWithType: RenderSystem.Render
+- uid: Catalyst.Engine.RenderSystem.Renders
+  name: Renders
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_Renders
+  commentId: P:Catalyst.Engine.RenderSystem.Renders
+  fullName: Catalyst.Engine.RenderSystem.Renders
+  nameWithType: RenderSystem.Renders
+- uid: Catalyst.Engine.RenderSystem.Renders*
+  name: Renders
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_Renders_
+  commentId: Overload:Catalyst.Engine.RenderSystem.Renders
+  isSpec: "True"
+  fullName: Catalyst.Engine.RenderSystem.Renders
+  nameWithType: RenderSystem.Renders
+- uid: Catalyst.Engine.RenderSystem.RenderUI(Microsoft.Xna.Framework.GameTime)
+  name: RenderUI(GameTime)
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_RenderUI_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.RenderSystem.RenderUI(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.RenderSystem.RenderUI(Microsoft.Xna.Framework.GameTime)
+  nameWithType: RenderSystem.RenderUI(GameTime)
+- uid: Catalyst.Engine.RenderSystem.RenderUI*
+  name: RenderUI
+  href: api/Catalyst.Engine.RenderSystem.html#Catalyst_Engine_RenderSystem_RenderUI_
+  commentId: Overload:Catalyst.Engine.RenderSystem.RenderUI
+  isSpec: "True"
+  fullName: Catalyst.Engine.RenderSystem.RenderUI
+  nameWithType: RenderSystem.RenderUI
 - uid: Catalyst.Engine.Scene
   name: Scene
   href: api/Catalyst.Engine.Scene.html
@@ -4096,6 +4200,135 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Solid.Name
   nameWithType: Solid.Name
+- uid: Catalyst.Engine.System
+  name: System
+  href: api/Catalyst.Engine.System.html
+  commentId: T:Catalyst.Engine.System
+  fullName: Catalyst.Engine.System
+  nameWithType: System
+- uid: Catalyst.Engine.System.#ctor(Catalyst.Engine.Scene)
+  name: System(Scene)
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System__ctor_Catalyst_Engine_Scene_
+  commentId: M:Catalyst.Engine.System.#ctor(Catalyst.Engine.Scene)
+  fullName: Catalyst.Engine.System.System(Catalyst.Engine.Scene)
+  nameWithType: System.System(Scene)
+- uid: Catalyst.Engine.System.#ctor*
+  name: System
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System__ctor_
+  commentId: Overload:Catalyst.Engine.System.#ctor
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.System
+  nameWithType: System.System
+- uid: Catalyst.Engine.System.End(Microsoft.Xna.Framework.GameTime)
+  name: End(GameTime)
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_End_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.System.End(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.System.End(Microsoft.Xna.Framework.GameTime)
+  nameWithType: System.End(GameTime)
+- uid: Catalyst.Engine.System.End*
+  name: End
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_End_
+  commentId: Overload:Catalyst.Engine.System.End
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.End
+  nameWithType: System.End
+- uid: Catalyst.Engine.System.Initialize
+  name: Initialize()
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Initialize
+  commentId: M:Catalyst.Engine.System.Initialize
+  fullName: Catalyst.Engine.System.Initialize()
+  nameWithType: System.Initialize()
+- uid: Catalyst.Engine.System.Initialize*
+  name: Initialize
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Initialize_
+  commentId: Overload:Catalyst.Engine.System.Initialize
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.Initialize
+  nameWithType: System.Initialize
+- uid: Catalyst.Engine.System.Manager
+  name: Manager
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Manager
+  commentId: P:Catalyst.Engine.System.Manager
+  fullName: Catalyst.Engine.System.Manager
+  nameWithType: System.Manager
+- uid: Catalyst.Engine.System.Manager*
+  name: Manager
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Manager_
+  commentId: Overload:Catalyst.Engine.System.Manager
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.Manager
+  nameWithType: System.Manager
+- uid: Catalyst.Engine.System.PostUpdate(Microsoft.Xna.Framework.GameTime)
+  name: PostUpdate(GameTime)
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_PostUpdate_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.System.PostUpdate(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.System.PostUpdate(Microsoft.Xna.Framework.GameTime)
+  nameWithType: System.PostUpdate(GameTime)
+- uid: Catalyst.Engine.System.PostUpdate*
+  name: PostUpdate
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_PostUpdate_
+  commentId: Overload:Catalyst.Engine.System.PostUpdate
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.PostUpdate
+  nameWithType: System.PostUpdate
+- uid: Catalyst.Engine.System.PreUpdate(Microsoft.Xna.Framework.GameTime)
+  name: PreUpdate(GameTime)
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_PreUpdate_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.System.PreUpdate(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.System.PreUpdate(Microsoft.Xna.Framework.GameTime)
+  nameWithType: System.PreUpdate(GameTime)
+- uid: Catalyst.Engine.System.PreUpdate*
+  name: PreUpdate
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_PreUpdate_
+  commentId: Overload:Catalyst.Engine.System.PreUpdate
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.PreUpdate
+  nameWithType: System.PreUpdate
+- uid: Catalyst.Engine.System.Renders
+  name: Renders
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Renders
+  commentId: P:Catalyst.Engine.System.Renders
+  fullName: Catalyst.Engine.System.Renders
+  nameWithType: System.Renders
+- uid: Catalyst.Engine.System.Renders*
+  name: Renders
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Renders_
+  commentId: Overload:Catalyst.Engine.System.Renders
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.Renders
+  nameWithType: System.Renders
+- uid: Catalyst.Engine.System.Save(Microsoft.Xna.Framework.GameTime)
+  name: Save(GameTime)
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Save_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.System.Save(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.System.Save(Microsoft.Xna.Framework.GameTime)
+  nameWithType: System.Save(GameTime)
+- uid: Catalyst.Engine.System.Save*
+  name: Save
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Save_
+  commentId: Overload:Catalyst.Engine.System.Save
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.Save
+  nameWithType: System.Save
+- uid: Catalyst.Engine.System.scene
+  name: scene
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_scene
+  commentId: F:Catalyst.Engine.System.scene
+  fullName: Catalyst.Engine.System.scene
+  nameWithType: System.scene
+- uid: Catalyst.Engine.System.Update(Microsoft.Xna.Framework.GameTime)
+  name: Update(GameTime)
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Update_Microsoft_Xna_Framework_GameTime_
+  commentId: M:Catalyst.Engine.System.Update(Microsoft.Xna.Framework.GameTime)
+  fullName: Catalyst.Engine.System.Update(Microsoft.Xna.Framework.GameTime)
+  nameWithType: System.Update(GameTime)
+- uid: Catalyst.Engine.System.Update*
+  name: Update
+  href: api/Catalyst.Engine.System.html#Catalyst_Engine_System_Update_
+  commentId: Overload:Catalyst.Engine.System.Update
+  isSpec: "True"
+  fullName: Catalyst.Engine.System.Update
+  nameWithType: System.Update
 - uid: Catalyst.Engine.Utilities
   name: Catalyst.Engine.Utilities
   href: api/Catalyst.Engine.Utilities.html
@@ -8626,66 +8859,6 @@ references:
   isSpec: "True"
   fullName: Catalyst.Engine.Utilities.Matrix.Up
   nameWithType: Matrix.Up
-- uid: Catalyst.Engine.Utilities.Origin
-  name: Origin
-  href: api/Catalyst.Engine.Utilities.Origin.html
-  commentId: T:Catalyst.Engine.Utilities.Origin
-  fullName: Catalyst.Engine.Utilities.Origin
-  nameWithType: Origin
-- uid: Catalyst.Engine.Utilities.Origin.BottomCenter
-  name: BottomCenter
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_BottomCenter
-  commentId: F:Catalyst.Engine.Utilities.Origin.BottomCenter
-  fullName: Catalyst.Engine.Utilities.Origin.BottomCenter
-  nameWithType: Origin.BottomCenter
-- uid: Catalyst.Engine.Utilities.Origin.BottomLeft
-  name: BottomLeft
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_BottomLeft
-  commentId: F:Catalyst.Engine.Utilities.Origin.BottomLeft
-  fullName: Catalyst.Engine.Utilities.Origin.BottomLeft
-  nameWithType: Origin.BottomLeft
-- uid: Catalyst.Engine.Utilities.Origin.BottomRight
-  name: BottomRight
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_BottomRight
-  commentId: F:Catalyst.Engine.Utilities.Origin.BottomRight
-  fullName: Catalyst.Engine.Utilities.Origin.BottomRight
-  nameWithType: Origin.BottomRight
-- uid: Catalyst.Engine.Utilities.Origin.Center
-  name: Center
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_Center
-  commentId: F:Catalyst.Engine.Utilities.Origin.Center
-  fullName: Catalyst.Engine.Utilities.Origin.Center
-  nameWithType: Origin.Center
-- uid: Catalyst.Engine.Utilities.Origin.CenterLeft
-  name: CenterLeft
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_CenterLeft
-  commentId: F:Catalyst.Engine.Utilities.Origin.CenterLeft
-  fullName: Catalyst.Engine.Utilities.Origin.CenterLeft
-  nameWithType: Origin.CenterLeft
-- uid: Catalyst.Engine.Utilities.Origin.CenterRight
-  name: CenterRight
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_CenterRight
-  commentId: F:Catalyst.Engine.Utilities.Origin.CenterRight
-  fullName: Catalyst.Engine.Utilities.Origin.CenterRight
-  nameWithType: Origin.CenterRight
-- uid: Catalyst.Engine.Utilities.Origin.TopCenter
-  name: TopCenter
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_TopCenter
-  commentId: F:Catalyst.Engine.Utilities.Origin.TopCenter
-  fullName: Catalyst.Engine.Utilities.Origin.TopCenter
-  nameWithType: Origin.TopCenter
-- uid: Catalyst.Engine.Utilities.Origin.TopLeft
-  name: TopLeft
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_TopLeft
-  commentId: F:Catalyst.Engine.Utilities.Origin.TopLeft
-  fullName: Catalyst.Engine.Utilities.Origin.TopLeft
-  nameWithType: Origin.TopLeft
-- uid: Catalyst.Engine.Utilities.Origin.TopRight
-  name: TopRight
-  href: api/Catalyst.Engine.Utilities.Origin.html#Catalyst_Engine_Utilities_Origin_TopRight
-  commentId: F:Catalyst.Engine.Utilities.Origin.TopRight
-  fullName: Catalyst.Engine.Utilities.Origin.TopRight
-  nameWithType: Origin.TopRight
 - uid: Catalyst.Engine.Utilities.Plane
   name: Plane
   href: api/Catalyst.Engine.Utilities.Plane.html
@@ -10228,6 +10401,12 @@ references:
   commentId: M:Catalyst.Engine.Utilities.Rectangle.#ctor(Catalyst.Engine.Utilities.Point,Catalyst.Engine.Utilities.Point)
   fullName: Catalyst.Engine.Utilities.Rectangle.Rectangle(Catalyst.Engine.Utilities.Point, Catalyst.Engine.Utilities.Point)
   nameWithType: Rectangle.Rectangle(Point, Point)
+- uid: Catalyst.Engine.Utilities.Rectangle.#ctor(Microsoft.Xna.Framework.Rectangle)
+  name: Rectangle(Rectangle)
+  href: api/Catalyst.Engine.Utilities.Rectangle.html#Catalyst_Engine_Utilities_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle_
+  commentId: M:Catalyst.Engine.Utilities.Rectangle.#ctor(Microsoft.Xna.Framework.Rectangle)
+  fullName: Catalyst.Engine.Utilities.Rectangle.Rectangle(Microsoft.Xna.Framework.Rectangle)
+  nameWithType: Rectangle.Rectangle(Rectangle)
 - uid: Catalyst.Engine.Utilities.Rectangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
   name: Rectangle(Int32, Int32, Int32, Int32)
   href: api/Catalyst.Engine.Utilities.Rectangle.html#Catalyst_Engine_Utilities_Rectangle__ctor_System_Int32_System_Int32_System_Int32_System_Int32_
@@ -10733,19 +10912,6 @@ references:
   fullName.vb: Catalyst.Engine.Utilities.Utility.DeepClone(Of T)(T)
   nameWithType: Utility.DeepClone<T>(T)
   nameWithType.vb: Utility.DeepClone(Of T)(T)
-- uid: Catalyst.Engine.Utilities.Utility.OriginToVectorOffset(Catalyst.Engine.Utilities.Origin,Catalyst.Engine.Utilities.Vector2)
-  name: OriginToVectorOffset(Origin, Vector2)
-  href: api/Catalyst.Engine.Utilities.Utility.html#Catalyst_Engine_Utilities_Utility_OriginToVectorOffset_Catalyst_Engine_Utilities_Origin_Catalyst_Engine_Utilities_Vector2_
-  commentId: M:Catalyst.Engine.Utilities.Utility.OriginToVectorOffset(Catalyst.Engine.Utilities.Origin,Catalyst.Engine.Utilities.Vector2)
-  fullName: Catalyst.Engine.Utilities.Utility.OriginToVectorOffset(Catalyst.Engine.Utilities.Origin, Catalyst.Engine.Utilities.Vector2)
-  nameWithType: Utility.OriginToVectorOffset(Origin, Vector2)
-- uid: Catalyst.Engine.Utilities.Utility.OriginToVectorOffset*
-  name: OriginToVectorOffset
-  href: api/Catalyst.Engine.Utilities.Utility.html#Catalyst_Engine_Utilities_Utility_OriginToVectorOffset_
-  commentId: Overload:Catalyst.Engine.Utilities.Utility.OriginToVectorOffset
-  isSpec: "True"
-  fullName: Catalyst.Engine.Utilities.Utility.OriginToVectorOffset
-  nameWithType: Utility.OriginToVectorOffset
 - uid: Catalyst.Engine.Utilities.Vector2
   name: Vector2
   href: api/Catalyst.Engine.Utilities.Vector2.html

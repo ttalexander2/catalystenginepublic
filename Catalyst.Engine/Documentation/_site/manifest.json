@@ -5,47 +5,11 @@
   "files": [
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.AComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.AComponent.html",
-          "hash": "UYmZUlpMt58UGNUksWNh4w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ARenderSystem.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.ARenderSystem.html",
-          "hash": "ejzC7ewIfxWFj4JMIvf3HA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.ASystem.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.ASystem.html",
-          "hash": "MYwW70Ic9059Unu6iDnsOw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.Actor.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Actor.html",
-          "hash": "ygmnKBL3aKcR4JSCLblfqw=="
+          "hash": "R+odd+n3SHFnIqY8FFJeOQ=="
         }
       },
       "is_incremental": false,
@@ -57,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Audio.AudioManager.html",
-          "hash": "iwxgjg1UDA+6AyFLj0O/xw=="
+          "hash": "Uf4d3Sm5EfWTDQ9KWCQSQA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -72,7 +36,19 @@
           "hash": "tZEXY0JnwWMztIIUntg8Fw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Component.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Component.html",
+          "hash": "80X89F3Fqz5iCZopOivfuw=="
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.ECDictionaryExtensions.html",
-          "hash": "GtHIF/kNuYHGso+Km33jyA=="
+          "hash": "LXrxpY9LSJWvGkXRw525QA=="
         }
       },
       "is_incremental": false,
@@ -93,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.ECManager.html",
-          "hash": "Ca/JV+64+/7C/YM+boOvlA=="
+          "hash": "G0stcJZ+i4cGysw3/KPUsw=="
         }
       },
       "is_incremental": false,
@@ -105,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Engine.html",
-          "hash": "r/+vNHSBWTZBWc5n23Dgpg=="
+          "hash": "gbtwjX8jzm8ZKrgBtTyoTw=="
         }
       },
       "is_incremental": false,
@@ -117,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Entity.html",
-          "hash": "sxjTy8nGE8vVjDIq4OwUmg=="
+          "hash": "v51N+bdm29RCNsZp5saV2w=="
         }
       },
       "is_incremental": false,
@@ -129,19 +105,22 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Graphics.html",
-          "hash": "3X7o0YBBRxTN5r7Uw2ME1A=="
+          "hash": "DiNuQeso8KQrI93oOx7cfQ=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiAttributeException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiAttributeException.html",
-          "hash": "QRuwIFOFkZwKMIQSXSj2Iw=="
+          "hash": "fJbUt79IAv86/D2O6Q1Wwg=="
         }
       },
       "is_incremental": false,
@@ -153,34 +132,52 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiBoolean.html",
-          "hash": "UV3U7Ax/i74xHXQHs4/2Wg=="
+          "hash": "HnUR+C2Ir05ArcFXgcgIlg=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.GuiButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.GuiButton.html",
+          "hash": "w0NjjtJryY2XXDxyww3L2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiColor.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiColor.html",
-          "hash": "0YxRH5ugv2rHSCjtl4CEMQ=="
+          "hash": "rxuGt18rXvwej2cuaMASiA=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiColorMode.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiColorMode.html",
-          "hash": "pmEE8keXcvf0VzjJ1KYVgQ=="
+          "hash": "iA+NHuwvqeLI87lJ4YI3NA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -189,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiDouble.html",
-          "hash": "NttKR1SoTvkKJYHDFz2Imw=="
+          "hash": "T4DAuPrusyEAq8FzTLQlzQ=="
         }
       },
       "is_incremental": false,
@@ -201,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiEntitySelector.html",
-          "hash": "v2vAgsEdlXroxP4B/M92lQ=="
+          "hash": "tkUOd+VrXfAswAAQ9s5Tnw=="
         }
       },
       "is_incremental": false,
@@ -213,7 +210,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiEnum.html",
-          "hash": "rm3QYadZA4yI778nUwDL1g=="
+          "hash": "mlAZxs3+MJ9wUnV/F8PSTw=="
         }
       },
       "is_incremental": false,
@@ -225,31 +222,37 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiFloat.html",
-          "hash": "hzIKmgQKCoBPRub0DT18zg=="
+          "hash": "tyU0ZeL2ir/Mi7PQg5innw=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiFloatMode.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiFloatMode.html",
-          "hash": "3PczWQWI8tQcUrjgDzx5MQ=="
+          "hash": "hCb/dSGDG2pv7np67BNJzA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiInteger.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiInteger.html",
-          "hash": "dW/9WEgjWmF63l4tZsnVxQ=="
+          "hash": "zAq2xAevDNYQrl53fZRlwA=="
         }
       },
       "is_incremental": false,
@@ -261,19 +264,22 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiIntegerMode.html",
-          "hash": "1/PM8L+ztJ8EZL6XIoynqQ=="
+          "hash": "WRpnkklqm95BWD71kjmYzQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiLabel.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiLabel.html",
-          "hash": "dKt9zHRLS16NVV/y3ezYuA=="
+          "hash": "3Webl6F37WC88qQmlZo2yw=="
         }
       },
       "is_incremental": false,
@@ -281,11 +287,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.GuiSpriteSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.GuiSpriteSelector.html",
+          "hash": "C9ZdL6pMN63mxqSYumkK5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiString.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiString.html",
-          "hash": "wXrKOJt3MAlkEDJfvRjS4A=="
+          "hash": "oJ8cRxwIFu1vdxgAwytT5Q=="
         }
       },
       "is_incremental": false,
@@ -297,19 +318,37 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiVector2.html",
-          "hash": "raiRCUTDIaV1C0ht+RE76A=="
+          "hash": "smf+L9llZo67XjOruDbJXA=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.GuiVector3.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.GuiVector3.html",
-          "hash": "wia9HM9gC9+KiAph3SBHwQ=="
+          "hash": "nvqDqIKKDBagufQn8tRD4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.GuiVector4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.GuiVector4.html",
+          "hash": "W4v5xnRFpQMJPGlfmVRgtQ=="
         }
       },
       "is_incremental": false,
@@ -317,11 +356,212 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.GuiVector4.yml",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateAttributeException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.GuiVector4.html",
-          "hash": "RgcdAkLarGgw4X1eE98tgA=="
+          "relative_path": "api/Catalyst.Engine.ImmediateAttributeException.html",
+          "hash": "fgi/66LgCWzjKDMH3yy4IQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateBoolean.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateBoolean.html",
+          "hash": "Y/5jykdmVyd5Q/ZTiXP20A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateColor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateColor.html",
+          "hash": "16NxnRIdx1ATXoFe3pc9Mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateColorMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateColorMode.html",
+          "hash": "/3zIRAOGRFIq1zK5xy3TkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateDouble.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateDouble.html",
+          "hash": "O016WmWBxKTHy/dpGT1nNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateEntitySelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateEntitySelector.html",
+          "hash": "CrHdmvaaZTmEfWehcnqNig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateEnum.html",
+          "hash": "fRV/8u+cv/9GHwYXM+N/0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateFloat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateFloat.html",
+          "hash": "4HTdm2PIoTwAbLmSIWuCAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateFloatMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateFloatMode.html",
+          "hash": "7JaGCTTBytXlOTXi5NOq2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateInteger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateInteger.html",
+          "hash": "ost5iMktC/Mv49W+Ag8gjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateIntegerMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateIntegerMode.html",
+          "hash": "/Kh09skDrpfl7NUYPk+gAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateLabel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateLabel.html",
+          "hash": "iLFWs6fEKrU+Zi5rOFlKYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateString.html",
+          "hash": "86lOzqb8D+t/xT3N/nHedQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateVector2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateVector2.html",
+          "hash": "toxFQeOm2uqw2Ekd076i0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateVector3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateVector3.html",
+          "hash": "F/XFdyiV84Qg5IG5ybTiPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.ImmediateVector4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.ImmediateVector4.html",
+          "hash": "52ROlqLQvt9bWU7AZkGdGw=="
         }
       },
       "is_incremental": false,
@@ -333,10 +573,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Input.Controller.html",
-          "hash": "+fghzjQnKSxIeAmmW6y7Rg=="
+          "hash": "TnPCV6or2f4FqZ7e9o7TVg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -345,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Input.Input.html",
-          "hash": "z/UtkmheclBUpAiZ2WouqA=="
+          "hash": "x8A0DHhK9iQwhJoMOiDbDg=="
         }
       },
       "is_incremental": false,
@@ -357,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Input.InputSystem.html",
-          "hash": "YaaqS7kCbLAIAV0BNeZS8A=="
+          "hash": "mIGVbKbN5JnAz5nsrB5iwA=="
         }
       },
       "is_incremental": false,
@@ -377,11 +617,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Loadable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Loadable.html",
+          "hash": "dh4gmyC/h3rmINCuHeOSIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.Physics.MovementSystem.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Physics.MovementSystem.html",
-          "hash": "GfQnKzPnR4xY3oQAxVdQnA=="
+          "hash": "hec9GHtFhupl14kXXZCI+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Physics.Position.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Physics.Position.html",
+          "hash": "7JL2H63sCbSKp3WYC2wteQ=="
         }
       },
       "is_incremental": false,
@@ -393,19 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Physics.QuadTree.html",
-          "hash": "TYvR3GTdHDq97Ryf4tXZuQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.Physics.Transform.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.Physics.Transform.html",
-          "hash": "hh42doTNwf2ffphZ15Kr1A=="
+          "hash": "/KsP8qf67n3gaRH+6DzOBg=="
         }
       },
       "is_incremental": false,
@@ -417,7 +669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Physics.Velocity.html",
-          "hash": "OFvH0LrTjPI0P+QYJuDYmg=="
+          "hash": "zXlUHB1w3Z832qN3JwRoLA=="
         }
       },
       "is_incremental": false,
@@ -429,7 +681,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Physics.html",
-          "hash": "UaF0rVcUfJPG/cc759U/cQ=="
+          "hash": "/4uNIEPNeO7qP6g0P6z8mQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.RenderSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.RenderSystem.html",
+          "hash": "wS+DX+VjDCR2Ksd4hNHSEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.AnimatedSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.AnimatedSprite.html",
+          "hash": "x42ZY9oh9QbePDC5bBLxIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Atlas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.Atlas.html",
+          "hash": "RQ26J6vWobkkXD6XCg7d5Q=="
         }
       },
       "is_incremental": false,
@@ -441,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.BasicShapes.html",
-          "hash": "6nxOF2286C/dpaz2S4SHKg=="
+          "hash": "cs5hku7FbuYykrncgf1ywA=="
         }
       },
       "is_incremental": false,
@@ -453,7 +741,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.Camera2D.html",
-          "hash": "Z/8HEZuANjlnPz94daZgAQ=="
+          "hash": "j08ufI7vHArYUeFinj6jig=="
         }
       },
       "is_incremental": false,
@@ -465,7 +753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.CameraSystem.html",
-          "hash": "d5XqNOmnAtd3PYAOBq1gmQ=="
+          "hash": "sN9bqRQDnijI/OiJ9U4brA=="
         }
       },
       "is_incremental": false,
@@ -473,11 +761,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.Rendering.MTexture.yml",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Drawable.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.Rendering.MTexture.html",
-          "hash": "sCSJooKOJ2E/F98dpcQm+A=="
+          "relative_path": "api/Catalyst.Engine.Rendering.Drawable.html",
+          "hash": "qA+24gtMxVMssUahlXn6Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.PackedTexture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.PackedTexture.html",
+          "hash": "lLz9qZu1A42Ior3P3Oaznw=="
         }
       },
       "is_incremental": false,
@@ -489,10 +789,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.Particle.VelocityMode.html",
-          "hash": "Bmw/sFyL3vJ8S3ZI6ZxA0g=="
+          "hash": "l1s6Z8nuFkIyM3LcZagP/Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -501,7 +801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.Particle.html",
-          "hash": "pXxNnNPLYhNeoaCwCUrbsw=="
+          "hash": "RtHr2IQjJFHavnjZB77IOg=="
         }
       },
       "is_incremental": false,
@@ -513,10 +813,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.ParticleEmitter.ParticleMode.html",
-          "hash": "DFtYwXaSmXCElntCPkt43A=="
+          "hash": "72/VQDzxdDoC0m8RuSw/1g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -525,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.ParticleEmitter.html",
-          "hash": "iMdcN6K0FpaQds/wjBa1cg=="
+          "hash": "zHAwR4ONVIhP6z2mlDVQpg=="
         }
       },
       "is_incremental": false,
@@ -537,7 +837,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.ParticleSystem.html",
-          "hash": "JsLTkyUKvIRpU2gfIPpE1Q=="
+          "hash": "TQoXf3pwUncxQJW17K+0pA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html",
+          "hash": "RN+zmpxGZHUUnIQ/obQ2wQ=="
         }
       },
       "is_incremental": false,
@@ -549,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.Sprite.html",
-          "hash": "AYGyAw0HWKVlXDzu3t3ZAA=="
+          "hash": "sRuIE0zknLmlFluyIJJbTA=="
         }
       },
       "is_incremental": false,
@@ -557,26 +869,14 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.Rendering.SpriteRenderSystem.yml",
+      "source_relative_path": "api/Catalyst.Engine.Rendering.SpriteRenderer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Catalyst.Engine.Rendering.SpriteRenderSystem.html",
-          "hash": "AM7H6b7eiFM9uXaX/dfqGw=="
+          "relative_path": "api/Catalyst.Engine.Rendering.SpriteRenderer.html",
+          "hash": "qzh6ecRonB764xsg0mb6VA=="
         }
       },
       "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.Rendering.TextureAtlas.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.Rendering.TextureAtlas.html",
-          "hash": "ZbgAndzkDAgq/zESKH5wNg=="
-        }
-      },
-      "is_incremental": true,
       "version": ""
     },
     {
@@ -585,7 +885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Rendering.html",
-          "hash": "DbP5g1SL4mOTfNqHYv095A=="
+          "hash": "sFw1ft5I4Z/djaQMPSLJ/A=="
         }
       },
       "is_incremental": false,
@@ -597,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Scene.html",
-          "hash": "Jkdqnwncjd13mnxCTmFuBw=="
+          "hash": "hTryNP6se9dyA5cs/fqK8w=="
         }
       },
       "is_incremental": false,
@@ -609,7 +909,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Solid.html",
-          "hash": "gTETswq+9Z126ZL7Av6Wdw=="
+          "hash": "dpazj6R6vQFmyxxU1TMv6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.System.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.System.html",
+          "hash": "ROHck+JLCATNJU+ScK0Dmw=="
         }
       },
       "is_incremental": false,
@@ -621,37 +933,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Alarm.html",
-          "hash": "cEbxja07rXLte7g9pym56A=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "log_codes": [
-        "DuplicateUids"
-      ],
-      "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.Utilities.BoundingBox.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.Utilities.BoundingBox.html",
-          "hash": "R2xEpvtuRW7JI6QymWmRXw=="
+          "hash": "6hgOV2eRTgld+fo88hbbEg=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "DuplicateUids"
-      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Catalyst.Engine.Utilities.BoundingBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Catalyst.Engine.Utilities.BoundingBox.html",
+          "hash": "wg4U4RFUeAEjqFvehKVyIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.Utilities.BoundingSphere.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.BoundingSphere.html",
-          "hash": "MXUFMQWeFJ4sPmVwiF3hWw=="
+          "hash": "lIye94g2b0uwBjggYYvdPw=="
         }
       },
       "is_incremental": false,
@@ -663,10 +969,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.CatalystSerializer.html",
-          "hash": "onIROqNB1Q0nDzS9ttH0Yg=="
+          "hash": "uDR3nUkv7q6yFNl70+f6Aw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -675,7 +981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Color.html",
-          "hash": "azR64zPJx0wueOFXr61DlA=="
+          "hash": "98ZgPK1zE5vq6WcPDC1e+A=="
         }
       },
       "is_incremental": false,
@@ -687,10 +993,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.FrameCounter.html",
-          "hash": "QmnLFvmOmK7D+sdqqmThTA=="
+          "hash": "RKd+HEW5Bi2JecDNdW8N6Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -699,10 +1005,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.IScript.html",
-          "hash": "92FZLW4W+0V/hfjYOxcSkg=="
+          "hash": "G0AcfSDRBk3DAc/9U4AvEA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -711,7 +1017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Matrix.html",
-          "hash": "Y53yVkgazyeSpEnnTMP7lA=="
+          "hash": "np71ysN/fDR4MAKqNzM9aw=="
         }
       },
       "is_incremental": false,
@@ -719,26 +1025,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Catalyst.Engine.Utilities.Origin.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Catalyst.Engine.Utilities.Origin.html",
-          "hash": "NxHJ3Snd/K/ifxfVzfIS/A=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "log_codes": [
-        "DuplicateUids"
-      ],
-      "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.Utilities.Plane.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Plane.html",
-          "hash": "skOfRX3bW+9cUW/SRN3Kkw=="
+          "hash": "oBRwcVWuFw6H/l2xD40JrQ=="
         }
       },
       "is_incremental": false,
@@ -750,7 +1041,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Point.html",
-          "hash": "6C258TXms5R9YjYZWyBwKA=="
+          "hash": "v1ElvFu5fLnnj4sGgRbf6w=="
         }
       },
       "is_incremental": false,
@@ -762,7 +1053,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Quaternion.html",
-          "hash": "X0B0AHrfl9/5QhAazSFaZA=="
+          "hash": "0T9fjjTxY4H0i6Xh6CxxzA=="
         }
       },
       "is_incremental": false,
@@ -774,7 +1065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Ray.html",
-          "hash": "AgUfNrl232OfVcKK3yp1Ag=="
+          "hash": "NgK1IgSjJe5Jkywx82majg=="
         }
       },
       "is_incremental": false,
@@ -786,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Rectangle.html",
-          "hash": "RD9ZrzvCnNN6T0Rkqx742Q=="
+          "hash": "tNo7zG6GcbYrIUBoVoS47Q=="
         }
       },
       "is_incremental": false,
@@ -798,10 +1089,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.SerializationMode.html",
-          "hash": "sL33kqub/bqNxdz1a41ftg=="
+          "hash": "ABQYmcAqa9Wn3kvAHeZvEw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -810,7 +1101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Utility.html",
-          "hash": "A9v4cDkUzMNira00sL6ncA=="
+          "hash": "/ToyB5+naK+xGXKUsRL6Yg=="
         }
       },
       "is_incremental": false,
@@ -822,7 +1113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Vector2.html",
-          "hash": "PAIw4KjZYuI2dlj/QITx4Q=="
+          "hash": "X1wCrZCjInmSF04ow2feIw=="
         }
       },
       "is_incremental": false,
@@ -834,7 +1125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Vector3.html",
-          "hash": "xqPJ2MPa4m9C9YHURwMjug=="
+          "hash": "F3eHxIJmlSoailDm50Juzw=="
         }
       },
       "is_incremental": false,
@@ -846,22 +1137,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.Vector4.html",
-          "hash": "XBrlNzNbuTVEhLGABUzvrw=="
+          "hash": "X6VR8AS7yX4mOScvI9yXjQ=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "DuplicateUids"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Catalyst.Engine.Utilities.yml",
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.Utilities.html",
-          "hash": "eq4WE73WGqbYVJBNVBq/Mw=="
+          "hash": "Nii1WAvTyyALFhFT/w/sYQ=="
         }
       },
       "is_incremental": false,
@@ -873,13 +1161,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Catalyst.Engine.html",
-          "hash": "5VtQOBtKYenpROJrRuDJcA=="
+          "hash": "xWu5GxWCl89OniMpbBZtyw=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Chroma.Engine.Utilities.BoundingBox.yml",
       "output": {
@@ -888,10 +1179,13 @@
           "hash": "E29sRyGa+tXMaOsxaYfVfw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Chroma.Engine.Utilities.BoundingSphere.yml",
       "output": {
@@ -900,10 +1194,13 @@
           "hash": "NeYP1JKunF+gbR8iVGT2fw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Chroma.Engine.Utilities.Plane.yml",
       "output": {
@@ -912,7 +1209,7 @@
           "hash": "FgFiYhXqEq8G+8HWypJsaA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -924,10 +1221,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Chroma.Engine.Utilities.html",
-          "hash": "adZBBxEL6I5Vd5Uwymg4tQ=="
+          "hash": "F22nrHEaJtkwX8z2hzt+MQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -936,10 +1233,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.ADVANCEDSETTINGS.html",
-          "hash": "lNrXXW757oTml26+w6uisA=="
+          "hash": "hGzP+wAwO6ABZ1Wz2R3DTA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -948,10 +1245,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.ASYNCREADINFO.html",
-          "hash": "9ivKqg4hug35aJWDCHsJWQ=="
+          "hash": "3kG4EFSYRFgBGIojehLYSg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -960,10 +1257,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.ATTRIBUTES_3D.html",
-          "hash": "uJ/v5svNxZaknTiUUD8rpQ=="
+          "hash": "YaNVEekRXjlZptcLONU2gQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -972,10 +1269,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CB_3D_ROLLOFF_CALLBACK.html",
-          "hash": "0qMOGx8TyJCinrl2nVQuOg=="
+          "hash": "Lu3XtM81JbxXT0yCaQGBDQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -984,10 +1281,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CHANNELCONTROL_CALLBACK.html",
-          "hash": "6CtfEJ5knyAGbXI2VW2ZMw=="
+          "hash": "34MeYsHgPIDubjNcXptNlA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -996,10 +1293,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CHANNELCONTROL_CALLBACK_TYPE.html",
-          "hash": "R+wfeUFgU7qKP1RqH+9GMA=="
+          "hash": "mCYeiY0798ZbUzWdom6QJQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1008,10 +1305,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CHANNELCONTROL_DSP_INDEX.html",
-          "hash": "8x4z3zqEhiEXDEmwnWE5DQ=="
+          "hash": "eOafKvOkfd+PVVuyxvM6BA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1020,10 +1317,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CHANNELCONTROL_TYPE.html",
-          "hash": "woF1WKwWIf/sSNwH1wvfUQ=="
+          "hash": "mCmhCY1NRZ4HhXRMmHPQsw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1032,10 +1329,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CHANNELMASK.html",
-          "hash": "fAurKsYKS5nio9mvWEB80w=="
+          "hash": "ULgo70+W5xnn3qSExWWM+A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1044,10 +1341,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CHANNELORDER.html",
-          "hash": "1eG0RklCA6s3u3C2vtNEXg=="
+          "hash": "PBIxMw4IX5gjb43MTS1Q+g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1056,10 +1353,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.COMPLEX.html",
-          "hash": "flJiaLHta5bkx+wZXLfm7w=="
+          "hash": "VpMaeEVGfKSQWjfjY1j7YA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1068,10 +1365,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CONSTANTS.html",
-          "hash": "LQTWyCOB/LnscEvvhbhtbQ=="
+          "hash": "TZSITk3ZFLOfMr3KxZuJEw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1080,10 +1377,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.CREATESOUNDEXINFO.html",
-          "hash": "i2giNTALqu+A7X25ythhtA=="
+          "hash": "tlg3DqPKpva7m9gg1jn2lw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1092,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Channel.html",
-          "hash": "xr63scZ4EMzOUlS5GjP2Lg=="
+          "hash": "R0VCvVU1XM8B9m2IE7+uLg=="
         }
       },
       "is_incremental": false,
@@ -1104,7 +1401,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.ChannelGroup.html",
-          "hash": "alnfAVTxgLYRAEs8+amIPw=="
+          "hash": "08Vuv9bRVxQyaOYFzNvrkQ=="
         }
       },
       "is_incremental": false,
@@ -1116,10 +1413,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DEBUG_CALLBACK.html",
-          "hash": "/v3yiSQSLQ1E41H7VyceCA=="
+          "hash": "pKev3Sg7lvgLltqyjcGHGQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1128,10 +1425,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DEBUG_FLAGS.html",
-          "hash": "G3gBGx0O/I52OJfkUm9vRQ=="
+          "hash": "p0ohgFtW3YXSUbBfg9H7CQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1140,10 +1437,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DEBUG_MODE.html",
-          "hash": "7lby5zdlkpldPKTyVdlHGQ=="
+          "hash": "iR24wgO21ava+sYSvcFHgQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1152,10 +1449,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DRIVER_STATE.html",
-          "hash": "Aruc7LCOg3zaQ2DFgF/KtQ=="
+          "hash": "etWB+JNDLyRJV5w45RQM8g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1164,10 +1461,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP.html",
-          "hash": "9Wxfm2j0zgVwlTlDEbERWA=="
+          "hash": "O8RUWp0qDwOIRnoKYBofsQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1176,10 +1473,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSPCONNECTION_TYPE.html",
-          "hash": "YcHLq8fa2KnFUVN074pVZg=="
+          "hash": "Nv0veP1UFoau86DaRtSgSQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1188,10 +1485,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSPConnection.html",
-          "hash": "4ne5SZCHjBIgK3FAFzKyyw=="
+          "hash": "vo4USQhRacU8wSUWiOxELg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1200,10 +1497,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_ALLOC_FUNC.html",
-          "hash": "X1H1QtluFswycTVOmw0PxQ=="
+          "hash": "Saamys5nrhFiauE3AIOifg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1212,10 +1509,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_BUFFER_ARRAY.html",
-          "hash": "ZLpz6rRB3ZNVZvvLR8C/aA=="
+          "hash": "t39zV2l0T6XHC1ulRWenrQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1224,10 +1521,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_CHANNELMIX.html",
-          "hash": "PZNz/YjdCBHnORa+xTC8bg=="
+          "hash": "t5ye+2KbU6ASd0Ef3EbraA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1236,10 +1533,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_CHANNELMIX_OUTPUT.html",
-          "hash": "aJwZf+nYfWB4VoguRcGC0w=="
+          "hash": "tFC4J7+tMDCAMvCXLh3NZg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1248,10 +1545,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_CHORUS.html",
-          "hash": "NfY5mnTuacSi5/kNCeifvw=="
+          "hash": "uCHccN33Q0oAQ20FYjXm0g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1260,10 +1557,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_COMPRESSOR.html",
-          "hash": "llo+uZOtVSA8NEaL56Zl+Q=="
+          "hash": "+PShfr0Yx5cn9BubbWfriw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1272,10 +1569,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_CONVOLUTION_REVERB.html",
-          "hash": "eTgMdLSYAjklVXrUZUyN8w=="
+          "hash": "LP9iDNbQKEvlzlXoop6aXA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1284,10 +1581,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_CREATECALLBACK.html",
-          "hash": "bXLqWhFCxv73xK3U5cqCMA=="
+          "hash": "E222U22IxmOs0T/hY2psyg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1296,10 +1593,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_DELAY.html",
-          "hash": "rKi6sgPET3+kd/gOAG0dag=="
+          "hash": "EyJZSU5nVp+WQk4/RCKq7g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1308,10 +1605,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_DESCRIPTION.html",
-          "hash": "l/AHWaD0PbZD1o1UcUgamg=="
+          "hash": "E9IKCkpEp/mQaQuLeXISVg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1320,10 +1617,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_DFT_FFTREAL_FUNC.html",
-          "hash": "SK0oiYUpidx0R5AmFDhFfA=="
+          "hash": "vzcgHEQPL6XX4PqsOo7PmA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1332,10 +1629,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_DFT_IFFTREAL_FUNC.html",
-          "hash": "kNWN4QRwToAf9DlbhxKfWw=="
+          "hash": "jP0p/Sen4FiPzfeJsvr2xw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1344,10 +1641,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_DISTORTION.html",
-          "hash": "AWAZq5nTiLfZ5WzBy2KzeA=="
+          "hash": "C4qSxiRhqkofw0JYqO1Adg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1356,10 +1653,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_ECHO.html",
-          "hash": "D8c95YRRkjDXwt/s290RXA=="
+          "hash": "Rrg/TDLjrD0CqWBq2lww4A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1368,10 +1665,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_ENVELOPEFOLLOWER.html",
-          "hash": "gN5Qijc4amCvxUn72CXMGw=="
+          "hash": "+JgceSYyeyg62kZjKXgyTQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1380,10 +1677,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_FADER.html",
-          "hash": "eqxkXloUc9Db4Ra9A3gxdA=="
+          "hash": "6ZkMU9wVUlqi8jKZQscVfQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1392,10 +1689,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_FFT.html",
-          "hash": "94VAXSBrfePLGe8YLdOL+Q=="
+          "hash": "xSO6Y7yA8YJXs7KJ/3YrQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1404,10 +1701,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_FFT_WINDOW.html",
-          "hash": "lznadkVQ4A0ybpb+OLLiCw=="
+          "hash": "vMLHrbKb3OwtGoRM9ZOWpQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1416,10 +1713,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_FLANGE.html",
-          "hash": "9eZKeT/HWCddrbc/25R3Sg=="
+          "hash": "iDILpNjjuts8ObPy0dC+kw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1428,10 +1725,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_FREE_FUNC.html",
-          "hash": "iJPZANEhgavSSmic0qtr4Q=="
+          "hash": "MTcI41b/Sdr5JNEnHpuCsQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1440,10 +1737,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETBLOCKSIZE_FUNC.html",
-          "hash": "VRBcxCZW21nWOFHbztL8Jg=="
+          "hash": "k4SlDs1rCaRDYIVUQ1kXpQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1452,10 +1749,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETCLOCK_FUNC.html",
-          "hash": "3QnpK5Too/GvxPU9di1Bqg=="
+          "hash": "am6lvBuOd09QLpT7SA5JXg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1464,10 +1761,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETLISTENERATTRIBUTES_FUNC.html",
-          "hash": "yskHL+L/qvqHcs0Pgv6Bwg=="
+          "hash": "d9AxKTTelEtvXSkQQODmCA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1476,10 +1773,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETPARAM_BOOL_CALLBACK.html",
-          "hash": "r+DLZOPo7NGHYNUCwb69mw=="
+          "hash": "bnATvcZJgCPE9cAiwICIbA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1488,10 +1785,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETPARAM_DATA_CALLBACK.html",
-          "hash": "IYKekr4P+p4WgAOZMJmj/w=="
+          "hash": "0ahVPfjEXps1x+ISKr4/6g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1500,10 +1797,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETPARAM_FLOAT_CALLBACK.html",
-          "hash": "xC9qK/tGP0ekzmhIdOV/Vw=="
+          "hash": "DH+puJ2p27NCr4IW71dEmg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1512,10 +1809,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETPARAM_INT_CALLBACK.html",
-          "hash": "RC0hlxdy68d2ZIQsVr74YA=="
+          "hash": "MfbMWE29VrJJBXLyXyqD3g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1524,10 +1821,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETSAMPLERATE_FUNC.html",
-          "hash": "wPuC4QetDKE9/CV4Chr/Uw=="
+          "hash": "1cs1KJtNAJ6QwflpLiSNQQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1536,10 +1833,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETSPEAKERMODE_FUNC.html",
-          "hash": "xphZJ1fdI3HOgJPu7LmFXg=="
+          "hash": "M2IioPw9Xr576eoCGhE8Zw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1548,10 +1845,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_GETUSERDATA_FUNC.html",
-          "hash": "KavaoCKpskklaiOI2/mNyg=="
+          "hash": "T/jByLpVHyyS2uww43mDyA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1560,10 +1857,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_HIGHPASS.html",
-          "hash": "8UAvcwF/Ce4lxAlg50zLtw=="
+          "hash": "5hs3Nma9q6bOjo0AExOYSQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1572,10 +1869,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_HIGHPASS_SIMPLE.html",
-          "hash": "0p69737uchOOPIwADdgw2Q=="
+          "hash": "b9EgnpQhQKBbkMvXCTXYfA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1584,10 +1881,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_ITECHO.html",
-          "hash": "JOLmL/lrIkSxQ1nkKEGwCw=="
+          "hash": "VQI3nxXulbalwc+dYdselA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1596,10 +1893,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_ITLOWPASS.html",
-          "hash": "Kn3pM2cRKRqrbtM0lTGCuQ=="
+          "hash": "c4r9mHXjlo3hnguOFg9iCQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1608,10 +1905,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_LIMITER.html",
-          "hash": "bOguCdWVn+K2Yy/UQs2T7Q=="
+          "hash": "xPGetZQKh5DIenIS0QQScQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1620,10 +1917,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_LOG_FUNC.html",
-          "hash": "OuZSYZzcSAjs3yf0SItwdw=="
+          "hash": "tIRjY3obWx7AGqVg8QZisw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1632,10 +1929,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_LOWPASS.html",
-          "hash": "dF56mOIT9JyfLGlgzIdq2A=="
+          "hash": "vE1XY0eLv2bTaqKpUYYW9A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1644,10 +1941,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_LOWPASS_SIMPLE.html",
-          "hash": "/lSR6xZDCBYUFbBC43403Q=="
+          "hash": "GK6oSKmBuDI6kokRu3trdw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1656,10 +1953,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_METERING_INFO.html",
-          "hash": "HPiijcqFuFSJ75Fa8+BXRw=="
+          "hash": "SLzjnlZe0Hhb1AjEE6RwBw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1668,10 +1965,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_MULTIBAND_EQ.html",
-          "hash": "Vw2cAA9QGMNb87E83HDy0A=="
+          "hash": "GCcrb/toHFTRazDcrUQ7Gw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1680,10 +1977,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_MULTIBAND_EQ_FILTER_TYPE.html",
-          "hash": "VvoXpZi4gZiCwn8fH8sjtw=="
+          "hash": "PyLQJMVoky5xLF2+wLxAhQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1692,10 +1989,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_NORMALIZE.html",
-          "hash": "bhkVA72JfVcBqUk+WghXcw=="
+          "hash": "JHxmd00TKVed/S/Y0sOOiw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1704,10 +2001,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_OBJECTPAN.html",
-          "hash": "mXkm5KLY6yZo5T0qmO0/9w=="
+          "hash": "ONwWxIhchdAWAMJDF6HjoA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1716,10 +2013,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_OSCILLATOR.html",
-          "hash": "vowdxZwq2SkOh2Ko+bQNqg=="
+          "hash": "rqo4y+Hzdfrjc0KvgAvz7g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1728,10 +2025,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN.html",
-          "hash": "JtlUQLLtVe5DCdyncdOBiQ=="
+          "hash": "8A1Xx3kgESbF70SG0tnfNg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1740,10 +2037,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_2D_STEREO_MODE_TYPE.html",
-          "hash": "r634nBM6KcZp7926M6eO3w=="
+          "hash": "Mhyyq9+n8+G8BtVxu1pp5g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1752,10 +2049,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_3D_EXTENT_MODE_TYPE.html",
-          "hash": "584e+n14QzTK0nuuXntYxw=="
+          "hash": "RlPWS++OnMKFH32cXsWRVQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1764,10 +2061,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_3D_ROLLOFF_TYPE.html",
-          "hash": "OBLgaHPkNYwjRz+loyjezQ=="
+          "hash": "PYURM8/Uj4DJPpSXAcOtTQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1776,10 +2073,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_GETROLLOFFGAIN_FUNC.html",
-          "hash": "XAy5k4AFirp+JBNZszmfEg=="
+          "hash": "mp4SjM8SA4IoE34ijHytyg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1788,10 +2085,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_MODE_TYPE.html",
-          "hash": "gAt2jLR1EQ/jHF6Pu/KSCw=="
+          "hash": "rqDEx2WIQ8ZxtpPPPOPPQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1800,10 +2097,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_SUMMONOMATRIX_FUNC.html",
-          "hash": "K6chXwx1+jzNZYiPcT7nCw=="
+          "hash": "8Y6hEZZ4jDPr4xcCrHeacw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1812,10 +2109,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_SUMMONOTOSURROUNDMATRIX_FUNC.html",
-          "hash": "icfZIDXcGJW5vJZlF+rATQ=="
+          "hash": "84eYHNMCfFOIHnpkwEZKSQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1824,10 +2121,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_SUMSTEREOMATRIX_FUNC.html",
-          "hash": "h7xTp8XBpOvAbJP2kmZV9g=="
+          "hash": "e/b/mply6fSPKKGonbeLHA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1836,10 +2133,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_SUMSTEREOTOSURROUNDMATRIX_FUNC.html",
-          "hash": "P6Z+jmYYnMNn+siC+23APw=="
+          "hash": "QIOQ3MJML0wEuRZFQfWB4A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1848,10 +2145,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_SUMSURROUNDMATRIX_FUNC.html",
-          "hash": "PQhWkxwJgG1uVXee09icgw=="
+          "hash": "dYYz8qO82l85/thZlOapQA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1860,10 +2157,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PAN_SURROUND_FLAGS.html",
-          "hash": "UWZrjw3EdIZNUaMVB118mw=="
+          "hash": "KjnMox1kWX0ZMrCDxMoyEw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1872,10 +2169,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMEQ.html",
-          "hash": "1bzq8XElewICsHmZ2QG/iA=="
+          "hash": "cuHBI3qkJxl8mXuw3ODRqg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1884,10 +2181,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_3DATTRIBUTES.html",
-          "hash": "PSuEEvBtZkn4AaF6jRYhqQ=="
+          "hash": "pVKYl6hk8lhIDIIiuJnMVw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1896,10 +2193,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_3DATTRIBUTES_MULTI.html",
-          "hash": "SGeWaPTjlSE9jkCg7olaJQ=="
+          "hash": "qkW0Ih83vLkWrrMpKazXGg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1908,10 +2205,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DATA_TYPE.html",
-          "hash": "Ny+xUQM9Gkzm3+3Gf4BU1g=="
+          "hash": "VFBSr1eWxp7/78BlyjKeJQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1920,10 +2217,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DESC.html",
-          "hash": "1U8yerpgaom+Kp/2FJyNTQ=="
+          "hash": "QO/ihLXTHCj2gEuwMv8OQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1932,10 +2229,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DESC_BOOL.html",
-          "hash": "Q3YODZQNEfxok1sYFTJaxA=="
+          "hash": "xX4mwIPGFHwbdGuLMUrxPw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1944,10 +2241,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DESC_DATA.html",
-          "hash": "oHG60kLk+K8hVutDh6ZN9g=="
+          "hash": "ymv/XIqf9FQXBRnObLxWxA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1956,10 +2253,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DESC_FLOAT.html",
-          "hash": "EtDTBckpJa7tl0wDdipS4w=="
+          "hash": "VOioehvDBj2rLYaytZ1BVQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1968,10 +2265,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DESC_INT.html",
-          "hash": "W04AhZWSHU66kk2z6TWyaA=="
+          "hash": "+h2w6/TOsJz+TiRotooxGg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1980,10 +2277,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_DESC_UNION.html",
-          "hash": "iGoRb0yD2kXoRTQbfi8jUg=="
+          "hash": "VCs5Wj53Stc06GHCTL1M5w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1992,10 +2289,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_FFT.html",
-          "hash": "B+W9AW8lQAnyJK3vacXZTw=="
+          "hash": "9TaQPQyqHbnJtspLVqerMQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2004,10 +2301,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING.html",
-          "hash": "yyyDTNyI1v9F6eG78BrPZg=="
+          "hash": "ACNLq24K5RIhXlulemOaNA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2016,10 +2313,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING_PIECEWISE_LINEAR.html",
-          "hash": "G9drZ5Aw0CPqt3ZGxsO1gg=="
+          "hash": "9xweVRmsguVlWs/YbIcUrg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2028,10 +2325,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_FLOAT_MAPPING_TYPE.html",
-          "hash": "vtUWnwwvG5sNbRWGbifgDg=="
+          "hash": "IU/KoRuXpPRhY6PCFWDUbA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2040,10 +2337,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_OVERALLGAIN.html",
-          "hash": "kP5IkUtudjLQVv7tLLYw9A=="
+          "hash": "+ghmlKpPsKim1tBpaiLKZg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2052,10 +2349,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_SIDECHAIN.html",
-          "hash": "GXQHVLZZ1Si/ocllaVKlNg=="
+          "hash": "LS/KV1ETt3C6Bg0MJu3r6g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2064,10 +2361,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PARAMETER_TYPE.html",
-          "hash": "dB6NKI+ii3SbJ8z6CvI4Zg=="
+          "hash": "PXPNapXFa2n1UuX/11Vt2Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2076,10 +2373,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PITCHSHIFT.html",
-          "hash": "a6JDVZfEZBR4lYMpUFtDIQ=="
+          "hash": "tEXZKIkfqc47BK0PyO5GTQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2088,10 +2385,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PROCESS_CALLBACK.html",
-          "hash": "bg8LuApkfzcXKta++Zfxfw=="
+          "hash": "dyOFoCNQ79ie75v6Lhge8A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2100,10 +2397,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_PROCESS_OPERATION.html",
-          "hash": "YWmHBmBjnHVoXkLKbFKpMA=="
+          "hash": "XvGA+6Q+tXmj2qgvAWE1Yw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2112,10 +2409,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_READCALLBACK.html",
-          "hash": "znWSPmWV7mlnv0sDYrppag=="
+          "hash": "esTV9LKUv+bFVvjUXSfPXQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2124,10 +2421,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_REALLOC_FUNC.html",
-          "hash": "LqEmli3iu5ifH5H926dO8g=="
+          "hash": "tvTp1eFsref00Z2Ty+4WNQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2136,10 +2433,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_RELEASECALLBACK.html",
-          "hash": "yFTvtyjgUR6/GnPj+p9Tpg=="
+          "hash": "A8RZiwznXCbgPdyAjlvYvg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2148,10 +2445,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_RESAMPLER.html",
-          "hash": "vGupP0angpS1pVubpx7NeA=="
+          "hash": "A3mbWjOSnndTfItugtHXQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2160,10 +2457,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_RESETCALLBACK.html",
-          "hash": "6xVgFcjcN8K/kxOXrNF4vw=="
+          "hash": "gwYdMA1UilbjIvmoen4zrQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2172,10 +2469,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_RETURN.html",
-          "hash": "vqRGjzbmfdBoS4vS1YT9Xg=="
+          "hash": "PRtWz7g+ZZDdkCn0DAYPHA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2184,10 +2481,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SEND.html",
-          "hash": "biN5IQ2rjBKWrIBi34Yjcw=="
+          "hash": "RASqvnq2V7e9Ok47lW0lpQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2196,10 +2493,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SETPARAM_BOOL_CALLBACK.html",
-          "hash": "Jeukq07neF1doaEVu/sgWw=="
+          "hash": "NeHQRJKZzDbFGWDW3jFuEg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2208,10 +2505,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SETPARAM_DATA_CALLBACK.html",
-          "hash": "QZmqL3n7Kgiu7dbXJo4AGA=="
+          "hash": "QwVPo6Q243gN1svyORphyQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2220,10 +2517,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SETPARAM_FLOAT_CALLBACK.html",
-          "hash": "jODT+OKxYKb44MbJ3IzBRg=="
+          "hash": "SFWu4dkTvaVlqyh/mcyRvw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2232,10 +2529,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SETPARAM_INT_CALLBACK.html",
-          "hash": "d6HU0BWXPAGgL92+U3KdIw=="
+          "hash": "P08VAbUs2Sh7vPtRtVqRzQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2244,10 +2541,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SETPOSITIONCALLBACK.html",
-          "hash": "e+fxlEq7BXAZgpYj7OqiDg=="
+          "hash": "BLltuKDW3gzyITtoF2ciPg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2256,10 +2553,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SFXREVERB.html",
-          "hash": "WRhNfgSMVwTeSF1cN4NPgQ=="
+          "hash": "Ezvy0fU8QPZhqrTKJYc/9Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2268,10 +2565,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SHOULDIPROCESS_CALLBACK.html",
-          "hash": "qY6BUYFQQRSC1m8Kpytf9w=="
+          "hash": "OjmBfsmA3fis5Jap5cOSzw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2280,10 +2577,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_STATE.html",
-          "hash": "6eFZk5wliOry3RVbJWDYtA=="
+          "hash": "Lbvdmmb1Zd253HWwuHI+zQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2292,10 +2589,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_STATE_DFT_FUNCTIONS.html",
-          "hash": "Y+AeojecQ73nXuKsJFF2KQ=="
+          "hash": "9ntNji3YNU8boTCyP0bH6g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2304,10 +2601,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_STATE_FUNCTIONS.html",
-          "hash": "6ToQDnfKH4l6bQ+qBqYK8w=="
+          "hash": "ig6rYN4ER/T7cPvIoL11EA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2316,10 +2613,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_STATE_PAN_FUNCTIONS.html",
-          "hash": "+ZZM6S/4un2uA6T8S/f7uw=="
+          "hash": "fPbxejNhI7iiFHECfqdxiQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2328,10 +2625,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SYSTEM_DEREGISTER_CALLBACK.html",
-          "hash": "OKcIXzRpGeO4+pR/LtjHGg=="
+          "hash": "9WIHyl1/CcUQje9e5jb2uw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2340,10 +2637,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SYSTEM_MIX_CALLBACK.html",
-          "hash": "8J8Ur/ltewkyv5VJy3gUCQ=="
+          "hash": "/2jaeMzlvoQxySDTIESCgA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2352,10 +2649,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_SYSTEM_REGISTER_CALLBACK.html",
-          "hash": "gG0j11UXbyQQmRKnUqiK7w=="
+          "hash": "iA0KefEOryLm9j8aWQKMmw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2364,10 +2661,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_THREE_EQ.html",
-          "hash": "HRxsUn0KoWVQhAUr0bPUCg=="
+          "hash": "4BjAH1pBN4TDrd3RqyIK1Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2376,10 +2673,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_THREE_EQ_CROSSOVERSLOPE_TYPE.html",
-          "hash": "FWpLBBANlhKFhcfPvPGqEw=="
+          "hash": "c8xG27Ai/Isn1+IvM35PSQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2388,10 +2685,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_TRANSCEIVER.html",
-          "hash": "eARI78wyBxlQg5egQ6iLtg=="
+          "hash": "kSKMgWAELsezUOHcwyAfYg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2400,10 +2697,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_TRANSCEIVER_SPEAKERMODE.html",
-          "hash": "b9QHCqZ3l/cJST31ua31Gg=="
+          "hash": "SKNGLYrOepz8uaOtKDjJZg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2412,10 +2709,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_TREMOLO.html",
-          "hash": "s8hhXCLx9wFd+mKZiPxo2A=="
+          "hash": "Uzbja0s6T1NqIwPdTiz9yQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2424,10 +2721,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.DSP_TYPE.html",
-          "hash": "F96Bgq5LcJ/BxhCdpLYk5w=="
+          "hash": "XOkL3DP0ckwlRYiW5ZPBrA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2436,10 +2733,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Debug.html",
-          "hash": "tlq5YTgPNYSTsEjx8tks8A=="
+          "hash": "i03mzjOqxG8Enm++b0YeRw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2448,10 +2745,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.ERRORCALLBACK_INFO.html",
-          "hash": "NwEfIWY0AcxntYN/QiT+dg=="
+          "hash": "Gr3S2aaCooIM+Rh3Qw51mw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2460,10 +2757,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.ERRORCALLBACK_INSTANCETYPE.html",
-          "hash": "EOH3WXvJBdfCjJyiIbfQIg=="
+          "hash": "Z2mu9c7BfBcHZf5ejx6rEQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2472,10 +2769,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Error.html",
-          "hash": "iOT1ROeVFga7bpM76W8Fpw=="
+          "hash": "+GwN5HtPydZCF1Oi6AzAuA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2484,10 +2781,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_ASYNCCANCEL_CALLBACK.html",
-          "hash": "NQvqEvOhPwjGJcgW+V/BGQ=="
+          "hash": "9XZNNU2Z1DceiK/f95gF+A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2496,10 +2793,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_ASYNCDONE_FUNC.html",
-          "hash": "m4ww34RlVjTvi28T6URilw=="
+          "hash": "/ittuIxDFJpXaXONaJSEzA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2508,10 +2805,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_ASYNCREAD_CALLBACK.html",
-          "hash": "Ff3HcJfOBB1W6iRDmcCqEg=="
+          "hash": "3U88u+C27B4XxgHTJHGWDA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2520,10 +2817,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_CLOSE_CALLBACK.html",
-          "hash": "Er0V5dNqvdbTHeS9pbJpmQ=="
+          "hash": "Gt0+0gd0N+nf21sPMMYlxg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2532,10 +2829,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_OPEN_CALLBACK.html",
-          "hash": "jp5LMno2Q+HSlXvzOj8wgg=="
+          "hash": "tEQBzWKSyaZpjbYqFwSxvQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2544,10 +2841,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_READ_CALLBACK.html",
-          "hash": "eKQmVcc/A5+3UNpJwrkFRQ=="
+          "hash": "bivF7kqIgr95T20vyQioBw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2556,10 +2853,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.FILE_SEEK_CALLBACK.html",
-          "hash": "O/P71lLqKAW3tCcUb3m77g=="
+          "hash": "PtoISBbZPzR11Ji6cNTqKQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2568,10 +2865,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Factory.html",
-          "hash": "7ZEYtv98EMET3OIXJM/MYA=="
+          "hash": "lHU/27wn76jKSDLW0MDbJg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2580,10 +2877,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Geometry.html",
-          "hash": "E4mKw9qxF6LXMiZTuV33ng=="
+          "hash": "lkISLFXR4lh7SNQLKE2p5A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2592,10 +2889,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.INITFLAGS.html",
-          "hash": "FljrOH8HtShOrmjJIAForA=="
+          "hash": "ZnzLv9pw1AeaLqQfa8gLkQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2604,10 +2901,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.MEMORY_ALLOC_CALLBACK.html",
-          "hash": "klyxJ3SHmxViXOy9FKOn3w=="
+          "hash": "uKUH3fMLEPM1fK7DT8EKYg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2616,10 +2913,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.MEMORY_FREE_CALLBACK.html",
-          "hash": "X2XYpQA+kiM/j6rnPHSL9g=="
+          "hash": "wAKm7FOyzlDVznozP9AJ2Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2628,10 +2925,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.MEMORY_REALLOC_CALLBACK.html",
-          "hash": "ijNxQfOdHUETHwHDLTd9TQ=="
+          "hash": "zvPOZc/fq5KznDFEt2wgFg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2640,10 +2937,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.MEMORY_TYPE.html",
-          "hash": "On/PAR+9/eH2MhmWqEudTQ=="
+          "hash": "qa0B2WZ5uX878H1lJKdW3Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2652,10 +2949,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.MODE.html",
-          "hash": "HTJNJtRi5GtdJp3vOU1jtQ=="
+          "hash": "UMxzItsQyH79nrgdCDkzHg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2664,10 +2961,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Memory.html",
-          "hash": "85WEVf0512KzOsZIWzTMuQ=="
+          "hash": "WgSsm7QEw7tvjK2mVTEZZg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2676,10 +2973,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.OPENSTATE.html",
-          "hash": "y1MhT9hXGzzaWKcsSG/7Ng=="
+          "hash": "02D1guhRpbd1vtJtM1QNGw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2688,10 +2985,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.OUTPUTTYPE.html",
-          "hash": "W7M3AZ7syQE7VWojp39vpA=="
+          "hash": "/sRyaonBO7IS+E3f6GMHCA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2700,10 +2997,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.PLUGINLIST.html",
-          "hash": "kE5vPI2AqDEJnuM6WpaIuA=="
+          "hash": "XGoEmpve/Lfp3yufiXtPYg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2712,10 +3009,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.PLUGINTYPE.html",
-          "hash": "GhcSzKtItu9t1M9s4obrIA=="
+          "hash": "2qGH5FD2pBdiGTCJWMxqMA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2724,10 +3021,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.PORT_INDEX.html",
-          "hash": "/fpciW5ZmECU5ZW+lJcNoQ=="
+          "hash": "Hc0V5df743CbhAzxv71jOw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2736,10 +3033,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.PRESET.html",
-          "hash": "YY+8LNHx76xL/jRUgd00rQ=="
+          "hash": "54twFthveooD8zuGnV7fHQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2748,10 +3045,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.RESULT.html",
-          "hash": "IeXP/mqRzvGGfmP0whSK/Q=="
+          "hash": "7U4wOS7ciexU+azUmCsjlQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2760,10 +3057,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.REVERB_PROPERTIES.html",
-          "hash": "GddhfqHPNxODriwTUFBWKw=="
+          "hash": "AmbrCCD+2Jkk10kc6ya05Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2772,10 +3069,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Reverb3D.html",
-          "hash": "PJfr7yRbHX4XZtK/qAA4Qg=="
+          "hash": "IBb/qMeaQwhp0DJ1DUr91w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2784,10 +3081,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SOUNDGROUP_BEHAVIOR.html",
-          "hash": "IKStyBKCEOtbpjqLxgdFcg=="
+          "hash": "5O4I24JTkEDFvKErGKCUAw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2796,10 +3093,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SOUND_FORMAT.html",
-          "hash": "TVlafLAsEGLtVp8eRwc1fQ=="
+          "hash": "hpOFhJ3lCoH3vOmNeOCqZw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2808,10 +3105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SOUND_NONBLOCK_CALLBACK.html",
-          "hash": "MRlNzbOd0gjnCKhebeecoA=="
+          "hash": "LeYSBB++OiM4uz2QF5YbRQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2820,10 +3117,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SOUND_PCMREAD_CALLBACK.html",
-          "hash": "vdk+SKOCpvFllceN2vRWPA=="
+          "hash": "3RchKYCiOB4GM/7LBdxsVA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2832,10 +3129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SOUND_PCMSETPOS_CALLBACK.html",
-          "hash": "zeNbcupZhNzmxhRiDqeFPw=="
+          "hash": "pUSOtGifoMq7mclRfXIwdQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2844,10 +3141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SOUND_TYPE.html",
-          "hash": "kSnYoxBkJbI6p3RTYZTxuA=="
+          "hash": "pwK6PTrukBKyyGCxRxLTXg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2856,10 +3153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SPEAKER.html",
-          "hash": "g/FGXMKhTD+puiZaiY+87Q=="
+          "hash": "amNQX+65MSAQDcuNnYdu4Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2868,10 +3165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SPEAKERMODE.html",
-          "hash": "TLPnYZEshKwWrK/sBltUbg=="
+          "hash": "e0I7kubRe/FvuqWOUqmKig=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2880,10 +3177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SYSTEM_CALLBACK.html",
-          "hash": "YaqpPesMMjENOdRZLPJ0tg=="
+          "hash": "PfsOHeexi0NdMcCmqHCoCg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2892,10 +3189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SYSTEM_CALLBACK_TYPE.html",
-          "hash": "33Jb0oV9hvKD5zXfBQj6RA=="
+          "hash": "x2EcrXZXBRUjH1YH4lUCtA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2904,10 +3201,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Sound.html",
-          "hash": "x1m1qQMjgj9Ugs1tYth7iw=="
+          "hash": "EHiOwrYhQ2TELLAQZ+KV6g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2916,10 +3213,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.SoundGroup.html",
-          "hash": "kR7rz6wSjMwjJxbXrwCmYQ=="
+          "hash": "E04LbhVDr7IXDxu3nov9XA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2928,10 +3225,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.StringWrapper.html",
-          "hash": "fh9albuW5iDnD4AbJ6cHGQ=="
+          "hash": "yXHsqRtf4UT+wVtN6O/dAw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2940,10 +3237,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.ADVANCEDSETTINGS.html",
-          "hash": "0vq2yN1jaAO2XgIOQ66T7g=="
+          "hash": "vpzGSzIfJldpCeEvod+vbQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2952,10 +3249,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.BANK_INFO.html",
-          "hash": "l0DsxjIqhw0qGL0Sdpv/JQ=="
+          "hash": "lKsLzjNuNM/rQsJu7wU8yw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2964,10 +3261,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.BUFFER_INFO.html",
-          "hash": "JclHs5rmg6gZUxYwyS6F4w=="
+          "hash": "Lz1nYRxk1Ph0AE7Ypv+rJg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2976,10 +3273,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.BUFFER_USAGE.html",
-          "hash": "P75m659g+ZBLZe0QueWVUw=="
+          "hash": "2ywOzGh0UULzJ/+ilHTqtQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -2988,10 +3285,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.Bank.html",
-          "hash": "Nptut+7Bpn6ENMuxz1vjXQ=="
+          "hash": "tAtjM8nBWqxyUjRYn2Im5A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3000,7 +3297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.Bus.html",
-          "hash": "QkSMjf1pfG33EV7B0e1ijQ=="
+          "hash": "w0xrw37fZ8/D4K2eIegOgQ=="
         }
       },
       "is_incremental": false,
@@ -3012,10 +3309,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.COMMANDCAPTURE_FLAGS.html",
-          "hash": "ynHD7u0zo2tXGWEIx1Uabw=="
+          "hash": "FF2ip+jJ8lXP2sWxL9Nvfw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3024,10 +3321,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.COMMANDREPLAY_CREATE_INSTANCE_CALLBACK.html",
-          "hash": "LmW5TWWtrVNAySUDHACDxg=="
+          "hash": "5reYfFuw86rmW10S21Uvcg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3036,10 +3333,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.COMMANDREPLAY_FLAGS.html",
-          "hash": "7SmAvmfvQY/zB2RJzEFf3g=="
+          "hash": "H6wDwPkF1syNEKty0YmXkg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3048,10 +3345,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.COMMANDREPLAY_FRAME_CALLBACK.html",
-          "hash": "qgCSeylP7OpHIcx08/DpVg=="
+          "hash": "LKLhZ+ObeBDVV0u+mbIB7w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3060,10 +3357,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.COMMANDREPLAY_LOAD_BANK_CALLBACK.html",
-          "hash": "/Zypx/k5VWCWIxN52k8wAg=="
+          "hash": "dSaXnegS8A9O5GyxLBnOrQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3072,10 +3369,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.COMMAND_INFO.html",
-          "hash": "8kxJygPKGGTCfn+79kxMQg=="
+          "hash": "lWpJrsVYjzvD5k2fgjLDrQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3084,10 +3381,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.CPU_USAGE.html",
-          "hash": "Yx3/Nj+5P7dyfSoxxNcbkA=="
+          "hash": "B+pjzP/6QWtRR2zSK5NutQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3096,10 +3393,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.CommandReplay.html",
-          "hash": "uJsDm2KV+8znWE5WMTMIvA=="
+          "hash": "WYLfDOvdJwcDZguG1qpylw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3108,10 +3405,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.EVENT_CALLBACK.html",
-          "hash": "A97OHyBShRZJCIhKlAZrbg=="
+          "hash": "ap/fuYPSZS+pG5+PzPnI5A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3120,10 +3417,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.EVENT_CALLBACK_TYPE.html",
-          "hash": "aUIHwApAM9sXbSbLffOB8Q=="
+          "hash": "N8pkE6+g05vwuGDrp5lDNw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3132,10 +3429,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.EVENT_PROPERTY.html",
-          "hash": "EHF7+Ay1yNoP59zdhu1Zsg=="
+          "hash": "XVzDOb/SuQRpInSufsPpUQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3144,10 +3441,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.EventDescription.html",
-          "hash": "MuEnXhGG506+aHLopUsMcQ=="
+          "hash": "ndTGj89swuiz0oY2zat4/w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3156,7 +3453,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.EventInstance.html",
-          "hash": "3g9RatMSy7qc6JbD4bPHuA=="
+          "hash": "8tvPLkNhApNRUMoLCONiNA=="
         }
       },
       "is_incremental": false,
@@ -3168,10 +3465,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.INITFLAGS.html",
-          "hash": "YTpxVQejZG3gjN2hxUcGCA=="
+          "hash": "TeAEUY7gAxHOH+LOR/vjuw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3180,10 +3477,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.INSTANCETYPE.html",
-          "hash": "ef2OIUx9I67OY3WBe+OXYw=="
+          "hash": "bm/Pv0lqRUbQkpVFObDLWQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3192,10 +3489,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.LOADING_STATE.html",
-          "hash": "+5NVcagPLeXE67E2Rzjgmw=="
+          "hash": "aUA2xAoqF3rRB2SWv9WE9g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3204,10 +3501,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.LOAD_BANK_FLAGS.html",
-          "hash": "blxQLB/dnZsfgfr14X2GWA=="
+          "hash": "CPNr9an15vuahNss1hgiBA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3216,10 +3513,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PARAMETER_DESCRIPTION.html",
-          "hash": "UHimfcPJwq9ixNjA2p5kzg=="
+          "hash": "+WNfAyOB/kpEE/OossBSnQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3228,10 +3525,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PARAMETER_FLAGS.html",
-          "hash": "D6Iez2XGsLwntS7ccP6ikQ=="
+          "hash": "arJyUbYkDQWjUzzhHHPSZA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3240,10 +3537,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PARAMETER_ID.html",
-          "hash": "OG965V9MJfxsQWmdugcOyA=="
+          "hash": "KLojs0Ga2uNarxTbuex+lg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3252,10 +3549,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PARAMETER_TYPE.html",
-          "hash": "iYZpqgnMavllvfAdzb6oGA=="
+          "hash": "tyls65bmrMAkpSR0qpKlyg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3264,10 +3561,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PLAYBACK_STATE.html",
-          "hash": "TTnMnyYZNtJmql/zpTl+Nw=="
+          "hash": "qkvHuZwcrUYBEQNFyZC0jw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3276,10 +3573,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PLUGIN_INSTANCE_PROPERTIES.html",
-          "hash": "0MS0hqkdOiNAEBXtRO8qJQ=="
+          "hash": "scHz50LCvW3hD2M2c6qstQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3288,10 +3585,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.PROGRAMMER_SOUND_PROPERTIES.html",
-          "hash": "DK/y+zTcwBo5lt71Y7EocA=="
+          "hash": "zrzxYMJoULpqVGeiHacqKQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3300,10 +3597,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.SOUND_INFO.html",
-          "hash": "86fb2sTyQkZlwPfDm2guvg=="
+          "hash": "lfkU0wbEWyeeBAwwzL1M6g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3312,10 +3609,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.STOP_MODE.html",
-          "hash": "HRaf9TK8fjXhrJNQvjdJ7w=="
+          "hash": "rca3MOHtsCBwIFSo4JBwJQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3324,10 +3621,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.STUDIO_VERSION.html",
-          "hash": "2vmEPKQrSMsTNnl7D3vTcw=="
+          "hash": "jyt7CPdxK0R92hBrcr07Lg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3336,10 +3633,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.SYSTEM_CALLBACK.html",
-          "hash": "sin03M6hrX6GgPeSkI4SIA=="
+          "hash": "J1EVOIOH3TOGnxu/LK81SQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3348,10 +3645,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.SYSTEM_CALLBACK_TYPE.html",
-          "hash": "/e4kcg9dEmTMKIGFTiwXkw=="
+          "hash": "Zb55ZR30iTJdb+hOwpa0wQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3360,10 +3657,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.System.html",
-          "hash": "ln/fUAhsf5wC/9MtoywbRA=="
+          "hash": "skRYTtDQOLh89BQ9kZfQAA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3372,10 +3669,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.TIMELINE_BEAT_PROPERTIES.html",
-          "hash": "WZLpJceOr6S0Fx3Rq+BcCA=="
+          "hash": "ov2mypv93bFRjykPAZu/Gg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3384,10 +3681,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.TIMELINE_MARKER_PROPERTIES.html",
-          "hash": "MJ+GgVD94QRkIYwyKJJrfA=="
+          "hash": "dIkWg/Q5lp92BPE6/y54xA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3396,10 +3693,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.USER_PROPERTY.html",
-          "hash": "lEb/+L6HrhV1Ugies8kjNQ=="
+          "hash": "GYfaSQZTWuEsgQmXeWo0jw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3408,10 +3705,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.USER_PROPERTY_TYPE.html",
-          "hash": "YaWZ4/2va4DIzDW1gp6lxA=="
+          "hash": "sxPYDCqYQErOi/bLQ9gNIQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3420,10 +3717,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.Util.html",
-          "hash": "tdSCYbtpta/V/kWtDIFMqw=="
+          "hash": "VXgcCfuh4j3GyfVUPmsCZQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3432,10 +3729,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.Studio.VCA.html",
-          "hash": "4Lhs2oDri8AeA+8qpu5JCw=="
+          "hash": "i8ugkdaqjyhE+XIolJqf5A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3456,7 +3753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.System.html",
-          "hash": "kKOC5xZ3Bef/+yF7vQufYA=="
+          "hash": "sLTv1evgR+W98yk4N1DLpA=="
         }
       },
       "is_incremental": false,
@@ -3468,10 +3765,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.TAG.html",
-          "hash": "tFIqvnA4vN3YDBIY4cMPnQ=="
+          "hash": "oweG9GnYOJO850zmMGoS2w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3480,10 +3777,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.TAGDATATYPE.html",
-          "hash": "v/aveNVFqm4f8Go7ML1UqQ=="
+          "hash": "xWb6C/bC5AVjWaDZ3+Lf8w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3492,10 +3789,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.TAGTYPE.html",
-          "hash": "NkkcjXkrBwbbl6hYvqwD0A=="
+          "hash": "ghPr3LA6VVucSPPbCe+/Xg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3504,10 +3801,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.TIMEUNIT.html",
-          "hash": "uhWYsVG3c0NVyA11x4tHBw=="
+          "hash": "X6kIn7k0+qKMXgbkPa0npA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3516,10 +3813,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.VECTOR.html",
-          "hash": "LqgDJH7iyZazwN+E004IPQ=="
+          "hash": "JJ88wKtVWoa/X8CfqFniYw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3528,10 +3825,10 @@
       "output": {
         ".html": {
           "relative_path": "api/FMOD.VERSION.html",
-          "hash": "iTN907mNkcQ/qnmlzENWzA=="
+          "hash": "Bj1wIV1uyUuVk9YgPVFDWw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3555,7 +3852,7 @@
           "hash": "ELy18B2U50nzXXPspBdBDg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3564,7 +3861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "nlpHMuMAop9WG03ufoPkRQ=="
+          "hash": "f4Owcb9llFgYMAsHIUyb2A=="
         }
       },
       "is_incremental": false,
@@ -3600,10 +3897,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "TBqY9SQWyfMQJtZCNLOrOQ=="
+          "hash": "uGAZDXHNKnSwJIhgnjO7lA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -3628,24 +3925,24 @@
         "skipped_file_count": 0
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 294,
-          "skipped_file_count": 249
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 315,
+          "skipped_file_count": 8
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 2
         }
       }
     },

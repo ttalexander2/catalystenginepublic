@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AnimatedSprite
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AnimatedSprite
+   ">
+    <meta name="generator" content="docfx 2.49.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Catalyst.Engine.Rendering.AnimatedSprite">
+  
+  
+  <h1 id="Catalyst_Engine_Rendering_AnimatedSprite" data-uid="Catalyst.Engine.Rendering.AnimatedSprite" class="text-break">Class AnimatedSprite
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Catalyst.Engine.Component.html">Component</a></div>
+    <div class="level2"><a class="xref" href="Catalyst.Engine.Rendering.Sprite.html">Sprite</a></div>
+    <div class="level3"><span class="xref">AnimatedSprite</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Catalyst.Engine.Loadable.html">Loadable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Entity">Sprite.Entity</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Name">Sprite.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Packed">Sprite.Packed</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_TextureRect">Sprite.TextureRect</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_PackedTexture">Sprite.PackedTexture</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Layer">Sprite.Layer</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Distance">Sprite.Distance</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Active">Sprite.Active</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Origin">Sprite.Origin</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_OriginVec2">Sprite.OriginVec2</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Rotation">Sprite.Rotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Scale">Sprite.Scale</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_spriteEffects">Sprite.spriteEffects</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_LoadContent">Sprite.LoadContent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_OriginToVectorOffset_Catalyst_Engine_Rendering_Sprite_SpriteOrigin_Catalyst_Engine_Utilities_Rectangle_">Sprite.OriginToVectorOffset(Sprite.SpriteOrigin, Rectangle)</a>
+    </div>
+    <div>
+      <a class="xref" href="Catalyst.Engine.Component.html#Catalyst_Engine_Component_UID">Component.UID</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Catalyst.Engine.Rendering.html">Catalyst.Engine.Rendering</a></h6>
+  <h6><strong>Assembly</strong>: Catalyst.Engine.dll</h6>
+  <h5 id="Catalyst_Engine_Rendering_AnimatedSprite_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class AnimatedSprite : Sprite, Loadable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite__ctor_Catalyst_Engine_Entity_Catalyst_Engine_Rendering_PackedTexture___.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.%23ctor(Catalyst.Engine.Entity%2CCatalyst.Engine.Rendering.PackedTexture%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L62">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite__ctor_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.#ctor*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite__ctor_Catalyst_Engine_Entity_Catalyst_Engine_Rendering_PackedTexture___" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.#ctor(Catalyst.Engine.Entity,Catalyst.Engine.Rendering.PackedTexture[])">AnimatedSprite(Entity, PackedTexture[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimatedSprite(Entity entity, PackedTexture[] textures)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Rendering.PackedTexture.html">PackedTexture</a>[]</td>
+        <td><span class="parametername">textures</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite__ctor_Catalyst_Engine_Entity_Microsoft_Xna_Framework_Graphics_Texture2D___.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.%23ctor(Catalyst.Engine.Entity%2CMicrosoft.Xna.Framework.Graphics.Texture2D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L52">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite__ctor_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.#ctor*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite__ctor_Catalyst_Engine_Entity_Microsoft_Xna_Framework_Graphics_Texture2D___" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.#ctor(Catalyst.Engine.Entity,Microsoft.Xna.Framework.Graphics.Texture2D[])">AnimatedSprite(Entity, Texture2D[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimatedSprite(Entity entity, Texture2D[] textures)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Xna.Framework.Graphics.Texture2D</span>[]</td>
+        <td><span class="parametername">textures</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_Animating.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.Animating%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L37">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_Animating_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Animating*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_Animating" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Animating">Animating</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiBoolean]
+public bool Animating { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_AnimationSpeed.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L30">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_AnimationSpeed_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_AnimationSpeed" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.AnimationSpeed">AnimationSpeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiFloat(0F, 3.40282347E+38F)]
+public float AnimationSpeed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_Count.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L39">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_Count_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Count*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_Count" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiLabel(&quot;Number of textures: &quot;)]
+public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_CurrentTexture.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L28">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_CurrentTexture_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_CurrentTexture" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.CurrentTexture">CurrentTexture</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiInteger(0, 2147483647)]
+public int CurrentTexture { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_Frame.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.Frame%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L33">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_Frame_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Frame*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_Frame" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Frame">Frame</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiLabel]
+public int Frame { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_Loop.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.Loop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L35">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_Loop_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Loop*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_Loop" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Loop">Loop</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiBoolean]
+public bool Loop { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite_Texture.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite.Texture%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L20">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_AnimatedSprite_Texture_" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Texture*"></a>
+  <h4 id="Catalyst_Engine_Rendering_AnimatedSprite_Texture" data-uid="Catalyst.Engine.Rendering.AnimatedSprite.Texture">Texture</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Texture2D Texture { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Xna.Framework.Graphics.Texture2D</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Catalyst.Engine.Rendering.Sprite.html#Catalyst_Engine_Rendering_Sprite_Texture">Sprite.Texture</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Catalyst.Engine.Loadable.html">Loadable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Catalyst.Engine.Utilities.Utility.html#Catalyst_Engine_Utilities_Utility_DeepClone__1___0_">Utility.DeepClone&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_AnimatedSprite.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.AnimatedSprite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/AnimatedSprite.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

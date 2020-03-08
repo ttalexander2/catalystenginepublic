@@ -78,19 +78,18 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="Catalyst.Engine.AComponent.html">AComponent</a></div>
+    <div class="level1"><a class="xref" href="Catalyst.Engine.Component.html">Component</a></div>
     <div class="level2"><span class="xref">Sprite</span></div>
+      <div class="level3"><a class="xref" href="Catalyst.Engine.Rendering.AnimatedSprite.html">AnimatedSprite</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Catalyst.Engine.Loadable.html">Loadable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_UID">AComponent.UID</a>
-    </div>
-    <div>
-      <a class="xref" href="Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Active">AComponent.Active</a>
-    </div>
-    <div>
-      <a class="xref" href="Catalyst.Engine.AComponent.html#Catalyst_Engine_AComponent_Entity">AComponent.Entity</a>
+      <a class="xref" href="Catalyst.Engine.Component.html#Catalyst_Engine_Component_UID">Component.UID</a>
     </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
@@ -119,13 +118,16 @@
   <h5 id="Catalyst_Engine_Rendering_Sprite_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public class Sprite : AComponent</code></pre>
+public class Sprite : Component, Loadable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-53">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.%23ctor(Catalyst.Engine.Entity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L79">View Source</a>
   </span>
   <a id="Catalyst_Engine_Rendering_Sprite__ctor_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor*"></a>
   <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity)">Sprite(Entity)</h4>
@@ -152,17 +154,20 @@ public class Sprite : AComponent</code></pre>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-67">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_Catalyst_Engine_Rendering_PackedTexture_.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.%23ctor(Catalyst.Engine.Entity%2CCatalyst.Engine.Rendering.PackedTexture)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L82">View Source</a>
   </span>
   <a id="Catalyst_Engine_Rendering_Sprite__ctor_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_Catalyst_Engine_Rendering_MTexture___Catalyst_Engine_Utilities_Origin_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,Catalyst.Engine.Rendering.MTexture[],Catalyst.Engine.Utilities.Origin)">Sprite(Entity, String, Int32, Int32, MTexture[], Origin)</h4>
+  <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_Catalyst_Engine_Rendering_PackedTexture_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,Catalyst.Engine.Rendering.PackedTexture)">Sprite(Entity, PackedTexture)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Sprite(Entity entity, string name, int x, int y, MTexture[] textures, Origin origin)</code></pre>
+    <pre><code class="lang-csharp hljs">public Sprite(Entity entity, PackedTexture packedTextureInfo)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -180,43 +185,26 @@ public class Sprite : AComponent</code></pre>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">x</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">y</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Rendering.MTexture.html">MTexture</a>[]</td>
-        <td><span class="parametername">textures</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Utilities.Origin.html">Origin</a></td>
-        <td><span class="parametername">origin</span></td>
+        <td><a class="xref" href="Catalyst.Engine.Rendering.PackedTexture.html">PackedTexture</a></td>
+        <td><span class="parametername">packedTextureInfo</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-105">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_Microsoft_Xna_Framework_Graphics_Texture2D_.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.%23ctor(Catalyst.Engine.Entity%2CMicrosoft.Xna.Framework.Graphics.Texture2D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L95">View Source</a>
   </span>
   <a id="Catalyst_Engine_Rendering_Sprite__ctor_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_Catalyst_Engine_Rendering_MTexture___System_Int32_System_Int32_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,Catalyst.Engine.Rendering.MTexture[],System.Int32,System.Int32)">Sprite(Entity, String, Int32, Int32, MTexture[], Int32, Int32)</h4>
+  <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_Microsoft_Xna_Framework_Graphics_Texture2D_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,Microsoft.Xna.Framework.Graphics.Texture2D)">Sprite(Entity, Texture2D)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Sprite(Entity entity, string name, int x, int y, MTexture[] textures, int xOrigin, int yOrigin)</code></pre>
+    <pre><code class="lang-csharp hljs">public Sprite(Entity entity, Texture2D texture)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -234,201 +222,20 @@ public class Sprite : AComponent</code></pre>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">x</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">y</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Rendering.MTexture.html">MTexture</a>[]</td>
-        <td><span class="parametername">textures</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">xOrigin</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">yOrigin</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-85">View Source</a>
-  </span>
-  <a id="Catalyst_Engine_Rendering_Sprite__ctor_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_System_Single_System_Single_Catalyst_Engine_Rendering_MTexture___Catalyst_Engine_Utilities_Origin_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,System.Single,System.Single,Catalyst.Engine.Rendering.MTexture[],Catalyst.Engine.Utilities.Origin)">Sprite(Entity, String, Int32, Int32, Single, Single, MTexture[], Origin)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Sprite(Entity entity, string name, int x, int y, float scale, float rotation, MTexture[] textures, Origin origin)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Entity.html">Entity</a></td>
-        <td><span class="parametername">entity</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">x</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">y</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">scale</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">rotation</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Rendering.MTexture.html">MTexture</a>[]</td>
-        <td><span class="parametername">textures</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Utilities.Origin.html">Origin</a></td>
-        <td><span class="parametername">origin</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-123">View Source</a>
-  </span>
-  <a id="Catalyst_Engine_Rendering_Sprite__ctor_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite__ctor_Catalyst_Engine_Entity_System_String_System_Int32_System_Int32_System_Single_System_Single_Catalyst_Engine_Rendering_MTexture___System_Int32_System_Int32_" data-uid="Catalyst.Engine.Rendering.Sprite.#ctor(Catalyst.Engine.Entity,System.String,System.Int32,System.Int32,System.Single,System.Single,Catalyst.Engine.Rendering.MTexture[],System.Int32,System.Int32)">Sprite(Entity, String, Int32, Int32, Single, Single, MTexture[], Int32, Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Sprite(Entity entity, string name, int x, int y, float scale, float rotation, MTexture[] textures, int xOrigin, int yOrigin)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Entity.html">Entity</a></td>
-        <td><span class="parametername">entity</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">x</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">y</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">scale</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">rotation</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Rendering.MTexture.html">MTexture</a>[]</td>
-        <td><span class="parametername">textures</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">xOrigin</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">yOrigin</span></td>
+        <td><span class="xref">Microsoft.Xna.Framework.Graphics.Texture2D</span></td>
+        <td><span class="parametername">texture</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="fields">Fields
   </h3>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-49">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_spriteEffects.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.spriteEffects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_debugColor" data-uid="Catalyst.Engine.Rendering.Sprite.debugColor">debugColor</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color debugColor</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Catalyst.Engine.Utilities.Color.html">Color</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-47">View Source</a>
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L76">View Source</a>
   </span>
   <h4 id="Catalyst_Engine_Rendering_Sprite_spriteEffects" data-uid="Catalyst.Engine.Rendering.Sprite.spriteEffects">spriteEffects</h4>
   <div class="markdown level1 summary"></div>
@@ -452,46 +259,23 @@ public class Sprite : AComponent</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-27">View Source</a>
-  </span>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_Textures" data-uid="Catalyst.Engine.Rendering.Sprite.Textures">Textures</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;MTexture&gt; Textures</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Catalyst.Engine.Rendering.MTexture.html">MTexture</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
   </h3>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-44">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Active.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Active%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_Animating_" data-uid="Catalyst.Engine.Rendering.Sprite.Animating*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_Animating" data-uid="Catalyst.Engine.Rendering.Sprite.Animating">Animating</h4>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L52">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Active_" data-uid="Catalyst.Engine.Rendering.Sprite.Active*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Active" data-uid="Catalyst.Engine.Rendering.Sprite.Active">Active</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[GuiBoolean]
-public bool Animating { get; set; }</code></pre>
+public bool Active { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -508,18 +292,21 @@ public bool Animating { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-36">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Distance.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Distance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_AnimationSpeed_" data-uid="Catalyst.Engine.Rendering.Sprite.AnimationSpeed*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_AnimationSpeed" data-uid="Catalyst.Engine.Rendering.Sprite.AnimationSpeed">AnimationSpeed</h4>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L36">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Distance_" data-uid="Catalyst.Engine.Rendering.Sprite.Distance*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Distance" data-uid="Catalyst.Engine.Rendering.Sprite.Distance">Distance</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[GuiFloat(0F, 1000F)]
-public float AnimationSpeed { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[GuiFloat(GuiFloatMode.Slider, 0F, 1F)]
+public float Distance { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -536,17 +323,20 @@ public float AnimationSpeed { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-35">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Entity.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Entity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_CurrentTexture_" data-uid="Catalyst.Engine.Rendering.Sprite.CurrentTexture*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_CurrentTexture" data-uid="Catalyst.Engine.Rendering.Sprite.CurrentTexture">CurrentTexture</h4>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L15">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Entity_" data-uid="Catalyst.Engine.Rendering.Sprite.Entity*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Entity" data-uid="Catalyst.Engine.Rendering.Sprite.Entity">Entity</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int CurrentTexture { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Entity Entity { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -558,42 +348,17 @@ public float AnimationSpeed { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="Catalyst.Engine.Entity.html">Entity</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-40">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Layer.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Layer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_Frame_" data-uid="Catalyst.Engine.Rendering.Sprite.Frame*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_Frame" data-uid="Catalyst.Engine.Rendering.Sprite.Frame">Frame</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[GuiLabel]
-public int Frame { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-20">View Source</a>
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L33">View Source</a>
   </span>
   <a id="Catalyst_Engine_Rendering_Sprite_Layer_" data-uid="Catalyst.Engine.Rendering.Sprite.Layer*"></a>
   <h4 id="Catalyst_Engine_Rendering_Sprite_Layer" data-uid="Catalyst.Engine.Rendering.Sprite.Layer">Layer</h4>
@@ -619,37 +384,12 @@ public float Layer { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-42">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Name.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_Loop_" data-uid="Catalyst.Engine.Rendering.Sprite.Loop*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_Loop" data-uid="Catalyst.Engine.Rendering.Sprite.Loop">Loop</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[GuiBoolean]
-public bool Loop { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-18">View Source</a>
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L16">View Source</a>
   </span>
   <a id="Catalyst_Engine_Rendering_Sprite_Name_" data-uid="Catalyst.Engine.Rendering.Sprite.Name*"></a>
   <h4 id="Catalyst_Engine_Rendering_Sprite_Name" data-uid="Catalyst.Engine.Rendering.Sprite.Name">Name</h4>
@@ -657,7 +397,8 @@ public bool Loop { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[GuiString]
+public string Name { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -674,17 +415,21 @@ public bool Loop { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-28">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Origin.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Origin%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_Texture_" data-uid="Catalyst.Engine.Rendering.Sprite.Texture*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_Texture" data-uid="Catalyst.Engine.Rendering.Sprite.Texture">Texture</h4>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L55">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Origin_" data-uid="Catalyst.Engine.Rendering.Sprite.Origin*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Origin" data-uid="Catalyst.Engine.Rendering.Sprite.Origin">Origin</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MTexture Texture { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[GuiEnum]
+public Sprite.SpriteOrigin Origin { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -696,23 +441,55 @@ public bool Loop { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Catalyst.Engine.Rendering.MTexture.html">MTexture</a></td>
+        <td><a class="xref" href="Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html">Sprite.SpriteOrigin</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
   <span class="small pull-right mobile-hide">
-    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-38">View Source</a>
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_OriginVec2.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.OriginVec2%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
-  <a id="Catalyst_Engine_Rendering_Sprite_Visible_" data-uid="Catalyst.Engine.Rendering.Sprite.Visible*"></a>
-  <h4 id="Catalyst_Engine_Rendering_Sprite_Visible" data-uid="Catalyst.Engine.Rendering.Sprite.Visible">Visible</h4>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L59">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_OriginVec2_" data-uid="Catalyst.Engine.Rendering.Sprite.OriginVec2*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_OriginVec2" data-uid="Catalyst.Engine.Rendering.Sprite.OriginVec2">OriginVec2</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[GuiBoolean]
-public bool Visible { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 OriginVec2 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Utilities.Vector2.html">Vector2</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Packed.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Packed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L18">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Packed_" data-uid="Catalyst.Engine.Rendering.Sprite.Packed*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Packed" data-uid="Catalyst.Engine.Rendering.Sprite.Packed">Packed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Packed { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -729,6 +506,231 @@ public bool Visible { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_PackedTexture.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.PackedTexture%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L30">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_PackedTexture_" data-uid="Catalyst.Engine.Rendering.Sprite.PackedTexture*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_PackedTexture" data-uid="Catalyst.Engine.Rendering.Sprite.PackedTexture">PackedTexture</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackedTexture PackedTexture { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Rendering.PackedTexture.html">PackedTexture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Rotation.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Rotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L71">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Rotation_" data-uid="Catalyst.Engine.Rendering.Sprite.Rotation*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Rotation" data-uid="Catalyst.Engine.Rendering.Sprite.Rotation">Rotation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiFloat(GuiFloatMode.Slider, -6.28318548F, 6.28318548F)]
+public float Rotation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Scale.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Scale%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L73">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Scale_" data-uid="Catalyst.Engine.Rendering.Sprite.Scale*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Scale" data-uid="Catalyst.Engine.Rendering.Sprite.Scale">Scale</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GuiFloat(0.01F, 9999F)]
+public float Scale { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_Texture.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.Texture%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L43">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_Texture_" data-uid="Catalyst.Engine.Rendering.Sprite.Texture*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_Texture" data-uid="Catalyst.Engine.Rendering.Sprite.Texture">Texture</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Texture2D Texture { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Xna.Framework.Graphics.Texture2D</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_TextureRect.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.TextureRect%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L21">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_TextureRect_" data-uid="Catalyst.Engine.Rendering.Sprite.TextureRect*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_TextureRect" data-uid="Catalyst.Engine.Rendering.Sprite.TextureRect">TextureRect</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rectangle TextureRect { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Utilities.Rectangle.html">Rectangle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_LoadContent.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.LoadContent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L123">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_LoadContent_" data-uid="Catalyst.Engine.Rendering.Sprite.LoadContent*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_LoadContent" data-uid="Catalyst.Engine.Rendering.Sprite.LoadContent">LoadContent()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadContent()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite_OriginToVectorOffset_Catalyst_Engine_Rendering_Sprite_SpriteOrigin_Catalyst_Engine_Utilities_Rectangle_.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset(Catalyst.Engine.Rendering.Sprite.SpriteOrigin%2CCatalyst.Engine.Utilities.Rectangle)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L135">View Source</a>
+  </span>
+  <a id="Catalyst_Engine_Rendering_Sprite_OriginToVectorOffset_" data-uid="Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset*"></a>
+  <h4 id="Catalyst_Engine_Rendering_Sprite_OriginToVectorOffset_Catalyst_Engine_Rendering_Sprite_SpriteOrigin_Catalyst_Engine_Utilities_Rectangle_" data-uid="Catalyst.Engine.Rendering.Sprite.OriginToVectorOffset(Catalyst.Engine.Rendering.Sprite.SpriteOrigin,Catalyst.Engine.Utilities.Rectangle)">OriginToVectorOffset(Sprite.SpriteOrigin, Rectangle)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 OriginToVectorOffset(Sprite.SpriteOrigin origin, Rectangle dimensions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Rendering.Sprite.SpriteOrigin.html">Sprite.SpriteOrigin</a></td>
+        <td><span class="parametername">origin</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Utilities.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">dimensions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Catalyst.Engine.Utilities.Vector2.html">Vector2</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Catalyst.Engine.Loadable.html">Loadable</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="Catalyst.Engine.Utilities.Utility.html#Catalyst_Engine_Utilities_Utility_DeepClone__1___0_">Utility.DeepClone&lt;T&gt;(T)</a>
@@ -741,7 +743,10 @@ public bool Visible { get; set; }</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://bitbucket.org/chromagame/catalyst-engine/src/master/Catalyst.Engine/Rendering/Sprite.cs#lines-14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ttalexander2/catalystengine/new/master/apiSpec/new?filename=Catalyst_Engine_Rendering_Sprite.md&amp;value=---%0Auid%3A%20Catalyst.Engine.Rendering.Sprite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ttalexander2/catalystengine/blob/master/Catalyst.Engine/Rendering/Sprite.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
