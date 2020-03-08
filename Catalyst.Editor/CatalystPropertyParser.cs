@@ -149,6 +149,24 @@ namespace Catalyst.XNA
                     
                 }
             }
+            var methods = c.GetType().GetMethods();
+            foreach (MethodInfo m in methods)
+            {
+                foreach (object attr in m.GetCustomAttributes(true))
+                {
+                    if (attr is GuiButton)
+                    {
+                        try
+                        {
+                            RenderButton(c, m, (GuiButton)attr);
+                        }
+                        catch (Exception e)
+                        {
+                            ImGui.Text(String.Format("{0} could not be displayed as a Button.\n{1}", m.Name, e));
+                        }
+                    }
+                }
+            }
         }
 
         private static void RenderInt(Component c, PropertyInfo p, GuiInteger attribute)
@@ -204,7 +222,7 @@ namespace Catalyst.XNA
             }
             else if (attribute.Mode == GuiFloatMode.Angle)
             {
-                ImGui.SliderAngle(p.Name, ref value);
+                ImGui.SliderAngle(p.Name, ref value, 0);
             }
             else if (attribute.Mode == GuiFloatMode.Drag)
             {
@@ -388,6 +406,33 @@ namespace Catalyst.XNA
                 p.SetValue(c, null);
                 selected = -1;
             }
+        }
+
+        private static void RenderButton(Component c, MethodInfo p, GuiButton attribute)
+        {
+            if (attribute.ButtonText == null)
+            {
+                if (ImGui.Button(p.Name))
+                {
+                    try
+                    {
+                        p.Invoke(c, attribute.Params);
+                    }
+                    catch (Exception e) { }
+                }
+            }
+            else
+            {
+                if (ImGui.Button(attribute.ButtonText))
+                {
+                    try
+                    {
+                        p.Invoke(c, attribute.Params);
+                    }
+                    catch (Exception e) { }
+                }
+            }
+
         }
 
 

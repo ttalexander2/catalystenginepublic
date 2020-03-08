@@ -9,6 +9,7 @@ using System.Runtime.Serialization;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 using Color = Catalyst.Engine.Utilities.Color;
 using Rectangle = Catalyst.Engine.Utilities.Rectangle;
+using Catalyst.Engine.Physics;
 
 namespace Catalyst.Engine.Rendering
 {
@@ -63,11 +64,21 @@ namespace Catalyst.Engine.Rendering
         public float AngleVariance { get; set; }
         [GuiInteger(GuiIntegerMode.Slider, 0, 10000)]
         public int Count { get; set; }
+
+        [GuiFloat(GuiFloatMode.Slider, -200,200)]
+        public float Gravity { get; set; }
+
+        [GuiVector2]
+        public Vector2 InitialForce { get; set; }
         internal Random Rand { get; private set; }
         public ParticleEmitter(Entity entity) : base(entity)
         {
-            Sprite = new Sprite(entity, BasicShapes.GenerateCircleTexture(1, Color.White, 1));
-            Mode = ParticleMode.Continuous;
+            if (!entity.HasComponent<Position>())
+            {
+                entity.AddComponent<Position>();
+            }
+            Sprite = new Sprite(entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
+            Mode = ParticleMode.Burst;
             VelocityMode = Particle.VelocityMode.Linear;
             StartColor = Color.Lerp(Color.Cyan, Color.White, 0.5f);
             EndColor = Color.Lerp(Color.White, Color.White, 01.0f);
@@ -82,9 +93,11 @@ namespace Catalyst.Engine.Rendering
             Position = Vector2.Zero;
             PositionVariance = Vector2.Zero;
             Offset = Vector2.Zero;
-            Count = 1000;
+            Count = 50;
+            Gravity = 0;
             Rand = new Random();
             FollowCamera = false;
+            Follow = entity;
             Initialize();
             Launch();
         }
@@ -105,6 +118,7 @@ namespace Catalyst.Engine.Rendering
             }
         }
 
+        [GuiButton("Launch Particles")]
         public void Launch()
         {
             foreach(Particle p in Particles)
@@ -112,15 +126,16 @@ namespace Catalyst.Engine.Rendering
                 p.Reset(this);
                 if(Mode == ParticleMode.Continuous)
                 {
-                    p.Life = Rand.Next(0, p.LifeStart);
+                    p.Life = Rand.Next(0, Math.Abs(p.LifeStart));
                 }
+                p.Life = Rand.Next(0, Math.Abs(p.LifeStart));
 
             }
         }
 
         public void LoadContent()
         {
-            Sprite = new Sprite(Entity, BasicShapes.GenerateCircleTexture(1, Color.White, 1));
+            Sprite = new Sprite(Entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
             Initialize();
             if (Mode == ParticleMode.Continuous)
                 Launch();

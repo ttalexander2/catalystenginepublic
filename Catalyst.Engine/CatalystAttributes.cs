@@ -294,7 +294,7 @@ namespace Catalyst.Engine
 
     #endregion
 
-    #region Enum
+    #region Enumeration
     [Serializable]
     public class GuiEnum : Attribute
     {
@@ -310,6 +310,44 @@ namespace Catalyst.Engine
     {
         public GuiEntitySelector()
         {
+        }
+    }
+    #endregion
+
+    #region SpriteSelector
+    [Serializable]
+    public class GuiSpriteSelector : Attribute
+    {
+        public GuiSpriteSelector()
+        {
+        }
+    }
+    #endregion
+
+    #region Button
+    [Serializable]
+    public class GuiButton : Attribute
+    {
+        public string ButtonText { get; set; }
+        public object[] Params { get; set; }
+        public GuiButton()
+        {
+            Params = new object[0];
+        }
+        public GuiButton(string buttonText)
+        {
+            ButtonText = buttonText;
+            Params = new object[0];
+        }
+
+        public GuiButton(params object[] args)
+        {
+            Params = args;
+        }
+        public GuiButton(string buttonText, params object[] args)
+        {
+            ButtonText = buttonText;
+            Params = args;
         }
     }
     #endregion

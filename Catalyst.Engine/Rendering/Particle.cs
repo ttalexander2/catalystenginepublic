@@ -75,7 +75,12 @@ namespace Catalyst.Engine.Rendering
             this.Position = emitter.Position + new Vector2(emitter.Rand.Next((int)-emitter.PositionVariance.X, (int)emitter.PositionVariance.X), emitter.Rand.Next((int)-emitter.PositionVariance.Y, (int)emitter.PositionVariance.Y)) + emitter.Offset;
             this.Life = emitter.Rand.Next(emitter.Life - emitter.LifeVariance, emitter.Life + emitter.LifeVariance);
             this.LifeStart = this.Life;
-            this.Angle = emitter.Rand.Next((int)emitter.Angle - emitter.Rand.Next(0, (int)emitter.AngleVariance), (int)emitter.Angle + emitter.Rand.Next(0, (int)emitter.AngleVariance));
+            int min = (int)(emitter.Angle * 180 / Math.PI) - emitter.Rand.Next(0, (int)(emitter.AngleVariance * 180 / Math.PI));
+            int max = (int)(emitter.Angle * 180 / Math.PI) + emitter.Rand.Next(0, (int)(emitter.AngleVariance * 180 / Math.PI));
+            if (min<=max)
+                this.Angle = emitter.Rand.Next(min, max)*Math.PI/180;
+            else
+                this.Angle = emitter.Rand.Next(max, min) * Math.PI / 180;
             this.Speed = emitter.Rand.Next(emitter.Speed - emitter.SpeedVariance, emitter.Speed + emitter.SpeedVariance);
             this.StartColor = emitter.StartColor;
             this.EndColor = emitter.EndColor;
@@ -84,11 +89,12 @@ namespace Catalyst.Engine.Rendering
             this.Mode = emitter.VelocityMode;
             if (this.Mode == VelocityMode.Linear)
             {
-                this.Velocity = new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)), (float)(-Speed * Math.Sin(Angle * Math.PI / 180)));
+                this.Velocity = new Vector2((float)(Speed * Math.Cos(Angle)), (float)(-Speed * Math.Sin(Angle)));
+                this.Velocity += emitter.InitialForce;
             }
             else
             {
-                this.Velocity = this.Position * new Vector2((float)(Speed * Math.Cos(Angle * Math.PI / 180)) / 500, (float)(-Speed * Math.Sin(Angle * Math.PI / 180)) / 500);
+                this.Velocity = this.Position * new Vector2((float)(Speed * Math.Cos(Angle)) / 500, (float)(-Speed * Math.Sin(Angle)) / 500);
             }
             
 

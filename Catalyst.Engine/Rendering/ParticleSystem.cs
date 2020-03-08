@@ -32,7 +32,6 @@ namespace Catalyst.Engine.Rendering
         {
             foreach (ParticleEmitter emitter in Manager.GetComponents<ParticleEmitter>().Values)
             {
-
                 if (emitter.Follow != null)
                 {
                     emitter.Position = emitter.Follow.GetComponent<Position>().Coordinates;
@@ -50,10 +49,12 @@ namespace Catalyst.Engine.Rendering
                         p.Life--;
                         if (p.Life > 0)
                         {
+                            p.Velocity += new Utilities.Vector2(0, -emitter.Gravity);
                             p.Position += p.Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
                         else
                         {
+
                             if (emitter.Mode == ParticleEmitter.ParticleMode.Continuous)
                             {
                                 p.Reset(emitter);
@@ -64,7 +65,12 @@ namespace Catalyst.Engine.Rendering
                             }
                         }
                     }
+                }
 
+                if (emitter.Particles.Count != emitter.Count)
+                {
+                    emitter.Initialize();
+                    emitter.Launch();
                 }
 
 
@@ -76,7 +82,8 @@ namespace Catalyst.Engine.Rendering
             {
                 foreach (Particle p in emitter.Particles)
                 {
-                    Graphics.SpriteBatch.Draw(emitter.Sprite.Texture, p.Position, emitter.Sprite.TextureRect, p.Color * p.Alpha, 0, Microsoft.Xna.Framework.Vector2.Zero, 1, new SpriteEffects(), 0);
+                    if (p.Active)
+                        Graphics.SpriteBatch.Draw(emitter.Sprite.Texture, p.Position, emitter.Sprite.TextureRect, p.Color * p.Alpha, 0, Microsoft.Xna.Framework.Vector2.Zero, 1, new SpriteEffects(), 0);
                 }
 
             }

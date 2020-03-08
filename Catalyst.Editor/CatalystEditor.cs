@@ -128,7 +128,15 @@ namespace Catalyst.XNA
             else if (ProjectManager.scene_loaded && !ViewportRenderer.Playing)
             {
 
-
+                foreach (Engine.System s in ProjectManager.Current.Systems)
+                {
+                    if (s is RenderSystem)
+                    {
+                        s.PreUpdate(gameTime);
+                        s.Update(gameTime);
+                        s.PostUpdate(gameTime);
+                    }
+                }
             }
 
 
