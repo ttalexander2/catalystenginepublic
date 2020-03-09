@@ -1,6 +1,6 @@
 ﻿using System;
 using ImGuiNET;
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public static class StyleManager
     {

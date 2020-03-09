@@ -26,7 +26,7 @@ namespace Catalyst.Engine.Rendering
         public Matrix Transform { get; set; }
         
         private Vector2 _position;
-        [GuiLabel]
+        [GuiVector2]
         public Vector2 Position 
         { 
             get { return _position; }
@@ -35,7 +35,7 @@ namespace Catalyst.Engine.Rendering
                 _position = Vector2.Clamp(value, Vector2.Zero, Bounds-Size);
             }
         }
-        [GuiVector2]
+
         public Vector2 Bounds { get; set; }
         
         private float _zoom;
@@ -56,7 +56,7 @@ namespace Catalyst.Engine.Rendering
 
         [GuiVector2]
         public Vector2 Offset { get; set; }
-        
+        [GuiVector2]
         public Vector2 Size { get; private set; }
 
         public Camera2D(Scene scene, Vector2 bounds)

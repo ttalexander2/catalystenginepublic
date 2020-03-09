@@ -7,19 +7,18 @@ using Catalyst.Engine;
 using Catalyst.Engine.Utilities;
 using ImGuiNET;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public static class CatalystPropertyParser
     {
-
-        public static void RenderComponentProperties(Component c)
+        public static void RenderObjectProperties(Object c)
         {
             var properties = c.GetType().GetProperties();
             foreach (PropertyInfo p in properties)
             {
                 if (p.CanWrite)
                 {
-                    foreach(object attr in p.GetCustomAttributes(true))
+                    foreach (object attr in p.GetCustomAttributes(true))
                     {
                         if (attr is GuiInteger)
                         {
@@ -146,7 +145,7 @@ namespace Catalyst.XNA
                             }
                         }
                     }
-                    
+
                 }
             }
             var methods = c.GetType().GetMethods();
@@ -169,7 +168,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderInt(Component c, PropertyInfo p, GuiInteger attribute)
+        private static void RenderInt(Object c, PropertyInfo p, GuiInteger attribute)
         {
             int value = (int)p.GetValue(c);
 
@@ -213,7 +212,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderFloat(Component c, PropertyInfo p, GuiFloat attribute)
+        private static void RenderFloat(Object c, PropertyInfo p, GuiFloat attribute)
         {
             float value = (float)p.GetValue(c);
             if (attribute.Mode == GuiFloatMode.Default)
@@ -264,14 +263,14 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderBoolean(Component c, PropertyInfo p)
+        private static void RenderBoolean(Object c, PropertyInfo p)
         {
             bool value = (bool)p.GetValue(c);
             ImGui.Checkbox(p.Name, ref value);
             p.SetValue(c, value);
         }
 
-        private static void RenderVector2(Component c, PropertyInfo p, GuiVector2 attribute)
+        private static void RenderVector2(Object c, PropertyInfo p, GuiVector2 attribute)
         {
             Vector2 value = (Vector2)p.GetValue(c);
             System.Numerics.Vector2 vec = new System.Numerics.Vector2(value.X, value.Y);
@@ -287,7 +286,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderVector3(Component c, PropertyInfo p, GuiVector3 attribute)
+        private static void RenderVector3(Object c, PropertyInfo p, GuiVector3 attribute)
         {
             Vector3 value = (Vector3)p.GetValue(c);
             System.Numerics.Vector3 vec = new System.Numerics.Vector3(value.X, value.Y, value.Z);
@@ -303,7 +302,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderVector4(Component c, PropertyInfo p, GuiVector4 attribute)
+        private static void RenderVector4(Object c, PropertyInfo p, GuiVector4 attribute)
         {
             Vector4 value = (Vector4)p.GetValue(c);
             System.Numerics.Vector4 vec = new System.Numerics.Vector4(value.X, value.Y, value.Z, value.W);
@@ -319,7 +318,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderColor(Component c, PropertyInfo p, GuiColor attribute)
+        private static void RenderColor(Object c, PropertyInfo p, GuiColor attribute)
         {
             Vector4 value = ((Color)p.GetValue(c)).ToVector4();
 
@@ -337,7 +336,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderString(Component c, PropertyInfo p, GuiString attribute)
+        private static void RenderString(Object c, PropertyInfo p, GuiString attribute)
         {
             string val = (string)p.GetValue(c);
             byte[] buff = Encoding.Default.GetBytes(val);
@@ -353,7 +352,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderEnum(Component c, PropertyInfo p, GuiEnum attribute)
+        private static void RenderEnum(Object c, PropertyInfo p, GuiEnum attribute)
         {
             object val = p.GetValue(c);
             string[] items = Enum.GetNames(val.GetType());
@@ -362,7 +361,7 @@ namespace Catalyst.XNA
             p.SetValue(c, curr);
         }
 
-        private static void RenderEntitySelector(Component c, PropertyInfo p, GuiEntitySelector attribute)
+        private static void RenderEntitySelector(Object c, PropertyInfo p, GuiEntitySelector attribute)
         {
             List<string> names = new List<string>();
             int selected = -1;
@@ -377,8 +376,6 @@ namespace Catalyst.XNA
 
                 ImGui.Combo(p.Name, ref selected, arr, arr.Length);
                 p.SetValue(c, ProjectManager.Current.Manager.GetEntity(selected));
-
-
 
                 return;
             }
@@ -408,7 +405,7 @@ namespace Catalyst.XNA
             }
         }
 
-        private static void RenderButton(Component c, MethodInfo p, GuiButton attribute)
+        private static void RenderButton(Object c, MethodInfo p, GuiButton attribute)
         {
             if (attribute.ButtonText == null)
             {

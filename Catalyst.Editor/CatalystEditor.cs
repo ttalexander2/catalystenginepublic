@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Catalyst.Engine.Physics;
 using Catalyst.Engine;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     /// <summary>
     /// Simple FNA + ImGui example

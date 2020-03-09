@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 using CatalystEditor;
 using static Catalyst.Engine.Rendering.Sprite;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public class ProjectManager
     {
@@ -92,6 +92,8 @@ namespace Catalyst.XNA
         public static void Save()
         {
             Directory.CreateDirectory(ProjectPath);
+
+            Console.WriteLine(ProjectPath);
 
             CatalystSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
 

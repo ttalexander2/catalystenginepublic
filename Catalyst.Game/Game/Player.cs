@@ -13,9 +13,9 @@ namespace Catalyst.Game
     public class Player : Component
     {
         [GuiInteger]
-        public int HorizontalSpeed = 5;
+        public int HorizontalSpeed = 10;
         [GuiInteger]
-        public int VerticalSpeed = 5;
+        public int VerticalSpeed = 10;
 
         public static new string Name => "Player Component";
         public Player(Entity entity) : base(entity)

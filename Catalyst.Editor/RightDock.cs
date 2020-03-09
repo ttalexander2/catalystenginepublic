@@ -5,12 +5,13 @@ using System.Text;
 using Catalyst.Engine;
 using ImGuiNET;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public static class RightDock
     {
         public static bool EntityWindowOpen = true;
         public static bool SpriteWindowOpen = true;
+        public static bool CameraWindowOpen = true;
         private static int _entitySelected = -1;
         private static int _editingEntity = -1;
         private static  List<int> _toRemove = new List<int>();
@@ -30,7 +31,11 @@ namespace Catalyst.XNA
                 }
                 if (ImGui.BeginTabItem("Sprites", ref SpriteWindowOpen))
                 {
-
+                    ImGui.EndTabItem();
+                }
+                if (ImGui.BeginTabItem("Camera", ref CameraWindowOpen))
+                {
+                    RenderCameraWindow();
                     ImGui.EndTabItem();
                 }
 
@@ -196,7 +201,7 @@ namespace Catalyst.XNA
 
 
                         ImGui.Text("");
-                        CatalystPropertyParser.RenderComponentProperties(c);
+                        CatalystPropertyParser.RenderObjectProperties(c);
                         ImGui.Text("");
                         ImGui.Separator();
                     }
@@ -232,6 +237,12 @@ namespace Catalyst.XNA
 
             ImGui.EndChild();
             ImGui.PopStyleColor();
+        }
+
+        public static void RenderCameraWindow()
+        {
+            ImGui.Text("Camera");
+            CatalystPropertyParser.RenderObjectProperties(ProjectManager.Current.Camera);
         }
     }
 }

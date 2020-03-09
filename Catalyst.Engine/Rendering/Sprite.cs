@@ -128,7 +128,8 @@ namespace Catalyst.Engine.Rendering
             }
             else
             {
-                _texture = Graphics.Content.Load<Texture2D>(_texturePath);
+                if (_texturePath != null)
+                    _texture = Graphics.Content.Load<Texture2D>(_texturePath);
             }
         }
 

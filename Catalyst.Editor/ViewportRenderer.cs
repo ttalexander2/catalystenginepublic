@@ -1,7 +1,7 @@
 ﻿using Catalyst.Engine;
 using Catalyst.Engine.Physics;
 using Catalyst.Engine.Rendering;
-using Catalyst.XNA;
+using Catalyst.Editor;
 using ImGuiNET;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -133,7 +133,7 @@ namespace CatalystEditor
                 _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
             }
 
-            IntPtr p = Catalyst.XNA.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.XNA.CatalystEditor.Instance.RenderTarget);
+            IntPtr p = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.Editor.CatalystEditor.Instance.RenderTarget);
             ImGui.Image(p, view_bounds);
 
 

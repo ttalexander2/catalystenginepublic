@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using Catalyst.XNA;
+using Catalyst.Editor;
 using CatalystEditor;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public static class Program
     {

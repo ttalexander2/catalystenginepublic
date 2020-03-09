@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using ImGuiNET;
-using Catalyst.XNA;
+using Catalyst.Editor;
 using Microsoft.Xna.Framework.Input;
 using System.Drawing;
 using System.IO;
@@ -16,7 +16,7 @@ using Microsoft.Xna.Framework;
 using Vector2 = System.Numerics.Vector2;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public class ImGuiLayout
     {

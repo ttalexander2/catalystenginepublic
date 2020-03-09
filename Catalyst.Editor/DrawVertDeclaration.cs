@@ -1,7 +1,7 @@
 ﻿using ImGuiNET;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Catalyst.XNA
+namespace Catalyst.Editor
 {
     public static class DrawVertDeclaration
     {
