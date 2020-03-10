@@ -11,8 +11,6 @@ using System.Linq;
 using System.Reflection;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 using Catalyst.Game;
-using Microsoft.Build;
-using Microsoft.Build.Construction;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CatalystEditor;

@@ -186,6 +186,8 @@ namespace Catalyst.Editor
                         new_project_window = true;
                     }
                     if (ImGui.MenuItem("Open", "Ctrl+O")) {
+                        //TODO: MAKE THIS CROSS PLATFORM
+                        /**
                         System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
                         openFileDialog1.Filter = "Catalyst Scene File (*.chroma)|*" +ProjectManager.Extension;
                         openFileDialog1.DefaultExt = ProjectManager.Extension;
@@ -195,6 +197,7 @@ namespace Catalyst.Editor
                         {
                             ProjectManager.Open(openFileDialog1.FileName);
                         }
+                        */
                     }
                     if (ImGui.MenuItem("Save", "Ctrl+S", false, ProjectManager.scene_loaded))
                     {
@@ -301,6 +304,8 @@ namespace Catalyst.Editor
 
                 if(ImGui.Button("Choose Project Directory"))
                 {
+                    //TODO: MAKE THIS CROSS PLATFORM
+                    /**
                     System.Windows.Forms.FolderBrowserDialog openFileDialog1 = new System.Windows.Forms.FolderBrowserDialog();
                     openFileDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
                     if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -308,6 +313,7 @@ namespace Catalyst.Editor
                         projectDir = openFileDialog1.SelectedPath;
                         customDir = true;
                     }
+                    */
                 }
 
                 ImGui.Text("");

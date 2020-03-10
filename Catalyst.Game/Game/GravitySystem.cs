@@ -14,7 +14,7 @@ namespace Catalyst.Game
         
         public GravitySystem(Scene scene): base(scene)
         {
-            Gravity = 6.0f;
+            Gravity = 0.0f;
         }
 
         public override void PreUpdate(GameTime gameTime)

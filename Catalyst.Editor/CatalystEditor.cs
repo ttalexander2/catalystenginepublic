@@ -6,7 +6,6 @@ using ImGuiNET;
 using Catalyst;
 using System.Reflection;
 using Microsoft.Xna.Framework.Input;
-using System.Windows.Forms;
 using System.IO;
 using CatalystEditor;
 using System.Runtime.InteropServices;

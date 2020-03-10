@@ -7,12 +7,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Catalyst.Engine.Rendering;
-using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Framework.Content.Pipeline;
-using MonoGame.Framework.Content.Pipeline.Builder;
 using Rectangle = System.Drawing.Rectangle;
 
 namespace CatalystEditor

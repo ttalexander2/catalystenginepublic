@@ -70,7 +70,19 @@ namespace Catalyst.Engine.Rendering
 
         [GuiVector2]
         public Vector2 InitialForce { get; set; }
-        internal Random Rand { get; private set; }
+        [NonSerialized]
+        private Random _random;
+        internal Random Rand
+        {
+            get
+            {
+                if (_random == null)
+                {
+                    _random = new Random();
+                }
+                return _random;
+            }
+        }
         public ParticleEmitter(Entity entity) : base(entity)
         {
             if (!entity.HasComponent<Position>())
@@ -95,7 +107,6 @@ namespace Catalyst.Engine.Rendering
             Offset = Vector2.Zero;
             Count = 50;
             Gravity = 0;
-            Rand = new Random();
             FollowCamera = false;
             Follow = entity;
             Initialize();

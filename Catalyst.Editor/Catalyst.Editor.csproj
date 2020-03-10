@@ -5,7 +5,7 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AssemblyName>Catalyst.Editor</AssemblyName>
         <RootNamespace>CatalystEditor</RootNamespace>
-        <TargetFramework>net461</TargetFramework>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
         <OutputType>Exe</OutputType>
         <ApplicationIcon />
         <StartupObject />
@@ -42,7 +42,7 @@
   <ItemGroup>
       <PackageReference Include="ImGui.NET" Version="1.72.0" />
       <PackageReference Include="MonoGame.Framework.Content.Pipeline.Portable" Version="3.7.1.189" />
-      <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.7.1.189" />
+      <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
       <PackageReference Include="sdl2" Version="2.0.5" />
     </ItemGroup>
 
@@ -67,11 +67,13 @@
     <Folder Include="Content\Sprites\Player\s_player_jump\" />
     <Folder Include="Content\Sprites\Player\s_player_jump_peak\" />
     <Folder Include="Content\Sprites\Player\s_player_running_1\" />
+    <Folder Include="Texture Packer\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj" />
     <ProjectReference Include="..\Catalyst.Game\Catalyst.Game.csproj" />
+    <ProjectReference Include="..\Catalyst.TexturePacker\Catalyst.TexturePacker.csproj" />
   </ItemGroup>
 
   <ItemGroup>
