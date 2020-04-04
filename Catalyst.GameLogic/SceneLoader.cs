@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 using Color = Catalyst.Engine.Utilities.Color;
 
-namespace Catalyst.Game
+namespace Catalyst.GameLogic
 {
     public static class SceneLoader
     {

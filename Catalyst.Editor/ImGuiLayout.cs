@@ -46,17 +46,15 @@ namespace Catalyst.Editor
 
         public void Initialize()
         {
-            DefaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 18.0f);
-            HeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeuib.ttf", 26.0f);
-            SubHeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 22.0f);
-            SlightlyLargerFontThanNormal = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 20.0f);
+            DefaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 16.0f);
+            HeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeuib.ttf", 22.0f);
+            SubHeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 20.0f);
+            SlightlyLargerFontThanNormal = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 18.0f);
             ImGui.GetIO().ConfigWindowsResizeFromEdges = true;
             ImGuiBackendFlags f = 0;
             f |= ImGuiBackendFlags.HasMouseCursors;
             ImGui.GetIO().BackendFlags = f;
-            StyleManager.LoadDark();
-            //ProjectManager.Current = ProjectManager.LoadTestWorld();
-            //world_loaded = true;
+            //StyleManager.LoadDark();
         }
 
         public void SetStyle()
@@ -89,10 +87,14 @@ namespace Catalyst.Editor
                 window_flags |= ImGuiWindowFlags.NoBringToFrontOnFocus;
                 window_flags |= ImGuiWindowFlags.NoTitleBar;
 
+                bool t = false;
+
                 ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
+
+
                 ImGui.SetNextWindowSizeConstraints(new Vector2(200, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - right_dock_size - 100, _windowSize.Y - _menuSize.Y));
 
-                bool t = false;
+                t = false;
                 if (ImGui.Begin("Scene Window", ref t, window_flags))
                 {
                     ImGui.SetWindowPos(new Vector2(0, _menuSize.Y));

@@ -364,44 +364,55 @@ namespace Catalyst.Editor
         private static void RenderEntitySelector(Object c, PropertyInfo p, GuiEntitySelector attribute)
         {
             List<string> names = new List<string>();
+            List<int> keys = new List<int>();
             int selected = -1;
             if (p.GetValue(c) == null)
             {
-                foreach (Entity e in ProjectManager.Current.Manager.GetEntities().Values)
+                foreach (KeyValuePair<int, Entity> e in ProjectManager.Current.Manager.GetEntities())
                 {
-                    names.Add(e.Name);
+                    names.Add(e.Value.Name);
+                    keys.Add(e.Key);
                 }
 
                 string[] arr = names.ToArray();
 
                 ImGui.Combo(p.Name, ref selected, arr, arr.Length);
-                p.SetValue(c, ProjectManager.Current.Manager.GetEntity(selected));
+
+                if (selected >= 0 && selected < keys.Count)
+                    p.SetValue(c, ProjectManager.Current.Manager.GetEntity(keys[selected]));
 
                 return;
             }
+
+
             Entity val = (Entity)p.GetValue(c);
 
-            foreach (Entity e in ProjectManager.Current.Manager.GetEntities().Values)
+            int i = 0;
+
+            foreach (KeyValuePair<int, Entity> e in ProjectManager.Current.Manager.GetEntities())
             {
-                if (val.UID == e.UID)
+                if (val.UID == e.Value.UID)
                 {
-                    selected = e.UID;
+                    selected = i;
                 }
-                names.Add(e.Name);
+                names.Add(e.Value.Name);
+                keys.Add(e.Key);
+                i++;
             }
+
             names.Add("(none)");
 
             string[] nameArray = names.ToArray();
 
             ImGui.Combo(p.Name, ref selected, nameArray, nameArray.Length);
 
-
-            p.SetValue(c, ProjectManager.Current.Manager.GetEntity(selected));
-
-            if (names[selected].Equals("(none)"))
+            if (names[selected].Equals("(none)") || selected < 0 || selected >= keys.Count)
             {
                 p.SetValue(c, null);
-                selected = -1;
+            }
+            else
+            {
+                p.SetValue(c, ProjectManager.Current.Manager.GetEntity(keys[selected]));
             }
         }
 

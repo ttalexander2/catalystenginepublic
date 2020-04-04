@@ -10,11 +10,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
-using Catalyst.Game;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CatalystEditor;
 using static Catalyst.Engine.Rendering.Sprite;
+using Catalyst.GameLogic;
 
 namespace Catalyst.Editor
 {
@@ -74,11 +74,12 @@ namespace Catalyst.Editor
             Current = new Scene(1920, 1080);
             Current.Systems.Add(new InputSystem(Current));
             Current.Systems.Add(new PlayerSystem(Current));
-            Current.Systems.Add(new GravitySystem(Current));
             Current.Systems.Add(new MovementSystem(Current));
             Current.Systems.Add(new SpriteRenderer(Current));
             Current.Systems.Add(new ParticleSystem(Current));
             Current.Systems.Add(new CameraSystem(Current));
+
+            //RefreshTypes();
 
             FileName = file;
             Unsaved = true;
@@ -119,14 +120,34 @@ namespace Catalyst.Editor
         {
             Types = Assembly.GetAssembly(typeof(Component)).GetTypes()
             .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))).ToList<Type>();
+
+           foreach (Type type in
+           Assembly.GetAssembly(typeof(Component)).GetTypes()
+           .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))))
+            {
+                if (!Types.Contains(type))
+                {
+                    Types.Add(type);
+                }
+            }
+
+            foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                foreach (Type type in ass.GetTypes()
+                .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))))
+                {
+                    if (!Types.Contains(type))
+                    {
+                        Types.Add(type);
+                    }
+                }
+            }
         }
 
         public static Scene LoadTestWorld()
         {
             Scene scene = new Scene(Graphics.Width * 8, Graphics.Height*3);
             scene.Systems.Add(new InputSystem(scene));
-            scene.Systems.Add(new PlayerSystem(scene));
-            scene.Systems.Add(new GravitySystem(scene));
             scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderer(scene));
             scene.Systems.Add(new ParticleSystem(scene));
@@ -139,7 +160,6 @@ namespace Catalyst.Editor
             Entity testEntity = scene.Manager.NewEntity();
             var sprite = new Sprite(testEntity, atlas.Textures[0]);
             testEntity.AddComponent<Sprite>(sprite);
-            testEntity.AddComponent<Player>();
 
             scene.Camera.Following = testEntity;
 

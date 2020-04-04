@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Catalyst.Game
+namespace Catalyst.GameLogic
 {
     public class TestScript : IScript
     {

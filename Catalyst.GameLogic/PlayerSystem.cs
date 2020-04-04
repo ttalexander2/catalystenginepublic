@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Key = Catalyst.Engine.Input.Controller;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 
-namespace Catalyst.Game
+namespace Catalyst.GameLogic
 {
     [Serializable]
     public class PlayerSystem : Engine.System

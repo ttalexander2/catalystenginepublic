@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Catalyst.Engine;
+using CatalystEditor;
 using ImGuiNET;
+using Microsoft.Xna.Framework.Input;
+using static Catalyst.Engine.FileTree<int>;
 
 namespace Catalyst.Editor
 {
@@ -12,10 +15,13 @@ namespace Catalyst.Editor
         public static bool EntityWindowOpen = true;
         public static bool SpriteWindowOpen = true;
         public static bool CameraWindowOpen = true;
-        private static int _entitySelected = -1;
-        private static int _editingEntity = -1;
-        private static  List<int> _toRemove = new List<int>();
-        private static List<int> _toDuplicate = new List<int>();
+
+        private static bool _group = false;
+        private static bool _rename = false;
+        private static bool _removeSelected = false;
+        private static bool _contextOpen = false;
+        private static bool _duplicateSelected = false;
+        private static Node _start = null;
 
         public static void RenderRightDock()
         {
@@ -42,70 +48,112 @@ namespace Catalyst.Editor
                 ImGui.EndTabBar();
             }
         }
-        public static void RenderEntityWindow()
+
+        private static void RenderTree(FolderNode root)
         {
-            ImGui.PushFont(ImGuiLayout.SubHeadingFont);
-            ImGui.Text("Entities");
-            ImGui.PushFont(ImGuiLayout.DefaultFont);
-            ImGui.SameLine(ImGui.GetWindowWidth() - 92);
-            if (ImGui.Button("+ Add Entity"))
+            ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags.OpenOnArrow | ImGuiTreeNodeFlags.OpenOnDoubleClick;
+            if (ProjectManager.Current.Manager.EntityTree.Selected.Count <= 0)
             {
-                int id = ProjectManager.Current.Manager.NewEntity().UID;
-                _editingEntity = id;
-                _entitySelected = id;
+                _start = null;
             }
 
-            ImGui.BeginChild("Entity_List", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.2f), true, ImGuiWindowFlags.None);
-            if (ProjectManager.Current != null)
+            foreach (Node n in root.Values)
             {
-                foreach (Entity e in ProjectManager.Current.Manager.GetEntities().Values)
+                if (!n.Editing)
                 {
-                    if (_editingEntity == -1 && _entitySelected == e.UID && ImGui.BeginPopupContextWindow())
+                    if (n is FolderNode)
                     {
-                        if (ImGui.Selectable("Rename"))
+                        ImGuiTreeNodeFlags node_flags = base_flags;
+                        if (n.Selected)
                         {
-                            _editingEntity = e.UID;
-
+                            node_flags |= ImGuiTreeNodeFlags.Selected;
                         }
-                        if (ImGui.Selectable("Remove"))
-                        {
-                            _entitySelected = -1;
-                            _editingEntity = -1;
-                            _toRemove.Add(e.UID);
-                            continue;
-                        }
-                        ImGui.Separator();
-                        if (ImGui.Selectable("Duplicate"))
-                        {
-                            _toDuplicate.Add(e.UID);
-                        }
-                        ImGui.EndPopup();
-                    }
 
-                    if (_entitySelected == e.UID && _editingEntity == -1 && ImGui.IsMouseDoubleClicked(0) && ImGui.IsItemFocused())
-                    {
-                        _editingEntity = e.UID;
-                    }
+                        bool node_open = ImGui.TreeNodeEx(((FolderNode)n).Name, node_flags);
 
-                    if (e.UID != _editingEntity)
-                    {
-                        if (ImGui.Selectable(e.Name, _entitySelected == e.UID))
+                        if (node_open)
                         {
-                            _entitySelected = e.UID;
+                            if (ImGui.IsItemClicked())
+                            {
+                                if (_start != null && CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.LeftShift) || CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.RightShift))
+                                {
+                                    ProjectManager.Current.Manager.EntityTree.SelectBetween(_start, n);
+                                }
+                                else if (CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.LeftControl) || CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.RightControl))
+                                {
+                                    ProjectManager.Current.Manager.EntityTree.AddToSelection(n);
+                                }
+                                else
+                                {
+                                    ProjectManager.Current.Manager.EntityTree.Select(n);
+                                    _start = n;
+                                }
+                            }
+
+                            RenderTree((FolderNode)n);
+                            ImGui.TreePop();
+                        }
+                        else
+                        {
+                            if(n.Selected)
+                            {
+                                ProjectManager.Current.Manager.EntityTree.Deselect();
+                            }
                         }
                     }
                     else
                     {
-                        string buff = e.Name.Trim();
-                        ImGui.InputText("", ref buff, 256);
-                        ImGui.SetKeyboardFocusHere();
-                        ImGui.SetScrollHereY();
-                        e.Name = buff.Trim();
+                        Entity e = ProjectManager.Current.Manager.GetEntity(((FileNode)n).Value);
+
+
+                        ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags.Leaf | ImGuiTreeNodeFlags.NoTreePushOnOpen; // ImGuiTreeNodeFlags_Bullet
+
+                        if (n.Selected)
+                            node_flags |= ImGuiTreeNodeFlags.Selected;
+
+                        _ = ImGui.TreeNodeEx(((FileNode)n).Name, node_flags);
+
+                        if (ImGui.IsItemClicked())
+                        {
+                            if (_start != null && _start != n && CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.LeftShift) || CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.RightShift))
+                            {
+                                ProjectManager.Current.Manager.EntityTree.SelectBetween(_start, n);
+                            }
+                            else if (CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.LeftControl) || CatalystEditor.Instance.keyboardState.IsKeyDown(Keys.RightControl))
+                            {
+                                ProjectManager.Current.Manager.EntityTree.AddToSelection(n);
+                            }
+                            else
+                            {
+                                ProjectManager.Current.Manager.EntityTree.Select(n);
+                                _start = n;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    string buff = n.Name.Trim();
+                    ImGui.InputText("", ref buff, 256);
+                    ImGui.SetKeyboardFocusHere();
+                    ImGui.SetScrollHereY();
+                    if (n is FileNode)
+                    {
+                        ProjectManager.Current.Manager.GetEntity(((FileNode)n).Value).Rename(buff.Trim());
+                    }
+                    else
+                    {
+                        n.Name = buff.Trim();
                     }
 
-                    if (_editingEntity != -1 && ImGui.IsKeyDown(ImGui.GetKeyIndex(ImGuiKey.Enter)))
+                }
+                if (n.Editing && ImGui.IsKeyDown(ImGui.GetKeyIndex(ImGuiKey.Enter)))
+                {
+                    bool valid = n.Name.Trim().Length > 0;
+                    if (n is FileNode)
                     {
-                        bool valid = e.Name.Trim().Length > 0;
+                        Entity e = ProjectManager.Current.Manager.GetEntity(((FileNode)n).Value);
+
                         foreach (Entity ee in ProjectManager.Current.Manager.GetEntities().Values)
                         {
                             if (ee.Name.Equals(e.Name) && ee.UID != e.UID)
@@ -113,30 +161,101 @@ namespace Catalyst.Editor
                                 valid = false;
                             }
                         }
-                        if (valid)
-                        {
-                            _editingEntity = -1;
-                        }
-                        else
-                        {
-                            _entitySelected = e.UID;
-                            _editingEntity = e.UID;
-                        }
+                    }
+
+                    if (valid)
+                    {
+                        n.Editing = false;
+                        ProjectManager.Current.Manager.EntityTree.Select(n);
+                        _rename = true;
                     }
                 }
-                foreach(int t in _toRemove)
+
+                if (!ViewportRenderer.Playing && n.Selected && !_contextOpen && ImGui.BeginPopupContextWindow())
                 {
-                    ProjectManager.Current.Manager.GetEntities().Remove(t);
+                    _contextOpen = true;
+                    if (!ProjectManager.Current.Manager.EntityTree.MultiSelection && ImGui.Selectable("Rename"))
+                    {
+                        n.Editing = true;
+                    }
+                    if (ImGui.Selectable("Group"))
+                    {
+                        _group = true;
+                    }
+                    if (ImGui.Selectable("Remove"))
+                    {
+                        _removeSelected = true;
+                    }
+                    if (ImGui.Selectable("Duplicate"))
+                    {
+                        _duplicateSelected = true;
+                    }
+                    ImGui.EndPopup();
                 }
-                _toRemove.Clear();
-                foreach(int t in _toDuplicate)
-                {
-                    Entity e = ProjectManager.Current.Manager.Duplicate(t);
-                    _editingEntity = e.UID;
-                    _entitySelected = e.UID;
-                }
-                _toDuplicate.Clear();
             }
+            _contextOpen = false;
+        }
+        public static void RenderEntityWindow()
+        {
+            ImGui.PushFont(ImGuiLayout.SubHeadingFont);
+            ImGui.Text("Entities");
+            ImGui.PushFont(ImGuiLayout.DefaultFont);
+            ImGui.SameLine(ImGui.GetWindowWidth() - 92);
+            
+            //Add entity button
+            if (ImGui.Button("+ Add Entity"))
+            {
+                ProjectManager.Current.Manager.NewEntity();
+            }
+
+            //List of entities
+            ImGui.BeginChild("Entity_List", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.2f), true, ImGuiWindowFlags.None);
+            if (ProjectManager.Current != null)
+            {
+                //Render selectable file tree
+                RenderTree(ProjectManager.Current.Manager.EntityTree.Root);
+
+                //If the user elected to group the selected items
+                if (_group)
+                {
+                    Console.WriteLine(string.Join(", _", ProjectManager.Current.Manager.EntityTree.Selected));
+                    ProjectManager.Current.Manager.EntityTree.GroupSelected();
+                    _group = false;
+                }
+
+                if (_removeSelected)
+                {
+                    foreach (int t in ProjectManager.Current.Manager.EntityTree.RemoveSelected())
+                    {
+                        ProjectManager.Current.Manager.GetEntity(t).DestroyEntity();
+                    }
+
+                    ProjectManager.Current.Manager.EntityTree.Deselect();
+                    _removeSelected = false;
+
+                }
+
+                if (_duplicateSelected)
+                {
+                    foreach (Node t in ProjectManager.Current.Manager.EntityTree.Selected)
+                    {
+                        if (t is FileNode)
+                            ProjectManager.Current.Manager.Duplicate(((FileNode)t).Value);
+                    }
+                }
+
+                //Sort items by name if the user renamed or grouped something
+                if (_rename || _group || _duplicateSelected)
+                {
+                    ProjectManager.Current.Manager.EntityTree.SortFolders();
+                    _rename = false;
+                    _group = false;
+                    _duplicateSelected = false;
+
+                }
+            }
+
+
             ImGui.EndChild();
             ImGui.PopStyleColor();
 
@@ -145,6 +264,12 @@ namespace Catalyst.Editor
             ImGui.PushFont(ImGuiLayout.SubHeadingFont);
             ImGui.Text("Components");
             ImGui.PushFont(ImGuiLayout.DefaultFont);
+
+            int _entitySelected = -1;
+            if (ProjectManager.Current.Manager.EntityTree.Selected.Count == 1 && ProjectManager.Current.Manager.EntityTree.Selected[0] is FileNode)
+            {
+                _entitySelected = ((FileNode)ProjectManager.Current.Manager.EntityTree.Selected[0]).Value;
+            }
 
             ImGui.BeginChild("Component_List", System.Numerics.Vector2.Zero - new System.Numerics.Vector2(0, 31f), true, ImGuiWindowFlags.None);
             if (ImGui.BeginPopupContextItem("Component_add"))
@@ -237,6 +362,7 @@ namespace Catalyst.Editor
 
             ImGui.EndChild();
             ImGui.PopStyleColor();
+
         }
 
         public static void RenderCameraWindow()

@@ -12,11 +12,11 @@ namespace Catalyst.Engine
     public class Entity
     {
         
-        public bool active = true;
+        public bool Active = true;
         
         public int UID { get; private set; }
         
-        public string Name { get; set; }
+        public string Name { get; internal set; }
 
         private HashSet<string> _typeSet;
         
@@ -38,6 +38,12 @@ namespace Catalyst.Engine
         }
 
         private Entity() { }
+
+        public void Rename(string name)
+        {
+            this.Name = name;
+            this._manager.EntityTree.RenameFile(this.UID, name);
+        }
 
         #region adders
         public Component AddComponent<T>() where T : Component

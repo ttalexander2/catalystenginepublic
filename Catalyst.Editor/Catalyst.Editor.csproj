@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -41,25 +40,20 @@
 
   <ItemGroup>
       <PackageReference Include="ImGui.NET" Version="1.72.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.4.0" />
       <PackageReference Include="MonoGame.Framework.Content.Pipeline.Portable" Version="3.7.1.189" />
       <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
+      <PackageReference Include="ReactiveFileSystemWatcher" Version="0.1.2.1" />
       <PackageReference Include="sdl2" Version="2.0.5" />
     </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Build" />
-    <Reference Include="Microsoft.Build.Conversion.v4.0" />
-    <Reference Include="Microsoft.Build.Engine" />
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Tasks.v4.0" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="MonoGame.Framework">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Net">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.Net.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,7 +66,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj" />
-    <ProjectReference Include="..\Catalyst.Game\Catalyst.Game.csproj" />
+    <ProjectReference Include="..\Catalyst.GameLogic\Catalyst.GameLogic.csproj" />
     <ProjectReference Include="..\Catalyst.TexturePacker\Catalyst.TexturePacker.csproj" />
   </ItemGroup>
 

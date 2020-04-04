@@ -124,11 +124,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Game\Player.cs" />
-    <Compile Include="Game\GravitySystem.cs" />
-    <Compile Include="Game\PlayerSystem.cs" />
-    <Compile Include="Game\SceneLoader.cs" />
-    <Compile Include="Game\TestScript.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Scenes\" />
+    <Folder Include="Game\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="x64\fmod.dll" Condition=" '$(Configuration)' == 'WIN64' ">
@@ -224,6 +220,10 @@
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj">
       <Project>{6af02f92-514f-460a-b246-a5b0c1644676}</Project>
       <Name>Catalyst.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Catalyst.GameLogic\Catalyst.GameLogic.csproj">
+      <Project>{d3504c26-be63-41b7-a5b1-10536114cfe1}</Project>
+      <Name>Catalyst.GameLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

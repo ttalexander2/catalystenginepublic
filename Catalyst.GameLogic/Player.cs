@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Catalyst.Game
+namespace Catalyst.GameLogic
 {
     [Serializable]
     public class Player : Component

@@ -55,14 +55,14 @@ namespace Catalyst.Engine.Rendering
         [GuiInteger(0, 999999)]
         public int LifeVariance { get; set; }
         [GuiInteger(GuiIntegerMode.Slider, 0, 1000)]
-        public int Speed { get; internal set; }
+        public int Speed { get; set; }
         [GuiInteger(GuiIntegerMode.Slider, 0, 1000)]
         public int SpeedVariance { get; set; }
         [GuiFloat(GuiFloatMode.Angle)]
         public float Angle { get; set; }
         [GuiFloat(GuiFloatMode.Angle)]
         public float AngleVariance { get; set; }
-        [GuiInteger(GuiIntegerMode.Slider, 0, 10000)]
+        [GuiInteger(GuiIntegerMode.Slider, 0, 100000)]
         public int Count { get; set; }
 
         [GuiFloat(GuiFloatMode.Slider, -200,200)]

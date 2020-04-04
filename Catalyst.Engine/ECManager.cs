@@ -1,4 +1,5 @@
-﻿using Catalyst.Engine.Utilities;
+﻿using Catalyst.Engine.Rendering;
+using Catalyst.Engine.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using static Catalyst.Engine.FileTree<int>;
 
 namespace Catalyst.Engine
 {
@@ -15,6 +17,8 @@ namespace Catalyst.Engine
     {
         
         private int _id;
+
+        public FileTree<int> EntityTree = new FileTree<int>();
         
         internal Dictionary<int, Entity> EntityDict = new Dictionary<int, Entity>();
         
@@ -32,6 +36,7 @@ namespace Catalyst.Engine
         {
             Entity e = new Entity(this);
             EntityDict.Add(e.UID, e);
+            EntityTree.AddElement(e.UID, e.Name);
             return e;
         }
 
@@ -97,8 +102,27 @@ namespace Catalyst.Engine
                 if (val != null)
                 {
                     e.AddComponent(val.DeepClone<Component>());
+                    if (val is ParticleEmitter)
+                    {
+                        e.GetComponent<ParticleEmitter>().Initialize();
+                        e.GetComponent<ParticleEmitter>().Launch();
+                    }
                 }
 
+            }
+            FolderNode parent = EntityTree.SearchFile(uid).Parent;
+            FileNode node = EntityTree.SearchFile(e.UID);
+
+            if (node.Parent != null)
+            {
+                node.Parent.Values.Remove(node);
+            }
+
+            node.Parent = parent;
+
+            if (parent != null)
+            {
+                parent.Values.Add(node);
             }
             return e;
         }
@@ -126,6 +150,7 @@ namespace Catalyst.Engine
                     }
                 }
             }
+
         }
 
 

@@ -45,9 +45,13 @@ namespace Catalyst.Editor
 
         public IntPtr RenderTargetPointer;
 
+        public KeyboardState keyboardState;
+
         public CatalystEditor()
         {
             Instance = this;
+
+            LoadManager.Initialize();
 
 
 
@@ -118,6 +122,7 @@ namespace Catalyst.Editor
 
         protected override void Update(GameTime gameTime)
         {
+            keyboardState = Keyboard.GetState();
             if (ProjectManager.scene_loaded && ViewportRenderer.Playing)
             {
                 ProjectManager.Current.PreUpdate(gameTime);

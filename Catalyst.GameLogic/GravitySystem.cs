@@ -1,10 +1,9 @@
 ﻿using Catalyst.Engine;
 using Catalyst.Engine.Physics;
-using Microsoft.Xna.Framework;
 using System;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 
-namespace Catalyst.Game
+namespace Catalyst.GameLogic
 {
     [Serializable]
     public class GravitySystem : Engine.System
@@ -17,7 +16,7 @@ namespace Catalyst.Game
             Gravity = 0.0f;
         }
 
-        public override void PreUpdate(GameTime gameTime)
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
             foreach (Actor actor in Manager.GetComponents<Actor>().Values)
             {
