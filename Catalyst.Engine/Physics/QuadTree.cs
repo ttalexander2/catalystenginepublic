@@ -23,7 +23,7 @@ namespace Catalyst.Engine.Physics
 
         private QuadTree(int parentLevel, Utilities.Rectangle parentBounds)
         {
-            throw new Exception("QUAD TREE IS BROKEN");
+            //throw new Exception("QUAD TREE IS BROKEN");
             _level = parentLevel;
             _objects = new List<Position>();
             _bounds = parentBounds;

@@ -14,9 +14,9 @@ using System.Runtime.Serialization;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class Camera2D
+    public class Camera:GameObject
     {
-        
+        internal static int CameraID { get; private set; }
         public Scene Scene { get; set; }
         [GuiEntitySelector]
         public Entity Following { get; set; }
@@ -59,7 +59,7 @@ namespace Catalyst.Engine.Rendering
         [GuiVector2]
         public Vector2 Size { get; private set; }
 
-        public Camera2D(Scene scene, Vector2 bounds)
+        public Camera(Scene scene, Vector2 bounds)
         {
             Size = new Vector2(Graphics.Width, Graphics.Height);
             Bounds = bounds;
@@ -69,9 +69,10 @@ namespace Catalyst.Engine.Rendering
             _zoom = 1;
             _rotation = 0;
             Speed = 0.07f;
+            Name = string.Format("Camera_{0}", CameraID++);
         }
 
-        private Camera2D() { }
+        private Camera() { }
 
         public void Move(Vector2 amount)
         {

@@ -10,7 +10,7 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class Component
+    public abstract class Component:GameObject
     {
         public static string Name => "Abstract Component";
         

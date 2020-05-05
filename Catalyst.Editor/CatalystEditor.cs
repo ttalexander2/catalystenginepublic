@@ -117,6 +117,8 @@ namespace Catalyst.Editor
             _pixel = new Texture2D(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
             _pixel.SetData(new Color[] { Color.White });
 
+            IconLoader.LoadIcons();
+
             base.LoadContent();
         }
 

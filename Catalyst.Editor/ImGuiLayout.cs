@@ -54,7 +54,7 @@ namespace Catalyst.Editor
             ImGuiBackendFlags f = 0;
             f |= ImGuiBackendFlags.HasMouseCursors;
             ImGui.GetIO().BackendFlags = f;
-            //StyleManager.LoadDark();
+            StyleManager.LoadDark();
         }
 
         public void SetStyle()
@@ -95,12 +95,13 @@ namespace Catalyst.Editor
                 ImGui.SetNextWindowSizeConstraints(new Vector2(200, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - right_dock_size - 100, _windowSize.Y - _menuSize.Y));
 
                 t = false;
-                if (ImGui.Begin("Scene Window", ref t, window_flags))
+                if (ImGui.Begin("Left Dock", ref t, window_flags))
                 {
                     ImGui.SetWindowPos(new Vector2(0, _menuSize.Y));
                     scene_size = ImGui.GetWindowSize().X;
 
                     ImGui.SetWindowCollapsed(false);
+                    Menus.RenderLeftDock();
 
 
 
@@ -118,7 +119,7 @@ namespace Catalyst.Editor
 
                     ImGui.SetWindowCollapsed(false);
 
-                    RightDock.RenderRightDock();
+                    Menus.RenderRightDock();
 
                     ImGui.End();
                 }
@@ -144,7 +145,7 @@ namespace Catalyst.Editor
 
                     ViewBounds = CalculateViewBounds((int)(_windowSize.X - right_dock_size), (int)(_windowSize.X - right_dock_size)/(16/9));
 
-                    ViewRect = new Rectangle((int)scene_size, (int)_menuSize.Y, (int)ViewBounds.X, (int)ViewBounds.Y);
+                    ViewRect = new Rectangle((int)(scene_size), (int)(_menuSize.Y + 35), (int)(ViewBounds.X - scene_size), (int)ViewBounds.Y);
 
                     ViewportRenderer.RenderViewPort(gameTime, ViewBounds, ViewRect);
 
@@ -235,16 +236,30 @@ namespace Catalyst.Editor
                     ImGui.EndMenu();
                 }
 
+                if (ImGui.BeginMenu("Objects"))
+                {
+                    bool available = ProjectManager.Current != null;
+                    if (ImGui.MenuItem("New Entity...", available))
+                    {
+                        ProjectManager.Current.Manager.NewEntity();
+                    }
+                    if (ImGui.MenuItem("New Camera...", available))
+                    {
+                        ProjectManager.Current.NewCamera();
+                    }
+                    ImGui.EndMenu();
+                }
+
                 if (ImGui.BeginMenu("Window"))
                 {
                     if (ImGui.MenuItem("Entities"))
                     {
-                        RightDock.EntityWindowOpen = true;
+                        Menus.EntityWindowOpen = true;
                     }
 
                     if (ImGui.MenuItem("Sprites"))
                     {
-                        RightDock.SpriteWindowOpen = true;
+                        Menus.SpriteWindowOpen = true;
                     }
                     ImGui.EndMenu();
                 }

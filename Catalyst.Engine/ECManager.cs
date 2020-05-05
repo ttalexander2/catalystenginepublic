@@ -1,5 +1,6 @@
 ﻿using Catalyst.Engine.Rendering;
 using Catalyst.Engine.Utilities;
+using Catalyst.Engine;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +9,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using static Catalyst.Engine.FileTree<int>;
+using static Catalyst.Engine.FileTree<Catalyst.Engine.GameObject>;
 
 namespace Catalyst.Engine
 {
@@ -18,15 +19,16 @@ namespace Catalyst.Engine
         
         private int _id;
 
-        public FileTree<int> EntityTree = new FileTree<int>();
+        public Scene CurrentScene { get; private set; }
         
         internal Dictionary<int, Entity> EntityDict = new Dictionary<int, Entity>();
         
         internal Dictionary<string, Dictionary<int, Component>> Components = new Dictionary<string, Dictionary<int, Component>>();
 
 
-        internal ECManager()
+        internal ECManager(Scene scene)
         {
+            CurrentScene = scene;
             _id = 0;
             RefreshTypes();
             
@@ -36,7 +38,7 @@ namespace Catalyst.Engine
         {
             Entity e = new Entity(this);
             EntityDict.Add(e.UID, e);
-            EntityTree.AddElement(e.UID, e.Name);
+            CurrentScene.HierarchyTree.AddElement(e, e.Name);
             return e;
         }
 
@@ -110,8 +112,8 @@ namespace Catalyst.Engine
                 }
 
             }
-            FolderNode parent = EntityTree.SearchFile(uid).Parent;
-            FileNode node = EntityTree.SearchFile(e.UID);
+            FolderNode parent = CurrentScene.HierarchyTree.SearchFile(GetEntity(uid)).Parent;
+            FileNode node = CurrentScene.HierarchyTree.SearchFile(GetEntity(uid));
 
             if (node.Parent != null)
             {

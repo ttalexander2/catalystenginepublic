@@ -31,18 +31,30 @@ namespace CatalystEditor
 
         public static void RenderViewPort(GameTime gameTime, Vector2 view_bounds, Rectangle bounds)
         {
+            System.Numerics.Vector4 color = System.Numerics.Vector4.Zero;
+            unsafe
+            {
+                color = *ImGui.GetStyleColorVec4(ImGuiCol.Button);
+            }
+
+            ImGui.PushStyleColor(ImGuiCol.Button, System.Numerics.Vector4.Zero);
+
             if (!Playing)
             {
-                if (ImGui.Button("Update: Off"))
+                
+                
+                if (ImGui.ImageButton(IconLoader.RunButton, new Vector2(16,16)))
                 {
                     Playing = !Playing;
                     ProjectManager.Backup = Catalyst.Engine.Utilities.Utility.DeepClone<Scene>(ProjectManager.Current);
                     Grid = false;
                 }
+                if (ImGui.IsItemHovered()) ImGui.SetTooltip("Run");
+
             }
             else
             {
-                if (ImGui.Button("Update: On"))
+                if (ImGui.ImageButton(IconLoader.StopButton, new Vector2(16, 16)))
                 {
                     Playing = !Playing;
                     ProjectManager.Current = null;
@@ -65,25 +77,100 @@ namespace CatalystEditor
 
                     Grid = true;
                 }
+                if (ImGui.IsItemHovered()) ImGui.SetTooltip("Stop");
+
+
+            }
+
+
+            ImGui.SameLine();
+
+            Vector2 v = ImGui.GetStyle().ItemSpacing;
+
+            ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0,v.Y));
+
+
+
+            if (Grid)
+                ImGui.PushStyleColor(ImGuiCol.Button, color);
+
+            if (ImGui.ImageButton(IconLoader.GridButton, new Vector2(16, 16)))
+            {
+                Grid = !Grid;
+            }
+
+            if (ImGui.IsItemHovered()) ImGui.SetTooltip("Toggle Grid");
+
+
+
+            ImGui.SameLine();
+
+            if (ImGui.ImageButton(IconLoader.DownArrow, new Vector2(6, 16)))
+            {
+                ImGui.OpenPopup("Grid_size");
+            }
+
+            if (ImGui.IsItemHovered()) ImGui.SetTooltip("Configure Grid");
+
+
+            ImGui.PushStyleColor(ImGuiCol.Button, System.Numerics.Vector4.Zero);
+
+            ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, v);
+
+
+            if (ImGui.BeginPopup("Grid_size"))
+            {
+                int grid = GridSize;
+
+
+                ImGui.SliderInt("Grid Size", ref GridSize, 1, 256);
+                ImGui.SameLine();
+                ImGuiLayout.HelpMarker("CTRL+click to input value.");
+
+                if (grid != GridSize)
+                {
+                    ProjectManager.ChangeGrid = true;
+                }
+
+                ImGui.EndPopup();
+
             }
 
             ImGui.SameLine();
 
-            if (ImGui.Button("Reset Position"))
+
+            if (ImGui.ImageButton(IconLoader.ResetViewButton, new Vector2(16, 16)))
             {
                 Position = Catalyst.Engine.Utilities.Vector2.Zero;
             }
 
+            if (ImGui.IsItemHovered()) ImGui.SetTooltip("Reset Position");
+
             ImGui.SameLine();
 
-            ImGui.PushItemWidth(200);
-            float prev_zoom = Zoom;
+            if (ImGui.ImageButton(IconLoader.ZoomButton, new Vector2(16, 16)))
+            {
+                ImGui.OpenPopup("Zoom_amount");
+            }
 
+            if (ImGui.IsItemHovered()) ImGui.SetTooltip("Set Zoom");
+
+
+            ImGui.PushStyleColor(ImGuiCol.Button, color);
+
+            float prev_zoom = Zoom;
 
             MouseState m = Mouse.GetState();
             KeyboardState k = Keyboard.GetState();
 
-            _ = ImGui.SliderFloat("Zoom", ref Zoom, MinZoom, MaxZoom);
+            if (ImGui.BeginPopup("Zoom_amount"))
+            {
+
+                _ = ImGui.SliderFloat("##hidelabel Zoom boiiiiiiiaiskdughsa", ref Zoom, MinZoom, MaxZoom);
+                ImGui.EndPopup();
+
+            }
+           
 
             //ImGui.SameLine();
             if(bounds.Contains(m.Position))
@@ -101,24 +188,7 @@ namespace CatalystEditor
                 Zoom = MaxZoom;
             }
 
-            ImGui.SameLine();
-
-            ImGui.Checkbox("Grid", ref Grid);
-
-            ImGui.SameLine();
-
-            int grid = GridSize;
-
-
-            ImGui.SliderInt("Grid Size", ref GridSize, 1, 256);
-            ImGui.SameLine();
-            ImGuiLayout.HelpMarker("CTRL+click to input value.");
-
-            if (grid != GridSize)
-            {
-                ProjectManager.ChangeGrid = true;
-            }
-
+            
 
             if (bounds.Contains(m.Position) && (m.MiddleButton == ButtonState.Pressed || (k.IsKeyDown(Keys.LeftControl) && m.LeftButton == ButtonState.Pressed)))
             {

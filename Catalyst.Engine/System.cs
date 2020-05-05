@@ -11,7 +11,7 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class System
+    public abstract class System : GameObject, IUpdatable
     {
         
         protected Scene scene;

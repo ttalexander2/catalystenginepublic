@@ -12,7 +12,7 @@ namespace Catalyst.Editor
             colors[(int)ImGuiCol.TextDisabled] = new System.Numerics.Vector4(0.50f, 0.50f, 0.50f, 1.00f);
             colors[(int)ImGuiCol.WindowBg] = new System.Numerics.Vector4(0.23f, 0.23f, 0.25f, 1.00f);
             colors[(int)ImGuiCol.ChildBg] = new System.Numerics.Vector4(0.11f, 0.11f, 0.11f, 1.00f);
-            colors[(int)ImGuiCol.PopupBg] = new System.Numerics.Vector4(0.08f, 0.08f, 0.08f, 0.94f);
+            colors[(int)ImGuiCol.PopupBg] = new System.Numerics.Vector4(0.08f, 0.08f, 0.08f, 1.00f);
             colors[(int)ImGuiCol.Border] = new System.Numerics.Vector4(0.43f, 0.43f, 0.50f, 0.50f);
             colors[(int)ImGuiCol.BorderShadow] = new System.Numerics.Vector4(0.00f, 0.00f, 0.00f, 0.00f);
             colors[(int)ImGuiCol.FrameBg] = new System.Numerics.Vector4(0.16f, 0.29f, 0.48f, 0.54f);

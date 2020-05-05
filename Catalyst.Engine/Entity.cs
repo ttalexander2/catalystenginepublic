@@ -9,14 +9,9 @@ using System.Runtime.Serialization;
 namespace Catalyst.Engine
 {
     [Serializable]
-    public class Entity
+    public class Entity : GameObject
     {
-        
-        public bool Active = true;
-        
         public int UID { get; private set; }
-        
-        public string Name { get; internal set; }
 
         private HashSet<string> _typeSet;
         
@@ -39,10 +34,10 @@ namespace Catalyst.Engine
 
         private Entity() { }
 
-        public void Rename(string name)
+        public override void Rename(string name)
         {
             this.Name = name;
-            this._manager.EntityTree.RenameFile(this.UID, name);
+            this._manager.CurrentScene.HierarchyTree.RenameFile(this, name);
         }
 
         #region adders

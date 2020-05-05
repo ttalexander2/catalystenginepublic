@@ -29,7 +29,7 @@ namespace Catalyst.Engine
         public static int Height { get; private set; }
         public static bool Fullscreen { get; private set; }
         public static string Title { get; private set; }
-        public Camera2D Camera
+        public Camera Camera
         {
             get { return CurrentScene.Camera; }
             private set { }

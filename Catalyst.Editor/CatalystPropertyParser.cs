@@ -14,10 +14,41 @@ namespace Catalyst.Editor
         public static void RenderObjectProperties(Object c)
         {
             var properties = c.GetType().GetProperties();
+
+            ImGui.BeginGroup();
+            foreach (PropertyInfo p in properties)
+            {
+                foreach (object attr in p.GetCustomAttributes(true))
+                {
+                    if (attr is CatalystAttribute)
+                    {
+                        ImGui.AlignTextToFramePadding();
+                        ImGui.Text(p.Name);
+                    }
+
+                }
+            }
+            var methods = c.GetType().GetMethods();
+            foreach (MethodInfo m in methods)
+            {
+                foreach (object attr in m.GetCustomAttributes(true))
+                {
+                    if (attr is CatalystAttribute)
+                    {
+                        ImGui.AlignTextToFramePadding();
+                        ImGui.Text(m.Name);
+                    }
+                }
+            }
+            ImGui.EndGroup();
+            ImGui.SameLine();
+            ImGui.BeginGroup();
+
             foreach (PropertyInfo p in properties)
             {
                 if (p.CanWrite)
                 {
+
                     foreach (object attr in p.GetCustomAttributes(true))
                     {
                         if (attr is GuiInteger)
@@ -145,10 +176,10 @@ namespace Catalyst.Editor
                             }
                         }
                     }
-
                 }
+                
             }
-            var methods = c.GetType().GetMethods();
+            
             foreach (MethodInfo m in methods)
             {
                 foreach (object attr in m.GetCustomAttributes(true))
@@ -166,6 +197,7 @@ namespace Catalyst.Editor
                     }
                 }
             }
+            ImGui.EndGroup();
         }
 
         private static void RenderInt(Object c, PropertyInfo p, GuiInteger attribute)
@@ -174,28 +206,28 @@ namespace Catalyst.Editor
 
             if (attribute.Mode == GuiIntegerMode.Default)
             {
-                ImGui.InputInt(p.Name, ref value);
+                ImGui.InputInt(string.Format("##hidelabel {0}", p.Name), ref value);
             }
             else if (attribute.Mode == GuiIntegerMode.Drag)
             {
                 if (attribute.HasRange)
                 {
-                    ImGui.DragInt(p.Name, ref value, 0.05f, attribute.Min, attribute.Max);
+                    ImGui.DragInt(string.Format("##hidelabel {0}", p.Name), ref value, 0.05f, attribute.Min, attribute.Max);
                 }
                 else
                 {
-                    ImGui.DragInt(p.Name, ref value);
+                    ImGui.DragInt(string.Format("##hidelabel {0}", p.Name), ref value);
                 }
                 ImGui.SameLine(); 
                 ImGuiLayout.HelpMarker("Click and drag to edit value.\nHold SHIFT/ALT for faster/slower edit.\nDouble-click or CTRL+click to input value.");
             }
             else if (attribute.Mode == GuiIntegerMode.Percent && attribute.HasRange)
             {
-                ImGui.DragInt(p.Name, ref value, 0.05f, 0, 100, "%d%%");
+                ImGui.DragInt(string.Format("##hidelabel {0}", p.Name), ref value, 0.05f, 0, 100, "%d%%");
             }
             else if (attribute.Mode == GuiIntegerMode.Slider && attribute.HasRange)
             {
-                ImGui.SliderInt(p.Name, ref value, attribute.Min, attribute.Max);
+                ImGui.SliderInt(string.Format("##hidelabel {0}", p.Name), ref value, attribute.Min, attribute.Max);
             }
             else
             {
@@ -217,40 +249,40 @@ namespace Catalyst.Editor
             float value = (float)p.GetValue(c);
             if (attribute.Mode == GuiFloatMode.Default)
             {
-                ImGui.InputFloat(p.Name, ref value);
+                ImGui.InputFloat(string.Format("##hidelabel {0}", p.Name), ref value);
             }
             else if (attribute.Mode == GuiFloatMode.Angle)
             {
-                ImGui.SliderAngle(p.Name, ref value, 0);
+                ImGui.SliderAngle(string.Format("##hidelabel {0}", p.Name), ref value, 0);
             }
             else if (attribute.Mode == GuiFloatMode.Drag)
             {
                 if (attribute.HasRange)
                 {
-                    ImGui.DragFloat(p.Name, ref value, 0.005f, attribute.Min, attribute.Max);
+                    ImGui.DragFloat(string.Format("##hidelabel {0}", p.Name), ref value, 0.005f, attribute.Min, attribute.Max);
                 }
                 else
                 {
-                    ImGui.DragFloat(p.Name, ref value, 0.005f);
+                    ImGui.DragFloat(string.Format("##hidelabel {0}", p.Name), ref value, 0.005f);
                 }
             }
             else if (attribute.Mode == GuiFloatMode.Scientific)
             {
-                ImGui.InputFloat(p.Name, ref value, 0.0f, 0.0f, "%e");
+                ImGui.InputFloat(string.Format("##hidelabel {0}", p.Name), ref value, 0.0f, 0.0f, "%e");
                 ImGui.SameLine(); 
                 ImGuiLayout.HelpMarker("Click and drag to edit value.\nHold SHIFT/ALT for faster/slower edit.\nDouble-click or CTRL+click to input value.");
             }
             else if (attribute.Mode == GuiFloatMode.Slider && attribute.HasRange)
             {
-                ImGui.SliderFloat(p.Name, ref value, attribute.Min, attribute.Max);
+                ImGui.SliderFloat(string.Format("##hidelabel {0}", p.Name), ref value, attribute.Min, attribute.Max);
             }
             else if (attribute.Mode == GuiFloatMode.Small)
             {
-                ImGui.InputFloat(p.Name, ref value, 0.0f, 0.0f, "%.06f");
+                ImGui.InputFloat(string.Format("##hidelabel {0}", p.Name), ref value, 0.0f, 0.0f, "%.06f");
             }
             else if (attribute.Mode == GuiFloatMode.SmallDrag && attribute.HasRange)
             {
-                ImGui.DragFloat(p.Name, ref value, 0.0001f, attribute.Min, attribute.Max, "%.06f");
+                ImGui.DragFloat(string.Format("##hidelabel {0}", p.Name), ref value, 0.0001f, attribute.Min, attribute.Max, "%.06f");
             }
 
             if (attribute.HasRange)
@@ -266,7 +298,7 @@ namespace Catalyst.Editor
         private static void RenderBoolean(Object c, PropertyInfo p)
         {
             bool value = (bool)p.GetValue(c);
-            ImGui.Checkbox(p.Name, ref value);
+            ImGui.Checkbox(string.Format("##hidelabel {0}", p.Name), ref value);
             p.SetValue(c, value);
         }
 
@@ -276,12 +308,12 @@ namespace Catalyst.Editor
             System.Numerics.Vector2 vec = new System.Numerics.Vector2(value.X, value.Y);
             if (attribute.HasRange)
             {
-                ImGui.InputFloat2(p.Name, ref vec);
+                ImGui.InputFloat2(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, Vector2.Clamp(new Vector2(vec.X, vec.Y), attribute.Min, attribute.Max));
             }
             else
             {
-                ImGui.InputFloat2(p.Name, ref vec);
+                ImGui.InputFloat2(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, new Vector2(vec.X, vec.Y));
             }
         }
@@ -292,12 +324,12 @@ namespace Catalyst.Editor
             System.Numerics.Vector3 vec = new System.Numerics.Vector3(value.X, value.Y, value.Z);
             if (attribute.HasRange)
             {
-                ImGui.InputFloat3(p.Name, ref vec);
+                ImGui.InputFloat3(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, Vector3.Clamp(new Vector3(vec.X, vec.Y, vec.Z), attribute.Min, attribute.Max));
             }
             else
             {
-                ImGui.InputFloat3(p.Name, ref vec);
+                ImGui.InputFloat3(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, new Vector3(vec.X, vec.Y, vec.Z));
             }
         }
@@ -308,12 +340,12 @@ namespace Catalyst.Editor
             System.Numerics.Vector4 vec = new System.Numerics.Vector4(value.X, value.Y, value.Z, value.W);
             if (attribute.HasRange)
             {
-                ImGui.InputFloat4(p.Name, ref vec);
+                ImGui.InputFloat4(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, Vector4.Clamp(new Vector4(vec.X, vec.Y, vec.Z, vec.W), attribute.Min, attribute.Max));
             }
             else
             {
-                ImGui.InputFloat4(p.Name, ref vec);
+                ImGui.InputFloat4(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, new Vector4(vec.X, vec.Y, vec.Z, vec.W));
             }
         }
@@ -325,13 +357,13 @@ namespace Catalyst.Editor
             if (attribute.Mode == GuiColorMode.RGB)
             {
                 System.Numerics.Vector3 vec = new System.Numerics.Vector3(value.X, value.Y, value.Z);
-                ImGui.ColorEdit3(p.Name, ref vec);
+                ImGui.ColorEdit3(string.Format("##hidelabel {0}", p.Name), ref vec);
                 p.SetValue(c, new Color(new Vector4(vec.X, vec.Y, vec.Z, value.W)));
             }
             if (attribute.Mode == GuiColorMode.RGBA)
             {
                 System.Numerics.Vector4 vec = new System.Numerics.Vector4(value.X, value.Y, value.Z, value.W);
-                ImGui.ColorEdit4(p.Name, ref vec, ImGuiColorEditFlags.AlphaBar);
+                ImGui.ColorEdit4(string.Format("##hidelabel {0}", p.Name), ref vec, ImGuiColorEditFlags.AlphaBar);
                 p.SetValue(c, new Color(new Vector4(vec.X, vec.Y, vec.Z, vec.W)));
             }
         }
@@ -342,12 +374,12 @@ namespace Catalyst.Editor
             byte[] buff = Encoding.Default.GetBytes(val);
             if (!attribute.HasHint)
             {
-                ImGui.InputText(p.Name, buff, (uint)buff.Length);
+                ImGui.InputText(string.Format("##hidelabel {0}", p.Name), buff, (uint)buff.Length);
                 p.SetValue(c, Encoding.Default.GetString(buff));
             }
             else if (attribute.HasHint)
             {
-                ImGui.InputTextWithHint(p.Name, attribute.Hint, val, (uint)val.Length);
+                ImGui.InputTextWithHint(string.Format("##hidelabel {0}", p.Name), attribute.Hint, val, (uint)val.Length);
                 p.SetValue(c, Encoding.Default.GetString(buff));
             }
         }
@@ -357,7 +389,7 @@ namespace Catalyst.Editor
             object val = p.GetValue(c);
             string[] items = Enum.GetNames(val.GetType());
             int curr = (int)val;
-            ImGui.Combo(p.Name, ref curr, items, items.Length);
+            ImGui.Combo(string.Format("##hidelabel {0}", p.Name), ref curr, items, items.Length);
             p.SetValue(c, curr);
         }
 
@@ -376,7 +408,7 @@ namespace Catalyst.Editor
 
                 string[] arr = names.ToArray();
 
-                ImGui.Combo(p.Name, ref selected, arr, arr.Length);
+                ImGui.Combo(string.Format("##hidelabel {0}", p.Name), ref selected, arr, arr.Length);
 
                 if (selected >= 0 && selected < keys.Count)
                     p.SetValue(c, ProjectManager.Current.Manager.GetEntity(keys[selected]));
@@ -404,7 +436,7 @@ namespace Catalyst.Editor
 
             string[] nameArray = names.ToArray();
 
-            ImGui.Combo(p.Name, ref selected, nameArray, nameArray.Length);
+            ImGui.Combo(string.Format("##hidelabel {0}", p.Name), ref selected, nameArray, nameArray.Length);
 
             if (names[selected].Equals("(none)") || selected < 0 || selected >= keys.Count)
             {

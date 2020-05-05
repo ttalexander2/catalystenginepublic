@@ -87,7 +87,6 @@ namespace Catalyst.Engine
 
         public void AddGroup()
         {
-            Console.WriteLine("AddGroup");
             if (Selected.Count == 1 && Selected.First() is FolderNode)
             {
                 ((FolderNode)Selected.First()).Values.Add(new FolderNode((FolderNode)Selected.First(), String.Format("group_{0}", _groupCounter)));
@@ -99,6 +98,23 @@ namespace Catalyst.Engine
             else
             {
                 ((FolderNode)Root).Values.Add(new FolderNode(Root, String.Format("group_{0}", _groupCounter)));
+            }
+            _groupCounter++;
+        }
+
+        public void AddGroup(string group)
+        {
+            if (Selected.Count == 1 && Selected.First() is FolderNode)
+            {
+                ((FolderNode)Selected.First()).Values.Add(new FolderNode((FolderNode)Selected.First(), group));
+            }
+            else if (Selected.Count == 1 && Selected.First() is FileNode && Selected.First().Parent != null)
+            {
+                ((FolderNode)Selected.First().Parent).Values.Add(new FolderNode(Selected.First().Parent, group));
+            }
+            else
+            {
+                ((FolderNode)Root).Values.Add(new FolderNode(Root, group));
             }
             _groupCounter++;
         }
@@ -240,14 +256,13 @@ namespace Catalyst.Engine
 
         public void RenameFile(T file, string name)
         {
-            Console.WriteLine("RenameFile");
             FileNode node = SearchFile(file);
-            node.Name = name;
+            if (node != null)
+                node.Name = name;
         }
 
         public FileNode SearchFile(T node)
         {
-            Console.WriteLine("SearchFile");
             return SearchFile(Root, node);
         }
 

@@ -11,7 +11,7 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class RenderSystem : System
+    public abstract class RenderSystem : System, IRenderable
     {
 
         internal RenderSystem(Scene scene) : base(scene)
@@ -28,6 +28,8 @@ namespace Catalyst.Engine
         public virtual void RenderUI(GameTime gameTime) { }
 
         public virtual void LoadContent() { }
+
+        public virtual void UnloadContent() { }
 
         private static Type[] DerivedTypes()
         {

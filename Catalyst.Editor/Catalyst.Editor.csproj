@@ -16,12 +16,15 @@
       <Compile Remove="Content\bin\**" />
       <Compile Remove="Content\obj\**" />
       <Compile Remove="New Project Template\**" />
+      <Compile Remove="Texture Packer\**" />
       <EmbeddedResource Remove="Content\bin\**" />
       <EmbeddedResource Remove="Content\obj\**" />
       <EmbeddedResource Remove="New Project Template\**" />
+      <EmbeddedResource Remove="Texture Packer\**" />
       <None Remove="Content\bin\**" />
       <None Remove="Content\obj\**" />
       <None Remove="New Project Template\**" />
+      <None Remove="Texture Packer\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -61,7 +64,6 @@
     <Folder Include="Content\Sprites\Player\s_player_jump\" />
     <Folder Include="Content\Sprites\Player\s_player_jump_peak\" />
     <Folder Include="Content\Sprites\Player\s_player_running_1\" />
-    <Folder Include="Texture Packer\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -153,6 +155,45 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Content\Untitled.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\AligntoGrid_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\Camera_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\DownArrow_6x16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\Entity_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\GridUniform_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\MonoEntity_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\NotVisible_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\Pause_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\ResetView_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\Run_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\Stop_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\Visible_16x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\ZoomControl_16x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="libfmod.dylib">

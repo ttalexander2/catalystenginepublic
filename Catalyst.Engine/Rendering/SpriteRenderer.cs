@@ -19,7 +19,7 @@ namespace Catalyst.Engine.Rendering
         {
             foreach (Sprite sprite in Manager.GetComponents<Sprite>().Values)
             {
-                if (sprite is AnimatedSprite)
+                if (sprite is AnimatedSprite && sprite.Active)
                     UpdateSprite(gameTime, (AnimatedSprite)sprite);
             }
         }
@@ -28,13 +28,14 @@ namespace Catalyst.Engine.Rendering
         {
             foreach (Sprite sprite in Manager.GetComponents<Sprite>().Values)
             {
-                RenderSprite(gameTime, sprite);
+                if (sprite.Visible)
+                    RenderSprite(gameTime, sprite);
             }
         }
 
         public void RenderSprite(GameTime gameTime, Sprite sprite)
         {
-            if (sprite.Active && sprite.Texture != null)
+            if (sprite.Visible && sprite.Texture != null)
             {
                 Position transform = sprite.Entity.GetComponent<Position>();
                 Graphics.SpriteBatch.Draw(sprite.Texture, transform.Coordinates, sprite.TextureRect, Utilities.Color.White, sprite.Rotation, sprite.OriginVec2, sprite.Scale, sprite.spriteEffects, sprite.Layer);

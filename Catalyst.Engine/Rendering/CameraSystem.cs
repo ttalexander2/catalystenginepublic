@@ -22,7 +22,7 @@ namespace Catalyst.Engine.Rendering
             if (scene.Camera.Following != null && scene.Camera.Following.HasComponent<Position>())
             {
                 Position follow = scene.Camera.Following.GetComponent<Position>();
-                Camera2D cam = scene.Camera;
+                Camera cam = scene.Camera;
                 scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, follow.Coordinates-(scene.Camera.Size/2)+cam.Offset, cam.Speed));
             }
         }

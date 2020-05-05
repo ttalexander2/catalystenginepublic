@@ -4,9 +4,11 @@ using Catalyst.Engine.Utilities;
 namespace Catalyst.Engine
 {
 
+    public abstract class CatalystAttribute : Attribute { }
+
     #region Integer
     [Serializable]
-    public class GuiInteger : Attribute
+    public class GuiInteger : CatalystAttribute
     {
         public int Min { get; private set; }
         public int Max { get; private set; }
@@ -64,7 +66,7 @@ namespace Catalyst.Engine
 
     #region Float
     [Serializable]
-    public class GuiFloat : Attribute
+    public class GuiFloat : CatalystAttribute
     {
         public float Min { get; private set; }
         public float Max { get; private set; }
@@ -130,7 +132,7 @@ namespace Catalyst.Engine
 
     #region Double
     [Serializable]
-    public class GuiDouble : Attribute
+    public class GuiDouble : CatalystAttribute
     {
         public double Min { get; private set; }
         public double Max { get; private set; }
@@ -153,7 +155,7 @@ namespace Catalyst.Engine
 
     #region Vector2
     [Serializable]
-    public class GuiVector2 : Attribute
+    public class GuiVector2 : CatalystAttribute
     {
         public Vector2 Min { get; private set; }
         public Vector2 Max { get; private set; }
@@ -176,7 +178,7 @@ namespace Catalyst.Engine
 
     #region Vector3
     [Serializable]
-    public class GuiVector3 : Attribute
+    public class GuiVector3 : CatalystAttribute
     {
         public Vector3 Min { get; private set; }
         public Vector3 Max { get; private set; }
@@ -198,7 +200,7 @@ namespace Catalyst.Engine
 
     #region Vector4
     [Serializable]
-    public class GuiVector4 : Attribute
+    public class GuiVector4 : CatalystAttribute
     {
         public Vector4 Min { get; private set; }
         public Vector4 Max { get; private set; }
@@ -220,7 +222,7 @@ namespace Catalyst.Engine
 
     #region Color
     [Serializable]
-    public class GuiColor : Attribute
+    public class GuiColor : CatalystAttribute
     {
         public GuiColorMode Mode { get; private set; }
         public GuiColor()
@@ -245,7 +247,7 @@ namespace Catalyst.Engine
 
     #region Label
     [Serializable]
-    public class GuiLabel : Attribute
+    public class GuiLabel : CatalystAttribute
     {
         public string Label { get; private set; }
         public GuiLabel()
@@ -263,7 +265,7 @@ namespace Catalyst.Engine
     #region String
 
     [Serializable]
-    public class GuiString : Attribute
+    public class GuiString : CatalystAttribute
     {
         public string Hint { get; private set; }
         public bool HasHint { get; private set; }
@@ -285,7 +287,7 @@ namespace Catalyst.Engine
     #region Boolean
 
     [Serializable]
-    public class GuiBoolean : Attribute
+    public class GuiBoolean : CatalystAttribute
     {
         public GuiBoolean()
         {
@@ -296,7 +298,7 @@ namespace Catalyst.Engine
 
     #region Enumeration
     [Serializable]
-    public class GuiEnum : Attribute
+    public class GuiEnum : CatalystAttribute
     {
         public GuiEnum()
         {
@@ -306,7 +308,7 @@ namespace Catalyst.Engine
 
     #region EntitySelector
     [Serializable]
-    public class GuiEntitySelector : Attribute
+    public class GuiEntitySelector : CatalystAttribute
     {
         public GuiEntitySelector()
         {
@@ -316,7 +318,7 @@ namespace Catalyst.Engine
 
     #region SpriteSelector
     [Serializable]
-    public class GuiSpriteSelector : Attribute
+    public class GuiSpriteSelector : CatalystAttribute
     {
         public GuiSpriteSelector()
         {
@@ -326,7 +328,7 @@ namespace Catalyst.Engine
 
     #region Button
     [Serializable]
-    public class GuiButton : Attribute
+    public class GuiButton : CatalystAttribute
     {
         public string ButtonText { get; set; }
         public object[] Params { get; set; }
