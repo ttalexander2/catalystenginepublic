@@ -204,19 +204,42 @@ namespace CatalystEditor
             }
 
             IntPtr p = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.Editor.CatalystEditor.Instance.RenderTarget);
-            ImGui.Image(p, view_bounds);
+
+            float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
+            float actual = (float)bounds.Width / (float)bounds.Height;
+
+            Vector2 size;
+
+            if (actual > ratio)
+            {
+                size = new Vector2(bounds.Height * ratio, bounds.Height);
+            }
+            else if (actual < ratio)
+            {
+                size = new Vector2(bounds.Width, (int)(bounds.Width * 1 / ratio));
+            }
+            else
+            {
+                size = new Vector2(bounds.Width, bounds.Height);
+            }
+
+            ImGui.Image(p, size);
 
 
         }
 
         public static Matrix GetTransformMatrix()
         {
-            Matrix Transform =
-                             Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
-                             Matrix.CreateRotationZ(0) *
-                             Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
-                             Matrix.CreateTranslation(new Vector3(0, 0, 0));
-            return Transform;
+            if (!Playing)
+                return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                       Matrix.CreateRotationZ(0) *
+                       Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+                       Matrix.CreateTranslation(new Vector3(0, 0, 0));
+            else
+                return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                       Matrix.CreateRotationZ(0) *
+                       Matrix.CreateScale(new Vector3(1, 1, 1)) *
+                       Matrix.CreateTranslation(new Vector3(0, 0, 0));
         }
 
     }

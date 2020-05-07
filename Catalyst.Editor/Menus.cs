@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Catalyst.Engine;
@@ -50,84 +52,92 @@ namespace Catalyst.Editor
                 {
                     ImGui.PushFont(ImGuiLayout.HeadingFont);
                     ImGui.Text(Inspecting.Name);
+                    RenderGameObjectIcon(Inspecting, ImGui.GetWindowSize().X-32);
                     ImGui.PushFont(ImGuiLayout.DefaultFont);
-                    RenderGameObjectIcon(Inspecting);
-                }
-                if (Inspecting is Entity)
-                {
-                    Entity selected = (Entity)Inspecting;
-                    var dict = ProjectManager.Current.Manager.GetComponentDictionary();
-                    foreach (string t in dict.Keys)
+                    if (Inspecting is Entity)
                     {
-                        if (dict[t].ContainsKey(selected.UID))
+                        Entity selected = (Entity)Inspecting;
+                        var dict = ProjectManager.Current.Manager.GetComponentDictionary();
+                        ImGui.BeginGroup();
+                        foreach (string t in dict.Keys.OrderBy<string, string>(s => Type.GetType(s).Name))
                         {
-                            Component c = dict[t][selected.UID];
-                            ImGui.PushFont(ImGuiLayout.SlightlyLargerFontThanNormal);
-                            ImGui.Text(c.GetType().Name);
-                            if (ImGui.BeginPopupContextItem(String.Format("{0}_context", t)))
+                            if (dict[t].ContainsKey(selected.UID))
                             {
-                                if (ImGui.Selectable("Remove"))
+                                Component c = dict[t][selected.UID];
+
+                                ImGui.PushFont(ImGuiLayout.SlightlyLargerFontThanNormal);
+                                bool oof;
+                                if (ImGui.CollapsingHeader(c.GetType().Name, ImGuiTreeNodeFlags.DefaultOpen))
                                 {
-                                    ProjectManager.Current.Manager.RemoveComponent(c);
-                                    ImGui.EndPopup();
-                                    break;
-                                }
-                                if (ImGui.BeginMenu("Add Component"))
-                                {
-                                    foreach (string ypt in ProjectManager.Current.Manager.GetComponentDictionary().Keys)
+                                    ImGui.PushFont(ImGuiLayout.DefaultFont);
+
+
+
+                                    if (ImGui.BeginPopupContextItem(String.Format("{0}_context", t)))
                                     {
-                                        if (ImGui.MenuItem(Type.GetType(ypt).Name))
+                                        if (ImGui.Selectable("Remove"))
                                         {
-                                            ProjectManager.Current.Manager.GetEntity(selected.UID).AddComponent(Type.GetType(ypt));
+                                            ProjectManager.Current.Manager.RemoveComponent(c);
+                                            ImGui.EndPopup();
                                             break;
                                         }
+                                        if (ImGui.BeginMenu("Add Component"))
+                                        {
+                                            foreach (string ypt in ProjectManager.Current.Manager.GetComponentDictionary().Keys)
+                                            {
+                                                if (ImGui.MenuItem(Type.GetType(ypt).Name))
+                                                {
+                                                    ProjectManager.Current.Manager.GetEntity(selected.UID).AddComponent(Type.GetType(ypt));
+                                                    break;
+                                                }
+                                            }
+                                            ImGui.EndMenu();
+                                        }
+                                        ImGui.EndPopup();
                                     }
-                                    ImGui.EndMenu();
+                                    ImGui.AlignTextToFramePadding();
+                                    CatalystPropertyParser.RenderObjectProperties(c);
                                 }
-                                ImGui.EndPopup();
-                            }
-                            ImGui.PushFont(ImGuiLayout.DefaultFont);
-                            ImGui.SameLine(ImGui.GetWindowWidth() - 80);
 
-                            ImGui.Text("");
-                            CatalystPropertyParser.RenderObjectProperties(c);
-                            ImGui.Separator();
+                            }
                         }
 
-                    }
+                        ImGui.EndGroup();
 
-                    //ImGui.BeginChild("Component_Buttons", new System.Numerics.Vector2(0, 26f), false, ImGuiWindowFlags.None);
+                        //ImGui.BeginChild("Component_Buttons", new System.Numerics.Vector2(0, 26f), false, ImGuiWindowFlags.None);
 
-                    float currentwidth = ImGui.GetWindowSize().X;
-                    ImGui.SetNextItemWidth(currentwidth*2);
+                        float currentwidth = ImGui.GetWindowSize().X;
+                        ImGui.SetNextItemWidth(currentwidth * 2);
 
-                    if (ImGui.Button("Add Component"))
-                    {
-                        ImGui.OpenPopup("Add_Component_Menu");
-                    }
-
-                    
-
-                    if (ImGui.BeginPopup("Add_Component_Menu"))
-                    {
-                        foreach (string t in ProjectManager.Current.Manager.GetComponentDictionary().Keys)
+                        if (ImGui.Button("Add Component"))
                         {
-                            if (ImGui.MenuItem(Type.GetType(t).Name))
-                            {
-                                ((Entity)Inspecting).AddComponent(Type.GetType(t));
-                                break;
-                            }
+                            ImGui.OpenPopup("Add_Component_Menu");
                         }
-                        ImGui.EndPopup();
+
+
+
+                        if (ImGui.BeginPopup("Add_Component_Menu"))
+                        {
+                            foreach (string t in ProjectManager.Current.Manager.GetComponentDictionary().Keys)
+                            {
+                                if (ImGui.MenuItem(Type.GetType(t).Name))
+                                {
+                                    ((Entity)Inspecting).AddComponent(Type.GetType(t));
+                                    break;
+                                }
+                            }
+                            ImGui.EndPopup();
+                        }
+
+
+
                     }
-
-
-
+                    else
+                    {
+                        CatalystPropertyParser.RenderObjectProperties(ProjectManager.Current.Camera);
+                    }
                 }
-                else if (Inspecting is Camera)
-                {
-                    CatalystPropertyParser.RenderObjectProperties(ProjectManager.Current.Camera);
-                }
+
             }
             ImGui.EndChild();
             ImGui.PopStyleColor();
@@ -226,13 +236,13 @@ namespace Catalyst.Editor
                             }
                         }
 
-                        RenderGameObjectIcon(((FileNode)n).Value);
+                        RenderGameObjectIcon(((FileNode)n).Value, ImGui.GetWindowWidth() - 32);
                     }
                 }
                 else
                 {
                     string buff = n.Name.Trim();
-                    ImGui.InputText("", ref buff, 256);
+                    ImGui.InputText("", ref buff, 64);
                     ImGui.SetKeyboardFocusHere();
                     ImGui.SetScrollHereY();
                     if (n is FileNode)
@@ -394,21 +404,21 @@ namespace Catalyst.Editor
 
         }
 
-        public static void RenderGameObjectIcon(GameObject obj)
+        public static void RenderGameObjectIcon(GameObject obj, float distance)
         {
             if (obj is Entity)
             {
-                ImGui.SameLine(ImGui.GetWindowWidth() - 32);
+                ImGui.SameLine(distance);
                 ImGui.Image(IconLoader.Entity, IconLoader.Icon16Size);
             }
             else if (obj is MonoEntity)
             {
-                ImGui.SameLine(ImGui.GetWindowWidth() - 32);
+                ImGui.SameLine(distance);
                 ImGui.Image(IconLoader.MonoEntity, IconLoader.Icon16Size);
             }
             else if (obj is Camera)
             {
-                ImGui.SameLine(ImGui.GetWindowWidth() - 32);
+                ImGui.SameLine(distance);
                 ImGui.Image(IconLoader.Camera, IconLoader.Icon16Size);
             }
         }

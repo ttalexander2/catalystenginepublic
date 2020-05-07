@@ -108,7 +108,7 @@ namespace Catalyst.Editor
                     ImGui.End();
                 }
 
-                ImGui.SetNextWindowSizeConstraints(new Vector2(200, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - scene_size - 100, _windowSize.Y - _menuSize.Y));
+                ImGui.SetNextWindowSizeConstraints(new Vector2(350, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - scene_size - 100, _windowSize.Y - _menuSize.Y));
 
                 t = false;
                 if (ImGui.Begin("Right Dock", ref t, window_flags))
@@ -143,9 +143,11 @@ namespace Catalyst.Editor
 
                     ImGui.SetWindowCollapsed(false);
 
-                    ViewBounds = CalculateViewBounds((int)(_windowSize.X - right_dock_size), (int)(_windowSize.X - right_dock_size)/(16/9));
+                    ViewBounds = CalculateViewBounds((int)(_windowSize.X - right_dock_size), (int)(_windowSize.X - right_dock_size));
 
                     ViewRect = new Rectangle((int)(scene_size), (int)(_menuSize.Y + 35), (int)(ViewBounds.X - scene_size), (int)ViewBounds.Y);
+
+                    Console.WriteLine(ViewRect.ToString());
 
                     ViewportRenderer.RenderViewPort(gameTime, ViewBounds, ViewRect);
 

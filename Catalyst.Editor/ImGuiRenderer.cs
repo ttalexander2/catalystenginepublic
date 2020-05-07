@@ -179,7 +179,7 @@ namespace Catalyst.Editor
             // MonoGame-specific //////////////////////
             _game.Window.TextInput += (s, a) =>
             {
-                if (a.Character == '\t') return;
+                if (a.Character == '\t' || a.Character == 127) return;
 
                 io.AddInputCharacter(a.Character);
             };
@@ -243,6 +243,7 @@ namespace Catalyst.Editor
             io.KeyCtrl = keyboard.IsKeyDown(Keys.LeftControl) || keyboard.IsKeyDown(Keys.RightControl);
             io.KeyAlt = keyboard.IsKeyDown(Keys.LeftAlt) || keyboard.IsKeyDown(Keys.RightAlt);
             io.KeySuper = keyboard.IsKeyDown(Keys.LeftWindows) || keyboard.IsKeyDown(Keys.RightWindows);
+
 
             io.DisplaySize = new System.Numerics.Vector2(_graphicsDevice.PresentationParameters.BackBufferWidth, _graphicsDevice.PresentationParameters.BackBufferHeight);
             io.DisplayFramebufferScale = new System.Numerics.Vector2(1f, 1f);

@@ -170,7 +170,7 @@ namespace Catalyst.Editor
                  */
                 if (ViewportRenderer.Playing)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, _layout.ViewBounds.X / Engine.Graphics.Width));
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, _layout.ViewBounds.X / _layout.ViewBounds.Y + Engine.Graphics.Width/Engine.Graphics.Height));
                 }
                 else
                 {
@@ -194,7 +194,7 @@ namespace Catalyst.Editor
 
                 if (ViewportRenderer.Playing)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, _layout.ViewBounds.X / Engine.Graphics.Width));
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, _layout.ViewBounds.X / _layout.ViewBounds.Y + Engine.Graphics.Width / Engine.Graphics.Height));
                 }
                 else
                 {

@@ -11,6 +11,7 @@ namespace Catalyst.Editor
 {
     public static class CatalystPropertyParser
     {
+
         public static void RenderObjectProperties(Object c)
         {
             var properties = c.GetType().GetProperties();
@@ -41,7 +42,7 @@ namespace Catalyst.Editor
                 }
             }
             ImGui.EndGroup();
-            ImGui.SameLine();
+            ImGui.SameLine(ImGui.GetWindowWidth() - 7*ImGui.GetWindowWidth()/10);
             ImGui.BeginGroup();
 
             foreach (PropertyInfo p in properties)
@@ -53,6 +54,7 @@ namespace Catalyst.Editor
                     {
                         if (attr is GuiInteger)
                         {
+                            
                             try
                             {
                                 RenderInt(c, p, (GuiInteger)attr);
