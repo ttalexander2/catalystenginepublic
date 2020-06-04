@@ -11,96 +11,114 @@ namespace Catalyst.Engine
     [Serializable]
     public class Entity : GameObject
     {
+        public Scene Scene { get; private set; }
         public int UID { get; private set; }
 
-        private HashSet<string> _typeSet;
-        
-        private ECManager _manager;
+        public HashSet<string> ComponentTypes;
 
-        internal Entity(ECManager manager)
+        [GuiVector2]
+        public Vector2 Position = new Vector2();
+        public float X 
+        { 
+            get
+            {
+                return Position.X;
+            }
+            set
+            {
+                Position.X = value;
+            }
+        }
+        public float Y
         {
-            this.UID = manager.NewId();
-            this._manager = manager;
+            get
+            {
+                return Position.Y;
+            }
+            set
+            {
+                Position.Y = value;
+            }
+        }
+
+        internal Entity(Scene scene)
+        {
+            this.Scene = scene;
+            this.UID = Scene.Manager.NewId();
             this.Name = "entity_"+ UID;
-            this._typeSet = new HashSet<string>();
+            this.ComponentTypes = new HashSet<string>();
+            Position = Vector2.Zero;
         }
 
-        internal Entity(ECManager manager, int id)
-        {
-            this.UID = id;
-            this._manager = manager;
-            this._typeSet = new HashSet<string>();
-        }
-
-        private Entity() { }
+        internal Entity() { }
 
         public override void Rename(string name)
         {
             this.Name = name;
-            this._manager.CurrentScene.HierarchyTree.RenameFile(this, name);
+            this.Scene.Manager.CurrentScene.HierarchyTree.RenameFile(this, name);
         }
 
         #region adders
         public Component AddComponent<T>() where T : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
-            return _manager.Components[t.AssemblyQualifiedName][UID];
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
+            return Scene.Manager.Components[t.AssemblyQualifiedName][UID];
         }
 
         public Component AddComponent(Type t)
         {
-            _manager.Components[t.AssemblyQualifiedName][UID] = (Component)Activator.CreateInstance(t, new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
-            return _manager.Components[t.AssemblyQualifiedName][UID];
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (Component)Activator.CreateInstance(t, new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
+            return Scene.Manager.Components[t.AssemblyQualifiedName][UID];
         }
 
         public void AddComponents<T, U>() where T : Component where U : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
             AddComponent<U>();
         }
 
         public void AddComponents<T, U, V>() where T : Component where U : Component where V : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
             AddComponents<U, V>();
         }
 
         public void AddComponents<T, U, V, W>() where T : Component where U : Component where V : Component where W : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
             AddComponents<U, V, W>();
         }
 
         public void AddComponents<T, U, V, W, X>() where T : Component where U : Component where V : Component where W : Component where X : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
             AddComponents<U, V, W, X>();
         }
 
         public void AddComponents<T, U, V, W, X, Y>() where T : Component where U : Component where V : Component where W : Component where X : Component where Y : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
             AddComponents<U, V, W, X, Y>();
         }
 
         public void AddComponents<T, U, V, W, X, Y, Z>() where T : Component where U : Component where V : Component where W : Component where X : Component where Y : Component where Z : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
             AddComponents<U, V, W, X, Y, Z>();
         }
 
@@ -108,8 +126,8 @@ namespace Catalyst.Engine
         public void AddChild<P, C>() where P : Component where C : P
         {
             Type t = typeof(P);
-            _manager.Components[t.AssemblyQualifiedName][UID] = (C)Activator.CreateInstance(typeof(C), new Object[] { this });
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (C)Activator.CreateInstance(typeof(C), new Object[] { this });
+            ComponentTypes.Add(t.AssemblyQualifiedName);
         }
 
         public void AddComponent<T>(Component c) where T : Component
@@ -117,8 +135,8 @@ namespace Catalyst.Engine
 
             if (c.UID != UID || !(c is T)) { return; }
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName][UID] = c;
-            _typeSet.Add(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = c;
+            ComponentTypes.Add(t.AssemblyQualifiedName);
         }
 
         internal void AddComponent(Component c)
@@ -127,39 +145,49 @@ namespace Catalyst.Engine
             {
                 c.UID = UID;
             }
-            _manager.Components[c.GetType().AssemblyQualifiedName][UID] = c;
-            _typeSet.Add(c.GetType().AssemblyQualifiedName);
-
+            Scene.Manager.Components[c.GetType().AssemblyQualifiedName][UID] = c;
+            ComponentTypes.Add(c.GetType().AssemblyQualifiedName);
         }
 
         #endregion
 
         public T GetComponent<T>() where T : Component
         {
-            return _manager.GetComponent<T>(UID);
+            return Scene.Manager.GetComponent<T>(UID);
         }
 
         public void RemoveComponent<T>() where T : Component
         {
             Type t = typeof(T);
-            _manager.Components[t.AssemblyQualifiedName].Remove(UID);
-            _typeSet.Remove(t.AssemblyQualifiedName);
+            Scene.Manager.Components[t.AssemblyQualifiedName].Remove(UID);
+            ComponentTypes.Remove(t.AssemblyQualifiedName);
+        }
+
+        public void RemoveComponent(Component component)
+        {
+            Scene.Manager.Components[component.GetType().AssemblyQualifiedName].Remove(UID);
+            ComponentTypes.Remove(component.GetType().AssemblyQualifiedName);
         }
 
         public void DestroyEntity()
         {
-            foreach (string t in _manager.Components.Keys)
+            foreach (string t in Scene.Manager.Components.Keys)
             {
-                _manager.Components[t].Remove(UID);
-                _typeSet.Remove(Type.GetType(t).AssemblyQualifiedName);
+                Scene.Manager.Components[t].Remove(UID);
+                ComponentTypes.Remove(Type.GetType(t).AssemblyQualifiedName);
             }
-            _manager.EntityDict.Remove(UID);
+            Scene.Manager.EntityDict.Remove(UID);
         }
 
         public bool HasComponent<T>() where T : Component
         {
             Type t = typeof(T);
-            return _typeSet.Contains(t.AssemblyQualifiedName);
+            return ComponentTypes.Contains(t.AssemblyQualifiedName);
+        }
+
+        public bool HasComponent(Component component)
+        {
+            return ComponentTypes.Contains(component.GetType().AssemblyQualifiedName);
         }
     }
 }

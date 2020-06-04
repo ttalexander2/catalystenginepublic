@@ -19,11 +19,10 @@ namespace Catalyst.Engine.Rendering
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (scene.Camera.Following != null && scene.Camera.Following.HasComponent<Position>())
+            if (scene.Camera.Following != null)
             {
-                Position follow = scene.Camera.Following.GetComponent<Position>();
                 Camera cam = scene.Camera;
-                scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, follow.Coordinates-(scene.Camera.Size/2)+cam.Offset, cam.Speed));
+                scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, scene.Camera.Following.Position-(scene.Camera.Size/2)+cam.Offset, cam.Speed));
             }
         }
     }

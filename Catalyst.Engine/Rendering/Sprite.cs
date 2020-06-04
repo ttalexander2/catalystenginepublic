@@ -10,11 +10,9 @@ using System.Threading.Tasks;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class Sprite : Component, Loadable
+    public class Sprite : Component, ILoad
     {
-        public Entity Entity { get; private set; }
-        [GuiString]
-        public String Name { get; set; }
+
         public bool Packed { get; internal set; }
 
         private Rectangle _textureRect;
@@ -53,7 +51,7 @@ namespace Catalyst.Engine.Rendering
         public bool Active { get; set; }
 
         [GuiEnum]
-        public SpriteOrigin Origin { get; set; }
+        public RectangleOrigin Origin { get; set; }
 
         private Vector2 _originVec2;
         public Vector2 OriginVec2
@@ -81,13 +79,12 @@ namespace Catalyst.Engine.Rendering
 
         public Sprite(Entity entity, PackedTexture packedTextureInfo) : base(entity)
         {
-            Entity = entity;
             PackedTexture = packedTextureInfo;
             Packed = true;
             Layer = 0;
             Distance = 0;
             Active = true;
-            Origin = SpriteOrigin.TopLeft;
+            Origin = RectangleOrigin.TopLeft;
             Rotation = 0;
             Scale = 1;
         }
@@ -100,24 +97,10 @@ namespace Catalyst.Engine.Rendering
             Layer = 0;
             Distance = 0;
             Active = true;
-            Origin = SpriteOrigin.TopLeft;
+            Origin = RectangleOrigin.TopLeft;
             Rotation = 0;
             Scale = 1;
             _texturePath = texture.Name;
-        }
-
-        [Serializable]
-        public enum SpriteOrigin
-        {
-            TopLeft,
-            BottomLeft,
-            TopRight,
-            BottomRight,
-            Center,
-            TopCenter,
-            BottomCenter,
-            CenterLeft,
-            CenterRight
         }
 
         public void LoadContent()
@@ -133,27 +116,29 @@ namespace Catalyst.Engine.Rendering
             }
         }
 
-        public static Utilities.Vector2 OriginToVectorOffset(SpriteOrigin origin, Utilities.Rectangle dimensions)
+        public void UnloadContent() { }
+
+        public static Utilities.Vector2 OriginToVectorOffset(RectangleOrigin origin, Utilities.Rectangle dimensions)
         {
             switch (origin)
             {
-                case (SpriteOrigin.TopLeft):
+                case (RectangleOrigin.TopLeft):
                     return new Utilities.Vector2(0, 0);
-                case (SpriteOrigin.TopRight):
+                case (RectangleOrigin.TopRight):
                     return new Utilities.Vector2(dimensions.X, 0);
-                case (SpriteOrigin.TopCenter):
+                case (RectangleOrigin.TopCenter):
                     return new Utilities.Vector2((int)(dimensions.X / 2), 0);
-                case (SpriteOrigin.CenterLeft):
+                case (RectangleOrigin.CenterLeft):
                     return new Utilities.Vector2(0, (int)(dimensions.Y / 2));
-                case (SpriteOrigin.CenterRight):
+                case (RectangleOrigin.CenterRight):
                     return new Utilities.Vector2(dimensions.X, (int)(dimensions.Y / 2));
-                case (SpriteOrigin.Center):
+                case (RectangleOrigin.Center):
                     return new Utilities.Vector2((int)(dimensions.X / 2), (int)(dimensions.Y / 2));
-                case (SpriteOrigin.BottomLeft):
+                case (RectangleOrigin.BottomLeft):
                     return new Utilities.Vector2(0, dimensions.Y);
-                case (SpriteOrigin.BottomRight):
+                case (RectangleOrigin.BottomRight):
                     return new Utilities.Vector2(dimensions.X, dimensions.Y);
-                case (SpriteOrigin.BottomCenter):
+                case (RectangleOrigin.BottomCenter):
                     return new Utilities.Vector2((int)(dimensions.X / 2), dimensions.Y);
                 default:
                     return new Utilities.Vector2(0, 0);

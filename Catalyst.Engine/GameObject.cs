@@ -9,7 +9,7 @@ namespace Catalyst.Engine
     [Serializable]
     public abstract class GameObject
     {
-        public string Name { get; set; } = "name";
+        public string Name { get; set; } = "";
 
         public bool Active { get; set; } = true;
         public bool Visible { get; set; } = true;

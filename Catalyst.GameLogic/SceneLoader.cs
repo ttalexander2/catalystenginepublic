@@ -23,8 +23,6 @@ namespace Catalyst.GameLogic
             Scene scene = new Scene(Graphics.Width*2, Graphics.Height*2);
             scene.Systems.Add(new InputSystem(scene));
             scene.Systems.Add(new PlayerSystem(scene));
-            scene.Systems.Add(new GravitySystem(scene));
-            scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderer(scene));
             scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));

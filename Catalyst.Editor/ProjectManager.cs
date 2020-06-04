@@ -74,7 +74,8 @@ namespace Catalyst.Editor
             Current = new Scene(1920, 1080);
             Current.Systems.Add(new InputSystem(Current));
             Current.Systems.Add(new PlayerSystem(Current));
-            Current.Systems.Add(new MovementSystem(Current));
+            Current.Systems.Add(new CollisionSystem(Current));
+            //Current.Systems.Add(new MovementSystem(Current));
             Current.Systems.Add(new SpriteRenderer(Current));
             Current.Systems.Add(new ParticleSystem(Current));
             Current.Systems.Add(new CameraSystem(Current));
@@ -94,7 +95,7 @@ namespace Catalyst.Editor
 
             Console.WriteLine(ProjectPath);
 
-            CatalystSerializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
+            Serializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
 
             Unsaved = false;
         }
@@ -102,7 +103,7 @@ namespace Catalyst.Editor
         public static void Open(string path)
         {
 
-            Current = CatalystSerializer.DeserializeFromFile<Scene>(path, SerializationMode.Binary);
+            Current = Serializer.DeserializeFromFile<Scene>(path, SerializationMode.Binary);
             ProjectPath = Path.GetDirectoryName(path);
             FileName = Path.GetFileNameWithoutExtension(path);
 
@@ -113,7 +114,7 @@ namespace Catalyst.Editor
 
         public static Scene Load()
         {
-            return CatalystSerializer.DeserializeFromFile<Scene>(Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
+            return Serializer.DeserializeFromFile<Scene>(Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
         }
 
         public static void RefreshTypes()
@@ -148,7 +149,7 @@ namespace Catalyst.Editor
         {
             Scene scene = new Scene(Graphics.Width * 8, Graphics.Height*3);
             scene.Systems.Add(new InputSystem(scene));
-            scene.Systems.Add(new MovementSystem(scene));
+            //scene.Systems.Add(new MovementSystem(scene));
             scene.Systems.Add(new SpriteRenderer(scene));
             scene.Systems.Add(new ParticleSystem(scene));
             scene.Systems.Add(new CameraSystem(scene));
@@ -167,7 +168,7 @@ namespace Catalyst.Editor
             Entity testEntity2 = scene.Manager.NewEntity();
             var sprite2 = new Sprite(testEntity2, atlas.Textures[0]);
             testEntity2.AddComponent<Sprite>(sprite2);
-            testEntity2.AddComponent<Solid>();
+            //testEntity2.AddComponent<Solid>();
 
             ChangeGrid = true;
 

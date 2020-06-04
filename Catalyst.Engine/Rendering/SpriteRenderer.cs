@@ -37,8 +37,7 @@ namespace Catalyst.Engine.Rendering
         {
             if (sprite.Visible && sprite.Texture != null)
             {
-                Position transform = sprite.Entity.GetComponent<Position>();
-                Graphics.SpriteBatch.Draw(sprite.Texture, transform.Coordinates, sprite.TextureRect, Utilities.Color.White, sprite.Rotation, sprite.OriginVec2, sprite.Scale, sprite.spriteEffects, sprite.Layer);
+                Graphics.SpriteBatch.Draw(sprite.Texture, sprite.Entity.Position, sprite.TextureRect, Utilities.Color.White, sprite.Rotation, sprite.OriginVec2, sprite.Scale, sprite.spriteEffects, sprite.Layer);
 #if Debug
                 Texture2D rect = new Texture2D(Global.Graphics.GraphicsDevice, (int)transform.CollisionDims.X, (int)transform.CollisionDims.Y);
 

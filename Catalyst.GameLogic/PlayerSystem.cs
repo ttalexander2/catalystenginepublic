@@ -2,13 +2,8 @@
 using Catalyst.Engine.Input;
 using Catalyst.Engine.Physics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using Key = Catalyst.Engine.Input.Controller;
 using Vector2 = Catalyst.Engine.Utilities.Vector2;
 
 namespace Catalyst.GameLogic
@@ -22,31 +17,28 @@ namespace Catalyst.GameLogic
         {
             foreach (Player player in scene.Manager.GetComponents<Player>().Values)
             {
-                if (!player.Entity.HasComponent<Actor>())
-                {
-                    continue;
-                }
+                KeyboardState Key = Keyboard.GetState();
 
                 Velocity velocity = scene.Manager.GetComponent<Velocity>(player.UID);
                 Input input = scene.Manager.GetComponent<Input>(player.UID);
 
                 bool capable = input.Capabilities.IsConnected;
 
-                if (input.KeyboardState.IsKeyDown(Key.KUp) || (capable && input.GPState.IsButtonDown(Key.GUp)))
+                if (input.KeyboardState.IsKeyDown(Keys.Up) || (capable && input.GPState.IsButtonDown(Buttons.DPadUp)))
                 {
                     velocity.V += new Vector2(0, -player.VerticalSpeed);
                 }
 
-                if (input.KeyboardState.IsKeyDown(Key.KDown) || (capable && input.GPState.IsButtonDown(Key.GDown)))
+                if (input.KeyboardState.IsKeyDown(Keys.Down) || (capable && input.GPState.IsButtonDown(Buttons.DPadDown)))
                 {
                     velocity.V += new Vector2(0, player.VerticalSpeed);
                 }
 
-                if (input.KeyboardState.IsKeyDown(Key.KLeft) || (capable && input.GPState.IsButtonDown(Key.GLeft)))
+                if (input.KeyboardState.IsKeyDown(Keys.Left) || (capable && input.GPState.IsButtonDown(Buttons.DPadLeft)))
                 {
                     velocity.V += new Vector2(-player.HorizontalSpeed, 0);
                 }
-                if (input.KeyboardState.IsKeyDown(Key.KRight) || (capable && input.GPState.IsButtonDown(Key.GRight)))
+                if (input.KeyboardState.IsKeyDown(Keys.Right) || (capable && input.GPState.IsButtonDown(Buttons.DPadRight)))
                 {
                     velocity.V += new Vector2(player.HorizontalSpeed, 0);
                 }

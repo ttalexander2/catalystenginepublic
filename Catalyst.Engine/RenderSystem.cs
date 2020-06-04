@@ -11,7 +11,7 @@ namespace Catalyst.Engine
 {
     [KnownType("DerivedTypes")]
     [Serializable]
-    public abstract class RenderSystem : System, IRenderable
+    public abstract class RenderSystem : System, IRender, ILoad
     {
 
         internal RenderSystem(Scene scene) : base(scene)

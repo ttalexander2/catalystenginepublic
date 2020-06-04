@@ -8,7 +8,7 @@ namespace Catalyst.Engine
 {
     [Serializable]
     [assembly: InternalsVisibleTo("System.Runtime.Serialization")]
-    public class Scene : IUpdatable, IRenderable
+    public class Scene
     {
 
         public string Name { get; set; }
@@ -16,8 +16,6 @@ namespace Catalyst.Engine
         public ECManager Manager { get; private set; }
 
         public List<System> Systems { get; private set; }
-
-        public List<MonoEntity> MonoEntities { get; private set; }
 
         public Camera Camera { get; set; }
 
@@ -34,7 +32,7 @@ namespace Catalyst.Engine
         
         public Utilities.Vector2 Dimensions { get; private set; }
 
-        public FileTree<GameObject> HierarchyTree = new FileTree<GameObject>();
+        public FileTree<GameObject> HierarchyTree = new FileTree<GameObject>(true);
 
         public Scene(int width, int height)
         {
@@ -43,12 +41,10 @@ namespace Catalyst.Engine
             Manager = new ECManager(this);
             Systems = new List<System>();
             Cameras = new List<Camera>();
-            MonoEntities = new List<MonoEntity>();
             Dimensions = new Utilities.Vector2(width, height);
             Camera = new Camera(this, new Utilities.Vector2(width, height));
             HierarchyTree.AddElement(Camera, Camera.Name);
             this.Name = "scene_" + this.GetHashCode().ToString();
-            AddMonoEntity(new Test(this));
 
         }
 
@@ -57,7 +53,6 @@ namespace Catalyst.Engine
             Width = width;
             Height = height;
             Manager = new ECManager(this);
-            MonoEntities = new List<MonoEntity>();
             Dimensions = new Utilities.Vector2(width, height);
             Camera = new Camera(this, new Utilities.Vector2(width, height));
             HierarchyTree.AddElement(Camera, Camera.Name);
@@ -65,12 +60,6 @@ namespace Catalyst.Engine
         }
 
         private Scene() { }
-
-        public void AddMonoEntity(MonoEntity entity)
-        {
-            MonoEntities.Add(entity);
-            HierarchyTree.AddElement(entity, entity.Name);
-        }
 
         public void NewCamera()
         {
@@ -88,10 +77,12 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].Initialize();
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Active)
-                    MonoEntities[i].Initialize();
+                if (e is IInitialize)
+                {
+                    ((IInitialize)e).Initialize();
+                }
             }
             Audio = new AudioManager();
         }
@@ -105,10 +96,12 @@ namespace Catalyst.Engine
                     ((RenderSystem)Systems[i]).LoadContent();
                 }
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Active)
-                    MonoEntities[i].LoadContent();
+                if (e is ILoad)
+                {
+                    ((ILoad)e).LoadContent();
+                }
             }
         }
 
@@ -119,10 +112,12 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].PreUpdate(gameTime);
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Active)
-                    MonoEntities[i].PreUpdate(gameTime);
+                if (e is IPreUpdate)
+                {
+                    ((IPreUpdate)e).PreUpdate(gameTime);
+                }
             }
         }
 
@@ -133,10 +128,12 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].Update(gameTime);
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Active)
-                    MonoEntities[i].Update(gameTime);
+                if (e is IUpdate)
+                {
+                    ((IUpdate)e).Update(gameTime);
+                }
             }
         }
 
@@ -147,10 +144,12 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].PostUpdate(gameTime);
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Active)
-                    MonoEntities[i].PostUpdate(gameTime);
+                if (e is IPostUpdate)
+                {
+                    ((IPostUpdate)e).PostUpdate(gameTime);
+                }
             }
         }
 
@@ -172,10 +171,12 @@ namespace Catalyst.Engine
                     
                 }
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Visible)
-                    MonoEntities[i].PreRender(gameTime);
+                if (e is IPreRender)
+                {
+                    ((IPreRender)e).PreRender(gameTime);
+                }
             }
         }
 
@@ -199,10 +200,12 @@ namespace Catalyst.Engine
 
                 }
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Visible)
-                    MonoEntities[i].Render(gameTime);
+                if (e is IRender)
+                {
+                    ((IRender)e).Render(gameTime);
+                }
             }
         }
 
@@ -226,10 +229,30 @@ namespace Catalyst.Engine
 
                 }
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Visible)
-                    MonoEntities[i].PostRender(gameTime);
+                if (e is IPostRender)
+                {
+                    ((IPostRender)e).PostRender(gameTime);
+                }
+            }
+        }
+
+        public virtual void DebugRender(GameTime gameTime)
+        {
+            for (int i = 0; i < Systems.Count; i++)
+            {
+                if (Systems[i] is IDebugRender)
+                {
+                    ((IDebugRender)Systems[i]).DebugRender(gameTime);
+                }
+            }
+            foreach (Entity e in Manager.EntityDict.Values)
+            {
+                if (e is IDebugRender)
+                {
+                    ((IDebugRender)e).DebugRender(gameTime);
+                }
             }
         }
 
@@ -253,10 +276,12 @@ namespace Catalyst.Engine
 
                 }
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Visible)
-                    MonoEntities[i].RenderUI(gameTime);
+                if (e is IRenderUI)
+                {
+                    ((IRenderUI)e).RenderUI(gameTime);
+                }
             }
         }
 
@@ -289,10 +314,12 @@ namespace Catalyst.Engine
 
                 }
             }
-            for (int i = 0; i < MonoEntities.Count; i++)
+            foreach (Entity e in Manager.EntityDict.Values)
             {
-                if (MonoEntities[i].Active)
-                    MonoEntities[i].UnloadContent();
+                if (e is ILoad)
+                {
+                    ((ILoad)e).UnloadContent();
+                }
             }
         }
 

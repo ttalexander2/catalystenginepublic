@@ -40,9 +40,16 @@ namespace Catalyst.Engine
             private set { _selected = value; }
         }
 
+        private bool _sorted;
+
+        public FileTree(bool sorted)
+        {
+            _sorted = sorted;
+        }
+
+
         public void Select(Node node)
         {
-            Console.WriteLine("Select\t\tNode: {0}\tNode.Parent: {1}", node.Name, node.Parent.Name);
             MultiSelection = false;
             foreach(Node n in Selected)
             {
@@ -64,7 +71,6 @@ namespace Catalyst.Engine
 
         public void AddToSelection(Node node)
         {
-            Console.WriteLine("AddToSelection");
             MultiSelection = true;
             node.Selected = true;
             Selected.Add(node);
@@ -72,7 +78,6 @@ namespace Catalyst.Engine
 
         public void AddElement(T element, string name)
         {
-            Console.WriteLine("AddElement");
             if (Selected.Count == 1 && Selected[0] is FolderNode)
             {
                 ((FolderNode)Selected.First()).Values.Add(new FileNode((FolderNode)Selected.First(), element, name));
@@ -121,12 +126,10 @@ namespace Catalyst.Engine
 
         public void GroupSelected()
         {
-            Console.WriteLine("GroupSelected");
             FolderNode parent = null;
             int min = int.MaxValue;
             foreach (Node n in Selected)
             {
-                Console.WriteLine(n);
                 if (n.Depth < min)
                 {
                     min = n.Depth;
@@ -167,7 +170,6 @@ namespace Catalyst.Engine
             Deselect();
             if (start.Parent != null)
             {
-                Console.WriteLine("SelectBetween\t\tStart: {0}\tEnd: {1}\tStart.Parent: {2}\tEnd.Parent: {3}", start.Name, end.Name, start.Parent.Name, end.Parent.Name);
                 MultiSelection = true;
                 bool started_start = false;
                 bool started_end = false;
@@ -209,7 +211,6 @@ namespace Catalyst.Engine
 
         public List<T> RemoveSelected()
         {
-            Console.WriteLine("RemoveSelected");
             List<T> removed = new List<T>();
            
             foreach(Node n in Selected)
@@ -285,8 +286,8 @@ namespace Catalyst.Engine
 
         public void SortFolders()
         {
-            Console.WriteLine("SortFolders");
-            SortFolders(Root);
+            if (_sorted)
+                SortFolders(Root);
         }
 
         private void SortFolders(FolderNode root)

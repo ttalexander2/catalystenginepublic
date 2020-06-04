@@ -24,10 +24,6 @@ namespace Catalyst.GameLogic
             {
                 entity.AddComponent<Input>();
             }
-            if (!entity.HasComponent<Actor>())
-            {
-                entity.AddComponent<Actor>();
-            }
         }
     }
 }

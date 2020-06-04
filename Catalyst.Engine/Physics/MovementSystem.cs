@@ -1,4 +1,6 @@
-﻿using System;
+﻿/**
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -34,7 +36,7 @@ namespace Catalyst.Engine.Physics
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            MoveActors(gameTime);
+            //MoveActors(gameTime);
         }
 
         private void MoveActors(GameTime gameTime)
@@ -139,7 +141,7 @@ namespace Catalyst.Engine.Physics
 
             }
             return null;
-            */
+
             
             foreach (Solid s in scene.Manager.GetComponents<Solid>().Values)
             {
@@ -157,7 +159,7 @@ namespace Catalyst.Engine.Physics
                     {
                         return solid;
                     }
-    */
+
                 }
 
             }
@@ -170,3 +172,5 @@ namespace Catalyst.Engine.Physics
 
     }
 }
+
+*/

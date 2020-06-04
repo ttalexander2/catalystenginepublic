@@ -56,7 +56,7 @@ namespace Catalyst.Engine.Rendering
             Layer = 0;
             Distance = 0;
             Active = true;
-            Origin = SpriteOrigin.TopLeft;
+            Origin = RectangleOrigin.TopLeft;
         }
 
         public AnimatedSprite(Entity entity, PackedTexture[] textures) : base(entity)
@@ -66,7 +66,7 @@ namespace Catalyst.Engine.Rendering
             Layer = 0;
             Distance = 0;
             Active = true;
-            Origin = SpriteOrigin.TopLeft;
+            Origin = RectangleOrigin.TopLeft;
         }
 
 

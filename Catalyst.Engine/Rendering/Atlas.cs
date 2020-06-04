@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class Atlas : Loadable
+    public class Atlas : ILoad
     {
         public string Name
         {
@@ -39,5 +39,7 @@ namespace Catalyst.Engine.Rendering
         {
             _texture = Graphics.Content.Load<Texture2D>(global::System.IO.Path.Combine("Content", "Atlases", global::System.IO.Path.GetFileNameWithoutExtension(Path)));
         }
+
+        public void UnloadContent() { }
     }
 }

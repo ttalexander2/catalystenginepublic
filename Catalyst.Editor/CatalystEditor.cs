@@ -182,6 +182,11 @@ namespace Catalyst.Editor
                 ProjectManager.Current.Render(gameTime);
                 ProjectManager.Current.PostRender(gameTime);
 
+                if (true)
+                {
+                    ProjectManager.Current.DebugRender(gameTime);
+                }
+
                 //Catalyst.Engine.Graphics.SpriteBatch.Draw(_testTexture, new Vector2(0, 0), null, Color.White);
 
                 MouseState m = Mouse.GetState();
@@ -203,7 +208,7 @@ namespace Catalyst.Editor
 
                 if (ViewportRenderer.Grid && GridTarget != null)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Draw(GridTarget, new Vector2(0, 0), null, Color.White);
+                    Engine.Graphics.SpriteBatch.Draw(GridTarget, new Vector2(0, 0), null, Color.White);
                     Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Camera.Size.X, 3), new SpriteEffects(), 0);
                     Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Camera.Size.Y), new SpriteEffects(), 0);
                     Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y + ProjectManager.Current.Camera.Size.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Camera.Size.X+3, 3), new SpriteEffects(), 0);
@@ -287,30 +292,30 @@ namespace Catalyst.Editor
             {
                 if (i == 0 || i == ProjectManager.Current.Width)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(i, 0), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Height), new SpriteEffects(), 0);
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(i, 0), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Height), new SpriteEffects(), 0);
                 }
                 else
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(i, 0), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(1, ProjectManager.Current.Height), new SpriteEffects(), 0);
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(i, 0), null, Color.White * 0.5f, 0, Vector2.Zero, new Vector2(1, ProjectManager.Current.Height), new SpriteEffects(), 0);
                 }
             }
 
-            Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Width-3, 0), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Height), new SpriteEffects(), 0);
+            Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Width-3, 0), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Height), new SpriteEffects(), 0);
 
 
             for (int i = 0; i <= ProjectManager.Current.Height; i += tileSize)
             {
                 if (i == 0 || i == ProjectManager.Current.Height)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(0, i), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 3), new SpriteEffects(), 0);
+                    Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(0, i), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 3), new SpriteEffects(), 0);
                 }
                 else
                 {
-                    Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(0, i), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 1), new SpriteEffects(), 0);
+                    Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(0, i), null, Color.White * 0.5f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 1), new SpriteEffects(), 0);
                 }
             }
 
-            Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(0, ProjectManager.Current.Height-3), null, Color.Red * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 3), new SpriteEffects(), 0);
+            Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(0, ProjectManager.Current.Height-3), null, Color.White * 0.7f, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Width, 3), new SpriteEffects(), 0);
 
 
 

@@ -18,7 +18,7 @@ namespace Catalyst.Engine.Utilities
         Xml
     }
 
-    public static class CatalystSerializer
+    public static class Serializer
     {
         public static void SerializeToFile<T>(T obj, string filepath, SerializationMode mode)
         {

@@ -34,7 +34,7 @@ namespace Catalyst.Engine.Rendering
             {
                 if (emitter.Follow != null)
                 {
-                    emitter.Position = emitter.Follow.GetComponent<Position>().Coordinates;
+                    emitter.Position = emitter.Follow.Position;
                 }
 
                 if (emitter.FollowCamera)

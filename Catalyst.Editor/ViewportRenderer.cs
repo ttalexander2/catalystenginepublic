@@ -66,11 +66,11 @@ namespace CatalystEditor
                     var dict = ProjectManager.Current.Manager.GetComponentDictionary();
                     foreach (string s in dict.Keys)
                     {
-                        if (typeof(Loadable).IsAssignableFrom(Type.GetType(s)))
+                        if (typeof(ILoad).IsAssignableFrom(Type.GetType(s)))
                         {
                             foreach (Component c in dict[s].Values)
                             {
-                                ((Loadable)c).LoadContent();
+                                ((ILoad)c).LoadContent();
                             }
                         }
                     }

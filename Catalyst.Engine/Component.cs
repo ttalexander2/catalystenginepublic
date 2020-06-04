@@ -12,7 +12,7 @@ namespace Catalyst.Engine
     [Serializable]
     public abstract class Component:GameObject
     {
-        public static string Name => "Abstract Component";
+        public static new string Name => "Component";
         
         public int UID { get; internal set; }
         
@@ -20,11 +20,22 @@ namespace Catalyst.Engine
         
         public Entity Entity { get; internal set; }
 
-        public Component(Entity entity)
+        protected Component(Entity entity)
         {
             this.Entity = entity;
             this.UID = entity.UID;
             this.Active = true;
+            this.Entity.Scene.Manager.Components[this.GetType().AssemblyQualifiedName][UID] = this;
+            this.Entity.ComponentTypes.Add(this.GetType().AssemblyQualifiedName);
+        }
+
+        protected Component(Entity entity, Type type)
+        {
+            this.Entity = entity;
+            this.UID = entity.UID;
+            this.Active = true;
+            this.Entity.Scene.Manager.Components[type.AssemblyQualifiedName][UID] = this;
+            this.Entity.ComponentTypes.Add(type.AssemblyQualifiedName);
         }
 
         private static Type[] DerivedTypes()

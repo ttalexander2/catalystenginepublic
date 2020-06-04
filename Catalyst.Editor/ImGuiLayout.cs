@@ -147,8 +147,6 @@ namespace Catalyst.Editor
 
                     ViewRect = new Rectangle((int)(scene_size), (int)(_menuSize.Y + 35), (int)(ViewBounds.X - scene_size), (int)ViewBounds.Y);
 
-                    Console.WriteLine(ViewRect.ToString());
-
                     ViewportRenderer.RenderViewPort(gameTime, ViewBounds, ViewRect);
 
                     ImGui.End();

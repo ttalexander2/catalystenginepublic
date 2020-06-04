@@ -54,11 +54,16 @@ namespace Catalyst.Editor
                     ImGui.Text(Inspecting.Name);
                     RenderGameObjectIcon(Inspecting, ImGui.GetWindowSize().X-32);
                     ImGui.PushFont(ImGuiLayout.DefaultFont);
+
+                    CatalystPropertyParser.RenderObjectProperties(Inspecting);
+
                     if (Inspecting is Entity)
                     {
                         Entity selected = (Entity)Inspecting;
+                        
                         var dict = ProjectManager.Current.Manager.GetComponentDictionary();
                         ImGui.BeginGroup();
+
                         foreach (string t in dict.Keys.OrderBy<string, string>(s => Type.GetType(s).Name))
                         {
                             if (dict[t].ContainsKey(selected.UID))
@@ -66,7 +71,7 @@ namespace Catalyst.Editor
                                 Component c = dict[t][selected.UID];
 
                                 ImGui.PushFont(ImGuiLayout.SlightlyLargerFontThanNormal);
-                                bool oof;
+
                                 if (ImGui.CollapsingHeader(c.GetType().Name, ImGuiTreeNodeFlags.DefaultOpen))
                                 {
                                     ImGui.PushFont(ImGuiLayout.DefaultFont);
@@ -132,10 +137,7 @@ namespace Catalyst.Editor
 
 
                     }
-                    else
-                    {
-                        CatalystPropertyParser.RenderObjectProperties(ProjectManager.Current.Camera);
-                    }
+
                 }
 
             }
@@ -322,7 +324,6 @@ namespace Catalyst.Editor
                 //If the user elected to group the selected items
                 if (_group)
                 {
-                    Console.WriteLine(string.Join(", _", ProjectManager.Current.HierarchyTree.Selected));
                     ProjectManager.Current.HierarchyTree.GroupSelected();
                     _group = false;
                 }
@@ -335,8 +336,6 @@ namespace Catalyst.Editor
                             ((Entity)t).DestroyEntity();
                         else if (t is Camera)
                             ProjectManager.Current.Cameras.Remove((Camera)t);
-                        else if (t is MonoEntity)
-                            ProjectManager.Current.MonoEntities.Remove((MonoEntity)t);
                     }
 
                     ProjectManager.Current.HierarchyTree.Deselect();
@@ -354,8 +353,6 @@ namespace Catalyst.Editor
                                 ProjectManager.Current.Manager.Duplicate(((Entity)((FileNode)t).Value).UID);
                             else if (((FileNode)t).Value is Camera)
                                 ProjectManager.Current.Cameras.Add(Utility.DeepClone<Camera>((Camera)((FileNode)t).Value));
-                            else if (((FileNode)t).Value is MonoEntity)
-                                ProjectManager.Current.MonoEntities.Add(Utility.DeepClone<MonoEntity>((MonoEntity)((FileNode)t).Value));
                         }
                             
                     }
@@ -410,11 +407,6 @@ namespace Catalyst.Editor
             {
                 ImGui.SameLine(distance);
                 ImGui.Image(IconLoader.Entity, IconLoader.Icon16Size);
-            }
-            else if (obj is MonoEntity)
-            {
-                ImGui.SameLine(distance);
-                ImGui.Image(IconLoader.MonoEntity, IconLoader.Icon16Size);
             }
             else if (obj is Camera)
             {

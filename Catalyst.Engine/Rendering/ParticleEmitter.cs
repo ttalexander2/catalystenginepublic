@@ -14,7 +14,7 @@ using Catalyst.Engine.Physics;
 namespace Catalyst.Engine.Rendering
 {
     [Serializable]
-    public class ParticleEmitter : Component, Loadable
+    public class ParticleEmitter : Component, ILoad
     {
         [GuiEntitySelector]
         public Entity Follow { get; set; }
@@ -85,10 +85,6 @@ namespace Catalyst.Engine.Rendering
         }
         public ParticleEmitter(Entity entity) : base(entity)
         {
-            if (!entity.HasComponent<Position>())
-            {
-                entity.AddComponent<Position>();
-            }
             Sprite = new Sprite(entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
             Mode = ParticleMode.Burst;
             VelocityMode = Particle.VelocityMode.Linear;
@@ -150,6 +146,11 @@ namespace Catalyst.Engine.Rendering
             Initialize();
             if (Mode == ParticleMode.Continuous)
                 Launch();
+        }
+
+        public void UnloadContent()
+        {
+            
         }
     }
 }

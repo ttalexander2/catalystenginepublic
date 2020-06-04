@@ -36,7 +36,7 @@ namespace Catalyst.Engine
 
         public Entity NewEntity()
         {
-            Entity e = new Entity(this);
+            Entity e = new Entity(CurrentScene);
             EntityDict.Add(e.UID, e);
             CurrentScene.HierarchyTree.AddElement(e, e.Name);
             return e;
@@ -141,6 +141,16 @@ namespace Catalyst.Engine
                 }
             }
 
+            foreach (Type type in
+            Assembly.GetAssembly(typeof(Component)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Component))))
+            {
+                if (!Components.Keys.Contains(type.AssemblyQualifiedName))
+                {
+                    Components[type.AssemblyQualifiedName] = new Dictionary<int, Component>();
+                }
+            }
+
             foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
             {
                 foreach (Type type in ass.GetTypes()
@@ -156,5 +166,8 @@ namespace Catalyst.Engine
         }
 
 
+
     }
+
+    public class StoreInParent : Attribute { }
 }
