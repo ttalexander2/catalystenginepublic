@@ -16,7 +16,7 @@ namespace Catalyst.Engine
         
         protected Scene scene;
 
-        protected ECManager Manager
+        protected EntityManager Manager
         {
             get
             {

@@ -15,6 +15,9 @@ using CatalystEditor;
 using Microsoft.Xna.Framework;
 using Vector2 = System.Numerics.Vector2;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using System.IO.Compression;
+using Catalyst.Game;
+using Catalyst.Game.Source;
 
 namespace Catalyst.Editor
 {
@@ -243,6 +246,10 @@ namespace Catalyst.Editor
                     {
                         ProjectManager.Current.Manager.NewEntity();
                     }
+                    if (ImGui.MenuItem("New Player", available))
+                    {
+                        ProjectManager.Current.Manager.Entities.Add(ProjectManager.Current.Manager.NewId(), new Player(ProjectManager.Current));
+                    }
                     if (ImGui.MenuItem("New Camera...", available))
                     {
                         ProjectManager.Current.NewCamera();
@@ -312,7 +319,7 @@ namespace Catalyst.Editor
 
                 if (!customDir)
                 {
-                    ImGui.Text(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), RemoveInvalidChars(str)));
+                    ImGui.Text(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ProjectManager.RemoveInvalidChars(str)));
                 } else
                 {
                     ImGui.Text(projectDir + "\\" + str);
@@ -340,20 +347,22 @@ namespace Catalyst.Editor
                 if (ImGui.Button("Next"))
                 {
                     ImGui.CloseCurrentPopup();
+                    
                     if (customDir)
                     {
-                        ProjectManager.ProjectPath = Path.Combine(projectDir, RemoveInvalidChars(str));
-                        ProjectManager.CreateNew(str);
+                        ProjectManager.ProjectPath = Path.Combine(projectDir, ProjectManager.RemoveInvalidChars(str));
+                        ProjectManager.CreateNew(ProjectManager.RemoveInvalidChars(str));
                     } else
                     {
-                        ProjectManager.ProjectPath = Path.Combine(Directory.GetCurrentDirectory(),"Projects");
-                        ProjectManager.CreateNew(str);
+                        ProjectManager.ProjectPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ProjectManager.RemoveInvalidChars(str));
+                        ProjectManager.CreateNew(ProjectManager.RemoveInvalidChars(str));
                     }
 
                     new_project_window = false;
                     LoadingProject = true;
                     buff = new byte[40];
                     _currentScene = "";
+                    
                 }
                 ImGui.SameLine();
 
@@ -385,10 +394,7 @@ namespace Catalyst.Editor
             }
         }
 
-        public static string RemoveInvalidChars(string filename)
-        {
-            return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
-        }
+
 
         public Vector2 CalculateViewBounds(int width, int height)
         {

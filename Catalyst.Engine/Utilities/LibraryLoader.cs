@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Catalyst.Engine.Utilities
 {
-    internal static class LibraryLoader
+    public static class LibraryLoader
     {
         [DllImport("libdl")]
         static extern IntPtr dlopen(String fileName, int flags);
@@ -20,7 +20,7 @@ namespace Catalyst.Engine.Utilities
         [DllImport("libdl")]
         static extern IntPtr dlsym(IntPtr handle, String symbol);
 
-        internal static void LoadPosixLibrary(string path)
+        public static void LoadPosixLibrary(string path)
         {
             const int RTLD_NOW = 2;
                 if (File.Exists(path))

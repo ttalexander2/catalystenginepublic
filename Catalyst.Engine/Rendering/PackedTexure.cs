@@ -14,7 +14,7 @@ namespace Catalyst.Engine.Rendering
         public string Tag { get; private set; }
         public Atlas Atlas { get; private set; }
         public bool TextureRotated { get; private set; }
-        public Rectangle Bounds { get; set; }
+        public Rectangle Bounds { get; private set; }
 
         public PackedTexture(int id, string tag, Atlas atlas, Rectangle bounds, bool rotated)
         {

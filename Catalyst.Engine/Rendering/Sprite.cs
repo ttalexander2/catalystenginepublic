@@ -47,9 +47,6 @@ namespace Catalyst.Engine.Rendering
             }
         }
 
-        [GuiBoolean]
-        public bool Active { get; set; }
-
         [GuiEnum]
         public RectangleOrigin Origin { get; set; }
 

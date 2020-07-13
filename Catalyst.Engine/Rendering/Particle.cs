@@ -75,12 +75,12 @@ namespace Catalyst.Engine.Rendering
             this.Position = emitter.Position + new Vector2(emitter.Rand.Next((int)-emitter.PositionVariance.X, (int)emitter.PositionVariance.X), emitter.Rand.Next((int)-emitter.PositionVariance.Y, (int)emitter.PositionVariance.Y)) + emitter.Offset;
             this.Life = emitter.Rand.Next(emitter.Life - emitter.LifeVariance, emitter.Life + emitter.LifeVariance);
             this.LifeStart = this.Life;
-            int min = (int)(emitter.Angle * 180 / Math.PI) - emitter.Rand.Next(0, (int)(emitter.AngleVariance * 180 / Math.PI));
-            int max = (int)(emitter.Angle * 180 / Math.PI) + emitter.Rand.Next(0, (int)(emitter.AngleVariance * 180 / Math.PI));
+            double min = (emitter.Angle * 180 / Math.PI) - emitter.Rand.NextDouble()*(emitter.AngleVariance * 180 / Math.PI);
+            double max = (emitter.Angle * 180 / Math.PI) + emitter.Rand.NextDouble() * (emitter.AngleVariance * 180 / Math.PI);
             if (min<=max)
-                this.Angle = emitter.Rand.Next(min, max)*Math.PI/180;
+                this.Angle = (min + emitter.Rand.NextDouble()*(max-min)) * Math.PI / 180;
             else
-                this.Angle = emitter.Rand.Next(max, min) * Math.PI / 180;
+                this.Angle = (max + emitter.Rand.NextDouble() * (min - max)) * Math.PI / 180;
             this.Speed = emitter.Rand.Next(emitter.Speed - emitter.SpeedVariance, emitter.Speed + emitter.SpeedVariance);
             this.StartColor = emitter.StartColor;
             this.EndColor = emitter.EndColor;

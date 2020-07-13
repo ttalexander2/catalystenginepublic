@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using Catalyst.Engine;
 using Catalyst.Engine.Rendering;
 using Catalyst.Engine.Utilities;
@@ -64,6 +60,8 @@ namespace Catalyst.Editor
                         var dict = ProjectManager.Current.Manager.GetComponentDictionary();
                         ImGui.BeginGroup();
 
+
+
                         foreach (string t in dict.Keys.OrderBy<string, string>(s => Type.GetType(s).Name))
                         {
                             if (dict[t].ContainsKey(selected.UID))
@@ -72,13 +70,39 @@ namespace Catalyst.Editor
 
                                 ImGui.PushFont(ImGuiLayout.SlightlyLargerFontThanNormal);
 
-                                if (ImGui.CollapsingHeader(c.GetType().Name, ImGuiTreeNodeFlags.DefaultOpen))
+                                ImGui.PushStyleColor(ImGuiCol.HeaderActive, new System.Numerics.Vector4(0.26f, 0.59f, 0.98f, 0.31f));
+                                ImGui.PushStyleColor(ImGuiCol.HeaderHovered, new System.Numerics.Vector4(0.26f, 0.59f, 0.98f, 0.31f));
+
+                                if (ImGui.CollapsingHeader(c.GetType().Name, ImGuiTreeNodeFlags.OpenOnArrow))
                                 {
                                     ImGui.PushFont(ImGuiLayout.DefaultFont);
 
+                                    ImGui.PopStyleColor(2);
+
+                                    ImGui.SetItemAllowOverlap();
+
+                                    ImGui.SameLine(ImGui.GetWindowWidth() - 36);
 
 
-                                    if (ImGui.BeginPopupContextItem(String.Format("{0}_context", t)))
+                                    bool visible = c.Visible;
+
+                                    if (visible)
+                                    {
+                                        if (ImGui.ImageButton(IconLoader.Visible, IconLoader.Icon16Size)){
+                                            c.Visible = !visible;
+                                        }
+                                    } else
+                                    {
+                                        if (ImGui.ImageButton(IconLoader.NotVisible, IconLoader.Icon16Size)){
+                                            c.Visible = !visible;
+                                        }
+                                    }
+
+                                    //ImGui.SameLine(ImGui.GetWindowWidth() - 20);
+
+
+
+                                    if (ImGui.BeginPopupContextItem(string.Format("{0}_context", t)))
                                     {
                                         if (ImGui.Selectable("Remove"))
                                         {
@@ -88,7 +112,7 @@ namespace Catalyst.Editor
                                         }
                                         if (ImGui.BeginMenu("Add Component"))
                                         {
-                                            foreach (string ypt in ProjectManager.Current.Manager.GetComponentDictionary().Keys)
+                                            foreach (string ypt in ProjectManager.Current.Manager.CreatableTypes)
                                             {
                                                 if (ImGui.MenuItem(Type.GetType(ypt).Name))
                                                 {
@@ -103,6 +127,8 @@ namespace Catalyst.Editor
                                     ImGui.AlignTextToFramePadding();
                                     CatalystPropertyParser.RenderObjectProperties(c);
                                 }
+
+
 
                             }
                         }
@@ -123,7 +149,7 @@ namespace Catalyst.Editor
 
                         if (ImGui.BeginPopup("Add_Component_Menu"))
                         {
-                            foreach (string t in ProjectManager.Current.Manager.GetComponentDictionary().Keys)
+                            foreach (string t in ProjectManager.Current.Manager.CreatableTypes)
                             {
                                 if (ImGui.MenuItem(Type.GetType(t).Name))
                                 {
@@ -312,7 +338,6 @@ namespace Catalyst.Editor
 
         public static void RenderHierarchyWindow()
         {
-            ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags.OpenOnArrow | ImGuiTreeNodeFlags.OpenOnDoubleClick;
             //List of entities
             ImGui.BeginChild("Hierarchy Child", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.96f), true, ImGuiWindowFlags.None);
 

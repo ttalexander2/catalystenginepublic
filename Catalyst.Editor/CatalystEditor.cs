@@ -8,9 +8,6 @@ using System.Reflection;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
 using CatalystEditor;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using Catalyst.Engine.Physics;
 using Catalyst.Engine;
 
 namespace Catalyst.Editor
@@ -35,11 +32,7 @@ namespace Catalyst.Editor
 
         public volatile RenderTarget2D GridTarget;
 
-        private Texture2D Circle;
-
         private Color _backgroundColor;
-
-        private Texture2D _testTexture;
 
         private Texture2D _pixel;
 
@@ -82,11 +75,7 @@ namespace Catalyst.Editor
 
             Window.Title = "Catalyst " + v.Major + "." + v.MajorRevision;
 
-            base.Initialize();
-
-
-
-            
+            base.Initialize(); 
         }
 
         protected override void LoadContent()
@@ -105,14 +94,7 @@ namespace Catalyst.Editor
 
             Catalyst.Engine.Graphics.SpriteBatch = new SpriteBatch(Graphics.GraphicsDevice);
 
-
-            Circle = Engine.Rendering.BasicShapes.GenerateCircleTexture(15, Color.White, 1);
-
             _backgroundColor = new Color(new Vector4(0.11f, 0.11f, 0.11f, 1.00f));
-
-            FileStream s = File.Open(Path.Combine(AssemblyDirectory, "Content", "untitled.png"), FileMode.Open);
-            _testTexture = Texture2D.FromStream(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, s);
-            s.Close();
 
             _pixel = new Texture2D(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
             _pixel.SetData(new Color[] { Color.White });
@@ -124,6 +106,9 @@ namespace Catalyst.Editor
 
         protected override void Update(GameTime gameTime)
         {
+            Time.RawDeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Time.DeltaTime = Time.RawDeltaTime * Time.TimeRate;
+
             keyboardState = Keyboard.GetState();
             if (ProjectManager.scene_loaded && ViewportRenderer.Playing)
             {

@@ -48,6 +48,7 @@ namespace CatalystEditor
                     Playing = !Playing;
                     ProjectManager.Backup = Catalyst.Engine.Utilities.Utility.DeepClone<Scene>(ProjectManager.Current);
                     Grid = false;
+                    ProjectManager.Current.Initialize();
                 }
                 if (ImGui.IsItemHovered()) ImGui.SetTooltip("Run");
 

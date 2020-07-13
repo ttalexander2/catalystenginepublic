@@ -11,7 +11,7 @@ using System.Xml;
 using Catalyst.Engine.Rendering;
 using Rectangle = System.Drawing.Rectangle;
 
-namespace CatalystEditor
+namespace Catalyst.ContentManager
 {
     public static class TexturePacker
     {
@@ -148,8 +148,7 @@ namespace CatalystEditor
 
             atlas = TrimBitmap(atlas);
 
-            atlas.Save(Path.Combine(output_directory, output_name + ".atlas"), ImageFormat.Png);
-            //PipelineManager pipelineManager = new PipelineManager()
+            atlas.Save(Path.Combine(output_directory, output_name + ".data"), ImageFormat.Png);
 
             if (Xml)
             {

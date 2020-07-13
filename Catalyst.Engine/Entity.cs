@@ -1,10 +1,6 @@
-﻿using Catalyst.Engine.Rendering;
-using Catalyst.Engine.Physics;
-using Catalyst.Engine.Utilities;
+﻿using Catalyst.Engine.Utilities;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization;
 
 namespace Catalyst.Engine
 {
@@ -15,6 +11,8 @@ namespace Catalyst.Engine
         public int UID { get; private set; }
 
         public HashSet<string> ComponentTypes;
+
+        public Collider2D Collider;
 
         [GuiVector2]
         public Vector2 Position = new Vector2();
@@ -48,9 +46,14 @@ namespace Catalyst.Engine
             this.Name = "entity_"+ UID;
             this.ComponentTypes = new HashSet<string>();
             Position = Vector2.Zero;
+            this.Scene.Manager.Entities.Add(UID, this);
+            this.Scene.HierarchyTree.AddElement(this, this.Name);
+            this.Initialize();
         }
 
         internal Entity() { }
+
+        public virtual void Initialize() { }
 
         public override void Rename(string name)
         {
@@ -59,19 +62,19 @@ namespace Catalyst.Engine
         }
 
         #region adders
-        public Component AddComponent<T>() where T : Component
+        public T AddComponent<T>() where T : Component
         {
             Type t = typeof(T);
             Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (T)Activator.CreateInstance(typeof(T), new Object[] { this });
             ComponentTypes.Add(t.AssemblyQualifiedName);
-            return Scene.Manager.Components[t.AssemblyQualifiedName][UID];
+            return (T)Scene.Manager.Components[t.AssemblyQualifiedName][UID];
         }
 
         public Component AddComponent(Type t)
         {
-            Scene.Manager.Components[t.AssemblyQualifiedName][UID] = (Component)Activator.CreateInstance(t, new Object[] { this });
+            Component c = (Component)Activator.CreateInstance(t, new Object[] { this });
             ComponentTypes.Add(t.AssemblyQualifiedName);
-            return Scene.Manager.Components[t.AssemblyQualifiedName][UID];
+            return c;
         }
 
         public void AddComponents<T, U>() where T : Component where U : Component
@@ -176,7 +179,7 @@ namespace Catalyst.Engine
                 Scene.Manager.Components[t].Remove(UID);
                 ComponentTypes.Remove(Type.GetType(t).AssemblyQualifiedName);
             }
-            Scene.Manager.EntityDict.Remove(UID);
+            Scene.Manager.Entities.Remove(UID);
         }
 
         public bool HasComponent<T>() where T : Component

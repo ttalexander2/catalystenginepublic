@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,48 +16,50 @@ namespace Catalyst.Engine.Utilities
     public enum SerializationMode
     {
         Binary,
-        Xml
+        Json
     }
 
     public static class Serializer
     {
         public static void SerializeToFile<T>(T obj, string filepath, SerializationMode mode)
         {
-
-            using (var fileStream = new FileStream(filepath, FileMode.Create))
+            if (mode == SerializationMode.Binary)
             {
-                if (mode == SerializationMode.Binary)
+                using (var fileStream = new FileStream(filepath, FileMode.Create))
                 {
+
                     var bf = new BinaryFormatter();
                     bf.Serialize(fileStream, obj);
                 }
-                else if (mode == SerializationMode.Xml)
-                {
-                    var xs = new XmlSerializer(typeof(T));
-                    xs.Serialize(fileStream, obj);
-                }
             }
+            else if (mode == SerializationMode.Json)
+            {
+                string json = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects, ReferenceLoopHandling = ReferenceLoopHandling.Serialize });
+                File.WriteAllText(filepath, json);
+            }
+
 
         }
 
         public static T DeserializeFromFile<T>(string filepath, SerializationMode mode)
         {
             T data;
-            using (var fileStream = File.OpenRead(filepath))
+            if (mode == SerializationMode.Binary)
             {
-
-                //Deserialize
-                if (mode == SerializationMode.Binary)
+                using (var fileStream = File.OpenRead(filepath))
                 {
+
+                    //Deserialize
+
                     var bf = new BinaryFormatter();
                     data = (T)bf.Deserialize(fileStream);
                 }
-                else
-                {
-                    var xs = new XmlSerializer(typeof(T));
-                    data = (T)xs.Deserialize(fileStream);
-                }
             }
+            else
+            {
+                data = JsonConvert.DeserializeObject<T>(File.ReadAllText(filepath), new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects, ReferenceLoopHandling = ReferenceLoopHandling.Serialize });
+            }
+
 
             return data;
         }

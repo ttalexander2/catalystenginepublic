@@ -36,8 +36,7 @@ namespace Catalyst.Engine
         }
 
         // Time
-        public static FrameCounter Time;
-        public static GameTime GameTime;
+        internal static GameTime GameTime;
         public static float TimeScale { get; set; }
 
         // DebugDrawQueue
@@ -73,6 +72,11 @@ namespace Catalyst.Engine
         {
             CurrentScene = scene;
         }
+
+        public Engine()
+        {
+
+        }
         public Engine(int width, int height, string windowTitle, bool fullscreen)
         {
             CurrentScene = new Scene(1920, 1080);
@@ -82,7 +86,6 @@ namespace Catalyst.Engine
             Engine.Width = width;
             Engine.Height = height;
             Engine.Fullscreen = fullscreen;
-            Time = new FrameCounter();
 
             Graphics.GraphicsDevice = new GraphicsDeviceManager(this);
             Graphics.GraphicsDevice.SynchronizeWithVerticalRetrace = true;
@@ -195,9 +198,8 @@ namespace Catalyst.Engine
         {
             GameTime = gameTime;
 
-            var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            Time.Update(deltaTime);
+            Time.RawDeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Time.DeltaTime = Time.RawDeltaTime * Time.TimeRate;
 
             CurrentScene.PreUpdate(gameTime);
             CurrentScene.Update(gameTime);

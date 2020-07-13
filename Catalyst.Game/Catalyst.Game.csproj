@@ -125,6 +125,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\AIRoutines.cs" />
+    <Compile Include="Source\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -180,8 +182,10 @@
     <None Include="x64\libfmodstudio.so.11" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Scenes\" />
-    <Folder Include="Game\" />
+    <Folder Include="Content\Audio\" />
+    <Folder Include="Content\Dialog\" />
+    <Folder Include="Content\Graphics\Atlases\" />
+    <Folder Include="Content\Maps\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="x64\fmod.dll" Condition=" '$(Configuration)' == 'WIN64' ">
@@ -190,6 +194,10 @@
     <None Include="x64\fmodstudio.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\Textures\Test Atlas\Animated Texture\3_animated_texture.png" />
+    <Content Include="Content\Textures\Test Atlas\Animated Texture\2_animated_texture.png" />
+    <Content Include="Content\Textures\Test Atlas\Animated Texture\1_animated_texture.png" />
+    <Content Include="Content\Textures\Test Atlas\test_texture.png" />
     <Content Include="x64\SDL2.dll" Condition=" '$(Configuration)' == 'WIN64' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -220,10 +228,6 @@
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj">
       <Project>{6af02f92-514f-460a-b246-a5b0c1644676}</Project>
       <Name>Catalyst.Engine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Catalyst.GameLogic\Catalyst.GameLogic.csproj">
-      <Project>{d3504c26-be63-41b7-a5b1-10536114cfe1}</Project>
-      <Name>Catalyst.GameLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

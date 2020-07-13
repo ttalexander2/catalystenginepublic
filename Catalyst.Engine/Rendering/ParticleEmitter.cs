@@ -86,6 +86,7 @@ namespace Catalyst.Engine.Rendering
         public ParticleEmitter(Entity entity) : base(entity)
         {
             Sprite = new Sprite(entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
+            Sprite.Visible = false;
             Mode = ParticleMode.Burst;
             VelocityMode = Particle.VelocityMode.Linear;
             StartColor = Color.Lerp(Color.Cyan, Color.White, 0.5f);

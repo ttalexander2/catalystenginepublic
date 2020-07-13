@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Catalyst.Engine.Rendering;
 using Microsoft.Xna.Framework;
 using Catalyst.Engine.Audio;
+using Newtonsoft.Json;
 
 namespace Catalyst.Engine
 {
@@ -10,12 +11,13 @@ namespace Catalyst.Engine
     [assembly: InternalsVisibleTo("System.Runtime.Serialization")]
     public class Scene
     {
-
         public string Name { get; set; }
 
-        public ECManager Manager { get; private set; }
+        public EntityManager Manager { get; private set; }
 
         public List<System> Systems { get; private set; }
+
+        public CollisionSystem CollisionSystem;
 
         public Camera Camera { get; set; }
 
@@ -38,13 +40,16 @@ namespace Catalyst.Engine
         {
             Width = width;
             Height = height;
-            Manager = new ECManager(this);
+            Manager = new EntityManager(this);
             Systems = new List<System>();
             Cameras = new List<Camera>();
             Dimensions = new Utilities.Vector2(width, height);
             Camera = new Camera(this, new Utilities.Vector2(width, height));
             HierarchyTree.AddElement(Camera, Camera.Name);
             this.Name = "scene_" + this.GetHashCode().ToString();
+            CollisionSystem = new CollisionSystem(this);
+            Systems.Add(new CoroutineSystem(this));
+
 
         }
 
@@ -52,7 +57,7 @@ namespace Catalyst.Engine
         {
             Width = width;
             Height = height;
-            Manager = new ECManager(this);
+            Manager = new EntityManager(this);
             Dimensions = new Utilities.Vector2(width, height);
             Camera = new Camera(this, new Utilities.Vector2(width, height));
             HierarchyTree.AddElement(Camera, Camera.Name);
@@ -77,12 +82,9 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].Initialize();
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
-                if (e is IInitialize)
-                {
-                    ((IInitialize)e).Initialize();
-                }
+                e.Initialize();
             }
             Audio = new AudioManager();
         }
@@ -96,7 +98,7 @@ namespace Catalyst.Engine
                     ((RenderSystem)Systems[i]).LoadContent();
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is ILoad)
                 {
@@ -107,12 +109,13 @@ namespace Catalyst.Engine
 
         public virtual void PreUpdate(GameTime gameTime)
         {
+            CollisionSystem.PreUpdate(gameTime);
             for (int i = 0; i < Systems.Count; i++)
             {
                 if (Systems[i].Active)
                     Systems[i].PreUpdate(gameTime);
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IPreUpdate)
                 {
@@ -128,7 +131,7 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].Update(gameTime);
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IUpdate)
                 {
@@ -144,7 +147,7 @@ namespace Catalyst.Engine
                 if (Systems[i].Active)
                     Systems[i].PostUpdate(gameTime);
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IPostUpdate)
                 {
@@ -171,7 +174,7 @@ namespace Catalyst.Engine
                     
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IPreRender)
                 {
@@ -200,7 +203,7 @@ namespace Catalyst.Engine
 
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IRender)
                 {
@@ -229,7 +232,7 @@ namespace Catalyst.Engine
 
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IPostRender)
                 {
@@ -240,6 +243,7 @@ namespace Catalyst.Engine
 
         public virtual void DebugRender(GameTime gameTime)
         {
+            CollisionSystem.DebugRender(gameTime);
             for (int i = 0; i < Systems.Count; i++)
             {
                 if (Systems[i] is IDebugRender)
@@ -247,7 +251,7 @@ namespace Catalyst.Engine
                     ((IDebugRender)Systems[i]).DebugRender(gameTime);
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IDebugRender)
                 {
@@ -276,7 +280,7 @@ namespace Catalyst.Engine
 
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is IRenderUI)
                 {
@@ -314,7 +318,7 @@ namespace Catalyst.Engine
 
                 }
             }
-            foreach (Entity e in Manager.EntityDict.Values)
+            foreach (Entity e in Manager.Entities.Values)
             {
                 if (e is ILoad)
                 {

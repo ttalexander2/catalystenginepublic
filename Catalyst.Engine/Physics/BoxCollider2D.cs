@@ -1,21 +1,27 @@
 ﻿using Catalyst.Engine.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Catalyst.Engine.Physics
+namespace Catalyst.Engine
 {
-    [StoreInParent]
+    [Serializable]
     public class BoxCollider2D : Collider2D
     {
         [GuiVector2]
         public Vector2 Offset;
         [GuiVector2]
-        public Vector2 Dimensions;
+        public Vector2 Dimensions
+        {
+            get { return _dimensions; }
+            set
+            {
+                Bounds.Width = (int)value.X;
+                Bounds.Height = (int)value.Y;
+                _dimensions = value;
+            }
+        }
+
+        private Vector2 _dimensions;
         public int X
         {
             get
@@ -24,7 +30,7 @@ namespace Catalyst.Engine.Physics
             }
             set
             {
-                Dimensions.X = value;
+                _dimensions.X = value;
             }
         }
         public int Y
@@ -35,7 +41,7 @@ namespace Catalyst.Engine.Physics
             }
             set
             {
-                Dimensions.Y = value;
+                _dimensions.Y = value;
             }
         }
         [GuiEnum]
@@ -103,21 +109,46 @@ namespace Catalyst.Engine.Physics
         }
         private Vector2 _originVector = Vector2.Zero;
 
-        private Texture2D _dummyTexture;
+        [NonSerialized]
+        private Texture2D _dummy;
+
+        private Texture2D _dummyTexture
+        {
+            get
+            {
+                if (_dummy == null)
+                {
+                    _dummy = new Texture2D(Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
+                    _dummy.SetData(new Color[] { Color.White });
+                }
+                return _dummy;
+            }
+        }
 
         public BoxCollider2D(Entity entity) : base(entity)
         {
-            _dummyTexture = new Texture2D(Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
-            _dummyTexture.SetData(new Color[] { Color.White });
+            //_dummy = new Texture2D(Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
+            //_dummy.SetData(new Color[] { Color.White });
         }
 
 
         public override void DebugRender()
         {
-            Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(Dimensions.X, 1), new SpriteEffects(), 0);
-            Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(1, Dimensions.Y), new SpriteEffects(), 0);
-            Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y + Dimensions.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(Dimensions.X + 1, 1), new SpriteEffects(), 0);
-            Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X + Dimensions.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(1, Dimensions.Y + 1), new SpriteEffects(), 0);
+            if (Colliding)
+            {
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Green, 0, Vector2.Zero, new Vector2(Dimensions.X, 1), new SpriteEffects(), 0);
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Green, 0, Vector2.Zero, new Vector2(1, Dimensions.Y), new SpriteEffects(), 0);
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y + Dimensions.Y) + OriginVector + Offset, null, Color.Green, 0, Vector2.Zero, new Vector2(Dimensions.X + 1, 1), new SpriteEffects(), 0);
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X + Dimensions.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Green, 0, Vector2.Zero, new Vector2(1, Dimensions.Y + 1), new SpriteEffects(), 0);
+            }
+            else
+            {
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(Dimensions.X, 1), new SpriteEffects(), 0);
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(1, Dimensions.Y), new SpriteEffects(), 0);
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X, Entity.Position.Y + Dimensions.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(Dimensions.X + 1, 1), new SpriteEffects(), 0);
+                Graphics.SpriteBatch.Draw(_dummyTexture, new Vector2(Entity.Position.X + Dimensions.X, Entity.Position.Y) + OriginVector + Offset, null, Color.Red, 0, Vector2.Zero, new Vector2(1, Dimensions.Y + 1), new SpriteEffects(), 0);
+            }
+           
         }
     }
 }

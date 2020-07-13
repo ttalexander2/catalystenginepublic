@@ -9,14 +9,11 @@ using System.Threading.Tasks;
 using Catalyst.Editor;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using RxFileSystemWatcher;
 
 namespace CatalystEditor
 {
     public static class LoadManager
     {
-        private static WeakReference _reference;
-        private static AssemblyContextLoader _loader;
         public static void Initialize()
         {
             /**

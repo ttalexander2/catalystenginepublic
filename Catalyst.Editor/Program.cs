@@ -2,6 +2,9 @@
 using System.IO;
 using System.Reflection;
 using Catalyst.Editor;
+using Catalyst.Engine;
+using Catalyst.Engine.Input;
+using Catalyst.Engine.Rendering;
 using CatalystEditor;
 
 namespace Catalyst.Editor
@@ -12,7 +15,11 @@ namespace Catalyst.Editor
         [STAThread]
         public static void Main(string[] args)
         {
+
             using (var game = new CatalystEditor()) game.Run();
+
+
+
         }
 
         /**

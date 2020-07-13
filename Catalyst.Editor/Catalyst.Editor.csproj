@@ -1,54 +1,53 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <AssemblyName>Catalyst.Editor</AssemblyName>
-        <RootNamespace>CatalystEditor</RootNamespace>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
-        <OutputType>Exe</OutputType>
-        <ApplicationIcon />
-        <StartupObject />
-        <Configurations>Debug;Release;WIN64;WIN32;OSX;LINUX32;LINUX64</Configurations>
-        <Platforms>AnyCPU;x64;x86</Platforms>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Remove="Content\bin\**" />
-      <Compile Remove="Content\obj\**" />
-      <Compile Remove="New Project Template\**" />
-      <Compile Remove="Texture Packer\**" />
-      <EmbeddedResource Remove="Content\bin\**" />
-      <EmbeddedResource Remove="Content\obj\**" />
-      <EmbeddedResource Remove="New Project Template\**" />
-      <EmbeddedResource Remove="Texture Packer\**" />
-      <None Remove="Content\bin\**" />
-      <None Remove="Content\obj\**" />
-      <None Remove="New Project Template\**" />
-      <None Remove="Texture Packer\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Fonts\segoeui.ttf" />
-      <None Remove="Fonts\segoeuib.ttf" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="Fonts\segoeui.ttf">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Fonts\segoeuib.ttf">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-    </ItemGroup>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyName>Catalyst.Editor</AssemblyName>
+    <RootNamespace>CatalystEditor</RootNamespace>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ApplicationIcon />
+    <StartupObject />
+    <Configurations>Debug;Release;WIN64;WIN32;OSX;LINUX32;LINUX64</Configurations>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
 
   <ItemGroup>
-      <PackageReference Include="ImGui.NET" Version="1.72.0" />
-      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.4.0" />
-      <PackageReference Include="MonoGame.Framework.Content.Pipeline.Portable" Version="3.7.1.189" />
-      <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
-      <PackageReference Include="ReactiveFileSystemWatcher" Version="0.1.2.1" />
-      <PackageReference Include="sdl2" Version="2.0.5" />
-    </ItemGroup>
+    <Compile Remove="Content\bin\**" />
+    <Compile Remove="Content\obj\**" />
+    <Compile Remove="New Project Template\**" />
+    <Compile Remove="Texture Packer\**" />
+    <EmbeddedResource Remove="Content\bin\**" />
+    <EmbeddedResource Remove="Content\obj\**" />
+    <EmbeddedResource Remove="New Project Template\**" />
+    <EmbeddedResource Remove="Texture Packer\**" />
+    <None Remove="Content\bin\**" />
+    <None Remove="Content\obj\**" />
+    <None Remove="New Project Template\**" />
+    <None Remove="Texture Packer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\segoeui.ttf" />
+    <None Remove="Fonts\segoeuib.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\segoeui.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\segoeuib.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ImGui.NET" Version="1.75.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.6.0" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
+    <PackageReference Include="sdl2" Version="2.0.5" />
+    <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -68,12 +67,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj" />
-    <ProjectReference Include="..\Catalyst.GameLogic\Catalyst.GameLogic.csproj" />
-    <ProjectReference Include="..\Catalyst.TexturePacker\Catalyst.TexturePacker.csproj" />
+    <ProjectReference Include="..\Catalyst.Game\Catalyst.Game.csproj" />
+    <ProjectReference Include="..\Catalyst.TexturePacker\Catalyst.ContentManager.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="CatalystGame.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="catalyst_project_template.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Content\Atlases\test.atlas">
