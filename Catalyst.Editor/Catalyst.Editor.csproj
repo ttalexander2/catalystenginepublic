@@ -68,7 +68,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Catalyst.Engine\Catalyst.Engine.csproj" />
     <ProjectReference Include="..\Catalyst.Game\Catalyst.Game.csproj" />
-    <ProjectReference Include="..\Catalyst.TexturePacker\Catalyst.ContentManager.csproj" />
+    <ProjectReference Include="..\Catalyst.TexturePacker\Catalyst.AtlasPacker.csproj" />
   </ItemGroup>
 
   <ItemGroup>
