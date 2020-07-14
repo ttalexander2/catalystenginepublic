@@ -74,7 +74,7 @@ namespace Catalyst.Editor
             }
         }
 
-        public const string Extension = ".bin";
+        public const string Extension = ".scene";
 
         public static void CreateNew(string file)
         {

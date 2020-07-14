@@ -18,6 +18,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using System.IO.Compression;
 using Catalyst.Game;
 using Catalyst.Game.Source;
+using CatalystEditor.Widgets;
 
 namespace Catalyst.Editor
 {
@@ -27,10 +28,9 @@ namespace Catalyst.Editor
 
         private bool show_test_window = false;
         private bool new_project_window = false;
+        private bool file_picker = false;
         //public System.Numerics.Vector3 clear_color = new System.Numerics.Vector3(114f / 255f, 144f / 255f, 154f / 255f);
         public IntPtr ImGuiTexture;
-        private byte[] _textBuffer = new byte[100];
-        private string _currentScene = "";
 
         public static ImFontPtr DefaultFont;
         public static ImFontPtr HeadingFont;
@@ -42,6 +42,8 @@ namespace Catalyst.Editor
 
         public Vector2 ViewBounds = Vector2.Zero;
         public Rectangle ViewRect = Rectangle.Empty;
+
+        private FileBrowser fileBrowser;
 
         float scene_size = 0;
         float right_dock_size = 0;
@@ -107,9 +109,10 @@ namespace Catalyst.Editor
                     Menus.RenderLeftDock();
 
 
-
                     ImGui.End();
                 }
+
+                /**
 
                 ImGui.SetNextWindowSizeConstraints(new Vector2(350, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - scene_size - 100, _windowSize.Y - _menuSize.Y));
 
@@ -126,6 +129,8 @@ namespace Catalyst.Editor
 
                     ImGui.End();
                 }
+
+                */
 
                 ImGuiWindowFlags view_flags = 0;
                 view_flags |= ImGuiWindowFlags.NoTitleBar;
@@ -173,6 +178,18 @@ namespace Catalyst.Editor
                 ImGui.OpenPopup("New Scene");
                 NewProjectWindow();
             }
+            if (file_picker)
+            {
+                bool result = fileBrowser.OpenModalPopup();
+                if (result)
+                {
+                    file_picker = false;
+                    if (fileBrowser.Result != FileBrowser.FileBrowserResult.Canceled)
+                        ProjectManager.Open(fileBrowser.SelectedFile);
+                }
+                ImGui.OpenPopup(fileBrowser.PopupId);
+            }
+                
 
 
         }
@@ -192,18 +209,8 @@ namespace Catalyst.Editor
                         new_project_window = true;
                     }
                     if (ImGui.MenuItem("Open", "Ctrl+O")) {
-                        //TODO: MAKE THIS CROSS PLATFORM
-                        /**
-                        System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-                        openFileDialog1.Filter = "Catalyst Scene File (*.chroma)|*" +ProjectManager.Extension;
-                        openFileDialog1.DefaultExt = ProjectManager.Extension;
-                        openFileDialog1.AddExtension = true;
-                        openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                        if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                        {
-                            ProjectManager.Open(openFileDialog1.FileName);
-                        }
-                        */
+                        fileBrowser = new FileBrowser(Environment.GetFolderPath(Environment.SpecialFolder.Personal), false, false, ProjectManager.Extension);
+                        file_picker = true;
                     }
                     if (ImGui.MenuItem("Save", "Ctrl+S", false, ProjectManager.scene_loaded))
                     {
@@ -361,7 +368,6 @@ namespace Catalyst.Editor
                     new_project_window = false;
                     LoadingProject = true;
                     buff = new byte[40];
-                    _currentScene = "";
                     
                 }
                 ImGui.SameLine();

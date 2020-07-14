@@ -35,14 +35,14 @@ namespace Catalyst.Editor
                     RenderInspector();
                     ImGui.EndTabItem();
                 }
+                //if (ImGui.BeginTabItem("Atlases"))
                 ImGui.EndTabBar();
             }
-            
         }
 
         public static void RenderInspector()
         {
-            if (ImGui.BeginChild("Inspector", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.96f), true, ImGuiWindowFlags.None))
+            if (ImGui.BeginChild("Inspector", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.47f), true, ImGuiWindowFlags.None))
             {
                 if (Inspecting != null)
                 {
@@ -181,6 +181,8 @@ namespace Catalyst.Editor
                     ImGui.EndTabItem();
                 }
             }
+            ImGui.EndTabBar();
+            RenderInspector();
 
         }
 
@@ -339,79 +341,75 @@ namespace Catalyst.Editor
         public static void RenderHierarchyWindow()
         {
             //List of entities
-            ImGui.BeginChild("Hierarchy Child", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.96f), true, ImGuiWindowFlags.None);
-
-            if (ProjectManager.Current != null)
+            if (ImGui.BeginChild("Hierarchy Child", ImGui.GetWindowSize() * new System.Numerics.Vector2(0, 0.47f), true, ImGuiWindowFlags.None))
             {
-                //Render selectable file tree
-                RenderTree(ProjectManager.Current.HierarchyTree.Root);
-
-                //If the user elected to group the selected items
-                if (_group)
+                if (ProjectManager.Current != null)
                 {
-                    ProjectManager.Current.HierarchyTree.GroupSelected();
-                    _group = false;
-                }
+                    //Render selectable file tree
+                    RenderTree(ProjectManager.Current.HierarchyTree.Root);
 
-                if (_removeSelected)
-                {
-                    foreach (GameObject t in ProjectManager.Current.HierarchyTree.RemoveSelected())
+                    //If the user elected to group the selected items
+                    if (_group)
                     {
-                        if (t is Entity)
-                            ((Entity)t).DestroyEntity();
-                        else if (t is Camera)
-                            ProjectManager.Current.Cameras.Remove((Camera)t);
+                        ProjectManager.Current.HierarchyTree.GroupSelected();
+                        _group = false;
                     }
 
-                    ProjectManager.Current.HierarchyTree.Deselect();
-                    _removeSelected = false;
-
-                }
-
-                if (_duplicateSelected)
-                {
-                    foreach (Node t in ProjectManager.Current.HierarchyTree.Selected)
+                    if (_removeSelected)
                     {
-                        if (t is FileNode)
+                        foreach (GameObject t in ProjectManager.Current.HierarchyTree.RemoveSelected())
                         {
-                            if (((FileNode)t).Value is Entity)
-                                ProjectManager.Current.Manager.Duplicate(((Entity)((FileNode)t).Value).UID);
-                            else if (((FileNode)t).Value is Camera)
-                                ProjectManager.Current.Cameras.Add(Utility.DeepClone<Camera>((Camera)((FileNode)t).Value));
+                            if (t is Entity)
+                                ((Entity)t).DestroyEntity();
+                            else if (t is Camera)
+                                ProjectManager.Current.Cameras.Remove((Camera)t);
                         }
-                            
+
+                        ProjectManager.Current.HierarchyTree.Deselect();
+                        _removeSelected = false;
+
+                    }
+
+                    if (_duplicateSelected)
+                    {
+                        foreach (Node t in ProjectManager.Current.HierarchyTree.Selected)
+                        {
+                            if (t is FileNode)
+                            {
+                                if (((FileNode)t).Value is Entity)
+                                    ProjectManager.Current.Manager.Duplicate(((Entity)((FileNode)t).Value).UID);
+                                else if (((FileNode)t).Value is Camera)
+                                    ProjectManager.Current.Cameras.Add(Utility.DeepClone<Camera>((Camera)((FileNode)t).Value));
+                            }
+
+                        }
+                    }
+
+                    //Sort items by name if the user renamed or grouped something
+                    if (_rename || _group || _duplicateSelected)
+                    {
+                        ProjectManager.Current.HierarchyTree.SortFolders();
+                        _rename = false;
+                        _group = false;
+                        _duplicateSelected = false;
+
+                    }
+
+                    if (ProjectManager.Current.HierarchyTree.Selected.Count == 1 && ProjectManager.Current.HierarchyTree.Selected[0] is FileNode)
+                    {
+                        Inspecting = ((FileNode)ProjectManager.Current.HierarchyTree.Selected[0]).Value;
+                    }
+                    else
+                    {
+                        Inspecting = null;
                     }
                 }
 
-                //Sort items by name if the user renamed or grouped something
-                if (_rename || _group || _duplicateSelected)
-                {
-                    ProjectManager.Current.HierarchyTree.SortFolders();
-                    _rename = false;
-                    _group = false;
-                    _duplicateSelected = false;
-
-                }
-
-                if (ProjectManager.Current.HierarchyTree.Selected.Count == 1 && ProjectManager.Current.HierarchyTree.Selected[0] is FileNode)
-                {
-                    Inspecting = ((FileNode)ProjectManager.Current.HierarchyTree.Selected[0]).Value;
-                }
-                else
-                {
-                    Inspecting = null;
-                }
+                ImGui.EndChild();
+                ImGui.PopStyleColor();
             }
 
-            ImGui.EndChild();
-            ImGui.PopStyleColor();
-
-
-            ImGui.PushStyleColor(ImGuiCol.ChildBg, new System.Numerics.Vector4(0.23f, 0.23f, 0.25f, 1.00f));
-
-
-            ImGui.EndChild();
-            ImGui.PopStyleColor();
+            
 
         }
 

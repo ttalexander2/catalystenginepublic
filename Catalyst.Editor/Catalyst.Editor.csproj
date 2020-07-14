@@ -218,4 +218,10 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Icons\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

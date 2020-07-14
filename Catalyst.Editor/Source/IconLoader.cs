@@ -23,6 +23,7 @@ namespace CatalystEditor
         public static IntPtr MonoEntity { get; private set; }
         public static IntPtr Visible { get; private set; }
         public static IntPtr NotVisible { get; private set; }
+        public static IntPtr Folder { get; private set; }
 
         public static void LoadIcons()
         {
@@ -84,6 +85,11 @@ namespace CatalystEditor
             using (FileStream fs = new FileStream("Icons/NotVisible_16x.png", FileMode.Open))
             {
                 NotVisible = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
+            using (FileStream fs = new FileStream("Icons/FolderOpened_white_16x.png", FileMode.Open))
+            {
+                Folder = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
             }
         }
     }

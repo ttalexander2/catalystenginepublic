@@ -30,7 +30,7 @@ namespace Catalyst.Game.Source
 
         public override void Initialize()
         {
-            //_coroutine = new Coroutine(this, this.MoveBackAndForth(HorizontalSpeed), true);
+            _coroutine = new Coroutine(this, this.MoveBackAndForth(HorizontalSpeed), true);
         }
 
         public void Update(GameTime gameTime)
