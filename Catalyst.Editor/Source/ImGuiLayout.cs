@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Numerics;
 using ImGuiNET;
-using Catalyst.Editor;
-using Microsoft.Xna.Framework.Input;
-using System.Drawing;
 using System.IO;
-using Catalyst.Engine;
-using System.Reflection;
 using CatalystEditor;
 using Microsoft.Xna.Framework;
 using Vector2 = System.Numerics.Vector2;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
-using System.IO.Compression;
-using Catalyst.Game;
 using Catalyst.Game.Source;
 using CatalystEditor.Widgets;
 

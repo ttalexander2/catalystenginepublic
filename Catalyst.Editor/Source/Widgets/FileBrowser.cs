@@ -310,6 +310,13 @@ namespace CatalystEditor.Widgets
             MultiSelect,
             Canceled,
         }
+
+        public enum FileBrowserMode
+        {
+            SelectFile,
+            SelectDirectory,
+            SaveFile
+        }
     }
 
 }

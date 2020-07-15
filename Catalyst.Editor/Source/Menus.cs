@@ -178,11 +178,12 @@ namespace Catalyst.Editor
                 if (ImGui.BeginTabItem("Hierarchy", ref EntityWindowOpen))
                 {
                     RenderHierarchyWindow();
+                    RenderInspector();
                     ImGui.EndTabItem();
                 }
             }
             ImGui.EndTabBar();
-            RenderInspector();
+            
 
         }
 
