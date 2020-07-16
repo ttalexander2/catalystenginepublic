@@ -1,4 +1,5 @@
-﻿using ImGuiNET;
+﻿using Catalyst.Editor;
+using ImGuiNET;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -274,8 +275,8 @@ namespace CatalystEditor.Widgets
                 if (!File.Exists(s))
                     active = false;
             }
-            if (!active)
-                ImGui.PushStyleVar(ImGuiStyleVar.Alpha, 0.5f);
+            //if (!active)
+//                ImGui.PushStyleVar(ImGuiStyleVar.Alpha, 0.5f);
 
             if (!string.IsNullOrWhiteSpace(SelectedFile) && !Selected.Contains(SelectedFile))
                 Selected.Add(SelectedFile);
@@ -295,8 +296,8 @@ namespace CatalystEditor.Widgets
                 }
             }
 
-            if (!active)
-                ImGui.PopStyleVar();
+            //if (!active)
+//                ImGui.PopStyleVar();
 
 
 

@@ -12,11 +12,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vector2 = System.Numerics.Vector2;
+using Catalyst.Engine.Utilities;
+using Matrix = Microsoft.Xna.Framework.Matrix;
+using Vector3 = Microsoft.Xna.Framework.Vector3;
+using Point = Microsoft.Xna.Framework.Point;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
-namespace CatalystEditor
+namespace Catalyst.Editor
 {
-    public static class ViewportRenderer
+    public static class Viewport
     {
+        public static bool ViewportWindowOpen = true;
+
         public static float MaxZoom = 5;
         public static float MinZoom = 0.01f;
         public static float Zoom = 1;
@@ -24,13 +31,19 @@ namespace CatalystEditor
         public static bool Grid = true;
         public static int GridSize = 64;
 
+        public static bool SnapToCamera = true;
+
         public static bool Playing = false;
 
         public static Catalyst.Engine.Utilities.Vector2 Position = Catalyst.Engine.Utilities.Vector2.Zero;
         private static Catalyst.Engine.Utilities.Vector2 _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
 
-        public static void RenderViewPort(GameTime gameTime, Vector2 view_bounds, Rectangle bounds)
+        public static Vector2 WindowSize = Vector2.Zero;
+
+        public static void Render(GameTime gameTime)
         {
+            WindowSize = ImGui.GetWindowSize() - Vector2.UnitY*(2*ImGui.GetStyle().ItemSpacing.Y + 16) * 2.7f;
+            WindowSize = WindowSize - Vector2.UnitX* 10;
             System.Numerics.Vector4 color = System.Numerics.Vector4.Zero;
             unsafe
             {
@@ -41,14 +54,12 @@ namespace CatalystEditor
 
             if (!Playing)
             {
-                
-                
                 if (ImGui.ImageButton(IconLoader.RunButton, new Vector2(16,16)))
                 {
                     Playing = !Playing;
                     ProjectManager.Backup = Catalyst.Engine.Utilities.Utility.DeepClone<Scene>(ProjectManager.Current);
-                    Grid = false;
                     ProjectManager.Current.Initialize();
+                    Log.WriteLine($"Scene [{ProjectManager.Current.Name}] running. Changes made while the game is running will not be saved.");
                 }
                 if (ImGui.IsItemHovered()) ImGui.SetTooltip("Run");
 
@@ -75,8 +86,6 @@ namespace CatalystEditor
                             }
                         }
                     }
-
-                    Grid = true;
                 }
                 if (ImGui.IsItemHovered()) ImGui.SetTooltip("Stop");
 
@@ -90,15 +99,20 @@ namespace CatalystEditor
 
             ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0,v.Y));
 
-
-
             if (Grid)
                 ImGui.PushStyleColor(ImGuiCol.Button, color);
 
             if (ImGui.ImageButton(IconLoader.GridButton, new Vector2(16, 16)))
             {
+                if (Grid)
+                    ImGui.PopStyleColor();
+                else
+                    ImGui.PushStyleColor(ImGuiCol.Button, color);
                 Grid = !Grid;
             }
+
+            if (Grid)
+                ImGui.PopStyleColor();
 
             if (ImGui.IsItemHovered()) ImGui.SetTooltip("Toggle Grid");
 
@@ -113,11 +127,7 @@ namespace CatalystEditor
 
             if (ImGui.IsItemHovered()) ImGui.SetTooltip("Configure Grid");
 
-
-            ImGui.PushStyleColor(ImGuiCol.Button, System.Numerics.Vector4.Zero);
-
-            ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, v);
-
+            ImGui.PopStyleVar();
 
             if (ImGui.BeginPopup("Grid_size"))
             {
@@ -136,6 +146,8 @@ namespace CatalystEditor
                 ImGui.EndPopup();
 
             }
+
+
 
             ImGui.SameLine();
 
@@ -157,7 +169,8 @@ namespace CatalystEditor
             if (ImGui.IsItemHovered()) ImGui.SetTooltip("Set Zoom");
 
 
-            ImGui.PushStyleColor(ImGuiCol.Button, color);
+
+
 
             float prev_zoom = Zoom;
 
@@ -171,9 +184,28 @@ namespace CatalystEditor
                 ImGui.EndPopup();
 
             }
-           
 
-            //ImGui.SameLine();
+            ImGui.SameLine();
+
+            if (SnapToCamera)
+                ImGui.PushStyleColor(ImGuiCol.Button, color);
+
+            if (ImGui.ImageButton(IconLoader.Camera, new Vector2(16, 16)))
+            {
+                if (SnapToCamera)
+                    ImGui.PopStyleColor();
+                else
+                    ImGui.PushStyleColor(ImGuiCol.Button, color);
+                SnapToCamera = !SnapToCamera;
+            }
+
+            if (SnapToCamera)
+                ImGui.PopStyleColor();
+
+            if (ImGui.IsItemHovered()) ImGui.SetTooltip("Snap Viewport to Grid");
+
+
+            Rectangle bounds = new Rectangle(new Point((int)ImGui.GetWindowPos().X, (int)ImGui.GetWindowPos().Y), new Point((int)ImGui.GetWindowSize().X, (int)ImGui.GetWindowSize().Y));
             if(bounds.Contains(m.Position))
             {
                 Zoom += ImGui.GetIO().MouseWheel / 20;
@@ -207,39 +239,42 @@ namespace CatalystEditor
             IntPtr p = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.Editor.CatalystEditor.Instance.RenderTarget);
 
             float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
-            float actual = (float)bounds.Width / (float)bounds.Height;
+            float actual = (float)WindowSize.X / (float)WindowSize.Y;
 
             Vector2 size;
 
             if (actual > ratio)
             {
-                size = new Vector2(bounds.Height * ratio, bounds.Height);
+                size = new Vector2(WindowSize.Y * ratio, WindowSize.Y);
             }
             else if (actual < ratio)
             {
-                size = new Vector2(bounds.Width, (int)(bounds.Width * 1 / ratio));
+                size = new Vector2(WindowSize.X, (int)(WindowSize.X * 1 / ratio));
             }
             else
             {
-                size = new Vector2(bounds.Width, bounds.Height);
+                size = new Vector2(WindowSize.X, WindowSize.Y);
             }
 
             ImGui.Image(p, size);
+
+            ImGui.PopStyleColor();
 
 
         }
 
         public static Matrix GetTransformMatrix()
         {
-            if (!Playing)
-                return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
-                       Matrix.CreateRotationZ(0) *
-                       Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
-                       Matrix.CreateTranslation(new Vector3(0, 0, 0));
-            else
+            if (SnapToCamera)
                 return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
                        Matrix.CreateRotationZ(0) *
                        Matrix.CreateScale(new Vector3(1, 1, 1)) *
+                       Matrix.CreateTranslation(new Vector3(0, 0, 0));
+            else
+                return 
+                       Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                       Matrix.CreateRotationZ(0) *
+                       Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
                        Matrix.CreateTranslation(new Vector3(0, 0, 0));
         }
 

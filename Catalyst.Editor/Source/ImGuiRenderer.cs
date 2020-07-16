@@ -283,7 +283,7 @@ namespace Catalyst.Editor
             drawData.ScaleClipRects(ImGui.GetIO().DisplayFramebufferScale);
 
             // Setup projection
-            _graphicsDevice.Viewport = new Viewport(0, 0, _graphicsDevice.PresentationParameters.BackBufferWidth, _graphicsDevice.PresentationParameters.BackBufferHeight);
+            _graphicsDevice.Viewport = new Microsoft.Xna.Framework.Graphics.Viewport(0, 0, _graphicsDevice.PresentationParameters.BackBufferWidth, _graphicsDevice.PresentationParameters.BackBufferHeight);
 
             UpdateBuffers(drawData);
 

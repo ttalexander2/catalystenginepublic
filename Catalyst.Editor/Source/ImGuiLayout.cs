@@ -8,17 +8,22 @@ using Vector2 = System.Numerics.Vector2;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Catalyst.Game.Source;
 using CatalystEditor.Widgets;
+using System.Drawing;
+using FMOD;
+using System.Linq;
+using Catalyst.Engine.Utilities;
+using CatalystEditor.Source;
 
 namespace Catalyst.Editor
 {
     public class ImGuiLayout
     {
-        private float f = 0.0f;
 
         private bool show_test_window = false;
         private bool new_project_window = false;
         private bool file_picker = false;
-        //public System.Numerics.Vector3 clear_color = new System.Numerics.Vector3(114f / 255f, 144f / 255f, 154f / 255f);
+        private bool log_window = true;
+
         public IntPtr ImGuiTexture;
 
         public static ImFontPtr DefaultFont;
@@ -27,19 +32,15 @@ namespace Catalyst.Editor
         public static ImFontPtr SlightlyLargerFontThanNormal;
 
         private Vector2 _windowSize;
-        private Vector2 _menuSize;
 
         public Vector2 ViewBounds = Vector2.Zero;
         public Rectangle ViewRect = Rectangle.Empty;
 
+
         private FileBrowser fileBrowser;
-
-        float scene_size = 0;
-        float right_dock_size = 0;
-        float view_size = 0;
-
         public void Initialize()
         {
+            ImGui.GetIO().Fonts.Clear();
             DefaultFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 16.0f);
             HeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeuib.ttf", 22.0f);
             SubHeadingFont = ImGui.GetIO().Fonts.AddFontFromFileTTF("Fonts/segoeui.ttf", 20.0f);
@@ -49,9 +50,13 @@ namespace Catalyst.Editor
             f |= ImGuiBackendFlags.HasMouseCursors;
             ImGui.GetIO().BackendFlags = f;
             StyleManager.LoadDark();
+            ImGui.GetIO().ConfigFlags |= ImGuiConfigFlags.DockingEnable;
+            ImGui.GetIO().ConfigWindowsMoveFromTitleBarOnly = true;
+            ImGui.GetIO().ConfigDockingAlwaysTabBar = true;
+            LogWindow.Init();
         }
 
-        public void SetStyle()
+        public void PushStyle()
         {
             ImGui.PushFont(DefaultFont); //Set default font
             ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 0);
@@ -62,97 +67,104 @@ namespace Catalyst.Editor
             ImGui.PushStyleColor(ImGuiCol.ResizeGripActive, 0);
         }
 
+        public void PopStyle()
+        {
+            ImGui.PopFont();
+            ImGui.PopStyleVar(3);
+            ImGui.PopStyleColor(3);
+        }
+
 
 
         public void Render(GameTime gameTime)
         {
+            PushStyle();
 
-            _windowSize = new Vector2(CatalystEditor.Instance.GraphicsDevice.Viewport.Width, CatalystEditor.Instance.GraphicsDevice.Viewport.Height+1);
+            _windowSize = new Vector2(CatalystEditor.Instance.GraphicsDevice.Viewport.Width, CatalystEditor.Instance.GraphicsDevice.Viewport.Height + 1);
 
-            SetStyle();
+
             RenderMenuBar();
+
 
             //Left Bar Window
             if (ProjectManager.scene_loaded)
             {
                 ImGuiWindowFlags window_flags = 0;
-                window_flags |= ImGuiWindowFlags.NoMove;
                 window_flags |= ImGuiWindowFlags.NoCollapse;
+                window_flags |= ImGuiWindowFlags.NoResize;
                 window_flags |= ImGuiWindowFlags.NoBringToFrontOnFocus;
+                window_flags |= ImGuiWindowFlags.NoMove;
                 window_flags |= ImGuiWindowFlags.NoTitleBar;
+                window_flags |= ImGuiWindowFlags.DockNodeHost;
 
-                bool t = false;
+                uint dock_id = 0;
 
-                ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
+                bool active = true;
+                ImGui.SetNextWindowSize(_windowSize - Vector2.UnitY * 20f);
+                ImGui.SetNextWindowPos(Vector2.UnitY * 20f);
+                ImGui.Begin("Central Dockspace", ref active, window_flags);
 
-
-                ImGui.SetNextWindowSizeConstraints(new Vector2(200, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - right_dock_size - 100, _windowSize.Y - _menuSize.Y));
-
-                t = false;
-                if (ImGui.Begin("Left Dock", ref t, window_flags))
+                if (active)
                 {
-                    ImGui.SetWindowPos(new Vector2(0, _menuSize.Y));
-                    scene_size = ImGui.GetWindowSize().X;
+                    dock_id = ImGui.GetID("HUB_DockSpace");
+                    ImGui.DockSpace(dock_id, Vector2.Zero, ImGuiDockNodeFlags.NoResize & ImGuiDockNodeFlags.PassthruCentralNode);
+                }
 
-                    ImGui.SetWindowCollapsed(false);
-                    Menus.RenderLeftDock();
+                ImGui.End();
 
+                window_flags = 0;
+                window_flags |= ImGuiWindowFlags.NoCollapse;
 
+                if (SceneWindows.HierarchyWindow)
+                {
+                    ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
+                    if (ImGui.Begin("Hierarchy", ref SceneWindows.HierarchyWindow, window_flags))
+                    {
+                        SceneWindows.RenderHierarchyWindow();
+                    }
                     ImGui.End();
                 }
 
-                /**
-
-                ImGui.SetNextWindowSizeConstraints(new Vector2(350, _windowSize.Y - _menuSize.Y), new Vector2(_windowSize.X - scene_size - 100, _windowSize.Y - _menuSize.Y));
-
-                t = false;
-                if (ImGui.Begin("Right Dock", ref t, window_flags))
+                if (SceneWindows.InspectorWindowOpen)
                 {
-                    right_dock_size = ImGui.GetWindowSize().X;
-                    ImGui.SetWindowPos(new Vector2(_windowSize.X-right_dock_size, _menuSize.Y));
-
-
-                    ImGui.SetWindowCollapsed(false);
-
-                    Menus.RenderRightDock();
-
+                    ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
+                    if (ImGui.Begin("Inspector", ref SceneWindows.InspectorWindowOpen, window_flags))
+                    {
+                        SceneWindows.RenderInspector();
+                    }
                     ImGui.End();
                 }
 
-                */
 
-                ImGuiWindowFlags view_flags = 0;
-                view_flags |= ImGuiWindowFlags.NoTitleBar;
-                view_flags |= ImGuiWindowFlags.NoMove;
-                view_flags |= ImGuiWindowFlags.NoCollapse;
-                view_flags |= ImGuiWindowFlags.NoBringToFrontOnFocus;
-
-                bool oof = false;
-
-                ImGui.PushStyleColor(ImGuiCol.WindowBg, new System.Numerics.Vector4(0.11f, 0.11f, 0.11f, 1.00f));
-
-                if (ImGui.Begin("Game Viewport", ref oof, view_flags))
+                if (LogWindow.WindowOpen)
                 {
-                    ImGui.SetWindowPos(new Vector2(scene_size, _menuSize.Y));
-                    ImGui.SetWindowSize(new Vector2(_windowSize.X - right_dock_size, _windowSize.Y - _menuSize.Y));
-
-                    view_size = ImGui.GetWindowSize().X;
-
-                    ImGui.SetWindowCollapsed(false);
-
-                    ViewBounds = CalculateViewBounds((int)(_windowSize.X - right_dock_size), (int)(_windowSize.X - right_dock_size));
-
-                    ViewRect = new Rectangle((int)(scene_size), (int)(_menuSize.Y + 35), (int)(ViewBounds.X - scene_size), (int)ViewBounds.Y);
-
-                    ViewportRenderer.RenderViewPort(gameTime, ViewBounds, ViewRect);
-
+                    ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
+                    if (ImGui.Begin("Log", ref SceneWindows.InspectorWindowOpen, window_flags))
+                    {
+                        LogWindow.Render();
+                    }
                     ImGui.End();
                 }
 
-                ImGui.PushStyleColor(ImGuiCol.WindowBg, new System.Numerics.Vector4(0.23f, 0.23f, 0.25f, 1.00f));
 
-                
-                ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
+                if (Viewport.ViewportWindowOpen)
+                {
+                    ImGuiWindowFlags window_flags2 = 0;
+                    window_flags2 |= ImGuiWindowFlags.NoCollapse;
+                    window_flags2 |= ImGuiWindowFlags.NoScrollbar;
+                    if (Viewport.Playing)
+                        window_flags2 |= ImGuiWindowFlags.UnsavedDocument;
+                    ImGui.PushStyleColor(ImGuiCol.WindowBg, new System.Numerics.Vector4(0.11f, 0.11f, 0.11f, 1.00f));
+                    ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
+                    if (ImGui.Begin("Game Viewport", ref Viewport.ViewportWindowOpen, window_flags2))
+                    {
+                        Viewport.Render(gameTime);
+                    }
+                    ImGui.End();
+
+                    ImGui.PopStyleColor();
+                }
+
             }
 
             // 3. Show the ImGui test window. Most of the sample code is in ImGui.ShowTestWindow()
@@ -178,9 +190,9 @@ namespace Catalyst.Editor
                 }
                 ImGui.OpenPopup(fileBrowser.PopupId);
             }
-                
 
 
+            PopStyle();
         }
 
         private void RenderMenuBar()
@@ -190,7 +202,6 @@ namespace Catalyst.Editor
 
             if (ImGui.BeginMainMenuBar())
             {
-                _menuSize = ImGui.GetWindowSize();
                 if (ImGui.BeginMenu("File"))
                 {
                     if (!LoadingProject && ImGui.MenuItem("New"))
@@ -211,15 +222,10 @@ namespace Catalyst.Editor
                     }
                     ImGui.Separator();
 
-                    if(ImGui.MenuItem("Load Test Scene", true))
-                    {
-                        ProjectManager.Current = ProjectManager.LoadTestWorld();
-                    }
-
                     if (ImGui.MenuItem("Test Window")) show_test_window = !show_test_window;
 
                     if (ImGui.MenuItem("Quit", "Alt+F4"))
-                    { 
+                    {
                         CatalystEditor.Instance.Exit();
                     }
                     ImGui.EndMenu();
@@ -244,7 +250,7 @@ namespace Catalyst.Editor
                     }
                     if (ImGui.MenuItem("New Player", available))
                     {
-                        ProjectManager.Current.Manager.Entities.Add(ProjectManager.Current.Manager.NewId(), new Player(ProjectManager.Current));
+                        _ = new Player(ProjectManager.Current);
                     }
                     if (ImGui.MenuItem("New Camera...", available))
                     {
@@ -255,27 +261,40 @@ namespace Catalyst.Editor
 
                 if (ImGui.BeginMenu("Window"))
                 {
-                    if (ImGui.MenuItem("Entities"))
+                    if (ImGui.MenuItem("Hierarchy"))
                     {
-                        Menus.EntityWindowOpen = true;
+                        SceneWindows.HierarchyWindow = true;
                     }
 
-                    if (ImGui.MenuItem("Sprites"))
+                    if (ImGui.MenuItem("Inspector"))
                     {
-                        Menus.SpriteWindowOpen = true;
+                        SceneWindows.InspectorWindowOpen = true;
+                    }
+
+                    if (ImGui.MenuItem("Game Viewport"))
+                    {
+                        Viewport.ViewportWindowOpen = true;
                     }
                     ImGui.EndMenu();
                 }
 
+                if (Viewport.Playing)
+                {
+                    ImGui.PushStyleColor(ImGuiCol.Text, System.Numerics.Vector4.UnitX + System.Numerics.Vector4.UnitW);
+                    ImGui.SameLine(ImGui.GetWindowWidth() - 320);
+                    ImGui.Text("Game is running. Changes to the scene will not be saved.");
+                    ImGui.PopStyleColor();
+                }
 
-                ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
+
+                ImGui.PopStyleVar();
                 ImGui.EndMainMenuBar();
             }
 
 
         }
 
-        
+
 
         private enum WindowEdge
         {
@@ -303,10 +322,10 @@ namespace Catalyst.Editor
 
             if (ImGui.BeginPopupModal("New Scene", ref r, window_flags))
             {
-                
+
                 ImGui.PushFont(HeadingFont);
                 ImGui.Text("Create a new Scene");
-                ImGui.PushFont(DefaultFont);
+                ImGui.PopFont();
 
                 ImGui.Text("Enter a name: ");
 
@@ -320,9 +339,9 @@ namespace Catalyst.Editor
                 {
                     ImGui.Text(projectDir + "\\" + str);
                 }
-                
 
-                if(ImGui.Button("Choose Project Directory"))
+
+                if (ImGui.Button("Choose Project Directory"))
                 {
                     //TODO: MAKE THIS CROSS PLATFORM
                     /**
@@ -343,7 +362,7 @@ namespace Catalyst.Editor
                 if (ImGui.Button("Next"))
                 {
                     ImGui.CloseCurrentPopup();
-                    
+
                     if (customDir)
                     {
                         ProjectManager.ProjectPath = Path.Combine(projectDir, ProjectManager.RemoveInvalidChars(str));
@@ -357,7 +376,7 @@ namespace Catalyst.Editor
                     new_project_window = false;
                     LoadingProject = true;
                     buff = new byte[40];
-                    
+
                 }
                 ImGui.SameLine();
 
@@ -387,31 +406,6 @@ namespace Catalyst.Editor
                 ImGui.PopTextWrapPos();
                 ImGui.EndTooltip();
             }
-        }
-
-
-
-        public Vector2 CalculateViewBounds(int width, int height)
-        {
-            float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
-            float actual = (float)width / (float)height;
-
-            Vector2 size;
-
-            if (actual > ratio)
-            {
-                size = new Vector2((height * (ratio)), height);
-            }
-            else if (actual < ratio)
-            {
-                size = new Vector2(width, (int)(width * 1 / ratio));
-            }
-            else
-            {
-                size = new Vector2(width, height);
-            }
-
-            return size;
         }
     }
 }

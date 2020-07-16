@@ -110,13 +110,13 @@ namespace Catalyst.Editor
             Time.DeltaTime = Time.RawDeltaTime * Time.TimeRate;
 
             keyboardState = Keyboard.GetState();
-            if (ProjectManager.scene_loaded && ViewportRenderer.Playing)
+            if (ProjectManager.scene_loaded && global::Catalyst.Editor.Viewport.Playing)
             {
                 ProjectManager.Current.PreUpdate(gameTime);
                 ProjectManager.Current.Update(gameTime);
                 ProjectManager.Current.PostUpdate(gameTime);
             }
-            else if (ProjectManager.scene_loaded && !ViewportRenderer.Playing)
+            else if (ProjectManager.scene_loaded && !global::Catalyst.Editor.Viewport.Playing)
             {
 
                 foreach (Engine.System s in ProjectManager.Current.Systems)
@@ -153,13 +153,13 @@ namespace Catalyst.Editor
                 /**
                  * If update occurs, set transformMatrix to camera, else display entire scene and control zoom with transform matrix.
                  */
-                if (ViewportRenderer.Playing)
+                if (global::Catalyst.Editor.Viewport.SnapToCamera)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, _layout.ViewBounds.X / _layout.ViewBounds.Y + Engine.Graphics.Width/Engine.Graphics.Height));
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f));
                 }
                 else
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ViewportRenderer.GetTransformMatrix());
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: global::Catalyst.Editor.Viewport.GetTransformMatrix());
                 }
 
 
@@ -182,16 +182,16 @@ namespace Catalyst.Editor
 
                 Catalyst.Engine.Graphics.SpriteBatch.End();
 
-                if (ViewportRenderer.Playing)
+                if (global::Catalyst.Editor.Viewport.SnapToCamera)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, _layout.ViewBounds.X / _layout.ViewBounds.Y + Engine.Graphics.Width / Engine.Graphics.Height));
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f));
                 }
                 else
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: ViewportRenderer.GetTransformMatrix());
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: global::Catalyst.Editor.Viewport.GetTransformMatrix());
                 }
 
-                if (ViewportRenderer.Grid && GridTarget != null)
+                if (global::Catalyst.Editor.Viewport.Grid && GridTarget != null)
                 {
                     Engine.Graphics.SpriteBatch.Draw(GridTarget, new Vector2(0, 0), null, Color.White);
                     Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Camera.Size.X, 3), new SpriteEffects(), 0);
@@ -272,7 +272,7 @@ namespace Catalyst.Editor
             Graphics.GraphicsDevice.Clear(Color.Transparent);
 
 
-            int tileSize = ViewportRenderer.GridSize;
+            int tileSize = global::Catalyst.Editor.Viewport.GridSize;
             for (int i = 0; i <= ProjectManager.Current.Width; i += tileSize)
             {
                 if (i == 0 || i == ProjectManager.Current.Width)

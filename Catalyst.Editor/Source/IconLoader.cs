@@ -6,7 +6,7 @@ using System.IO;
 using System.Numerics;
 using System.Text;
 
-namespace CatalystEditor
+namespace Catalyst.Editor
 {
     public static class IconLoader
     {
