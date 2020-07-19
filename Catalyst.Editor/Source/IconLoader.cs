@@ -11,6 +11,7 @@ namespace Catalyst.Editor
     public static class IconLoader
     {
         public static Vector2 Icon16Size = new Vector2(16, 16);
+        public static Vector2 Icon32Size = new Vector2(32, 32);
         public static IntPtr RunButton { get; private set; }
         public static IntPtr PauseButton { get; private set; }
         public static IntPtr StopButton { get; private set; }
@@ -24,9 +25,39 @@ namespace Catalyst.Editor
         public static IntPtr Visible { get; private set; }
         public static IntPtr NotVisible { get; private set; }
         public static IntPtr Folder { get; private set; }
+        public static IntPtr ProgramIcon { get; private set; }
+        public static IntPtr Close { get; private set; }
+        public static IntPtr Minimize { get; private set; }
+        public static IntPtr Maximize { get; private set; }
+        public static IntPtr RestoreDown { get; private set; }
 
         public static void LoadIcons()
         {
+            using (FileStream fs = new FileStream("Icons/Icon.png", FileMode.Open))
+            {
+                ProgramIcon = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
+            using (FileStream fs = new FileStream("Icons/Close_16x.png", FileMode.Open))
+            {
+                Close = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
+            using (FileStream fs = new FileStream("Icons/Minimize_16x.png", FileMode.Open))
+            {
+                Minimize = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
+            using (FileStream fs = new FileStream("Icons/Maximize_16x.png", FileMode.Open))
+            {
+                Maximize = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
+            using (FileStream fs = new FileStream("Icons/RestoreDown_16x.png", FileMode.Open))
+            {
+                RestoreDown = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
             using (FileStream fs = new FileStream("Icons/Run_16x.png", FileMode.Open))
             {
                 RunButton = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));

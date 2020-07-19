@@ -14,5 +14,6 @@ namespace Catalyst.Engine
         public static float RawDeltaTime { get; internal set; }
         public static float DeltaTime { get; internal set; }
         public static float TimeRate = 1.0f;
+
     }
 }

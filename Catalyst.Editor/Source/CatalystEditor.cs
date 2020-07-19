@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System.IO;
 using CatalystEditor;
 using Catalyst.Engine;
+using CatalystEditor.Source;
 
 namespace Catalyst.Editor
 {
@@ -56,12 +57,16 @@ namespace Catalyst.Editor
             Catalyst.Engine.Graphics.GraphicsDevice = Graphics;
 
             IsMouseVisible = true;
-            Window.AllowUserResizing = true;
 
 
             _layout = new ImGuiLayout();
 
             Catalyst.Engine.Graphics.Content = Content;
+
+            Window.IsBorderless = true;
+            Window.AllowUserResizing = true;
+
+            //InactiveSleepTime = new TimeSpan(0);
 
         }
 
@@ -70,10 +75,6 @@ namespace Catalyst.Editor
             Renderer = new ImGuiRenderer(this);
             _layout.Initialize();
             Renderer.RebuildFontAtlas();
-
-            Version v = Assembly.GetExecutingAssembly().GetName().Version;
-
-            Window.Title = "Catalyst " + v.Major + "." + v.MajorRevision;
 
             base.Initialize(); 
         }
@@ -146,6 +147,18 @@ namespace Catalyst.Editor
                     RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, 1920, 1080);
                 }
 
+                if (RenderTarget.Width != (int)Viewport.WindowSize.X || RenderTarget.Height != (int)Viewport.WindowSize.Y)
+                {
+                    if (Viewport.WindowSize.X > 0 && Viewport.WindowSize.Y > 0)
+                    {
+                        RenderTarget.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, (int)Viewport.WindowSize.X, (int)Viewport.WindowSize.Y);
+                    }
+
+                }
+
                 Graphics.GraphicsDevice.SetRenderTarget(RenderTarget);
 
                 GraphicsDevice.Clear(_backgroundColor * 0.6f);
@@ -155,7 +168,7 @@ namespace Catalyst.Editor
                  */
                 if (global::Catalyst.Editor.Viewport.SnapToCamera)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f));
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f*Viewport.SnapZoom));
                 }
                 else
                 {
@@ -184,7 +197,7 @@ namespace Catalyst.Editor
 
                 if (global::Catalyst.Editor.Viewport.SnapToCamera)
                 {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f));
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f * Viewport.SnapZoom));
                 }
                 else
                 {

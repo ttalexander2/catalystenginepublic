@@ -30,6 +30,11 @@
   <ItemGroup>
     <None Remove="Fonts\segoeui.ttf" />
     <None Remove="Fonts\segoeuib.ttf" />
+    <None Remove="Icons\Close_16x.png" />
+    <None Remove="Icons\Icon.png" />
+    <None Remove="Icons\Maximize_16x.png" />
+    <None Remove="Icons\Minimize_16x.png" />
+    <None Remove="Icons\RestoreDown_16x.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -76,7 +76,7 @@ namespace Catalyst.Editor
 
         public const string Extension = ".scene";
 
-        public static void CreateNew(string file)
+        public static void CreateNewScene(string file)
         {
             Current = new Scene(1920, 1080);
             Current.Systems.Add(new InputSystem(Current));

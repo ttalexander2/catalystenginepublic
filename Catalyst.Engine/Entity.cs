@@ -1,6 +1,7 @@
 ﻿using Catalyst.Engine.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace Catalyst.Engine
 {
@@ -11,6 +12,8 @@ namespace Catalyst.Engine
         public int UID { get; private set; }
 
         public HashSet<string> ComponentTypes;
+
+        public List<int> Children = new List<int>();
 
         public Collider2D Collider;
 
@@ -52,6 +55,13 @@ namespace Catalyst.Engine
         }
 
         internal Entity() { }
+
+        public Entity CreateChild()
+        {
+            Entity e = Scene.Manager.NewEntity();
+            Children.Add(e.UID);
+            return e;
+        }
 
         public virtual void Initialize() { }
 

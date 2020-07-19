@@ -105,6 +105,9 @@ namespace Catalyst.Editor
             return id;
         }
 
+        /// <summary>
+        /// Creates a pointer to a texture 0, for use by the game buffer. That pointer is then used by ImGui to let us know what texture to draw
+        /// </summary>
         public virtual IntPtr BindRenderTarget(Texture2D texture)
         {
             var id = new IntPtr(0);

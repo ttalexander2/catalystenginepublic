@@ -24,7 +24,7 @@ namespace CatalystEditor.Source
             {
                 _log = "";
             }
-            ImGui.InputTextMultiline("##log_text_body", ref _log, uint.MaxValue, ImGui.GetWindowSize() - System.Numerics.Vector2.UnitY*70);
+            ImGui.InputTextMultiline("##log_text_body", ref _log, uint.MaxValue, ImGui.GetWindowSize() - System.Numerics.Vector2.UnitY*70, ImGuiInputTextFlags.ReadOnly);
         }
 
         public static void WriteCharToLog(char value)

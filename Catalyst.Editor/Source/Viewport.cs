@@ -32,6 +32,7 @@ namespace Catalyst.Editor
         public static int GridSize = 64;
 
         public static bool SnapToCamera = true;
+        public static float SnapZoom = 1;
 
         public static bool Playing = false;
 
@@ -241,22 +242,23 @@ namespace Catalyst.Editor
             float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
             float actual = (float)WindowSize.X / (float)WindowSize.Y;
 
-            Vector2 size;
+            Vector2 camera = new Vector2(ProjectManager.Current.Camera.Bounds.X, ProjectManager.Current.Camera.Bounds.Y);
 
             if (actual > ratio)
             {
-                size = new Vector2(WindowSize.Y * ratio, WindowSize.Y);
-            }
-            else if (actual < ratio)
-            {
-                size = new Vector2(WindowSize.X, (int)(WindowSize.X * 1 / ratio));
+                SnapZoom = (float)WindowSize.Y / ProjectManager.Current.Camera.Bounds.Y;
             }
             else
             {
-                size = new Vector2(WindowSize.X, WindowSize.Y);
+                SnapZoom = (float)WindowSize.X / ProjectManager.Current.Camera.Bounds.X;
             }
 
-            ImGui.Image(p, size);
+
+
+
+            ImGui.Image(p, WindowSize);
+
+            
 
             ImGui.PopStyleColor();
 
@@ -266,7 +268,7 @@ namespace Catalyst.Editor
         public static Matrix GetTransformMatrix()
         {
             if (SnapToCamera)
-                return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                return Matrix.CreateTranslation(new Vector3(0, 0, 0)) *
                        Matrix.CreateRotationZ(0) *
                        Matrix.CreateScale(new Vector3(1, 1, 1)) *
                        Matrix.CreateTranslation(new Vector3(0, 0, 0));

@@ -13,6 +13,11 @@ using FMOD;
 using System.Linq;
 using Catalyst.Engine.Utilities;
 using CatalystEditor.Source;
+using Catalyst.Engine.Input;
+using Microsoft.Xna.Framework.Input;
+using static CatalystEditor.Source.WindowHandler;
+using FMOD.Studio;
+using Catalyst.Engine;
 
 namespace Catalyst.Editor
 {
@@ -22,7 +27,8 @@ namespace Catalyst.Editor
         private bool show_test_window = false;
         private bool new_project_window = false;
         private bool file_picker = false;
-        private bool log_window = true;
+
+        private bool custom_decorations;
 
         public IntPtr ImGuiTexture;
 
@@ -52,16 +58,21 @@ namespace Catalyst.Editor
             StyleManager.LoadDark();
             ImGui.GetIO().ConfigFlags |= ImGuiConfigFlags.DockingEnable;
             ImGui.GetIO().ConfigWindowsMoveFromTitleBarOnly = true;
-            ImGui.GetIO().ConfigDockingAlwaysTabBar = true;
+            ImGui.GetIO().ConfigDockingAlwaysTabBar = false;
             LogWindow.Init();
+            ImGui.GetStyle().WindowMenuButtonPosition = ImGuiDir.Right;
+            ImGui.GetStyle().DisplaySafeAreaPadding = Vector2.One * 6;
+            PushStyle();
+            custom_decorations = CatalystEditor.Instance.Window.IsBorderless;
         }
 
         public void PushStyle()
         {
-            ImGui.PushFont(DefaultFont); //Set default font
-            ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 0);
-            ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1);
-            ImGui.PushStyleVar(ImGuiStyleVar.ScrollbarRounding, 0);
+            
+            ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 3);
+            ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
+            ImGui.PushStyleVar(ImGuiStyleVar.ScrollbarRounding, 1);
+            ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 3);
             ImGui.PushStyleColor(ImGuiCol.ResizeGrip, 0);
             ImGui.PushStyleColor(ImGuiCol.ResizeGripHovered, 0);
             ImGui.PushStyleColor(ImGuiCol.ResizeGripActive, 0);
@@ -70,7 +81,7 @@ namespace Catalyst.Editor
         public void PopStyle()
         {
             ImGui.PopFont();
-            ImGui.PopStyleVar(3);
+            ImGui.PopStyleVar(4);
             ImGui.PopStyleColor(3);
         }
 
@@ -78,10 +89,9 @@ namespace Catalyst.Editor
 
         public void Render(GameTime gameTime)
         {
-            PushStyle();
+            ImGui.PushFont(DefaultFont); //Set default font
 
-            _windowSize = new Vector2(CatalystEditor.Instance.GraphicsDevice.Viewport.Width, CatalystEditor.Instance.GraphicsDevice.Viewport.Height + 1);
-
+            _windowSize = new Vector2(CatalystEditor.Instance.GraphicsDevice.Viewport.Width, CatalystEditor.Instance.GraphicsDevice.Viewport.Height);
 
             RenderMenuBar();
 
@@ -97,11 +107,14 @@ namespace Catalyst.Editor
                 window_flags |= ImGuiWindowFlags.NoTitleBar;
                 window_flags |= ImGuiWindowFlags.DockNodeHost;
 
+                ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
+                unsafe { ImGui.PushStyleColor(ImGuiCol.WindowBg, *ImGui.GetStyleColorVec4(ImGuiCol.FrameBg)); }
+
                 uint dock_id = 0;
 
                 bool active = true;
-                ImGui.SetNextWindowSize(_windowSize - Vector2.UnitY * 20f);
-                ImGui.SetNextWindowPos(Vector2.UnitY * 20f);
+                ImGui.SetNextWindowSize(_windowSize - Vector2.UnitY * 24f);
+                ImGui.SetNextWindowPos(Vector2.UnitY * 24f);
                 ImGui.Begin("Central Dockspace", ref active, window_flags);
 
                 if (active)
@@ -111,6 +124,9 @@ namespace Catalyst.Editor
                 }
 
                 ImGui.End();
+
+                ImGui.PopStyleVar();
+                ImGui.PopStyleColor();
 
                 window_flags = 0;
                 window_flags |= ImGuiWindowFlags.NoCollapse;
@@ -139,9 +155,29 @@ namespace Catalyst.Editor
                 if (LogWindow.WindowOpen)
                 {
                     ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
-                    if (ImGui.Begin("Log", ref SceneWindows.InspectorWindowOpen, window_flags))
+                    if (ImGui.Begin("Log", ref LogWindow.WindowOpen, window_flags))
                     {
                         LogWindow.Render();
+                    }
+                    ImGui.End();
+                }
+
+                if (PerformanceWindow.Open)
+                {
+                    ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
+                    if (ImGui.Begin("Performance", ref PerformanceWindow.Open, window_flags))
+                    {
+                        PerformanceWindow.Render();
+                    }
+                    ImGui.End();
+                }
+
+                if (SpriteWindow.Open)
+                {
+                    ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
+                    if (ImGui.Begin("Sprites", ref SpriteWindow.Open, window_flags))
+                    {
+                        SpriteWindow.Render();
                     }
                     ImGui.End();
                 }
@@ -191,17 +227,26 @@ namespace Catalyst.Editor
                 ImGui.OpenPopup(fileBrowser.PopupId);
             }
 
-
-            PopStyle();
+            //PopStyle();
+            ImGui.PopFont();
         }
 
         private void RenderMenuBar()
         {
+
+
             ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0);
+            ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(8, 8));
 
 
             if (ImGui.BeginMainMenuBar())
             {
+                //ImGui.SetWindowPos(ImGui.GetStyle().DisplaySafeAreaPadding);
+                //ImGui.PushStyleVar(ImGuiStyleVar.);
+                ImGui.Image(IconLoader.ProgramIcon, IconLoader.Icon32Size);
+                //ImGui.PopStyleVar();
+                ImGui.SameLine();
+
                 if (ImGui.BeginMenu("File"))
                 {
                     if (!LoadingProject && ImGui.MenuItem("New"))
@@ -261,37 +306,174 @@ namespace Catalyst.Editor
 
                 if (ImGui.BeginMenu("Window"))
                 {
-                    if (ImGui.MenuItem("Hierarchy"))
+                    if (ImGui.MenuItem("Hierarchy", ProjectManager.scene_loaded))
                     {
                         SceneWindows.HierarchyWindow = true;
                     }
 
-                    if (ImGui.MenuItem("Inspector"))
+                    if (ImGui.MenuItem("Inspector", ProjectManager.scene_loaded))
                     {
                         SceneWindows.InspectorWindowOpen = true;
                     }
 
-                    if (ImGui.MenuItem("Game Viewport"))
+                    if (ImGui.MenuItem("Game Viewport", ProjectManager.scene_loaded))
                     {
                         Viewport.ViewportWindowOpen = true;
+                    }
+
+                    if (ImGui.MenuItem("Log", ProjectManager.scene_loaded))
+                    {
+                        LogWindow.WindowOpen = true;
+                    }
+
+                    if (ImGui.MenuItem("Performance", ProjectManager.scene_loaded))
+                    {
+                        PerformanceWindow.Open = true;
+                    }
+
+                    if (ImGui.MenuItem("Sprites", ProjectManager.scene_loaded))
+                    {
+                        SpriteWindow.Open = true;
                     }
                     ImGui.EndMenu();
                 }
 
+                if (ImGui.BeginMenu("Options"))
+                {
+                    if (ImGui.MenuItem("Toggle Window Decoration"))
+                    {
+                        custom_decorations = !custom_decorations;
+                        CatalystEditor.Instance.Window.IsBorderless = !CatalystEditor.Instance.Window.IsBorderless;
+
+                        if (WindowHandler.WindowMaximized(CatalystEditor.Instance.Window.Handle))
+                        {
+                            WindowHandler.SDL_MaximizeWindow(CatalystEditor.Instance.Window.Handle);
+                            SDL_Rect rect;
+                            unsafe
+                            {
+                                WindowHandler.SDL_GetDisplayUsableBounds(WindowHandler.SDL_GetWindowDisplayIndex(CatalystEditor.Instance.Window.Handle), &rect);
+                            }
+                            WindowHandler.SDL_SetWindowPosition(CatalystEditor.Instance.Window.Handle, rect.x, rect.y);
+                            WindowHandler.SDL_SetWindowSize(CatalystEditor.Instance.Window.Handle, rect.w, rect.h);
+                        }
+
+                    }
+                    ImGui.EndMenu();
+                }
+
+                if (custom_decorations)
+                    RenderCustomWindowDecoration();
+
                 if (Viewport.Playing)
                 {
                     ImGui.PushStyleColor(ImGuiCol.Text, System.Numerics.Vector4.UnitX + System.Numerics.Vector4.UnitW);
-                    ImGui.SameLine(ImGui.GetWindowWidth() - 320);
+                    ImGui.SameLine(ImGui.GetWindowWidth() - 420);
                     ImGui.Text("Game is running. Changes to the scene will not be saved.");
                     ImGui.PopStyleColor();
                 }
 
 
-                ImGui.PopStyleVar();
+                ImGui.PopStyleVar(2);
                 ImGui.EndMainMenuBar();
+            }
+        }
+
+        private static void RenderCustomWindowDecoration()
+        {
+            Vector2 size = ImGui.GetWindowSize();
+            unsafe { ImGui.PushStyleColor(ImGuiCol.ChildBg, *ImGui.GetStyleColorVec4(ImGuiCol.MenuBarBg)); }
+
+            bool doubleClick = false;
+
+            ImGuiWindowFlags flags = ImGuiWindowFlags.NoResize;
+            flags |= ImGuiWindowFlags.NoMove;
+            flags |= ImGuiWindowFlags.NoCollapse;
+            flags |= ImGuiWindowFlags.NoDecoration;
+            flags |= ImGuiWindowFlags.NoDocking;
+            flags |= ImGuiWindowFlags.NoNavFocus;
+            flags |= ImGuiWindowFlags.NoFocusOnAppearing;
+            flags |= ImGuiWindowFlags.NoBringToFrontOnFocus;
+            flags |= ImGuiWindowFlags.NoScrollbar;
+            flags |= ImGuiWindowFlags.NoTitleBar;
+            flags |= ImGuiWindowFlags.AlwaysAutoResize;
+
+
+            if (ImGui.BeginChild("##drag_region", new Vector2(size.X - 350, size.Y + 15), false, flags))
+            {
+                if (ImGui.IsWindowHovered() && ImGui.IsMouseDoubleClicked(ImGuiMouseButton.Left))
+                {
+                    doubleClick = true;
+                }
+
+                int x;
+                int y;
+                int x_global;
+                int y_global;
+                unsafe
+                {
+                    WindowHandler.SDL_GetMouseState(&x, &y);
+                    WindowHandler.SDL_GetGlobalMouseState(&x_global, &y_global);
+                }
+
+
+                if (ImGui.IsMouseDown(ImGuiMouseButton.Left) && !ImGui.IsMouseDoubleClicked(ImGuiMouseButton.Left) && (ImGui.IsWindowHovered() || ImGui.IsWindowFocused()))
+                {
+                    WindowHandler.SDL_SetWindowPosition(CatalystEditor.Instance.Window.Handle, x_global - x, y_global - y);
+                    WindowHandler.SDL_RaiseWindow(CatalystEditor.Instance.Window.Handle);
+                }
+
+            }
+            ImGui.EndChild();
+
+            ImGui.PopStyleColor();
+
+            ImGui.PushStyleColor(ImGuiCol.Button, System.Numerics.Vector4.Zero);
+            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, System.Numerics.Vector4.One * 0.4f);
+            ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 0);
+
+            ImGui.SameLine(ImGui.GetWindowWidth() - 120);
+            if (ImGui.ImageButton(IconLoader.Minimize, IconLoader.Icon16Size))
+            {
+                WindowHandler.SDL_MinimizeWindow(CatalystEditor.Instance.Window.Handle);
+            }
+
+            ImGui.SameLine();
+            if (WindowHandler.WindowMaximized(CatalystEditor.Instance.Window.Handle))
+            {
+                if (ImGui.ImageButton(IconLoader.RestoreDown, IconLoader.Icon16Size) || doubleClick)
+                {
+                    WindowHandler.SDL_RestoreWindow(CatalystEditor.Instance.Window.Handle);
+                    doubleClick = false;
+                }
+            }
+            else
+            {
+                if (ImGui.ImageButton(IconLoader.Maximize, IconLoader.Icon16Size) || doubleClick)
+                {
+                    WindowHandler.SDL_MaximizeWindow(CatalystEditor.Instance.Window.Handle);
+                    SDL_Rect rect;
+                    unsafe
+                    {
+                        WindowHandler.SDL_GetDisplayUsableBounds(WindowHandler.SDL_GetWindowDisplayIndex(CatalystEditor.Instance.Window.Handle), &rect);
+                    }
+                    WindowHandler.SDL_SetWindowPosition(CatalystEditor.Instance.Window.Handle, rect.x, rect.y);
+                    WindowHandler.SDL_SetWindowSize(CatalystEditor.Instance.Window.Handle, rect.w, rect.h);
+                    doubleClick = false;
+                }
+            }
+
+            ImGui.SameLine();
+            if (ImGui.ImageButton(IconLoader.Close, IconLoader.Icon16Size))
+            {
+                if (ProjectManager.scene_loaded)
+                    ProjectManager.Save();
+                CatalystEditor.Instance.Exit();
             }
 
 
+
+            ImGui.PopStyleColor(2);
+            ImGui.PopStyleVar();
         }
 
 
@@ -366,11 +548,11 @@ namespace Catalyst.Editor
                     if (customDir)
                     {
                         ProjectManager.ProjectPath = Path.Combine(projectDir, ProjectManager.RemoveInvalidChars(str));
-                        ProjectManager.CreateNew(ProjectManager.RemoveInvalidChars(str));
+                        ProjectManager.CreateNewScene(ProjectManager.RemoveInvalidChars(str));
                     } else
                     {
                         ProjectManager.ProjectPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ProjectManager.RemoveInvalidChars(str));
-                        ProjectManager.CreateNew(ProjectManager.RemoveInvalidChars(str));
+                        ProjectManager.CreateNewScene(ProjectManager.RemoveInvalidChars(str));
                     }
 
                     new_project_window = false;
