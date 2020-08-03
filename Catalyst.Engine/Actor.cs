@@ -24,7 +24,7 @@ namespace Catalyst.Engine
         public void MoveX(float amount, Action onCollide)
         {
             _xRemainder += amount;
-            int move = (int)Math.Round(_xRemainder);
+            int move = (int)Math.Round(_xRemainder, 0);
 
             if (move != 0)
             {
@@ -32,17 +32,17 @@ namespace Catalyst.Engine
                 int sign = Math.Sign(move);
                 while (move != 0)
                 {
-                    if (Collider == null || !CollideAt(Collider, CollisionMask.Solids, Position + new Vector2(sign, 0)))
-                    {
-                        //No solid immediately beside us
-                        Position.X += sign;
-                        move -= sign;
-                    }
-                    else
+                    if (Collider != null && CollideAt(Collider, CollisionMask.Solids, Position + new Vector2(sign, 0)))
                     {
                         //Hit a solid
                         onCollide?.Invoke();
                         break;
+                    }
+                    else
+                    {
+                        //No solid immediately beside us
+                        Position.X += sign;
+                        move -= sign;
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace Catalyst.Engine
         public void MoveY(float amount, Action onCollide)
         {
             _yRemainder += amount;
-            int move = (int)Math.Round(_yRemainder);
+            int move = (int)Math.Round(_yRemainder, 0);
 
             if (move != 0)
             {
@@ -69,19 +69,21 @@ namespace Catalyst.Engine
                 int sign = Math.Sign(move);
                 while (move != 0)
                 {
-                    if (Collider == null || !CollideAt(Collider, CollisionMask.Solids, Position + new Vector2(0, sign)))
-                    {
-                        //No solid immediately beside us
-                        Position.Y += sign;
-                        move -= sign;
-                    }
-                    else
+                    if (Collider != null && CollideAt(Collider, CollisionMask.Solids, Position + new Vector2(0, sign)))
                     {
                         //Hit a solid
                         onCollide?.Invoke();
                         break;
                     }
+                    else
+                    {
+                        //No solid immediately beside us
+                        Position.Y += sign;
+                        move -= sign;
+                    }
                 }
+
+
             }
         }
 
@@ -90,6 +92,8 @@ namespace Catalyst.Engine
             Rectangle pos = collider.Bounds;
             collider.Bounds.X = (int)position.X;
             collider.Bounds.Y = (int)position.Y;
+
+            Console.WriteLine($"x: {position.X}, y:{position.Y}, xint: {(int)position.X}, yint: {(int)position.Y}");
 
             bool collision = Collider.System.CheckCollision(collider, mask);
 

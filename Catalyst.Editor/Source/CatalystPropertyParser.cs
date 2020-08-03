@@ -21,7 +21,7 @@ namespace Catalyst.Editor
             {
                 foreach (object attr in p.GetCustomAttributes(true))
                 {
-                    if (attr is CatalystAttribute)
+                    if (attr is CatalystAttribute || p.IsPublic)
                     {
                         ImGui.AlignTextToFramePadding();
                         ImGui.Text(p.Name);

@@ -118,7 +118,7 @@ namespace Catalyst.Engine
             {
                 if (_dummy == null)
                 {
-                    _dummy = new Texture2D(Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
+                    _dummy = new Texture2D(Graphics.DeviceManager.GraphicsDevice, 1, 1);
                     _dummy.SetData(new Color[] { Color.White });
                 }
                 return _dummy;

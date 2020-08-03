@@ -98,7 +98,7 @@ namespace Catalyst.Engine.Utilities
             bounds.Width = bounds.Width - right - left;
             bounds.Height = bounds.Height - down - up;
 
-            var cropped = new Texture2D(Graphics.GraphicsDevice.GraphicsDevice, bounds.Width, bounds.Height);
+            var cropped = new Texture2D(Graphics.DeviceManager.GraphicsDevice, bounds.Width, bounds.Height);
 
             // Copy the data from the cropped region into a buffer, then into the new texture
             var data = new Utilities.Color[bounds.Width * bounds.Height];

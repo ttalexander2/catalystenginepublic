@@ -22,7 +22,7 @@ namespace Catalyst.Engine.Rendering
             if (scene.Camera.Following != null)
             {
                 Camera cam = scene.Camera;
-                scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, scene.Camera.Following.Position-(scene.Camera.Size/2)+cam.Offset, cam.Speed));
+                scene.Camera.Move(Utilities.Vector2.Lerp(cam.Position, scene.Camera.Following.Position-(scene.Camera.Size/2)+cam.Offset, cam.Speed*Time.DeltaTimeF));
             }
         }
     }

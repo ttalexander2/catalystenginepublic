@@ -87,13 +87,13 @@ namespace Catalyst.Engine
             Engine.Height = height;
             Engine.Fullscreen = fullscreen;
 
-            Graphics.GraphicsDevice = new GraphicsDeviceManager(this);
-            Graphics.GraphicsDevice.SynchronizeWithVerticalRetrace = true;
-            Graphics.GraphicsDevice.PreferMultiSampling = false;
-            Graphics.GraphicsDevice.GraphicsProfile = GraphicsProfile.HiDef;
-            Graphics.GraphicsDevice.PreferredBackBufferFormat = SurfaceFormat.Color;
-            Graphics.GraphicsDevice.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
-            Graphics.GraphicsDevice.ApplyChanges();
+            Graphics.DeviceManager = new GraphicsDeviceManager(this);
+            Graphics.DeviceManager.SynchronizeWithVerticalRetrace = true;
+            Graphics.DeviceManager.PreferMultiSampling = false;
+            Graphics.DeviceManager.GraphicsProfile = GraphicsProfile.HiDef;
+            Graphics.DeviceManager.PreferredBackBufferFormat = SurfaceFormat.Color;
+            Graphics.DeviceManager.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
+            Graphics.DeviceManager.ApplyChanges();
 
 #if PS4 || XBOXONE
             Global.Graphics.PreferredBackBufferWidth = 1920;
@@ -106,45 +106,48 @@ namespace Catalyst.Engine
 
             if (fullscreen)
             {
-                Graphics.GraphicsDevice.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                Graphics.GraphicsDevice.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-                Graphics.GraphicsDevice.IsFullScreen = true;
+                Graphics.DeviceManager.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                Graphics.DeviceManager.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                Graphics.DeviceManager.IsFullScreen = true;
             }
             else
             {
-                Graphics.GraphicsDevice.PreferredBackBufferWidth = Graphics. PreferredWindowWidth;
-                Graphics.GraphicsDevice.PreferredBackBufferHeight = Graphics.PreferredWindowHeight;
-                Graphics.GraphicsDevice.IsFullScreen = false;
+                Graphics.DeviceManager.PreferredBackBufferWidth = Graphics. PreferredWindowWidth;
+                Graphics.DeviceManager.PreferredBackBufferHeight = Graphics.PreferredWindowHeight;
+                Graphics.DeviceManager.IsFullScreen = false;
             }
 #endif
 
             Content.RootDirectory = @"Content";
-            NativeRenderTarget = new RenderTarget2D(Graphics.GraphicsDevice.GraphicsDevice, width, height);
-            Graphics.GraphicsDevice.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
-            Graphics.GraphicsDevice.ApplyChanges();
+            NativeRenderTarget = new RenderTarget2D(Graphics.DeviceManager.GraphicsDevice, width, height);
+            Graphics.DeviceManager.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
+            Graphics.DeviceManager.ApplyChanges();
 
             Graphics.Content = Content;
 
             float ratio = (float)Graphics.Width / (float)Graphics.Height;
-            float actual = (float)Graphics.GraphicsDevice.PreferredBackBufferWidth / (float)Graphics.GraphicsDevice.PreferredBackBufferHeight;
+            float actual = (float)Graphics.DeviceManager.PreferredBackBufferWidth / (float)Graphics.DeviceManager.PreferredBackBufferHeight;
 
             if (actual>ratio)
             {
-                ScreenOffset = new Catalyst.Engine.Utilities.Vector2((Graphics.GraphicsDevice.PreferredBackBufferWidth - (int)(Graphics.GraphicsDevice.PreferredBackBufferHeight * (ratio))) / 2, 0);
-                Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, (int)(Graphics.GraphicsDevice.PreferredBackBufferHeight*(ratio)), Graphics.GraphicsDevice.PreferredBackBufferHeight);
+                ScreenOffset = new Catalyst.Engine.Utilities.Vector2((Graphics.DeviceManager.PreferredBackBufferWidth - (int)(Graphics.DeviceManager.PreferredBackBufferHeight * (ratio))) / 2, 0);
+                Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, (int)(Graphics.DeviceManager.PreferredBackBufferHeight*(ratio)), Graphics.DeviceManager.PreferredBackBufferHeight);
             }
             else if (actual<ratio)
             {
-                ScreenOffset = new Catalyst.Engine.Utilities.Vector2(0, (Graphics.GraphicsDevice.PreferredBackBufferHeight - (int)(Graphics.GraphicsDevice.PreferredBackBufferWidth * (1 / ratio))) / 2);
-                Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, Graphics.GraphicsDevice.PreferredBackBufferWidth, (int)(Graphics.GraphicsDevice.PreferredBackBufferWidth * 1/ratio));
+                ScreenOffset = new Catalyst.Engine.Utilities.Vector2(0, (Graphics.DeviceManager.PreferredBackBufferHeight - (int)(Graphics.DeviceManager.PreferredBackBufferWidth * (1 / ratio))) / 2);
+                Screen = new Rectangle((int)ScreenOffset.X, (int)ScreenOffset.Y, Graphics.DeviceManager.PreferredBackBufferWidth, (int)(Graphics.DeviceManager.PreferredBackBufferWidth * 1/ratio));
             }
             else
             {
-                Screen = new Rectangle(0, 0, Graphics.GraphicsDevice.PreferredBackBufferWidth, Graphics.GraphicsDevice.PreferredBackBufferHeight);
+                Screen = new Rectangle(0, 0, Graphics.DeviceManager.PreferredBackBufferWidth, Graphics.DeviceManager.PreferredBackBufferHeight);
                 ScreenOffset = Catalyst.Engine.Utilities.Vector2.Zero;
             }
 
             Graphics.ScreenOffset = ScreenOffset;
+
+            IsFixedTimeStep = false;
+            Graphics.DeviceManager.SynchronizeWithVerticalRetrace = false;
 
             Audio = new AudioManager();
 
@@ -175,7 +178,7 @@ namespace Catalyst.Engine
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            Graphics.SpriteBatch = new SpriteBatch(Graphics.GraphicsDevice.GraphicsDevice);
+            Graphics.SpriteBatch = new SpriteBatch(Graphics.DeviceManager.GraphicsDevice);
             CurrentScene.LoadContent();
             //World = SceneLoader.LoadScene(ContentDirectory);
         }
@@ -215,11 +218,11 @@ namespace Catalyst.Engine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            Graphics.GraphicsDevice.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
-            Graphics.GraphicsDevice.GraphicsDevice.Clear(Color.CornflowerBlue);
+            Graphics.DeviceManager.GraphicsDevice.SetRenderTarget(NativeRenderTarget);
+            Graphics.DeviceManager.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: Camera.GetTransformation(Graphics.GraphicsDevice.GraphicsDevice));
+            Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: Camera.GetTransformation(Graphics.DeviceManager.GraphicsDevice));
 
             CurrentScene.PreRender(gameTime);
             CurrentScene.Render(gameTime);
@@ -232,7 +235,7 @@ namespace Catalyst.Engine
 
             GraphicsDevice.SetRenderTarget(null);
 
-            Graphics.GraphicsDevice.GraphicsDevice.Clear(Color.Black);
+            Graphics.DeviceManager.GraphicsDevice.Clear(Color.Black);
             Graphics.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             Graphics.SpriteBatch.Draw(NativeRenderTarget, Screen, Color.White);
             Graphics.SpriteBatch.End();

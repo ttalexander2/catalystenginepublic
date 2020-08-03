@@ -50,7 +50,7 @@ namespace Catalyst.Engine.Rendering
                         if (p.Life > 0)
                         {
                             p.Velocity += new Utilities.Vector2(0, -emitter.Gravity);
-                            p.Position += p.Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            p.Position += p.Velocity * (float)Time.DeltaTime;
                         }
                         else
                         {

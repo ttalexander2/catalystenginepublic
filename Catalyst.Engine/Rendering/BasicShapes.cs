@@ -13,7 +13,7 @@ namespace Catalyst.Engine.Rendering
         public static Texture2D GenerateCircleTexture(int radius, Utilities.Color color, float sharpness)
         {
             int diameter = radius * 2;
-            Texture2D circleTexture = new Texture2D(Graphics.GraphicsDevice.GraphicsDevice, diameter, diameter, false, SurfaceFormat.Color);
+            Texture2D circleTexture = new Texture2D(Graphics.DeviceManager.GraphicsDevice, diameter, diameter, false, SurfaceFormat.Color);
             Utilities.Color[] colorData = new Utilities.Color[circleTexture.Width * circleTexture.Height];
             Utilities.Vector2 center = new Utilities.Vector2(radius);
             for (int colIndex = 0; colIndex < circleTexture.Width; colIndex++)

@@ -36,7 +36,7 @@ namespace Catalyst.Engine
             ended = false;
 
             if (waitTimer > 0)
-                waitTimer -= (UseRawDeltaTime ? Time.RawDeltaTime : Time.DeltaTime);
+                waitTimer -= (UseRawDeltaTime ? Time.RawDeltaTimeF : Time.DeltaTimeF);
             else if (enumerators.Count > 0)
             {
                 IEnumerator now = enumerators.Peek();

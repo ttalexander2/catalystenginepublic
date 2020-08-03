@@ -13,13 +13,13 @@ namespace Catalyst.Game.Source
         public static IEnumerator MoveBackAndForth(this Actor actor, int speed)
         {
             yield return 0;
-            float time = 0;
+            double time = 0;
             int direction = 1;
             while (true)
             {
-                if (time < 3)
+                if (time < 30)
                 {
-                    actor.MoveX(speed * direction / 2);
+                    actor.MoveX(speed * direction * Time.DeltaTimeF);
                 }
                 else
                 {

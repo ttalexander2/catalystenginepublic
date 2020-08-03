@@ -1,20 +1,24 @@
 ﻿using Catalyst.Engine;
+using Catalyst.Engine.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Linq.Expressions;
 
 namespace Catalyst.Game.Source
 {
     [Serializable]
     public class Player : Actor, IUpdate
     {
+        private float _scale = 100;
+
         [GuiInteger]
-        public int HorizontalSpeed = 10;
+        public int HorizontalSpeed = 1000;
         [GuiInteger]
-        public int VerticalSpeed = 10;
+        public int VerticalSpeed = 1000;
 
         [GuiFloat]
-        public float Gravity = 5;
+        public float Gravity = 5000;
 
         [NonSerialized]
         private KeyboardState _keyState;
@@ -25,38 +29,38 @@ namespace Catalyst.Game.Source
         public Player(Scene scene) : base(scene)
         {
             Collider = new BoxCollider2D(this);
-            Collider.Bounds = new Rectangle(0, 0, 50, 50);
+            Collider.Bounds = new Engine.Utilities.Rectangle(0, 0, 50, 50);
         }
 
         public override void Initialize()
         {
-            _coroutine = new Coroutine(this, this.MoveBackAndForth(HorizontalSpeed), true);
+            //_coroutine = new Coroutine(this, this.MoveBackAndForth(HorizontalSpeed), true);
         }
 
         public void Update(GameTime gameTime)
         {
             _keyState = Keyboard.GetState();
 
-            MoveY(Gravity);
+            MoveY(Gravity*Time.DeltaTimeF * _scale);
 
             if (_keyState.IsKeyDown(Keys.Up))
             {
-                MoveY(-VerticalSpeed);
+                MoveY(-VerticalSpeed * Time.DeltaTimeF * _scale);
             }
 
             if (_keyState.IsKeyDown(Keys.Down))
             {
-                MoveY(VerticalSpeed);
+                MoveY(VerticalSpeed * Time.DeltaTimeF * _scale);
             }
 
             if (_keyState.IsKeyDown(Keys.Left))
             {
-                MoveX(-HorizontalSpeed);
+                MoveX(-HorizontalSpeed * Time.DeltaTimeF * _scale);
             }
 
             if (_keyState.IsKeyDown(Keys.Right))
             {
-                MoveX(HorizontalSpeed);
+                MoveX(HorizontalSpeed * Time.DeltaTimeF * _scale);
             }
 
 

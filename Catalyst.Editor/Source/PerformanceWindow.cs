@@ -25,9 +25,9 @@ namespace CatalystEditor.Source
 
         public static void Render()
         {
-            _frames[offset] = 1 / Time.RawDeltaTime;
+            _frames[offset] = 1 / Time.RawDeltaTimeF;
 
-            _cpuActual[offset] = ((float)_process.TotalProcessorTime.TotalMilliseconds - _processorLast) / Time.DeltaTime / Environment.ProcessorCount;
+            _cpuActual[offset] = ((float)_process.TotalProcessorTime.TotalMilliseconds - _processorLast) / Time.DeltaTimeF / Environment.ProcessorCount;
             ImGui.PushFont(ImGuiLayout.SubHeadingFont);
             ImGui.Text("Frame Rate");
 

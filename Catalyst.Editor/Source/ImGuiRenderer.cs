@@ -98,7 +98,7 @@ namespace Catalyst.Editor
         /// </summary>
         public virtual IntPtr BindTexture(Texture2D texture)
         {
-            var id = new IntPtr(_textureId++);
+            IntPtr id = new IntPtr(_textureId++);
 
             _loadedTextures.Add(id, texture);
 
@@ -110,7 +110,7 @@ namespace Catalyst.Editor
         /// </summary>
         public virtual IntPtr BindRenderTarget(Texture2D texture)
         {
-            var id = new IntPtr(0);
+            IntPtr id = new IntPtr(0);
 
             _loadedTextures[id] = texture;
 

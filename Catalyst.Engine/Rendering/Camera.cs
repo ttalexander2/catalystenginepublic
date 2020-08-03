@@ -81,7 +81,7 @@ namespace Catalyst.Engine.Rendering
 
         public void MoveTowards(Vector2 amount)
         {
-            Position += amount;
+            Position += amount * Time.DeltaTimeF;
         }
 
         public Matrix GetTransformation(GraphicsDevice graphicsDevice)

@@ -10,6 +10,7 @@ using System.IO;
 using CatalystEditor;
 using Catalyst.Engine;
 using CatalystEditor.Source;
+using System.Threading;
 
 namespace Catalyst.Editor
 {
@@ -54,7 +55,7 @@ namespace Catalyst.Editor
             Graphics.PreferredBackBufferHeight = 1080;
             Graphics.PreferMultiSampling = true;
 
-            Catalyst.Engine.Graphics.GraphicsDevice = Graphics;
+            Catalyst.Engine.Graphics.DeviceManager = Graphics;
 
             IsMouseVisible = true;
 
@@ -67,6 +68,10 @@ namespace Catalyst.Editor
             Window.AllowUserResizing = true;
 
             //InactiveSleepTime = new TimeSpan(0);
+
+            IsFixedTimeStep = true;
+            Graphics.SynchronizeWithVerticalRetrace = false;
+            TargetElapsedTime = TimeSpan.FromSeconds(1d / Engine.Graphics.FPSCap);
 
         }
 
@@ -97,7 +102,7 @@ namespace Catalyst.Editor
 
             _backgroundColor = new Color(new Vector4(0.11f, 0.11f, 0.11f, 1.00f));
 
-            _pixel = new Texture2D(Catalyst.Engine.Graphics.GraphicsDevice.GraphicsDevice, 1, 1);
+            _pixel = new Texture2D(Catalyst.Engine.Graphics.DeviceManager.GraphicsDevice, 1, 1);
             _pixel.SetData(new Color[] { Color.White });
 
             IconLoader.LoadIcons();
@@ -107,7 +112,7 @@ namespace Catalyst.Editor
 
         protected override void Update(GameTime gameTime)
         {
-            Time.RawDeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Time.RawDeltaTime = gameTime.ElapsedGameTime.TotalSeconds;
             Time.DeltaTime = Time.RawDeltaTime * Time.TimeRate;
 
             keyboardState = Keyboard.GetState();

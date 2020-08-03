@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Schema;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,9 +12,50 @@ namespace Catalyst.Engine
 
     public static class Time
     {
-        public static float RawDeltaTime { get; internal set; }
-        public static float DeltaTime { get; internal set; }
-        public static float TimeRate = 1.0f;
+        public static double RawDeltaTime
+        {
+            get
+            {
+                return _rawDeltaTime;
+            }
+            internal set
+            {
+                _rawDeltaTime = value;
+                RawDeltaTimeF = (float)value;
+            }
+        }
+        private static double _rawDeltaTime;
+        public static float RawDeltaTimeF { get; private set; }
+
+        public static double DeltaTime
+        {
+            get
+            {
+                return _DeltaTime;
+            }
+            internal set
+            {
+                _DeltaTime = value * TimeRate;
+                DeltaTimeF = (float)value;
+            }
+        }
+        private static double _DeltaTime;
+        public static float DeltaTimeF { get; private set; }
+
+        public static double TimeRate
+        {
+            get
+            {
+                return _TimeRate;
+            }
+            internal set
+            {
+                _TimeRate = value;
+                TimeRateF = (float)value;
+            }
+        }
+        private static double _TimeRate = 1.0;
+        public static float TimeRateF { get; private set; } = 1.0f;
 
     }
 }

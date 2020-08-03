@@ -9,14 +9,15 @@ namespace Catalyst.Engine
     {
         public static ContentManager Content;
         public static SpriteBatch SpriteBatch;
-        public static GraphicsDeviceManager GraphicsDevice;
-        public static GameTime gameTime;
+        public static GraphicsDeviceManager DeviceManager;
 
         public static int Width = 640;
         public static int Height = 360;
 
         public static int PreferredWindowWidth = 1280;
         public static int PreferredWindowHeight = 720;
+
+        public static double FPSCap = 256d;
 
         public static Utilities.Vector2 SpriteScale
         {
