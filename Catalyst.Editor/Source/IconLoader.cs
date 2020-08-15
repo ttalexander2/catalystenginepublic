@@ -30,6 +30,7 @@ namespace Catalyst.Editor
         public static IntPtr Minimize { get; private set; }
         public static IntPtr Maximize { get; private set; }
         public static IntPtr RestoreDown { get; private set; }
+        public static IntPtr DebugIcon { get; private set; }
 
         public static void LoadIcons()
         {
@@ -121,6 +122,11 @@ namespace Catalyst.Editor
             using (FileStream fs = new FileStream("Icons/FolderOpened_white_16x.png", FileMode.Open))
             {
                 Folder = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
+            }
+
+            using (FileStream fs = new FileStream("Icons/Debug_16x.png", FileMode.Open))
+            {
+                DebugIcon = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindTexture(Texture2D.FromStream(Catalyst.Editor.CatalystEditor.Instance.GraphicsDevice, fs));
             }
         }
     }

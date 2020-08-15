@@ -31,6 +31,7 @@
     <None Remove="Fonts\segoeui.ttf" />
     <None Remove="Fonts\segoeuib.ttf" />
     <None Remove="Icons\Close_16x.png" />
+    <None Remove="Icons\Debug_16x.png" />
     <None Remove="Icons\Icon.png" />
     <None Remove="Icons\Maximize_16x.png" />
     <None Remove="Icons\Minimize_16x.png" />
@@ -50,6 +51,7 @@
     <PackageReference Include="ImGui.NET.Docking" Version="1.75.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.6.0" />
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="sdl2" Version="2.0.5" />
     <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
   </ItemGroup>

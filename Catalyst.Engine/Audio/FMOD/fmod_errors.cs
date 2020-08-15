@@ -37,7 +37,7 @@ namespace FMOD
                 case FMOD.RESULT.ERR_FILE_ENDOFDATA:            return "End of current chunk reached while trying to read data.";
                 case FMOD.RESULT.ERR_FILE_NOTFOUND:             return "File not found.";
                 case FMOD.RESULT.ERR_FORMAT:                    return "Unsupported file or audio format.";
-                case FMOD.RESULT.ERR_HEADER_MISMATCH:           return "There is a version mismatch between the FMOD header and either the FMOD Studio library or the FMOD Low Level library.";
+                case FMOD.RESULT.ERR_HEADER_MISMATCH:           return "There is a version mismatch between the FMOD header and either the FMOD Studio library or the FMOD Low Scene library.";
                 case FMOD.RESULT.ERR_HTTP:                      return "A HTTP error occurred. This is a catch-all for HTTP errors not listed elsewhere.";
                 case FMOD.RESULT.ERR_HTTP_ACCESS:               return "The specified resource requires authentication or is forbidden.";
                 case FMOD.RESULT.ERR_HTTP_PROXY_AUTH:           return "Proxy authentication is required to access the specified resource.";

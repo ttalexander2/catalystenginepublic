@@ -12,26 +12,19 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Runtime.Loader;
 using System.Threading;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace Catalyst.Editor
 {
     public class ProjectManager
     {
-
         public static Scene Current { get; set; }
         public static Scene Backup { get; set; }
         public static List<Type> Types { get; protected set; }
-        public static bool scene_loaded = false;
+        public static List<string> Scenes { get; private set; } = new List<string>();
+        public static bool ProjectLoaded = false;
 
-        /**
-        public static FileSystemWatcher systemWatcher;
-        private static WeakReference _hostAlcWeakRef;
-        private static SimpleUnloadableAssemblyLoadContext _context;
-        private static string dll_directory;
-        private static string dll_file_debug;
-        private static string dll_file_release;
-        private static string dll_name;
-        */
 
         private static string _file;
         public static bool ChangeGrid = false;
@@ -53,30 +46,94 @@ namespace Catalyst.Editor
             }
         }
 
+        public static Version Version = new Version(1, 0, 0, 0);
+
         public static bool Unsaved { get; set; }
 
-        private static string _path;
+        private static string _projectPath;
         public static string ProjectPath
         {
             get
             {
-                return _path;
+                return _projectPath;
             }
             set
             {
-                _path = value;
+                _projectPath = value;
                 string invalid = new string(Path.GetInvalidPathChars());
 
                 foreach (char c in invalid)
                 {
-                    _path = _path.Replace(c.ToString(), "");
+                    _projectPath = _projectPath.Replace(c.ToString(), "");
                 }
             }
         }
 
-        public const string Extension = ".scene";
+        private static string _levelPath;
+        public static string LevelName
+        {
+            get
+            {
+                return _levelPath;
+            }
+            set
+            {
+                _levelPath = value;
+                string invalid = new string(Path.GetInvalidPathChars());
 
-        public static void CreateNewScene(string file)
+                foreach (char c in invalid)
+                {
+                    _levelPath = _levelPath.Replace(c.ToString(), "");
+                }
+            }
+        }
+
+        public const string ProjectExtension = ".catalyst";
+        public const string LevelExtension = ".level";
+
+        
+        public static void CreateNewProject(string name, string path, bool createFolder)
+        {
+            ProjectPath = path;
+            FileName = name;
+
+            if (!Directory.Exists(ProjectPath))
+                throw new DirectoryNotFoundException($"Path \"{path}\" is not a valid directory.");
+
+            if (createFolder)
+            {
+                Directory.CreateDirectory(Path.Combine(ProjectPath, FileName));
+                ProjectPath = Path.Combine(ProjectPath, FileName);
+            }
+                
+
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
+            using (JsonWriter w = new JsonTextWriter(sw))
+            {
+                w.Formatting = Formatting.Indented;
+                w.WriteStartObject();
+                w.WritePropertyName("Name");
+                w.WriteValue(FileName);
+                w.WritePropertyName("Version");
+                w.WriteValue(Version.ToString());
+                w.WriteEndObject();
+            }
+
+            File.WriteAllText(Path.Combine(ProjectPath, FileName + ProjectExtension), sb.ToString());
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Audio"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Dialog"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Graphics"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Graphics", "Atlases"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Graphics", "Effects"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Levels"));
+            Directory.CreateDirectory(Path.Combine(ProjectPath, "Content", "Textures"));
+
+        }
+
+
+        public static void CreateNewLevel(string file)
         {
             Current = new Scene(1920, 1080);
             Current.Systems.Add(new InputSystem(Current));
@@ -91,7 +148,7 @@ namespace Catalyst.Editor
             FileName = valid;
             Unsaved = true;
 
-            scene_loaded = true;
+            ProjectLoaded = true;
             ChangeGrid = true;
 
             /**
@@ -146,113 +203,72 @@ namespace Catalyst.Editor
 
             */
 
-            Save();
+            SaveLevel();
         }
 
-        /**
-
-        private static void OnChanged(object source, FileSystemEventArgs e)
+        public static void SaveLevel()
         {
-            ReloadAssembly();
-        }
-
-        public static void ReloadAssembly()
-        {
-            string filepath = dll_file_debug;
-            if (!File.Exists(dll_file_debug))
+            if (Current != null)
             {
-                if (!File.Exists(dll_file_release))
+                Serializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, "Content", "Levels", LevelName), SerializationMode.Binary);
+
+                Unsaved = false;
+            }
+
+        }
+
+
+        public static bool OpenProject(string path)
+        {
+            if (!File.Exists(path) || Path.GetExtension(path) != ProjectExtension)
+                return false;
+
+            string dirPath = Path.GetDirectoryName(path);
+
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Audio"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Dialog"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics", "Atlases"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics", "Effects"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Levels"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Textures"));
+
+            ProjectPath = dirPath;
+            FileName = Path.GetFileName(path);
+
+            Scenes.Clear();
+
+            
+
+            string[] directoryFiles = Directory.GetFiles(Path.Combine(dirPath, "Content", "Levels"));
+
+            foreach (string s in directoryFiles)
+            {
+                if (Path.GetExtension(s) == LevelExtension)
                 {
-                    Console.WriteLine(string.Format("Failed to find file: {0}", filepath));
-                    return;
-                }
-                else
-                {
-                    filepath = dll_file_release;
+                    Scenes.Add(s);
+                    Console.WriteLine(s);
                 }
             }
 
+            Viewport.Playing = false;
 
-            if (_hostAlcWeakRef != null && _hostAlcWeakRef.IsAlive)
-            {
-                _context.Unload();
-                // Poll and run GC until the AssemblyLoadContext is unloaded.
-                // You don't need to do that unless you want to know when the context
-                // got unloaded. You can just leave it to the regular GC.
-
-                for (int i = 0; _hostAlcWeakRef.IsAlive && (i < 10); i++)
-                {
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                }
-            }
-
-            try
-            {
-
-                if (!Directory.Exists(Path.Combine(CatalystEditor.AssemblyDirectory, "Runtime Compilations")))
-                {
-                    Console.WriteLine($"CREATING DIRECTORY: {Path.Combine(CatalystEditor.AssemblyDirectory, "Runtime Compilations")}");
-                    Directory.CreateDirectory(Path.Combine(CatalystEditor.AssemblyDirectory, "Runtime Compilations"));
-                }
-
-                File.Copy(filepath, Path.Combine(CatalystEditor.AssemblyDirectory, "Runtime Compilations", dll_name), true);
-
-                _context = new SimpleUnloadableAssemblyLoadContext();
-                _ = _context.LoadFromAssemblyPath(Path.Combine(CatalystEditor.AssemblyDirectory, "Runtime Compilations", dll_name));
-
-                _hostAlcWeakRef = new WeakReference(_context, trackResurrection: true);
-
-                Console.WriteLine("Successfully loaded runtime assembly.");
-
-                var result = AppDomain
-                      .CurrentDomain
-                      .GetAssemblies()
-                      .SelectMany(asm => asm.GetModules())
-                      .Select(module => $"{module.Name,-40} {module.Assembly.GetName().Version}");
-
-            } 
-            catch(Exception e)
-            {
-
-            }
-
-
-
-
-
-            Current.Manager.RefreshTypes();
+            return true;
         }
 
-        */
-
-        public static void Save()
-        {
-            Directory.CreateDirectory(ProjectPath);
-
-            Console.WriteLine(ProjectPath);
-
-            Serializer.SerializeToFile<Scene>(Current, Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
-
-            Unsaved = false;
-        }
-
-        public static void Open(string path)
+        public static void OpenLevel(string path)
         {
 
             Current = Serializer.DeserializeFromFile<Scene>(path, SerializationMode.Binary);
-            ProjectPath = Path.GetDirectoryName(path);
-            FileName = Path.GetFileNameWithoutExtension(path);
+            LevelName = Path.GetFileName(path);
 
             Unsaved = true;
-            scene_loaded = true;
             ChangeGrid = true;
+
+            Viewport.Playing = false;
         }
 
-        public static Scene Load()
-        {
-            return Serializer.DeserializeFromFile<Scene>(Path.Combine(ProjectPath, FileName + Extension), SerializationMode.Binary);
-        }
 
         public static void RefreshTypes()
         {
@@ -287,34 +303,6 @@ namespace Catalyst.Editor
             return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         }
 
-        public static Scene LoadTestWorld()
-        {
-            Scene scene = new Scene(Graphics.Width * 8, Graphics.Height*3);
-            scene.Systems.Add(new InputSystem(scene));
-            scene.Systems.Add(new SpriteRenderer(scene));
-            scene.Systems.Add(new ParticleSystem(scene));
-            scene.Systems.Add(new CameraSystem(scene));
-
-            Atlas atlas = ContentManager.TexturePacker.AtlasFromBinary(Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.atlas"), Path.Combine(CatalystEditor.AssemblyDirectory, "Content", "Atlases", "test.meta"));
-
-
-
-            Entity testEntity = scene.Manager.NewEntity();
-            var sprite = new Sprite(testEntity, atlas.Textures[0]);
-            testEntity.AddComponent<Sprite>(sprite);
-
-            scene.Camera.Following = testEntity;
-
-
-            Entity testEntity2 = scene.Manager.NewEntity();
-            var sprite2 = new Sprite(testEntity2, atlas.Textures[0]);
-            testEntity2.AddComponent<Sprite>(sprite2);
-
-            ChangeGrid = true;
-
-            return scene;
-        }
-
         private static string GenerateClassName(string value)
         {
             string className = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value);
@@ -330,20 +318,6 @@ namespace Catalyst.Editor
             }
 
             return className.Replace(" ", string.Empty);
-        }
-    }
-
-
-    internal class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext
-    {
-        public SimpleUnloadableAssemblyLoadContext()
-            : base(true)
-        {
-        }
-
-        protected override Assembly Load(AssemblyName assemblyName)
-        {
-            return null;
         }
     }
 

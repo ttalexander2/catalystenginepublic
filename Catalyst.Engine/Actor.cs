@@ -93,8 +93,6 @@ namespace Catalyst.Engine
             collider.Bounds.X = (int)position.X;
             collider.Bounds.Y = (int)position.Y;
 
-            Console.WriteLine($"x: {position.X}, y:{position.Y}, xint: {(int)position.X}, yint: {(int)position.Y}");
-
             bool collision = Collider.System.CheckCollision(collider, mask);
 
             collider.Bounds = pos;

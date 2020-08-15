@@ -34,6 +34,8 @@ namespace Catalyst.Editor
 
         public volatile RenderTarget2D GridTarget;
 
+        public volatile RenderTarget2D BackgroundTarget;
+
         private Color _backgroundColor;
 
         private Texture2D _pixel;
@@ -45,8 +47,6 @@ namespace Catalyst.Editor
         public CatalystEditor()
         {
             Instance = this;
-
-            LoadManager.Initialize();
 
 
 
@@ -69,7 +69,7 @@ namespace Catalyst.Editor
 
             //InactiveSleepTime = new TimeSpan(0);
 
-            IsFixedTimeStep = true;
+            IsFixedTimeStep = false;
             Graphics.SynchronizeWithVerticalRetrace = false;
             TargetElapsedTime = TimeSpan.FromSeconds(1d / Engine.Graphics.FPSCap);
 
@@ -80,6 +80,7 @@ namespace Catalyst.Editor
             Renderer = new ImGuiRenderer(this);
             _layout.Initialize();
             Renderer.RebuildFontAtlas();
+            Input.Update();
 
             base.Initialize(); 
         }
@@ -112,17 +113,18 @@ namespace Catalyst.Editor
 
         protected override void Update(GameTime gameTime)
         {
+            Input.Update();
             Time.RawDeltaTime = gameTime.ElapsedGameTime.TotalSeconds;
             Time.DeltaTime = Time.RawDeltaTime * Time.TimeRate;
 
             keyboardState = Keyboard.GetState();
-            if (ProjectManager.scene_loaded && global::Catalyst.Editor.Viewport.Playing)
+            if (ProjectManager.Current != null && global::Catalyst.Editor.Viewport.Playing)
             {
                 ProjectManager.Current.PreUpdate(gameTime);
                 ProjectManager.Current.Update(gameTime);
                 ProjectManager.Current.PostUpdate(gameTime);
             }
-            else if (ProjectManager.scene_loaded && !global::Catalyst.Editor.Viewport.Playing)
+            else if (ProjectManager.Current != null && !global::Catalyst.Editor.Viewport.Playing)
             {
 
                 foreach (Engine.System s in ProjectManager.Current.Systems)
@@ -143,13 +145,13 @@ namespace Catalyst.Editor
         protected override void Draw(GameTime gameTime)
         {
             Window.Title = String.Format("Catalyst Editor, FPS: {0}", 1 / (float)gameTime.ElapsedGameTime.TotalSeconds);
-            GraphicsDevice.Clear(new Color(0.14f, 0.14f, 0.14f, 1.00f));
+            GraphicsDevice.Clear(_backgroundColor);
 
-            if (ProjectManager.scene_loaded)
+            if (ProjectManager.Current != null)
             {
                 if (RenderTarget == null)
                 {
-                    RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, 1920, 1080);
+                    RenderTarget = new RenderTarget2D(Graphics.GraphicsDevice, ProjectManager.Current.Width, ProjectManager.Current.Height);
                 }
 
                 if (RenderTarget.Width != (int)Viewport.WindowSize.X || RenderTarget.Height != (int)Viewport.WindowSize.Y)
@@ -166,7 +168,21 @@ namespace Catalyst.Editor
 
                 Graphics.GraphicsDevice.SetRenderTarget(RenderTarget);
 
-                GraphicsDevice.Clear(_backgroundColor * 0.6f);
+                GraphicsDevice.Clear(_backgroundColor);
+
+                if (global::Catalyst.Editor.Viewport.SnapToCamera)
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f * Viewport.SnapZoom));
+                }
+                else
+                {
+                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: global::Catalyst.Editor.Viewport.GetTransformMatrix());
+                }
+
+                if (BackgroundTarget != null)
+                    Engine.Graphics.SpriteBatch.Draw(BackgroundTarget, new Vector2(0, 0), null, Color.White);
+                Engine.Graphics.SpriteBatch.End();
+
 
                 /**
                  * If update occurs, set transformMatrix to camera, else display entire scene and control zoom with transform matrix.
@@ -181,42 +197,31 @@ namespace Catalyst.Editor
                 }
 
 
+
+
                 ProjectManager.Current.PreRender(gameTime);
                 ProjectManager.Current.Render(gameTime);
                 ProjectManager.Current.PostRender(gameTime);
 
-                if (true)
-                {
-                    ProjectManager.Current.DebugRender(gameTime);
-                }
 
                 //Catalyst.Engine.Graphics.SpriteBatch.Draw(_testTexture, new Vector2(0, 0), null, Color.White);
 
                 MouseState m = Mouse.GetState();
 
-
-
                 ProjectManager.Current.RenderUI(gameTime);
 
-                Catalyst.Engine.Graphics.SpriteBatch.End();
-
-                if (global::Catalyst.Editor.Viewport.SnapToCamera)
-                {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp, transformMatrix: ProjectManager.Current.Camera.GetScaledTransformation(Graphics.GraphicsDevice, 2.985f * Viewport.SnapZoom));
-                }
-                else
-                {
-                    Catalyst.Engine.Graphics.SpriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: global::Catalyst.Editor.Viewport.GetTransformMatrix());
-                }
-
-                if (global::Catalyst.Editor.Viewport.Grid && GridTarget != null)
-                {
+                if (GridTarget != null && Viewport.Grid)
                     Engine.Graphics.SpriteBatch.Draw(GridTarget, new Vector2(0, 0), null, Color.White);
+
+                if (Viewport.Debug)
+                {
                     Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Camera.Size.X, 3), new SpriteEffects(), 0);
                     Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Camera.Size.Y), new SpriteEffects(), 0);
-                    Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y + ProjectManager.Current.Camera.Size.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Camera.Size.X+3, 3), new SpriteEffects(), 0);
-                    Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X + ProjectManager.Current.Camera.Size.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Camera.Size.Y+3), new SpriteEffects(), 0);
+                    Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X, ProjectManager.Current.Camera.Position.Y + ProjectManager.Current.Camera.Size.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(ProjectManager.Current.Camera.Size.X + 3, 3), new SpriteEffects(), 0);
+                    Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(ProjectManager.Current.Camera.Position.X + ProjectManager.Current.Camera.Size.X, ProjectManager.Current.Camera.Position.Y), null, Color.CornflowerBlue, 0, Vector2.Zero, new Vector2(3, ProjectManager.Current.Camera.Size.Y + 3), new SpriteEffects(), 0);
+                    ProjectManager.Current.DebugRender(gameTime);
                 }
+
 
                 Catalyst.Engine.Graphics.SpriteBatch.End();
 
@@ -243,9 +248,10 @@ namespace Catalyst.Editor
             Catalyst.Engine.Graphics.SpriteBatch.End();
             */
 
-            if (ProjectManager.scene_loaded && ProjectManager.ChangeGrid)
+            if (ProjectManager.Current != null && ProjectManager.ChangeGrid)
             {
                 UpdateGrid();
+                UpdateBackground();
                 ProjectManager.ChangeGrid = false;
             }
 
@@ -327,9 +333,48 @@ namespace Catalyst.Editor
         }
 
 
-        
+        private void UpdateBackground()
+        {
+            if (BackgroundTarget != null && (BackgroundTarget.Width != ProjectManager.Current.Width || BackgroundTarget.Height != ProjectManager.Current.Height))
+            {
+                BackgroundTarget.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
 
-		public static Texture2D CreateTexture(GraphicsDevice device, int width, int height, Func<int, Color> paint)
+            BackgroundTarget = new RenderTarget2D(Graphics.GraphicsDevice, ProjectManager.Current.Width + 1, ProjectManager.Current.Height + 1);
+
+            Graphics.GraphicsDevice.SetRenderTarget(BackgroundTarget);
+            Catalyst.Engine.Graphics.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearWrap);
+
+            Graphics.GraphicsDevice.Clear(_backgroundColor);
+
+
+            bool switchColor = true;
+
+            int tileSize = global::Catalyst.Editor.Viewport.GridSize;
+            for (int i = 0; i <= ProjectManager.Current.Height; i += tileSize)
+            {
+                for (int j = 0; j <= ProjectManager.Current.Width; j += tileSize)
+                {
+                    if (switchColor)
+                        Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(j, i), null, Color.Gray*0.5f, 0, Vector2.Zero, new Vector2(tileSize, tileSize), new SpriteEffects(), 0);
+                    else
+                        Catalyst.Engine.Graphics.SpriteBatch.Draw(_pixel, new Vector2(j, i), null, Color.DarkGray * 0.5f, 0, Vector2.Zero, new Vector2(tileSize, tileSize), new SpriteEffects(), 0);
+                    switchColor = !switchColor;
+                }
+
+            }
+
+
+            Engine.Graphics.SpriteBatch.End();
+            Graphics.GraphicsDevice.SetRenderTargets(null);
+        }
+
+
+
+
+        public static Texture2D CreateTexture(GraphicsDevice device, int width, int height, Func<int, Color> paint)
 		{
 			//initialize a texture
 			var texture = new Texture2D(device, width, height);

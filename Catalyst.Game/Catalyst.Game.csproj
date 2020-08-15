@@ -145,6 +145,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\Content.catalyst" />
     <None Include="libfmod.dylib" Condition=" '$(Configuration)' == 'OSX' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -185,7 +186,7 @@
     <Folder Include="Content\Audio\" />
     <Folder Include="Content\Dialog\" />
     <Folder Include="Content\Graphics\Atlases\" />
-    <Folder Include="Content\Maps\" />
+    <Folder Include="Content\Levels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="x64\fmod.dll" Condition=" '$(Configuration)' == 'WIN64' ">

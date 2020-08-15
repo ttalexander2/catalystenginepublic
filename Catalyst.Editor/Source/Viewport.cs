@@ -17,6 +17,7 @@ using Matrix = Microsoft.Xna.Framework.Matrix;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using System.Net.Security;
 
 namespace Catalyst.Editor
 {
@@ -34,6 +35,8 @@ namespace Catalyst.Editor
         public static bool SnapToCamera = true;
         public static float SnapZoom = 1;
 
+        public static bool Debug = true;
+
         public static bool Playing = false;
 
         public static Catalyst.Engine.Utilities.Vector2 Position = Catalyst.Engine.Utilities.Vector2.Zero;
@@ -41,10 +44,13 @@ namespace Catalyst.Editor
 
         public static Vector2 WindowSize = Vector2.Zero;
 
+        private static double _sampledFps;
+        private static double _timeSinceLastSample;
+
         public static void Render(GameTime gameTime)
         {
-            WindowSize = ImGui.GetWindowSize() - Vector2.UnitY*(2*ImGui.GetStyle().ItemSpacing.Y + 16) * 2.7f;
-            WindowSize = WindowSize - Vector2.UnitX* 10;
+            WindowSize = ImGui.GetWindowSize() - Vector2.UnitY * (2 * ImGui.GetStyle().ItemSpacing.Y + 16) * 2.7f;
+            WindowSize = WindowSize - Vector2.UnitX * 10;
             System.Numerics.Vector4 color = System.Numerics.Vector4.Zero;
             unsafe
             {
@@ -55,14 +61,38 @@ namespace Catalyst.Editor
 
             if (!Playing)
             {
-                if (ImGui.ImageButton(IconLoader.RunButton, new Vector2(16,16)))
+
+                if (ProjectManager.Current == null)
                 {
-                    Playing = !Playing;
-                    ProjectManager.Backup = Catalyst.Engine.Utilities.Utility.DeepClone<Scene>(ProjectManager.Current);
-                    ProjectManager.Current.Initialize();
-                    Log.WriteLine($"Scene [{ProjectManager.Current.Name}] running. Changes made while the game is running will not be saved.");
+                    ImGui.PushStyleVar(ImGuiStyleVar.Alpha, ImGui.GetStyle().Alpha * 0.5f);
                 }
-                if (ImGui.IsItemHovered()) ImGui.SetTooltip("Run");
+
+                if (ImGui.ImageButton(IconLoader.RunButton, new Vector2(16, 16)))
+                {
+                    if (ProjectManager.Current != null)
+                    {
+                        Playing = !Playing;
+                        ProjectManager.Backup = Catalyst.Engine.Utilities.Utility.DeepClone<Scene>(ProjectManager.Current);
+                        ProjectManager.Current.Initialize();
+                        Log.WriteLine($"Scene [{ProjectManager.Current.Name}] running. Changes made while the game is running will not be saved.");
+                    }
+                    else
+                    {
+                        Log.WriteLine("Please select a scene in order to play.");
+                    }
+
+                }
+
+                if (ProjectManager.Current == null)
+                {
+                    if (ImGui.IsItemHovered()) ImGui.SetTooltip("Please load a scene to run.");
+                    ImGui.PopStyleVar();
+                }
+                else
+                {
+                    if (ImGui.IsItemHovered()) ImGui.SetTooltip("Run");
+                }
+
 
             }
             else
@@ -93,12 +123,17 @@ namespace Catalyst.Editor
 
             }
 
+            if (ProjectManager.Current == null)
+            {
+                ImGui.PushStyleVar(ImGuiStyleVar.Alpha, ImGui.GetStyle().Alpha * 0.5f);
+            }
+
 
             ImGui.SameLine();
 
             Vector2 v = ImGui.GetStyle().ItemSpacing;
 
-            ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0,v.Y));
+            ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0, v.Y));
 
             if (Grid)
                 ImGui.PushStyleColor(ImGuiCol.Button, color);
@@ -205,9 +240,38 @@ namespace Catalyst.Editor
 
             if (ImGui.IsItemHovered()) ImGui.SetTooltip("Snap Viewport to Grid");
 
+            ImGui.SameLine();
+
+            if (Debug)
+                ImGui.PushStyleColor(ImGuiCol.Button, color);
+
+            if (ImGui.ImageButton(IconLoader.DebugIcon, new Vector2(16, 16)))
+            {
+                if (Debug)
+                    ImGui.PopStyleColor();
+                else
+                    ImGui.PushStyleColor(ImGuiCol.Button, color);
+                Debug = !Debug;
+            }
+
+            if (Debug)
+                ImGui.PopStyleColor();
+
+            if (ImGui.IsItemHovered()) ImGui.SetTooltip("Toggle debug information");
+
+            ImGui.SameLine(ImGui.GetWindowWidth() - 250);
+
+            if (_timeSinceLastSample > 0.2)
+            {
+                _sampledFps = Math.Round(1 / Time.RawDeltaTimeF, 2);
+                _timeSinceLastSample = 0;
+            }
+                
+            ImGui.TextColored(new System.Numerics.Vector4(100f/255f, 149f/255f, 237f/255f, 255f), $"Average FPS: {_sampledFps}");
+
 
             Rectangle bounds = new Rectangle(new Point((int)ImGui.GetWindowPos().X, (int)ImGui.GetWindowPos().Y), new Point((int)ImGui.GetWindowSize().X, (int)ImGui.GetWindowSize().Y));
-            if(bounds.Contains(m.Position))
+            if (bounds.Contains(m.Position))
             {
                 Zoom += ImGui.GetIO().MouseWheel / 20;
             }
@@ -222,7 +286,7 @@ namespace Catalyst.Editor
                 Zoom = MaxZoom;
             }
 
-            
+
 
             if (bounds.Contains(m.Position) && (m.MiddleButton == ButtonState.Pressed || (k.IsKeyDown(Keys.LeftControl) && m.LeftButton == ButtonState.Pressed)))
             {
@@ -237,31 +301,39 @@ namespace Catalyst.Editor
                 _dPos = Catalyst.Engine.Utilities.Vector2.Zero;
             }
 
-            IntPtr p = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.Editor.CatalystEditor.Instance.RenderTarget);
-
-            float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
-            float actual = (float)WindowSize.X / (float)WindowSize.Y;
-
-            Vector2 camera = new Vector2(ProjectManager.Current.Camera.Bounds.X, ProjectManager.Current.Camera.Bounds.Y);
-
-            if (actual > ratio)
+            if (ProjectManager.Current != null)
             {
-                SnapZoom = (float)WindowSize.Y / ProjectManager.Current.Camera.Bounds.Y;
+
+                IntPtr p = Catalyst.Editor.CatalystEditor.Instance.Renderer.BindRenderTarget(Catalyst.Editor.CatalystEditor.Instance.RenderTarget);
+
+                float ratio = (float)Catalyst.Engine.Graphics.Width / (float)Catalyst.Engine.Graphics.Height;
+                float actual = (float)WindowSize.X / (float)WindowSize.Y;
+
+                Vector2 camera = new Vector2(ProjectManager.Current.Camera.Bounds.X, ProjectManager.Current.Camera.Bounds.Y);
+
+                if (actual > ratio)
+                {
+                    SnapZoom = (float)WindowSize.Y / ProjectManager.Current.Camera.Bounds.Y;
+                }
+                else
+                {
+                    SnapZoom = (float)WindowSize.X / ProjectManager.Current.Camera.Bounds.X;
+                }
+
+
+
+
+                ImGui.Image(p, WindowSize);
             }
-            else
+
+            if (ProjectManager.Current == null)
             {
-                SnapZoom = (float)WindowSize.X / ProjectManager.Current.Camera.Bounds.X;
+                ImGui.PopStyleVar();
             }
-
-
-
-
-            ImGui.Image(p, WindowSize);
-
-            
-
             ImGui.PopStyleColor();
 
+
+            _timeSinceLastSample += Time.RawDeltaTime;
 
         }
 

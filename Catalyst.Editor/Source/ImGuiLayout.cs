@@ -97,7 +97,7 @@ namespace Catalyst.Editor
 
 
             //Left Bar Window
-            if (ProjectManager.scene_loaded)
+            if (ProjectManager.ProjectLoaded)
             {
                 ImGuiWindowFlags window_flags = 0;
                 window_flags |= ImGuiWindowFlags.NoCollapse;
@@ -201,6 +201,22 @@ namespace Catalyst.Editor
                     ImGui.PopStyleColor();
                 }
 
+                if (ProjectExplorer.WindowOpen)
+                {
+                    if(ImGui.Begin("Project Explorer", ref ProjectExplorer.WindowOpen, window_flags))
+                    {
+                        ProjectExplorer.RenderWindow();
+                    }
+                    ImGui.End();
+                }
+
+                foreach (TextEditor t in TextEditor.Editors)
+                {
+                    t.RenderWindow();   
+                }
+
+                TextEditor.RemoveClosed();
+
             }
 
             // 3. Show the ImGui test window. Most of the sample code is in ImGui.ShowTestWindow()
@@ -212,7 +228,7 @@ namespace Catalyst.Editor
 
             if (new_project_window)
             {
-                ImGui.OpenPopup("New Scene");
+                ImGui.OpenPopup("New Project");
                 NewProjectWindow();
             }
             if (file_picker)
@@ -222,7 +238,9 @@ namespace Catalyst.Editor
                 {
                     file_picker = false;
                     if (fileBrowser.Result != FileBrowser.FileBrowserResult.Canceled)
-                        ProjectManager.Open(fileBrowser.SelectedFile);
+                    {
+                        ProjectManager.ProjectLoaded = ProjectManager.OpenProject(fileBrowser.SelectedFile);
+                    }
                 }
                 ImGui.OpenPopup(fileBrowser.PopupId);
             }
@@ -254,14 +272,14 @@ namespace Catalyst.Editor
                         new_project_window = true;
                     }
                     if (ImGui.MenuItem("Open", "Ctrl+O")) {
-                        fileBrowser = new FileBrowser(Environment.GetFolderPath(Environment.SpecialFolder.Personal), false, false, ProjectManager.Extension);
+                        fileBrowser = new FileBrowser(Environment.GetFolderPath(Environment.SpecialFolder.Personal), false, false, ProjectManager.ProjectExtension);
                         file_picker = true;
                     }
-                    if (ImGui.MenuItem("Save", "Ctrl+S", false, ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Save", "Ctrl+S", false, ProjectManager.ProjectLoaded))
                     {
-                        ProjectManager.Save();
+                        ProjectManager.SaveLevel();
                     }
-                    if (ImGui.MenuItem("Save As..", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Save As..", ProjectManager.ProjectLoaded))
                     {
 
                     }
@@ -306,32 +324,32 @@ namespace Catalyst.Editor
 
                 if (ImGui.BeginMenu("Window"))
                 {
-                    if (ImGui.MenuItem("Hierarchy", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Hierarchy", ProjectManager.ProjectLoaded))
                     {
                         SceneWindows.HierarchyWindow = true;
                     }
 
-                    if (ImGui.MenuItem("Inspector", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Inspector", ProjectManager.ProjectLoaded))
                     {
                         SceneWindows.InspectorWindowOpen = true;
                     }
 
-                    if (ImGui.MenuItem("Game Viewport", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Game Viewport", ProjectManager.ProjectLoaded))
                     {
                         Viewport.ViewportWindowOpen = true;
                     }
 
-                    if (ImGui.MenuItem("Log", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Log", ProjectManager.ProjectLoaded))
                     {
                         LogWindow.WindowOpen = true;
                     }
 
-                    if (ImGui.MenuItem("Performance", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Performance", ProjectManager.ProjectLoaded))
                     {
                         PerformanceWindow.Open = true;
                     }
 
-                    if (ImGui.MenuItem("Sprites", ProjectManager.scene_loaded))
+                    if (ImGui.MenuItem("Sprites", ProjectManager.ProjectLoaded))
                     {
                         SpriteWindow.Open = true;
                     }
@@ -397,8 +415,8 @@ namespace Catalyst.Editor
             flags |= ImGuiWindowFlags.NoTitleBar;
             flags |= ImGuiWindowFlags.AlwaysAutoResize;
 
-
-            if (ImGui.BeginChild("##drag_region", new Vector2(size.X - 350, size.Y + 15), false, flags))
+            //ImGui.PushStyleColor(ImGuiCol.ChildBg, System.Numerics.Vector4.One);
+            if (ImGui.BeginChild("##drag_region", new Vector2(size.X - 410, size.Y + 15), false, flags))
             {
                 if (ImGui.IsWindowHovered() && ImGui.IsMouseDoubleClicked(ImGuiMouseButton.Left))
                 {
@@ -425,6 +443,7 @@ namespace Catalyst.Editor
             }
             ImGui.EndChild();
 
+            //ImGui.PopStyleColor();
             ImGui.PopStyleColor();
 
             ImGui.PushStyleColor(ImGuiCol.Button, System.Numerics.Vector4.Zero);
@@ -465,8 +484,8 @@ namespace Catalyst.Editor
             ImGui.SameLine();
             if (ImGui.ImageButton(IconLoader.Close, IconLoader.Icon16Size))
             {
-                if (ProjectManager.scene_loaded)
-                    ProjectManager.Save();
+                if (ProjectManager.ProjectLoaded)
+                    ProjectManager.SaveLevel();
                 CatalystEditor.Instance.Exit();
             }
 
@@ -502,11 +521,11 @@ namespace Catalyst.Editor
 
             bool r = true;
 
-            if (ImGui.BeginPopupModal("New Scene", ref r, window_flags))
+            if (ImGui.BeginPopupModal("New Project", ref r, window_flags))
             {
 
                 ImGui.PushFont(HeadingFont);
-                ImGui.Text("Create a new Scene");
+                ImGui.Text("Create a new project");
                 ImGui.PopFont();
 
                 ImGui.Text("Enter a name: ");
@@ -543,17 +562,24 @@ namespace Catalyst.Editor
 
                 if (ImGui.Button("Next"))
                 {
-                    ImGui.CloseCurrentPopup();
 
-                    if (customDir)
+                    try
                     {
-                        ProjectManager.ProjectPath = Path.Combine(projectDir, ProjectManager.RemoveInvalidChars(str));
-                        ProjectManager.CreateNewScene(ProjectManager.RemoveInvalidChars(str));
-                    } else
-                    {
-                        ProjectManager.ProjectPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ProjectManager.RemoveInvalidChars(str));
-                        ProjectManager.CreateNewScene(ProjectManager.RemoveInvalidChars(str));
+                        if (customDir)
+                        {
+                            ProjectManager.CreateNewProject(ProjectManager.RemoveInvalidChars(str), projectDir, false);
+                        }
+                        else
+                        {
+                            ProjectManager.CreateNewProject(ProjectManager.RemoveInvalidChars(str), Environment.GetFolderPath(Environment.SpecialFolder.Desktop), true);
+                        }
                     }
+                    catch (DirectoryNotFoundException e)
+                    {
+                        Console.WriteLine(e);
+                        return;
+                    }
+                    ImGui.CloseCurrentPopup();
 
                     new_project_window = false;
                     LoadingProject = true;
