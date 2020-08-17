@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 using Catalyst.Engine.Rendering;
+using Catalyst.Engine.Utilities;
 using Rectangle = System.Drawing.Rectangle;
 
 namespace Catalyst.ContentManager
@@ -40,7 +41,7 @@ namespace Catalyst.ContentManager
                     Trim = true;
                     continue;
                 }
-                if (a == "-x" || a == "--XML")
+                if (a == "-x" || a == "--XML" || a == "--xml")
                 {
                     Xml = true;
                     continue;
@@ -49,12 +50,7 @@ namespace Catalyst.ContentManager
 
             if (Verbose)
             {
-                Console.WriteLine(String.Format("Arguemts: Verbose[{0}], Force Recompilation[{1}], Trim Sprites[{2}], XML instead of binary[{3}]\n", Verbose, Force, Trim, Xml));
-            }
-
-            if (!File.GetAttributes(input_directory).HasFlag(FileAttributes.Directory))
-            {
-                throw new TexturePackerException("Input is not a directory!");
+                Log.WriteLine(String.Format("Arguemts: Verbose[{0}], Force Recompilation[{1}], Trim Sprites[{2}], XML instead of binary[{3}]", Verbose, Force, Trim, Xml));
             }
 
             byte[] hash = HashDirectory(input_directory);
@@ -73,13 +69,13 @@ namespace Catalyst.ContentManager
             if (File.Exists(Path.Combine(output_directory, output_name + ".hash")))
             {
                 if(Verbose)
-                    Console.WriteLine("Checking hash file...\n");
+                    Log.WriteLine("Checking hash file...");
                 byte[] previous_hash = File.ReadAllBytes(Path.Combine(output_directory, output_name + ".hash"));
 
                 if (Verbose)
                 {
-                    Console.WriteLine(String.Format("Previous Directory Hash:\t{0}", BitConverter.ToString(previous_hash).Replace("-", "").ToLower()));
-                    Console.WriteLine(String.Format("Current Directory Hash:\t\t{0}\n", BitConverter.ToString(hash).Replace("-", "").ToLower()));
+                    Log.WriteLine(String.Format("Previous Directory Hash:\t{0}", BitConverter.ToString(previous_hash).Replace("-", "").ToLower()));
+                    Log.WriteLine(String.Format("Current Directory Hash:\t\t{0}", BitConverter.ToString(hash).Replace("-", "").ToLower()));
                 }
 
                 if (BitConverter.ToString(hash).Replace("-", "").ToLower() == BitConverter.ToString(previous_hash).Replace("-", "").ToLower())
@@ -87,7 +83,7 @@ namespace Catalyst.ContentManager
                     if (!Force)
                     {
                         if (Verbose)
-                            Console.WriteLine("The texture atlas has not been changed");
+                            Log.WriteLine("The texture atlas has not been changed");
                         return false;
                     }
                 }
@@ -98,17 +94,18 @@ namespace Catalyst.ContentManager
                 fs.Write(hash, 0, hash.Length);
             }
 
-            List<string> files = Directory.GetFiles(input_directory, "*.png", SearchOption.AllDirectories).OrderBy(p => p).ToList();
+            List<string> files = Directory.GetFiles(input_directory, "*.png", SearchOption.TopDirectoryOnly).OrderBy(p => p).ToList();
 
             List<Bitmap> bitmaps = new List<Bitmap>();
 
             int total_area = 0;
             int max_height = 0;
 
+            //For non-animated textures
             foreach(string file in files)
             {
                 if (Verbose)
-                    Console.WriteLine("Reading Bitmap from: " + file);
+                    Log.WriteLine("Reading image from: " + file);
                 byte[] imageData = File.ReadAllBytes(file);
                 using (var ms = new MemoryStream(imageData))
                 {
@@ -123,8 +120,31 @@ namespace Catalyst.ContentManager
                     max_height += b.Height;
                 }
             }
-            if (Verbose)
-                Console.WriteLine();
+
+            //For animated textures
+
+            foreach (string directory in Directory.GetDirectories(input_directory).OrderBy(p => p).ToList())
+            {
+                foreach (string file in Directory.GetFiles(directory, "*.png", SearchOption.TopDirectoryOnly))
+                {
+                    if (Verbose)
+                        Log.WriteLine("Reading animated image from: " + file);
+                    byte[] imageData = File.ReadAllBytes(file);
+                    using (var ms = new MemoryStream(imageData))
+                    {
+                        Bitmap b = new Bitmap(ms);
+                        /**
+                        if (Trim)
+                            b = TrimBitmap(b);
+                        **/
+                        b.Tag = $"animated1597534568919817981981_{Path.GetFileNameWithoutExtension(file)}";
+                        bitmaps.Add(b);
+                        total_area += b.Width * b.Height;
+                        max_height += b.Height;
+                    }
+                }
+
+            }
 
             bitmaps = bitmaps.OrderByDescending(p => p.Height).ToList();
 
@@ -139,7 +159,7 @@ namespace Catalyst.ContentManager
 
             if (Verbose)
             {
-                Console.WriteLine("\nAtlas contains " + bitmaps.Count + " total images.");
+                Log.WriteLine("Atlas contains " + bitmaps.Count + " total images.");
             }
 
 
@@ -193,7 +213,20 @@ namespace Catalyst.ContentManager
             if (root.Image != null)
             {
                 if (root.Image.Tag is string)
-                    writer.Write((string)root.Image.Tag);
+                {
+                    
+                    if (((string)root.Image.Tag).StartsWith("animated1597534568919817981981_"))
+                    {
+                        writer.Write(((string)root.Image.Tag).TrimStart("animated1597534568919817981981_".ToCharArray()));
+                        writer.Write(true);
+                    } 
+                    else
+                    {
+                        writer.Write(((string)root.Image.Tag));
+                        writer.Write(false);
+                    }
+                        
+                }
                 else
                     writer.Write("no string tag");
                 writer.Write(root.Rect.X);
@@ -229,6 +262,7 @@ namespace Catalyst.ContentManager
                 while (reader.BaseStream.Position < reader.BaseStream.Length)
                 {
                     string tag = reader.ReadString();
+                    bool animated = reader.ReadBoolean();
                     int x = reader.ReadInt32();
                     int y = reader.ReadInt32();
                     int w = reader.ReadInt32();
@@ -262,9 +296,31 @@ namespace Catalyst.ContentManager
             {
                 writer.WriteStartElement("Image");
                 if (root.Image.Tag is string)
-                    writer.WriteAttributeString("Tag", (string)root.Image.Tag);
+                {
+                    if (((string)root.Image.Tag).StartsWith("animated1597534568919817981981_"))
+                    {
+                        writer.WriteAttributeString("Tag", ((string)root.Image.Tag).TrimStart("animated1597534568919817981981_".ToCharArray()));
+                        writer.WriteStartElement("Animated");
+                        writer.WriteValue(true);
+                        writer.WriteEndElement();
+                    }
+                    else
+                    {
+                        writer.WriteAttributeString("Tag", ((string)root.Image.Tag));
+                        writer.WriteStartElement("Animated");
+                        writer.WriteValue(false);
+                        writer.WriteEndElement();
+                    }
+                }
                 else
+                {
                     writer.WriteAttributeString("Tag", "None");
+                    writer.WriteStartElement("Animated");
+                    writer.WriteValue(false);
+                    writer.WriteEndElement();
+                }
+                    
+               
                 writer.WriteStartElement("X");
                 writer.WriteValue(root.Rect.X);
                 writer.WriteEndElement();

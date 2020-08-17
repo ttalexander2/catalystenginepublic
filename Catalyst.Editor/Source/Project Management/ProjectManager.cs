@@ -14,6 +14,7 @@ using System.Runtime.Loader;
 using System.Threading;
 using Newtonsoft.Json;
 using System.Text;
+using Catalyst.ContentManager;
 
 namespace Catalyst.Editor
 {
@@ -85,6 +86,36 @@ namespace Catalyst.Editor
                 {
                     _levelPath = _levelPath.Replace(c.ToString(), "");
                 }
+            }
+        }
+
+        public static string ContentPath { get
+            {
+                return Path.Combine(_projectPath, "Content");
+            } 
+        }
+
+        public static string BuildTexturePath
+        {
+            get
+            {
+                return Path.Combine(_projectPath, "Content", ".textures");
+            }
+        }
+
+        public static string TexturesPath
+        {
+            get
+            {
+                return Path.Combine(_projectPath, "Content", "Graphics", "Textures");
+            }
+        }
+
+        public static string AtlasPath
+        {
+            get
+            {
+                return Path.Combine(_projectPath, "Content", "Graphics", "Atlases");
             }
         }
 
@@ -231,8 +262,9 @@ namespace Catalyst.Editor
             _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics"));
             _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics", "Atlases"));
             _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics", "Effects"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Graphics", "Textures"));
             _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Levels"));
-            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", "Textures"));
+            _ = Directory.CreateDirectory(Path.Combine(dirPath, "Content", ".textures"));
 
             ProjectPath = dirPath;
             FileName = Path.GetFileName(path);
@@ -254,7 +286,26 @@ namespace Catalyst.Editor
 
             Viewport.Playing = false;
 
+            FileSystemWatcher w = new FileSystemWatcher(Path.Combine(dirPath, "Content", ".textures"));
+            w.Changed += BuildAtlases;
+            w.EnableRaisingEvents = true;
+
             return true;
+        }
+
+        private static void BuildAtlases(object sender, FileSystemEventArgs e)
+        {
+            foreach (string fse in Directory.GetFileSystemEntries(BuildTexturePath))
+            {
+                if (File.Exists(fse) && Path.GetExtension(fse) == ".png")
+                {
+                    File.Copy(fse, Path.Combine(TexturesPath, Path.GetFileName(fse)));
+                }
+                else if (Directory.Exists(fse))
+                {
+                    _ = TexturePacker.PackAtlas(fse, AtlasPath, Path.GetFileName(fse), "-v", "-x");
+                }
+            }
         }
 
         public static void OpenLevel(string path)

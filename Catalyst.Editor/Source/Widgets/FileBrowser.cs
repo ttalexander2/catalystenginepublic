@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Numerics;
 
 namespace CatalystEditor.Widgets
@@ -38,10 +40,13 @@ namespace CatalystEditor.Widgets
         public bool MultiSelect;
         public List<string> Extensions = new List<string>();
         public List<string> Selected = new List<string>();
+        private List<string> _toRemove = new List<string>();
         public FileBrowserResult Result;
 
-        public FileBrowser(string startPath = null, bool allowAll = false, bool multiselect = false, params string[] extensions)
+        public FileBrowser(string windowLabel = null, string startPath = null, bool allowAll = false, bool multiselect = false, params string[] extensions)
         {
+            if (windowLabel != null)
+                PopupId = windowLabel;
             startingPath = startPath;
             AllowAll = allowAll;
             MultiSelect = multiselect;
@@ -270,16 +275,32 @@ namespace CatalystEditor.Widgets
             {
                 active = false;
             }
-            foreach (string s in Selected)
-            {
-                if (!File.Exists(s))
-                    active = false;
-            }
+
+
             //if (!active)
 //                ImGui.PushStyleVar(ImGuiStyleVar.Alpha, 0.5f);
 
             if (!string.IsNullOrWhiteSpace(SelectedFile) && !Selected.Contains(SelectedFile))
                 Selected.Add(SelectedFile);
+
+            
+
+            foreach (string s in Selected)
+            {
+
+                if (!File.Exists(s))
+                {
+                    _toRemove.Add(s);
+                }
+                else
+                {
+                    active = true;
+                }
+            }
+
+            foreach (string s in _toRemove)
+                Selected.Remove(s);
+
 
             ImGui.SameLine();
             if (ImGui.Button("Open", Vector2.UnitX * 125f))
@@ -297,9 +318,7 @@ namespace CatalystEditor.Widgets
             }
 
             //if (!active)
-//                ImGui.PopStyleVar();
-
-
+            //                ImGui.PopStyleVar();
 
 
             return result;

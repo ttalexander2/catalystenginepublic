@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Catalyst.Engine.Utilities;
+using System;
 using System.Drawing;
 
 namespace Catalyst.ContentManager
@@ -37,7 +38,7 @@ namespace Catalyst.ContentManager
                 Rotate = false;
 
                 if (TexturePacker.Verbose)
-                    Console.WriteLine(String.Format("Inserted texure [{0}] at location: [{1}], with rotation [{2}]", img.Tag, Rect, Rotate));
+                    Log.WriteLine(String.Format("Inserted texure [{0}] at location: [{1}], with rotation [{2}]", img.Tag, Rect, Rotate));
 
 
                 return this;

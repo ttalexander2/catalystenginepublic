@@ -69,7 +69,7 @@ namespace Catalyst.Editor
 
             //InactiveSleepTime = new TimeSpan(0);
 
-            IsFixedTimeStep = false;
+            IsFixedTimeStep = true;
             Graphics.SynchronizeWithVerticalRetrace = false;
             TargetElapsedTime = TimeSpan.FromSeconds(1d / Engine.Graphics.FPSCap);
 
@@ -137,8 +137,7 @@ namespace Catalyst.Editor
                     }
                 }
             }
-
-
+            NewTextureWindow.RemoveTextures();
             base.Update(gameTime);
         }
 
@@ -330,6 +329,8 @@ namespace Catalyst.Editor
 
             Engine.Graphics.SpriteBatch.End();
             Graphics.GraphicsDevice.SetRenderTargets(null);
+
+            
         }
 
 

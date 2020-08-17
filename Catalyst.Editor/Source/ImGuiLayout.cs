@@ -18,6 +18,7 @@ using Microsoft.Xna.Framework.Input;
 using static CatalystEditor.Source.WindowHandler;
 using FMOD.Studio;
 using Catalyst.Engine;
+using System.Collections.Generic;
 
 namespace Catalyst.Editor
 {
@@ -244,6 +245,30 @@ namespace Catalyst.Editor
                 }
                 ImGui.OpenPopup(fileBrowser.PopupId);
             }
+            if (NewTextureWindow.SelectingFile)
+            {
+                bool result = NewTextureWindow.fileBrowser.OpenModalPopup();
+                if (result)
+                {
+                    NewTextureWindow.SelectingFile = false;
+                    if (NewTextureWindow.fileBrowser.Result != FileBrowser.FileBrowserResult.Canceled)
+                    {
+                        if (NewTextureWindow.fileBrowser.Result == FileBrowser.FileBrowserResult.SingleSelect)
+                            NewTextureWindow.FilesToAdd = new string[] { NewTextureWindow.fileBrowser.SelectedFile };
+                        else
+                            NewTextureWindow.FilesToAdd = NewTextureWindow.fileBrowser.Selected.ToArray();
+                        NewTextureWindow.WindowOpen = true;
+
+                    }
+                }
+                ImGui.OpenPopup(NewTextureWindow.fileBrowser.PopupId);
+            }
+            
+            if (NewTextureWindow.WindowOpen)
+            {
+                ImGui.OpenPopup(NewTextureWindow.PopupId);
+                NewTextureWindow.RenderWindow(_windowSize.X - 200);
+            }
 
             //PopStyle();
             ImGui.PopFont();
@@ -272,7 +297,7 @@ namespace Catalyst.Editor
                         new_project_window = true;
                     }
                     if (ImGui.MenuItem("Open", "Ctrl+O")) {
-                        fileBrowser = new FileBrowser(Environment.GetFolderPath(Environment.SpecialFolder.Personal), false, false, ProjectManager.ProjectExtension);
+                        fileBrowser = new FileBrowser(startPath: Environment.GetFolderPath(Environment.SpecialFolder.Personal), allowAll: false, multiselect: false, extensions: ProjectManager.ProjectExtension);
                         file_picker = true;
                     }
                     if (ImGui.MenuItem("Save", "Ctrl+S", false, ProjectManager.ProjectLoaded))
@@ -304,10 +329,10 @@ namespace Catalyst.Editor
                     ImGui.EndMenu();
                 }
 
-                if (ImGui.BeginMenu("Objects"))
+                if (ImGui.BeginMenu("Add"))
                 {
                     bool available = ProjectManager.Current != null;
-                    if (ImGui.MenuItem("New Entity...", available))
+                    if (ImGui.MenuItem("New Entity", available))
                     {
                         ProjectManager.Current.Manager.NewEntity();
                     }
@@ -315,9 +340,15 @@ namespace Catalyst.Editor
                     {
                         _ = new Player(ProjectManager.Current);
                     }
-                    if (ImGui.MenuItem("New Camera...", available))
+                    if (ImGui.MenuItem("New Camera", available))
                     {
                         ProjectManager.Current.NewCamera();
+                    }
+                    ImGui.Separator();
+                    if (ImGui.MenuItem("Add Textures to Atlas from File", available))
+                    {
+                        NewTextureWindow.fileBrowser = new FileBrowser("Pick textures to add to an Atlas: ", Environment.GetFolderPath(Environment.SpecialFolder.Personal), false, true, ".png");
+                        NewTextureWindow.SelectingFile = true;
                     }
                     ImGui.EndMenu();
                 }
