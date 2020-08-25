@@ -286,14 +286,11 @@ namespace Catalyst.Editor
 
             Viewport.Playing = false;
 
-            FileSystemWatcher w = new FileSystemWatcher(Path.Combine(dirPath, "Content", ".textures"));
-            w.Changed += BuildAtlases;
-            w.EnableRaisingEvents = true;
-
             return true;
         }
 
-        private static void BuildAtlases(object sender, FileSystemEventArgs e)
+
+        public static async void BuildAtlases(bool force)
         {
             foreach (string fse in Directory.GetFileSystemEntries(BuildTexturePath))
             {
@@ -303,9 +300,13 @@ namespace Catalyst.Editor
                 }
                 else if (Directory.Exists(fse))
                 {
-                    _ = TexturePacker.PackAtlas(fse, AtlasPath, Path.GetFileName(fse), "-v", "-x");
+                    if (force)
+                        _ = TexturePacker.PackAtlas(fse, AtlasPath, Path.GetFileName(fse), "-v", "-f");
+                    else
+                        _ = TexturePacker.PackAtlas(fse, AtlasPath, Path.GetFileName(fse), "-v");
                 }
             }
+
         }
 
         public static void OpenLevel(string path)

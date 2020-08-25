@@ -19,7 +19,8 @@ namespace Catalyst.Engine.Rendering
             }
         }
         public string Path { get; private set; }
-        public Dictionary<int, PackedTexture> Textures = new Dictionary<int, PackedTexture>();
+
+        public Dictionary<int, Sprite> Textures = new Dictionary<int, Sprite>();
         public Texture2D Texture
         {
             get
@@ -37,7 +38,7 @@ namespace Catalyst.Engine.Rendering
 
         public void LoadContent()
         {
-            _texture = Graphics.Content.Load<Texture2D>(global::System.IO.Path.Combine("Content", "Atlases", global::System.IO.Path.GetFileNameWithoutExtension(Path)));
+            _texture = Graphics.Content.Load<Texture2D>(global::System.IO.Path.Combine("Content", "Atlases", global::System.IO.Path.GetFileName(Path)));
         }
 
         public void UnloadContent() { }

@@ -14,15 +14,25 @@ using Rectangle = System.Drawing.Rectangle;
 
 namespace Catalyst.ContentManager
 {
+
+    /**
+     * Texture Packer uses a binary tree to pack multiple png files into a single atlas texture,
+     * a meta file describing each texture and their locations on the atlas,
+     * as well as a MD5 hash to keep track of atlas changes.
+     * 
+     * Note: This tool must remain separate to the Editor (.NET Core), as .NET Framework is neccesary for 
+     * native bitmap processing.
+     */
     public static class TexturePacker
     {
-        public static bool Verbose = false;
-        public static bool Force = false;
-        public static bool Trim = false;
-        public static bool Xml = false;
         
         public static bool PackAtlas(string input_directory, string output_directory, string output_name, params string[] args)
         {
+
+            bool Verbose = false;
+            bool Force = false;
+            bool Trim = false;
+            bool Xml = false;
 
             foreach (string a in args)
             {
@@ -50,7 +60,8 @@ namespace Catalyst.ContentManager
 
             if (Verbose)
             {
-                Log.WriteLine(String.Format("Arguemts: Verbose[{0}], Force Recompilation[{1}], Trim Sprites[{2}], XML instead of binary[{3}]", Verbose, Force, Trim, Xml));
+                Log.WriteLine();
+                Log.WriteLine(string.Format("Packing textures into atlas.\nArguments : Verbose[{0}], Force Recompilation[{1}], Trim Sprites[{2}], XML instead of binary[{3}]", Verbose, Force, Trim, Xml));
             }
 
             byte[] hash = HashDirectory(input_directory);
@@ -66,7 +77,7 @@ namespace Catalyst.ContentManager
                 }
 
             }
-            if (File.Exists(Path.Combine(output_directory, output_name + ".hash")))
+            if (File.Exists(Path.Combine(output_directory, $"{output_name}.hash")))
             {
                 if(Verbose)
                     Log.WriteLine("Checking hash file...");
@@ -75,10 +86,10 @@ namespace Catalyst.ContentManager
                 if (Verbose)
                 {
                     Log.WriteLine(String.Format("Previous Directory Hash:\t{0}", BitConverter.ToString(previous_hash).Replace("-", "").ToLower()));
-                    Log.WriteLine(String.Format("Current Directory Hash:\t\t{0}", BitConverter.ToString(hash).Replace("-", "").ToLower()));
+                    Log.WriteLine(String.Format("Current Directory Hash:\t{0}", BitConverter.ToString(hash).Replace("-", "").ToLower()));
                 }
 
-                if (BitConverter.ToString(hash).Replace("-", "").ToLower() == BitConverter.ToString(previous_hash).Replace("-", "").ToLower())
+                if (hash.SequenceEqual(previous_hash))
                 {
                     if (!Force)
                     {
@@ -152,7 +163,13 @@ namespace Catalyst.ContentManager
 
             foreach(Bitmap b in bitmaps)
             {
-                packed.Insert(b);
+                PackedNode n = packed.Insert(b);
+                if (Verbose)
+                {
+                    if (n.Image.Tag is string)
+                        Log.WriteLine(string.Format("Inserted texure [{0}] at location: [{1}], with rotation [{2}]", ((string)n.Image.Tag).Replace("animated1597534568919817981981_", ""), n.Rect, n.Rotate));
+                }
+                    
             }
 
             Bitmap atlas = new Bitmap(total_area / bitmaps.Count / 4, max_height);
@@ -217,7 +234,7 @@ namespace Catalyst.ContentManager
                     
                     if (((string)root.Image.Tag).StartsWith("animated1597534568919817981981_"))
                     {
-                        writer.Write(((string)root.Image.Tag).TrimStart("animated1597534568919817981981_".ToCharArray()));
+                        writer.Write(((string)root.Image.Tag).Replace("animated1597534568919817981981_", ""));
                         writer.Write(true);
                     } 
                     else
@@ -268,8 +285,8 @@ namespace Catalyst.ContentManager
                     int w = reader.ReadInt32();
                     int h = reader.ReadInt32();
                     bool rotate = reader.ReadBoolean();
-                    Catalyst.Engine.Rendering.PackedTexture t = new Catalyst.Engine.Rendering.PackedTexture(count, tag, atlas, new Catalyst.Engine.Utilities.Rectangle(x, y, w, h), rotate);
-                    atlas.Textures.Add(count, t);
+                    Catalyst.Engine.Rendering.PackedTexture t = new Catalyst.Engine.Rendering.PackedTexture(count, tag, atlas, new Catalyst.Engine.Utilities.Rectangle(x, y, w, h), rotate, animated);
+                    //atlas.Textures.Add(count, t);
                     count++;
                 }
             }
@@ -299,7 +316,7 @@ namespace Catalyst.ContentManager
                 {
                     if (((string)root.Image.Tag).StartsWith("animated1597534568919817981981_"))
                     {
-                        writer.WriteAttributeString("Tag", ((string)root.Image.Tag).TrimStart("animated1597534568919817981981_".ToCharArray()));
+                        writer.WriteAttributeString("Tag", ((string)root.Image.Tag).Replace("animated1597534568919817981981_", ""));
                         writer.WriteStartElement("Animated");
                         writer.WriteValue(true);
                         writer.WriteEndElement();

@@ -19,6 +19,10 @@ using static CatalystEditor.Source.WindowHandler;
 using FMOD.Studio;
 using Catalyst.Engine;
 using System.Collections.Generic;
+using Catalyst.ContentManager;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Data;
 
 namespace Catalyst.Editor
 {
@@ -43,6 +47,8 @@ namespace Catalyst.Editor
         public Vector2 ViewBounds = Vector2.Zero;
         public Rectangle ViewRect = Rectangle.Empty;
 
+        internal static Vector2 xButtonLocation = Vector2.Zero;
+
 
         private FileBrowser fileBrowser;
         public void Initialize()
@@ -60,7 +66,7 @@ namespace Catalyst.Editor
             ImGui.GetIO().ConfigFlags |= ImGuiConfigFlags.DockingEnable;
             ImGui.GetIO().ConfigWindowsMoveFromTitleBarOnly = true;
             ImGui.GetIO().ConfigDockingAlwaysTabBar = false;
-            LogWindow.Init();
+            ConsoleWindow.Init();
             ImGui.GetStyle().WindowMenuButtonPosition = ImGuiDir.Right;
             ImGui.GetStyle().DisplaySafeAreaPadding = Vector2.One * 6;
             PushStyle();
@@ -153,12 +159,12 @@ namespace Catalyst.Editor
                 }
 
 
-                if (LogWindow.WindowOpen)
+                if (ConsoleWindow.WindowOpen)
                 {
                     ImGui.SetNextWindowDockID(dock_id, ImGuiCond.FirstUseEver);
-                    if (ImGui.Begin("Log", ref LogWindow.WindowOpen, window_flags))
+                    if (ImGui.Begin("Console##console_log_window", ref ConsoleWindow.WindowOpen, window_flags))
                     {
-                        LogWindow.Render();
+                        ConsoleWindow.Render();
                     }
                     ImGui.End();
                 }
@@ -353,6 +359,20 @@ namespace Catalyst.Editor
                     ImGui.EndMenu();
                 }
 
+                if (ImGui.BeginMenu("Build"))
+                {
+                    bool available = ProjectManager.Current != null;
+                    if (ImGui.MenuItem("Build Atlases", available))
+                    {
+                        Task.Run(() => { ProjectManager.BuildAtlases(false); });
+                    }
+                    if (ImGui.MenuItem("Rebuild Atlases", available))
+                    {
+                        Task.Run(() => { ProjectManager.BuildAtlases(true); });
+                    }
+                    ImGui.EndMenu();
+                }
+
                 if (ImGui.BeginMenu("Window"))
                 {
                     if (ImGui.MenuItem("Hierarchy", ProjectManager.ProjectLoaded))
@@ -370,9 +390,9 @@ namespace Catalyst.Editor
                         Viewport.ViewportWindowOpen = true;
                     }
 
-                    if (ImGui.MenuItem("Log", ProjectManager.ProjectLoaded))
+                    if (ImGui.MenuItem("Console", ProjectManager.ProjectLoaded))
                     {
-                        LogWindow.WindowOpen = true;
+                        ConsoleWindow.WindowOpen = true;
                     }
 
                     if (ImGui.MenuItem("Performance", ProjectManager.ProjectLoaded))
@@ -519,6 +539,8 @@ namespace Catalyst.Editor
                     ProjectManager.SaveLevel();
                 CatalystEditor.Instance.Exit();
             }
+
+            xButtonLocation = new Vector2(ImGui.GetWindowPos().X + ImGui.GetWindowWidth() - 5f, ImGui.GetWindowPos().Y + ImGui.GetWindowHeight() - 5f);
 
 
 

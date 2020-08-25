@@ -9,13 +9,31 @@ namespace Catalyst.Engine.Utilities
     {
 
         private static LogWriter _out = new LogWriter();
-        public delegate void WriteFunction(char value);
-        public static void SetWriteFunction(WriteFunction function)
+        public delegate void WriteCharFunction(char value);
+        public delegate void WriteStringFunction(string value);
+        public delegate void WriteErrorFunction(string value);
+        public static void SetWriteFunction(WriteCharFunction function)
         {
-            _out.WriteHandler = function;
+            _out.WriteCharHandler = function;
+        }
+        public static void SetWriteFunction(WriteStringFunction function)
+        {
+            _out.WriteStringHandler = function;
+        }
+
+        public static void SetWriteFunction(WriteCharFunction charFunction, WriteStringFunction stringFunction)
+        {
+            _out.WriteCharHandler = charFunction;
+            _out.WriteStringHandler = stringFunction;
         }
 
         #region Write
+        public static void Error(string value)
+        {
+            _out.Error(value);
+        }
+
+
         public static void WriteLine()
         {
             _out.WriteLine();
@@ -253,24 +271,59 @@ namespace Catalyst.Engine.Utilities
         internal class LogWriter : TextWriter
         {
             public override Encoding Encoding => Encoding.UTF8;
-            private bool _hasHandler = false;
-            private WriteFunction _handler;
-            internal WriteFunction WriteHandler
+            private bool _hasCharHandler = false;
+            private bool _hasStringHandler = false;
+            private WriteCharFunction _charHandler;
+            private WriteStringFunction _stringHandler;
+            internal WriteCharFunction WriteCharHandler
             {
                 set
                 {
-                    _hasHandler = true;
-                    _handler = value;
+                    _hasCharHandler = true;
+                    _charHandler = value;
+
+                }
+            }
+            internal WriteStringFunction WriteStringHandler
+            {
+                set
+                {
+                    _hasStringHandler = true;
+                    _stringHandler = value;
 
                 }
             }
 
             public override void Write(char value)
             {
-                if (_hasHandler)
-                    _handler(value);
+                if (_hasCharHandler)
+                    _charHandler(value);
                 else
                     Console.Write(value);
+            }
+
+            public override void Write(string value)
+            {
+                if (_hasStringHandler)
+                    _stringHandler(value);
+                else
+                    Console.Write(value);
+            }
+
+            public override void WriteLine(string value)
+            {
+                if (_hasStringHandler)
+                    _stringHandler($"{value}\n");
+                else
+                    Console.WriteLine(value);
+            }
+
+            public void Error(string value)
+            {
+                if (_hasStringHandler)
+                    _stringHandler($"[error]: {value}\n");
+                else
+                    Console.WriteLine($"[error]: {value}");
             }
         }
     }

@@ -14,7 +14,7 @@ namespace CatalystEditor.Source
 {
     public static class PerformanceWindow
     {
-        public static bool Open = true;
+        public static bool Open = false;
 
         private static Process _process = Process.GetCurrentProcess();
 

@@ -37,10 +37,6 @@ namespace Catalyst.ContentManager
                 Rect = new System.Drawing.Rectangle(Rect.X, Rect.Y, img.Width, img.Height);
                 Rotate = false;
 
-                if (TexturePacker.Verbose)
-                    Log.WriteLine(String.Format("Inserted texure [{0}] at location: [{1}], with rotation [{2}]", img.Tag, Rect, Rotate));
-
-
                 return this;
             }
 
@@ -99,6 +95,7 @@ namespace Catalyst.ContentManager
             if (Root == null)
             {
                 Root = new PackedNode(new System.Drawing.Rectangle(_padding, _padding, _maxX, _maxY), _padding, _rotate);
+                Root.Insert(img);
                 return Root;
             }
 
