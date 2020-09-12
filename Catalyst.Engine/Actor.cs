@@ -1,4 +1,5 @@
 ﻿using Catalyst.Engine.Physics;
+using Catalyst.Engine.Rendering;
 using Catalyst.Engine.Utilities;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Catalyst.Engine
 
         private float _xRemainder;
         private float _yRemainder;
+
+        public Sprite2 Sprite;
 
         public Actor(Scene scene) : base(scene)
         {

@@ -17,7 +17,7 @@ namespace Catalyst.Engine.Rendering
 
         public override void Update(GameTime gameTime)
         {
-            foreach (Sprite sprite in Manager.GetComponents<Sprite>().Values)
+            foreach (Sprite2 sprite in Manager.GetComponents<Sprite2>().Values)
             {
                 if (sprite is AnimatedSprite && sprite.Active)
                     UpdateSprite(gameTime, (AnimatedSprite)sprite);
@@ -26,14 +26,14 @@ namespace Catalyst.Engine.Rendering
 
         public override void Render(GameTime gameTime)
         {
-            foreach (Sprite sprite in Manager.GetComponents<Sprite>().Values)
+            foreach (Sprite2 sprite in Manager.GetComponents<Sprite2>().Values)
             {
                 if (sprite.Visible)
                     RenderSprite(gameTime, sprite);
             }
         }
 
-        public void RenderSprite(GameTime gameTime, Sprite sprite)
+        public void RenderSprite(GameTime gameTime, Sprite2 sprite)
         {
             if (sprite.Visible && sprite.Texture != null)
             {

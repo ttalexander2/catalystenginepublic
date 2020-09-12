@@ -17,7 +17,7 @@ namespace Catalyst.Engine
         public static int PreferredWindowWidth = 1280;
         public static int PreferredWindowHeight = 720;
 
-        public static double FPSCap = 256d;
+        public static double FPSCap = 255d;
 
         public static Utilities.Vector2 SpriteScale
         {

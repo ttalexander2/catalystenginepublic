@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
-using static Catalyst.Engine.Rendering.Sprite;
+using static Catalyst.Engine.Rendering.Sprite2;
 
 namespace Catalyst.Engine.Utilities
 {

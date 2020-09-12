@@ -46,7 +46,7 @@ namespace Catalyst.Engine
         {
             this.Scene = scene;
             this.UID = Scene.Manager.NewId();
-            this.Name = "entity_"+ UID;
+            this.Name = $"{this.GetType().Name}_{UID}";
             this.ComponentTypes = new HashSet<string>();
             Position = Vector2.Zero;
             this.Scene.Manager.Entities.Add(UID, this);
@@ -64,6 +64,8 @@ namespace Catalyst.Engine
         }
 
         public virtual void Initialize() { }
+
+        public virtual void Load() { }
 
         public override void Rename(string name)
         {

@@ -20,7 +20,7 @@ namespace Catalyst.Engine.Rendering
         }
         public string Path { get; private set; }
 
-        public Dictionary<int, Sprite> Textures = new Dictionary<int, Sprite>();
+        public Dictionary<int, PackedTexture> Textures = new Dictionary<int, PackedTexture>();
         public Texture2D Texture
         {
             get

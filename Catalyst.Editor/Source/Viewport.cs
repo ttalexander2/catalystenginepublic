@@ -320,10 +320,9 @@ namespace Catalyst.Editor
                     SnapZoom = (float)WindowSize.X / ProjectManager.Current.Camera.Bounds.X;
                 }
 
-
-
-
                 ImGui.Image(p, WindowSize);
+
+
             }
 
             if (ProjectManager.Current == null)

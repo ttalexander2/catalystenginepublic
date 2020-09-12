@@ -145,7 +145,7 @@ namespace CatalystEditor
                     ImGui.SameLine(150f);
                     ImGui.SetNextItemWidth(250f);
                     ImGui.InputText("##animated_texture_name", ref _name, 128);
-                    _name = ProjectManager.RemoveInvalidChars(_name);
+                    _name = ProjectManager.RemoveInvalidChars(_name).Replace("_", "");
                     if (string.IsNullOrWhiteSpace(_name))
                     {
                         ImGui.SameLine();

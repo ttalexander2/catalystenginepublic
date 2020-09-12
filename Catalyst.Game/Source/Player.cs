@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 namespace Catalyst.Game.Source
 {
     [Serializable]
-    public class Player : Actor, IUpdate
+    public class Player : Actor
     {
         private float _scale = 100;
 
@@ -35,6 +35,11 @@ namespace Catalyst.Game.Source
         public override void Initialize()
         {
             //_coroutine = new Coroutine(this, this.MoveBackAndForth(HorizontalSpeed), true);
+        }
+
+        public override void Load()
+        {
+            
         }
 
         public void Update(GameTime gameTime)

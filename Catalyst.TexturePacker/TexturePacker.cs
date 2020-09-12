@@ -236,16 +236,22 @@ namespace Catalyst.ContentManager
                     {
                         writer.Write(((string)root.Image.Tag).Replace("animated1597534568919817981981_", ""));
                         writer.Write(true);
+                        writer.Write(((string)root.Image.Tag).Split('_')[1]);
                     } 
                     else
                     {
                         writer.Write(((string)root.Image.Tag));
                         writer.Write(false);
+                        writer.Write("");
                     }
                         
                 }
                 else
+                {
                     writer.Write("no string tag");
+                    writer.Write(false);
+                    writer.Write("");
+                }
                 writer.Write(root.Rect.X);
                 writer.Write(root.Rect.Y);
                 writer.Write(root.Rect.Width);
@@ -280,13 +286,24 @@ namespace Catalyst.ContentManager
                 {
                     string tag = reader.ReadString();
                     bool animated = reader.ReadBoolean();
+                    string animatedSpriteName = reader.ReadString();
                     int x = reader.ReadInt32();
                     int y = reader.ReadInt32();
                     int w = reader.ReadInt32();
                     int h = reader.ReadInt32();
                     bool rotate = reader.ReadBoolean();
-                    Catalyst.Engine.Rendering.PackedTexture t = new Catalyst.Engine.Rendering.PackedTexture(count, tag, atlas, new Catalyst.Engine.Utilities.Rectangle(x, y, w, h), rotate, animated);
-                    //atlas.Textures.Add(count, t);
+
+
+                    PackedTexture t = new PackedTexture(count, tag, atlas, new Engine.Utilities.Rectangle(x, y, w, h), rotate, animated);
+                    if (animated)
+                    {
+
+                    }
+
+
+
+                    
+                    atlas.Textures.Add(count, t);
                     count++;
                 }
             }

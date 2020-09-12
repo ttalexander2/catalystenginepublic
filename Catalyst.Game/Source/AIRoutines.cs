@@ -13,8 +13,12 @@ namespace Catalyst.Game.Source
         public static IEnumerator MoveBackAndForth(this Actor actor, int speed)
         {
             yield return 0;
+
+
             double time = 0;
             int direction = 1;
+
+
             while (true)
             {
                 if (time < 30)
@@ -24,7 +28,7 @@ namespace Catalyst.Game.Source
                 else
                 {
                     time = 0;
-                    direction = direction * -1;
+                    direction *= -1;
                 }
 
                 time += Time.DeltaTime;

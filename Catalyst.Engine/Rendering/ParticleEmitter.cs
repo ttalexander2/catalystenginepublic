@@ -30,7 +30,7 @@ namespace Catalyst.Engine.Rendering
         public Vector2 Offset { get; set; }
 
         [NonSerialized]
-        private List<Particle> _particles;
+        private List<Particle> _particles = new List<Particle>();
         public List<Particle> Particles
         {
             get
@@ -39,7 +39,7 @@ namespace Catalyst.Engine.Rendering
             }
         }
 
-        public Sprite Sprite { get; set; }
+        public Sprite2 Sprite { get; set; }
         [GuiEnum]
         public ParticleMode Mode { get; set; }
         [GuiColor]
@@ -85,7 +85,7 @@ namespace Catalyst.Engine.Rendering
         }
         public ParticleEmitter(Entity entity) : base(entity)
         {
-            Sprite = new Sprite(entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
+            Sprite = new Sprite2(entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
             Sprite.Visible = false;
             Mode = ParticleMode.Burst;
             VelocityMode = Particle.VelocityMode.Linear;
@@ -143,7 +143,7 @@ namespace Catalyst.Engine.Rendering
 
         public void LoadContent()
         {
-            Sprite = new Sprite(Entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
+            Sprite = new Sprite2(Entity, BasicShapes.GenerateCircleTexture(3, Color.White, 1));
             Initialize();
             if (Mode == ParticleMode.Continuous)
                 Launch();
